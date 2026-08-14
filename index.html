@@ -3,10 +3,8 @@
 <head>
 <meta charset="UTF-8">
 
-<meta
-  name="viewport"
-  content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no"
->
+<meta name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
 
 <meta name="theme-color" content="#090909">
 
@@ -14,9 +12,9 @@
 
 <style>
 
-/* =========================================================
-   RESET
-========================================================= */
+/* =========================
+   BASIC
+========================= */
 
 *{
   box-sizing:border-box;
@@ -25,56 +23,46 @@
 
 html,
 body{
-  width:100%;
-  height:100%;
   margin:0;
   padding:0;
-
+  width:100%;
+  height:100%;
   overflow:hidden;
 
-  background:#080808;
-  color:#fff;
+  background:#090909;
+  color:white;
 
   font-family:
     -apple-system,
     BlinkMacSystemFont,
     "Segoe UI",
-    Roboto,
     Arial,
     sans-serif;
-}
-
-body{
-  overscroll-behavior:none;
 }
 
 button{
   font-family:inherit;
   border:0;
   outline:0;
-  cursor:pointer;
   -webkit-appearance:none;
   appearance:none;
 }
 
 img{
-  max-width:100%;
+  display:block;
 }
 
 
-/* =========================================================
+/* =========================
    APP
-========================================================= */
+========================= */
 
 .app{
-  position:relative;
-
   width:100%;
   max-width:520px;
-
   height:100dvh;
 
-  margin:0 auto;
+  margin:auto;
 
   display:flex;
   flex-direction:column;
@@ -83,186 +71,129 @@ img{
 
   background:
     radial-gradient(
-      circle at 50% -15%,
-      #49340e 0%,
-      #171208 23%,
-      #090909 55%
+      circle at 50% -20%,
+      #49340e,
+      #161106 28%,
+      #090909 65%
     );
 }
 
 
-/* =========================================================
-   WELCOME SCREEN
-========================================================= */
+/* =========================
+   WELCOME
+========================= */
 
 #welcome{
   position:fixed;
-
   inset:0;
+
+  z-index:9999;
 
   width:100%;
   height:100dvh;
 
-  z-index:9999;
-
   display:flex;
-
   flex-direction:column;
-
   align-items:center;
-
   justify-content:center;
 
   padding:
-    24px
-    24px
-    calc(24px + env(safe-area-inset-bottom));
+    20px
+    20px
+    calc(20px + env(safe-area-inset-bottom));
 
   text-align:center;
 
   background:
     radial-gradient(
-      circle at 50% 8%,
-      #49340e,
-      #171106 28%,
-      #080808 65%
+      circle at 50% 10%,
+      #4b360d,
+      #181207 30%,
+      #080808 70%
     );
-
-  opacity:1;
-
-  transform:scale(1);
 
   transition:
     opacity .35s ease,
-    transform .35s ease;
-
-  pointer-events:auto;
-
-  touch-action:manipulation;
+    visibility .35s ease;
 }
 
 #welcome.hide{
   opacity:0;
-  transform:scale(1.03);
-
+  visibility:hidden;
   pointer-events:none;
 }
 
 .welcome-logo{
   font-size:48px;
-
   line-height:1;
 
   font-weight:1000;
-
   letter-spacing:-4px;
 }
 
-.welcome-logo b{
+.welcome-logo span{
   color:#f4c542;
 }
 
-.welcome-kicker{
+.welcome-subtitle{
   margin-top:8px;
 
   color:#aaa;
 
   font-size:11px;
-
   font-weight:900;
 
   letter-spacing:2px;
-
   text-transform:uppercase;
 }
 
-.welcome-photo-wrap{
-  position:relative;
-
+.welcome-photo{
   width:205px;
   height:260px;
 
   margin-top:24px;
 
-  border-radius:28px;
+  object-fit:cover;
 
-  overflow:hidden;
+  border-radius:28px;
 
   border:3px solid #f4c542;
 
   box-shadow:
     0 25px 65px #000,
-    0 0 35px #f4c54225;
-}
-
-.welcome-photo{
-  width:100%;
-  height:100%;
-
-  object-fit:cover;
-
-  display:block;
-}
-
-.photo-heart{
-  position:absolute;
-
-  right:12px;
-  bottom:12px;
-
-  width:44px;
-  height:44px;
-
-  display:grid;
-  place-items:center;
-
-  border-radius:50%;
-
-  background:#f4c542;
-
-  color:#111;
-
-  font-size:21px;
-
-  border:3px solid #111;
+    0 0 30px #f4c54222;
 }
 
 .welcome-name{
-  margin-top:18px;
+  margin-top:17px;
 
-  font-size:33px;
-
+  font-size:32px;
   font-weight:1000;
 }
 
 .welcome-job{
   margin-top:4px;
 
-  color:#bbb;
+  color:#aaa;
 
   font-size:13px;
-
   font-weight:700;
 }
 
+
+/* =========================
+   START BUTTON
+========================= */
+
 .start-button{
-  position:relative;
-
-  z-index:10000;
-
   display:flex;
-
   align-items:center;
-
   justify-content:center;
 
-  min-width:220px;
+  width:230px;
+  height:58px;
 
-  min-height:56px;
-
-  margin-top:22px;
-
-  padding:15px 25px;
+  margin-top:23px;
 
   border-radius:999px;
 
@@ -271,14 +202,12 @@ img{
   color:#111;
 
   font-size:15px;
-
   font-weight:1000;
 
-  letter-spacing:.2px;
-
   box-shadow:
-    0 10px 35px #000,
-    0 0 0 1px #ffffff22;
+    0 10px 30px #000;
+
+  cursor:pointer;
 
   touch-action:manipulation;
 
@@ -286,79 +215,43 @@ img{
 }
 
 .start-button:active{
-  transform:scale(.96);
-}
-
-.start-button span{
-  margin-left:7px;
+  transform:scale(.94);
 }
 
 
-/* =========================================================
+/* =========================
    HEADER
-========================================================= */
+========================= */
 
 .header{
-  position:relative;
-
-  height:72px;
-
-  flex:0 0 72px;
+  height:70px;
+  flex:0 0 70px;
 
   display:flex;
-
   align-items:center;
-
   justify-content:space-between;
 
-  padding:
-    10px
-    15px;
+  padding:10px 15px;
 
   z-index:20;
 }
 
-.header-button{
-  width:42px;
-  height:42px;
-
-  display:grid;
-  place-items:center;
-
-  border-radius:50%;
-
-  background:#191919;
-
-  color:#fff;
-
-  font-size:19px;
-}
-
 .logo{
   font-size:29px;
-
-  line-height:1;
-
   font-weight:1000;
-
   letter-spacing:-2px;
 }
 
-.logo b{
+.logo span{
   color:#f4c542;
 }
 
 .header-profile{
   display:flex;
-
   align-items:center;
-
   gap:7px;
 
-  color:#ddd;
-
   font-size:11px;
-
   font-weight:900;
 }
 
@@ -366,17 +259,32 @@ img{
   width:38px;
   height:38px;
 
-  border-radius:50%;
-
   object-fit:cover;
+
+  border-radius:50%;
 
   border:2px solid #f4c542;
 }
 
+.header-button{
+  width:42px;
+  height:42px;
 
-/* =========================================================
-   DISCOVER AREA
-========================================================= */
+  border-radius:50%;
+
+  background:#191919;
+
+  color:white;
+
+  font-size:19px;
+
+  cursor:pointer;
+}
+
+
+/* =========================
+   MAIN
+========================= */
 
 .main{
   position:relative;
@@ -385,10 +293,7 @@ img{
 
   min-height:0;
 
-  padding:
-    4px
-    14px
-    6px;
+  padding:4px 14px 5px;
 }
 
 .deck{
@@ -399,9 +304,9 @@ img{
 }
 
 
-/* =========================================================
-   DATING CARD
-========================================================= */
+/* =========================
+   CARDS
+========================= */
 
 .card{
   position:absolute;
@@ -412,7 +317,7 @@ img{
 
   border-radius:28px;
 
-  background:#191919;
+  background:#1b1b1b;
 
   box-shadow:
     0 20px 55px #000;
@@ -420,30 +325,20 @@ img{
   touch-action:none;
 
   user-select:none;
-
   -webkit-user-select:none;
-
-  transition:
-    transform .3s ease,
-    opacity .3s ease;
 }
 
 .card img{
   width:100%;
   height:100%;
 
-  display:block;
-
   object-fit:cover;
-
-  background:#222;
 }
 
 .card::after{
   content:"";
 
   position:absolute;
-
   inset:0;
 
   pointer-events:none;
@@ -451,90 +346,76 @@ img{
   background:
     linear-gradient(
       to bottom,
-      transparent 25%,
+      transparent 30%,
       transparent 43%,
-      rgba(0,0,0,.15) 52%,
-      rgba(0,0,0,.92) 100%
+      rgba(0,0,0,.18) 55%,
+      rgba(0,0,0,.95) 100%
     );
 }
 
 
-/* =========================================================
-   CARD TOP DETAILS
-========================================================= */
+/* =========================
+   CARD TOP
+========================= */
 
 .card-top{
   position:absolute;
 
-  z-index:4;
+  z-index:5;
 
-  top:16px;
-  left:16px;
-
-  right:16px;
+  top:15px;
+  left:15px;
+  right:15px;
 
   display:flex;
-
   justify-content:space-between;
-
-  align-items:center;
 
   pointer-events:none;
 }
 
-.verified{
+.badge{
   padding:7px 10px;
 
   border-radius:999px;
 
   background:#000b;
 
-  backdrop-filter:blur(10px);
+  backdrop-filter:blur(8px);
 
   font-size:10px;
-
   font-weight:900;
-
-  color:#fff;
 }
 
-.distance{
+.city{
   padding:7px 10px;
 
   border-radius:999px;
 
   background:#000b;
 
-  backdrop-filter:blur(10px);
+  backdrop-filter:blur(8px);
 
   font-size:10px;
-
-  font-weight:800;
-
-  color:#ddd;
 }
 
 
-/* =========================================================
-   CARD INFORMATION
-========================================================= */
+/* =========================
+   CARD INFO
+========================= */
 
 .card-info{
   position:absolute;
 
   z-index:5;
 
-  left:21px;
-  right:21px;
+  left:20px;
+  right:20px;
   bottom:19px;
 }
 
 .card-name{
   font-size:30px;
-
   font-weight:1000;
-
-  letter-spacing:-.8px;
 }
 
 .card-age{
@@ -545,22 +426,13 @@ img{
   font-size:20px;
 }
 
-.card-location{
-  margin-top:4px;
-
-  color:#eee;
-
-  font-size:13px;
-
-  font-weight:700;
-}
-
 .card-job{
   margin-top:5px;
 
   color:#ddd;
 
   font-size:13px;
+  font-weight:700;
 }
 
 .card-bio{
@@ -569,15 +441,12 @@ img{
   color:#eee;
 
   font-size:13px;
-
   line-height:1.35;
 }
 
 .tags{
   display:flex;
-
   flex-wrap:wrap;
-
   gap:5px;
 
   margin-top:9px;
@@ -588,28 +457,25 @@ img{
 
   border-radius:999px;
 
-  background:#ffffff20;
+  background:#ffffff22;
 
   backdrop-filter:blur(8px);
 
-  color:#fff;
-
   font-size:10px;
-
   font-weight:900;
 }
 
 
-/* =========================================================
-   SWIPE STAMPS
-========================================================= */
+/* =========================
+   SWIPE LABELS
+========================= */
 
 .stamp{
   position:absolute;
 
   z-index:10;
 
-  top:40px;
+  top:45px;
 
   padding:7px 12px;
 
@@ -617,8 +483,7 @@ img{
 
   border-radius:10px;
 
-  font-size:24px;
-
+  font-size:23px;
   font-weight:1000;
 
   opacity:0;
@@ -626,152 +491,117 @@ img{
   pointer-events:none;
 }
 
-.like-stamp{
+.silly-stamp{
   left:18px;
 
-  color:#4bea8c;
+  color:#54ed92;
+  border-color:#54ed92;
 
-  border-color:#4bea8c;
-
-  transform:rotate(-11deg);
+  transform:rotate(-10deg);
 }
 
-.nope-stamp{
+.stinky-stamp{
   right:18px;
 
-  color:#ff5969;
+  color:#ff6875;
+  border-color:#ff6875;
 
-  border-color:#ff5969;
-
-  transform:rotate(11deg);
+  transform:rotate(10deg);
 }
 
 
-/* =========================================================
-   ACTIONS
-========================================================= */
+/* =========================
+   ACTION BUTTONS
+========================= */
 
 .actions{
-  height:88px;
-
-  flex:0 0 88px;
+  height:94px;
+  flex:0 0 94px;
 
   display:flex;
-
   align-items:center;
-
   justify-content:center;
 
-  gap:22px;
+  gap:16px;
+
+  padding:6px 18px;
 }
 
 .action{
-  display:grid;
+  flex:1;
 
-  place-items:center;
+  max-width:155px;
 
-  border-radius:50%;
+  height:62px;
 
-  transition:
-    transform .12s ease;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  gap:8px;
+
+  border-radius:999px;
+
+  font-size:13px;
+  font-weight:1000;
+
+  letter-spacing:.6px;
+
+  cursor:pointer;
+
+  touch-action:manipulation;
+
+  transition:transform .12s ease;
 }
 
 .action:active{
-  transform:scale(.87);
+  transform:scale(.91);
 }
 
+.silly{
+  background:#f4c542;
 
-/* DISLIKE */
+  color:#111;
 
-.dislike{
-  width:62px;
-  height:62px;
-
-  background:#181818;
-
-  border:2px solid #686868;
-
-  color:#bbb;
-
-  font-size:28px;
+  border:2px solid #ffe58b;
 
   box-shadow:
-    0 8px 20px #000;
+    0 8px 22px #000;
 }
 
+.stinky{
+  background:#242424;
 
-/* LIKE */
+  color:#ddd;
 
-.like{
-  width:73px;
-  height:73px;
-
-  background:#173a27;
-
-  border:2px solid #45e58a;
+  border:2px solid #777;
 
   box-shadow:
-    0 8px 24px #000;
+    0 8px 22px #000;
+}
+
+.action-icon{
+  font-size:23px;
 }
 
 
-/* SIMPLE WHITE TOOTH */
-
-.tooth{
-  position:relative;
-
-  width:27px;
-  height:31px;
-
-  background:#fff;
-
-  border-radius:
-    9px
-    9px
-    12px
-    12px;
-
-  box-shadow:
-    inset 0 -3px 0 #ddd;
-}
-
-.tooth::after{
-  content:"";
-
-  position:absolute;
-
-  left:6px;
-  right:6px;
-  bottom:5px;
-
-  height:2px;
-
-  border-radius:50%;
-
-  background:#eee;
-}
-
-
-/* =========================================================
-   NAVIGATION
-========================================================= */
+/* =========================
+   NAV
+========================= */
 
 .nav{
-  height:67px;
-
-  flex:0 0 67px;
+  height:65px;
+  flex:0 0 65px;
 
   display:flex;
 
-  background:#0c0c0cf5;
+  background:#0d0d0df5;
 
-  border-top:
-    1px solid #ffffff10;
+  border-top:1px solid #ffffff10;
 
   backdrop-filter:blur(18px);
 
-  padding-bottom:
-    env(safe-area-inset-bottom);
+  padding-bottom:env(safe-area-inset-bottom);
 }
 
 .nav button{
@@ -782,12 +612,13 @@ img{
   color:#777;
 
   font-size:10px;
-
   font-weight:900;
+
+  cursor:pointer;
 }
 
 .nav button.active{
-  color:#fff;
+  color:white;
 }
 
 .nav-icon{
@@ -799,19 +630,17 @@ img{
 }
 
 
-/* =========================================================
+/* =========================
    PROFILE SHEET
-========================================================= */
+========================= */
 
 .sheet{
   position:fixed;
-
   inset:0;
 
   z-index:500;
 
   display:none;
-
   align-items:flex-end;
 
   background:#000c;
@@ -823,46 +652,44 @@ img{
 
 .profile-panel{
   width:100%;
-
   max-width:520px;
 
   max-height:94dvh;
 
-  margin:0 auto;
+  margin:auto auto 0;
 
   overflow:auto;
-
-  background:
-    linear-gradient(
-      #191919,
-      #0b0b0b
-    );
 
   border-radius:
     30px
     30px
     0
     0;
+
+  background:
+    linear-gradient(
+      #191919,
+      #090909
+    );
 }
 
-.profile-hero{
+.profile-photo{
   position:relative;
 
   height:350px;
 }
 
-.profile-hero img{
+.profile-photo img{
   width:100%;
   height:100%;
 
   object-fit:cover;
 }
 
-.profile-hero::after{
+.profile-photo::after{
   content:"";
 
   position:absolute;
-
   inset:0;
 
   background:
@@ -875,30 +702,29 @@ img{
 .close{
   position:absolute;
 
-  z-index:20;
+  z-index:10;
 
-  top:14px;
-  right:14px;
+  top:13px;
+  right:13px;
 
-  width:38px;
-  height:38px;
-
-  display:grid;
-  place-items:center;
+  width:40px;
+  height:40px;
 
   border-radius:50%;
 
   background:#000b;
 
-  color:#fff;
+  color:white;
 
   font-size:24px;
+
+  cursor:pointer;
 }
 
 .profile-title{
   position:absolute;
 
-  z-index:10;
+  z-index:5;
 
   left:20px;
   right:20px;
@@ -909,7 +735,6 @@ img{
   margin:0;
 
   font-size:36px;
-
   font-weight:1000;
 }
 
@@ -922,43 +747,35 @@ img{
 }
 
 .profile-content{
-  padding:
-    18px
-    20px
-    35px;
+  padding:20px 20px 40px;
 }
 
-.profile-heading{
+.profile-label{
   color:#f4c542;
 
-  font-size:12px;
-
+  font-size:11px;
   font-weight:1000;
 
   letter-spacing:1px;
-
   text-transform:uppercase;
 }
 
 .profile-bio{
-  margin-top:9px;
+  margin-top:10px;
 
   color:#ddd;
 
   font-size:15px;
-
   line-height:1.58;
 }
 
 .profile-bio strong{
-  color:#fff;
+  color:white;
 }
 
 .profile-tags{
   display:flex;
-
   flex-wrap:wrap;
-
   gap:7px;
 
   margin-top:18px;
@@ -974,7 +791,6 @@ img{
   color:#ddd;
 
   font-size:11px;
-
   font-weight:900;
 }
 
@@ -987,24 +803,22 @@ img{
 
   color:#f4c542;
 
-  font-size:12px;
-
-  text-transform:uppercase;
+  font-size:11px;
 
   letter-spacing:1px;
+
+  text-transform:uppercase;
 }
 
 .profile-row{
   display:flex;
-
   justify-content:space-between;
 
   gap:20px;
 
   padding:12px 0;
 
-  border-bottom:
-    1px solid #ffffff0d;
+  border-bottom:1px solid #ffffff0d;
 
   color:#aaa;
 
@@ -1012,31 +826,27 @@ img{
 }
 
 .profile-row strong{
-  color:#fff;
+  color:white;
 
   text-align:right;
 }
 
 
-/* =========================================================
-   LIKES SHEET
-========================================================= */
+/* =========================
+   LIKES
+========================= */
 
 .likes-panel{
   width:100%;
-
   max-width:520px;
 
   max-height:88dvh;
 
   overflow:auto;
 
-  margin:0 auto;
+  margin:auto auto 0;
 
-  padding:
-    20px
-    20px
-    35px;
+  padding:20px 20px 35px;
 
   border-radius:
     30px
@@ -1048,20 +858,18 @@ img{
 }
 
 .likes-panel h2{
-  margin:3px 0 17px;
+  margin:4px 0 18px;
 
   font-size:23px;
 }
 
 .liked-list{
   display:grid;
-
   gap:10px;
 }
 
 .liked{
   display:flex;
-
   align-items:center;
 
   gap:12px;
@@ -1092,70 +900,20 @@ img{
   margin-top:4px;
 
   color:#999;
-
-  line-height:1.3;
 }
 
 
-/* =========================================================
-   EMPTY
-========================================================= */
-
-.empty{
-  width:100%;
-  height:100%;
-
-  display:grid;
-  place-items:center;
-
-  text-align:center;
-
-  padding:30px;
-}
-
-.empty-icon{
-  font-size:60px;
-}
-
-.empty h2{
-  margin:10px 0 5px;
-
-  font-size:28px;
-}
-
-.empty p{
-  color:#999;
-
-  line-height:1.5;
-}
-
-.reset{
-  margin-top:12px;
-
-  padding:14px 22px;
-
-  border-radius:999px;
-
-  background:#f4c542;
-
-  color:#111;
-
-  font-weight:1000;
-}
-
-
-/* =========================================================
+/* =========================
    TOAST
-========================================================= */
+========================= */
 
 .toast{
   position:fixed;
 
-  z-index:900;
+  z-index:1000;
 
   left:50%;
-
-  bottom:90px;
+  bottom:95px;
 
   transform:
     translate(-50%,20px);
@@ -1164,18 +922,15 @@ img{
 
   pointer-events:none;
 
-  padding:
-    11px
-    17px;
+  padding:11px 18px;
 
   border-radius:999px;
 
-  background:#fff;
+  background:white;
 
   color:#111;
 
   font-size:13px;
-
   font-weight:1000;
 
   transition:.25s;
@@ -1195,33 +950,25 @@ img{
 <body>
 
 
-<!-- =========================================================
-     BREANNA INTRO
-========================================================= -->
+<!-- =====================================================
+     WELCOME
+===================================================== -->
 
 <div id="welcome">
 
   <div class="welcome-logo">
-    BREUM<b>BLE</b>
+    BREUM<span>BLE</span>
   </div>
 
-  <div class="welcome-kicker">
-    Breanna's Hollywood Dating Game
+  <div class="welcome-subtitle">
+    Breanna's dating adventure
   </div>
 
-  <div class="welcome-photo-wrap">
-
-    <img
-      class="welcome-photo"
-      src="IMG_5053.jpeg"
-      alt="Breanna"
-    >
-
-    <div class="photo-heart">
-      ♥
-    </div>
-
-  </div>
+  <img
+    class="welcome-photo"
+    src="IMG_5053.jpeg"
+    alt="Breanna"
+  >
 
   <div class="welcome-name">
     Breanna
@@ -1232,155 +979,162 @@ img{
   </div>
 
   <button
-    type="button"
-    class="start-button"
     id="startButton"
+    class="start-button"
+    type="button"
   >
-    START BREUMBLING
-    <span>♥</span>
+    LET'S BREUMBLE 🤪
   </button>
 
 </div>
 
 
-
-<!-- =========================================================
-     MAIN APP
-========================================================= -->
+<!-- =====================================================
+     APP
+===================================================== -->
 
 <div class="app">
 
 
-  <!-- HEADER -->
+<header class="header">
 
-  <header class="header">
+  <button
+    id="headerProfile"
+    class="header-button"
+    type="button"
+  >
+    👤
+  </button>
 
-    <button
-      type="button"
-      class="header-button"
-      id="headerProfile"
-      aria-label="Open Breanna profile"
+  <div class="logo">
+    BREUM<span>BLE</span>
+  </div>
+
+  <div class="header-profile">
+
+    <span>
+      Breanna
+    </span>
+
+    <img
+      src="IMG_5053.jpeg"
+      alt="Breanna"
     >
-      👤
-    </button>
-
-
-    <div class="logo">
-      BREUM<b>BLE</b>
-    </div>
-
-
-    <div class="header-profile">
-
-      <span>
-        Breanna
-      </span>
-
-      <img
-        src="IMG_5053.jpeg"
-        alt="Breanna"
-      >
-
-    </div>
-
-  </header>
-
-
-
-  <!-- CARDS -->
-
-  <main class="main">
-
-    <div
-      class="deck"
-      id="deck"
-    ></div>
-
-  </main>
-
-
-
-  <!-- ACTIONS -->
-
-  <div class="actions">
-
-    <button
-      type="button"
-      class="action dislike"
-      id="dislikeButton"
-      aria-label="Pass"
-    >
-      ✕
-    </button>
-
-
-    <button
-      type="button"
-      class="action like"
-      id="likeButton"
-      aria-label="Like"
-    >
-      <span class="tooth"></span>
-    </button>
 
   </div>
 
+</header>
 
 
-  <!-- NAV -->
+<main class="main">
 
-  <nav class="nav">
+  <div
+    id="deck"
+    class="deck"
+  ></div>
 
-    <button
-      type="button"
-      class="active"
-      id="discoverButton"
-    >
-      <span class="nav-icon">🔥</span>
-      Discover
-    </button>
+</main>
 
 
-    <button
-      type="button"
-      id="likesButton"
-    >
-      <span class="nav-icon">♥</span>
-      Likes
-    </button>
+<!-- =====================================================
+     SILLY / STINKY
+===================================================== -->
+
+<div class="actions">
+
+  <button
+    id="stinkyButton"
+    class="action stinky"
+    type="button"
+  >
+
+    <span class="action-icon">
+      💩
+    </span>
+
+    <span>
+      STINKY
+    </span>
+
+  </button>
 
 
-    <button
-      type="button"
-      id="profileButton"
-    >
-      <span class="nav-icon">👤</span>
-      Breanna
-    </button>
+  <button
+    id="sillyButton"
+    class="action silly"
+    type="button"
+  >
 
-  </nav>
+    <span class="action-icon">
+      🤪
+    </span>
+
+    <span>
+      SILLY
+    </span>
+
+  </button>
 
 </div>
 
 
+<nav class="nav">
 
-<!-- =========================================================
+  <button
+    id="discoverButton"
+    class="active"
+    type="button"
+  >
+    <span class="nav-icon">
+      🔥
+    </span>
+    Discover
+  </button>
+
+
+  <button
+    id="likesButton"
+    type="button"
+  >
+    <span class="nav-icon">
+      🤪
+    </span>
+    Likes
+  </button>
+
+
+  <button
+    id="profileButton"
+    type="button"
+  >
+    <span class="nav-icon">
+      👤
+    </span>
+    Breanna
+  </button>
+
+</nav>
+
+</div>
+
+
+<!-- =====================================================
      BREANNA PROFILE
-========================================================= -->
+===================================================== -->
 
 <div
-  class="sheet"
   id="profileSheet"
+  class="sheet"
 >
 
   <div class="profile-panel">
 
-    <div class="profile-hero">
+    <div class="profile-photo">
 
       <button
-        type="button"
-        class="close"
         id="closeProfile"
+        class="close"
+        type="button"
       >
         ×
       </button>
@@ -1407,8 +1161,7 @@ img{
 
     <div class="profile-content">
 
-
-      <div class="profile-heading">
+      <div class="profile-label">
         About Breanna
       </div>
 
@@ -1416,43 +1169,59 @@ img{
       <div class="profile-bio">
 
         I'm a dental hygienist, which means I spend
-        most of my professional life politely telling
-        people that yes... their gums really do bleed
-        when they floss. 😂
+        most of my professional life politely explaining
+        that yes... your gums really do need attention.
 
         <br><br>
 
         I know more about plaque, tartar, gingivitis,
-        periodontal pockets and toothbrush technique
-        than anyone probably needs to know on a date.
+        periodontal pockets and proper brushing
+        technique than the average person probably
+        wants to hear about on a first date.
 
         <br><br>
 
         My patients come in nervous and leave with
-        a cleaner smile and usually a slightly stronger
+        cleaner smiles and, hopefully, a renewed
         commitment to flossing.
 
         <br><br>
 
-        So naturally, when it comes to dating, I have
-        developed a very specific appreciation for a
-        <strong>great smile.</strong>
+        So naturally, when it comes to dating,
+        I have developed a very specific appreciation
+        for a <strong>great smile.</strong>
 
         <br><br>
 
         I'm not saying I'm going to inspect your molars
         before dinner...
 
-        <br>
+        <br><br>
 
         But I'm also not saying I won't notice. 😏
 
         <br><br>
 
-        Looking for someone funny, confident,
+        I'm looking for someone funny, confident,
         kind, affectionate and capable of carrying
-        a conversation without staring at their phone
+        a conversation without checking their phone
         every twelve seconds.
+
+        <br><br>
+
+        I love coffee, movies, good food, spontaneous
+        plans, laughing until my stomach hurts and
+        people who don't take themselves too seriously.
+
+        <br><br>
+
+        My ideal date?
+
+        <strong>
+          Great food, good conversation, lots of
+          laughing and absolutely no discussion about
+          someone's dental insurance.
+        </strong>
 
         <br><br>
 
@@ -1460,25 +1229,8 @@ img{
 
         <br>
 
-        Double bonus points if you don't need me
-        to explain why flossing isn't optional.
-
-        <br><br>
-
-        I love good conversation, spontaneous plans,
-        laughing until my stomach hurts, movies,
-        coffee, and people who don't take themselves
-        too seriously.
-
-        <br><br>
-
-        My ideal date?
-
-        <strong>
-        Somewhere with great food, good conversation,
-        zero awkward small talk and absolutely no
-        discussion about someone's dental insurance.
-        </strong>
+        Double bonus points if I don't have to remind
+        you that flossing is not optional.
 
       </div>
 
@@ -1522,88 +1274,42 @@ img{
           The Important Stuff
         </h3>
 
-
         <div class="profile-row">
           <span>Occupation</span>
           <strong>Dental Hygienist</strong>
         </div>
-
 
         <div class="profile-row">
           <span>Professional Skill</span>
           <strong>Spotting plaque from across the room</strong>
         </div>
 
-
         <div class="profile-row">
           <span>Love Language</span>
           <strong>Make me laugh</strong>
         </div>
-
 
         <div class="profile-row">
           <span>Green Flag</span>
           <strong>Kind to everyone</strong>
         </div>
 
-
         <div class="profile-row">
           <span>Major Green Flag</span>
           <strong>Actually flosses</strong>
         </div>
-
 
         <div class="profile-row">
           <span>Weakness</span>
           <strong>A ridiculously good smile</strong>
         </div>
 
-
         <div class="profile-row">
           <span>Dealbreaker</span>
           <strong>Bad hygiene</strong>
         </div>
 
-
-        <div class="profile-row">
-          <span>Pet Peeve</span>
-          <strong>"I only floss before the dentist"</strong>
-        </div>
-
       </div>
-
-
-      <div class="profile-section">
-
-        <h3>
-          Looking For
-        </h3>
-
-        <div class="profile-bio">
-
-          Someone who can make me laugh,
-          communicate like an adult, be genuinely
-          kind, and isn't afraid of a little flirting.
-
-          <br><br>
-
-          Confidence is attractive.
-
-          Arrogance is not.
-
-          <br><br>
-
-          And yes...
-
-          <strong>
-          a good smile can absolutely get you
-          moved to the front of the line.
-          </strong>
-
-        </div>
-
-      </div>
-
 
     </div>
 
@@ -1612,33 +1318,32 @@ img{
 </div>
 
 
-
-<!-- =========================================================
+<!-- =====================================================
      LIKES
-========================================================= -->
+===================================================== -->
 
 <div
-  class="sheet"
   id="likesSheet"
+  class="sheet"
 >
 
   <div class="likes-panel">
 
     <button
-      type="button"
-      class="close"
       id="closeLikes"
+      class="close"
+      type="button"
     >
       ×
     </button>
 
     <h2>
-      ♥ Breanna's Likes
+      🤪 Breanna's Silly List
     </h2>
 
     <div
-      class="liked-list"
       id="likedList"
+      class="liked-list"
     ></div>
 
   </div>
@@ -1646,25 +1351,17 @@ img{
 </div>
 
 
-
 <div
-  class="toast"
   id="toast"
+  class="toast"
 ></div>
-
 
 
 <script>
 
-/* =========================================================
-   DATING PROFILES
-=========================================================
-
-   These are fictional dating-app profiles.
-   The portrait service provides generic male portrait
-   photos. They are not being represented as the actual
-   celebrities named in any previous version.
-========================================================= */
+/* =====================================================
+   MEN
+===================================================== */
 
 const men = [
 
@@ -1764,7 +1461,7 @@ const men = [
     city:"Chicago",
     job:"Restaurant Owner",
     bio:"If food is involved, I'm probably already interested.",
-    tags:["Food","Wine","Travel"],
+    tags:["Food","Travel","Comedy"],
     photo:20
   },
 
@@ -1969,33 +1666,13 @@ const men = [
   },
 
   {
-    name:"Ryan",
-    age:37,
-    city:"Los Angeles",
-    job:"Television Producer",
-    bio:"I make TV during the week and search for the best restaurants on weekends.",
-    tags:["TV","Food","Travel"],
-    photo:41
-  },
-
-  {
     name:"Cole",
     age:28,
     city:"Miami",
     job:"Fitness Entrepreneur",
     bio:"Gym, beach and finding excuses to travel.",
     tags:["Fitness","Beach","Travel"],
-    photo:42
-  },
-
-  {
-    name:"Andrew",
-    age:40,
-    city:"Seattle",
-    job:"Tech Executive",
-    bio:"Hiking enthusiast with a soft spot for romantic dinners.",
-    tags:["Hiking","Tech","Romance"],
-    photo:43
+    photo:41
   },
 
   {
@@ -2005,37 +1682,7 @@ const men = [
     job:"Sports Journalist",
     bio:"Can talk sports for hours. Can also talk about literally anything else.",
     tags:["Sports","Writing","Travel"],
-    photo:44
-  },
-
-  {
-    name:"Daniel",
-    age:32,
-    city:"Vancouver",
-    job:"Creative Director",
-    bio:"Good music, good people and an unhealthy appreciation for sneakers.",
-    tags:["Music","Fashion","Travel"],
-    photo:45
-  },
-
-  {
-    name:"Marcus",
-    age:38,
-    city:"Chicago",
-    job:"Chef",
-    bio:"Cooking is my love language. Dessert is non-negotiable.",
-    tags:["Cooking","Food","Travel"],
-    photo:46
-  },
-
-  {
-    name:"Alex",
-    age:35,
-    city:"Toronto",
-    job:"Entrepreneur",
-    bio:"Ambitious, affectionate and always looking for the next adventure.",
-    tags:["Business","Travel","Fitness"],
-    photo:47
+    photo:42
   },
 
   {
@@ -2045,17 +1692,7 @@ const men = [
     job:"Photographer",
     bio:"I notice good lighting. And apparently good smiles.",
     tags:["Photography","Travel","Coffee"],
-    photo:48
-  },
-
-  {
-    name:"Christopher",
-    age:41,
-    city:"Los Angeles",
-    job:"Film Director",
-    bio:"Storyteller, movie lover and believer in meeting someone without an algorithm.",
-    tags:["Movies","Travel","Art"],
-    photo:49
+    photo:43
   },
 
   {
@@ -2065,30 +1702,24 @@ const men = [
     job:"Architect",
     bio:"Mountains, museums and finding the best coffee in every city.",
     tags:["Architecture","Hiking","Coffee"],
-    photo:50
+    photo:44
   }
 
 ];
 
 
-/* =========================================================
+/* =====================================================
    STATE
-========================================================= */
+===================================================== */
 
-let currentIndex =
-  Number(
-    localStorage.getItem("breumbleCurrent") || 0
-  );
+let currentIndex = 0;
 
-let likedMen =
-  JSON.parse(
-    localStorage.getItem("breumbleLikes") || "[]"
-  );
+let likedMen = [];
 
 
-/* =========================================================
+/* =====================================================
    ELEMENTS
-========================================================= */
+===================================================== */
 
 const welcome =
   document.getElementById("welcome");
@@ -2109,36 +1740,17 @@ const likesSheet =
   document.getElementById("likesSheet");
 
 
-/* =========================================================
-   SAVE
-========================================================= */
-
-function saveState(){
-
-  localStorage.setItem(
-    "breumbleCurrent",
-    String(currentIndex)
-  );
-
-  localStorage.setItem(
-    "breumbleLikes",
-    JSON.stringify(likedMen)
-  );
-
-}
-
-
-/* =========================================================
+/* =====================================================
    TOAST
-========================================================= */
+===================================================== */
 
-function showToast(text){
+function showToast(message){
 
-  toast.textContent = text;
+  toast.textContent = message;
 
   toast.classList.add("show");
 
-  setTimeout(() => {
+  setTimeout(function(){
 
     toast.classList.remove("show");
 
@@ -2147,81 +1759,59 @@ function showToast(text){
 }
 
 
-/* =========================================================
-   PORTRAIT URL
-=========================================================
-
-   Uses the public Random User demo portrait set.
-
-   The number is deterministic for each profile, so the
-   same man keeps the same image.
-========================================================= */
+/* =====================================================
+   PORTRAIT
+===================================================== */
 
 function portrait(number){
 
-  return:
-
-  "https://randomuser.me/api/portraits/men/"
-  +
-  (number % 100)
-  +
-  ".jpg";
+  return "https://randomuser.me/api/portraits/men/"
+       + (number % 100)
+       + ".jpg";
 
 }
 
 
-/* =========================================================
-   FALLBACK PORTRAIT
-========================================================= */
+/* =====================================================
+   FALLBACK IMAGE
+===================================================== */
 
-function fallbackPortrait(){
+function fallbackImage(){
 
-  return (
-    "data:image/svg+xml;charset=UTF-8," +
-    encodeURIComponent(`
+  return "data:image/svg+xml;charset=UTF-8,"
+       + encodeURIComponent(`
+          <svg xmlns="http://www.w3.org/2000/svg"
+               width="600"
+               height="900">
 
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="700"
-        height="1000"
-      >
+            <rect width="100%"
+                  height="100%"
+                  fill="#303030"/>
 
-        <rect
-          width="100%"
-          height="100%"
-          fill="#252525"
-        />
+            <circle
+              cx="300"
+              cy="300"
+              r="100"
+              fill="#777"/>
 
-        <circle
-          cx="350"
-          cy="350"
-          r="115"
-          fill="#777"
-        />
+            <path
+              d="M100 800
+                 C100 570 500 570 500 800
+                 L500 900
+                 L100 900Z"
+              fill="#555"/>
 
-        <path
-          d="
-          M140 800
-          C150 600 550 600 560 800
-          L560 1000
-          L140 1000
-          Z"
-          fill="#555"
-        />
-
-      </svg>
-
-    `)
-  );
+          </svg>
+       `);
 
 }
 
 
-/* =========================================================
+/* =====================================================
    CREATE CARD
-========================================================= */
+===================================================== */
 
-function createCard(person, position){
+function createCard(person,position){
 
   const card =
     document.createElement("div");
@@ -2243,24 +1833,24 @@ function createCard(person, position){
 
     <div class="card-top">
 
-      <div class="verified">
+      <div class="badge">
         ✓ Dating profile
       </div>
 
-      <div class="distance">
-        ${person.city}
+      <div class="city">
+        📍 ${person.city}
       </div>
 
     </div>
 
 
-    <div class="stamp like-stamp">
-      LIKE
+    <div class="stamp silly-stamp">
+      SILLY 🤪
     </div>
 
 
-    <div class="stamp nope-stamp">
-      PASS
+    <div class="stamp stinky-stamp">
+      STINKY 💩
     </div>
 
 
@@ -2279,11 +1869,6 @@ function createCard(person, position){
       </div>
 
 
-      <div class="card-location">
-        📍 ${person.city}
-      </div>
-
-
       <div class="card-job">
         ${person.job}
       </div>
@@ -2296,11 +1881,15 @@ function createCard(person, position){
 
       <div class="tags">
 
-        ${person.tags.map(tag => `
-          <span class="tag">
-            ${tag}
-          </span>
-        `).join("")}
+        ${person.tags.map(function(tag){
+
+          return `
+            <span class="tag">
+              ${tag}
+            </span>
+          `;
+
+        }).join("")}
 
       </div>
 
@@ -2313,12 +1902,13 @@ function createCard(person, position){
     card.querySelector(".person-image");
 
 
-  image.onerror = () => {
+  image.onerror =
+    function(){
 
-    image.src =
-      fallbackPortrait();
+      image.src =
+        fallbackImage();
 
-  };
+    };
 
 
   if(position === 0){
@@ -2333,32 +1923,14 @@ function createCard(person, position){
 }
 
 
-/* =========================================================
-   RENDER CARDS
-========================================================= */
+/* =====================================================
+   RENDER
+===================================================== */
 
 function renderCards(){
 
   deck.innerHTML = "";
 
-
-  /*
-    The app never permanently runs out of people.
-    When the last profile is reached, it starts over.
-  */
-
-  if(currentIndex >= men.length){
-
-    currentIndex = 0;
-
-    saveState();
-
-  }
-
-
-  /*
-    Three cards are placed in the deck.
-  */
 
   for(
     let position = 2;
@@ -2383,10 +1955,11 @@ function renderCards(){
     if(position > 0){
 
       card.style.transform =
-        `
-          scale(${1 - position * .035})
-          translateY(${position * 10}px)
-        `;
+        "scale("
+        + (1 - position * .035)
+        + ") translateY("
+        + (position * 10)
+        + "px)";
 
     }
 
@@ -2398,9 +1971,9 @@ function renderCards(){
 }
 
 
-/* =========================================================
-   SWIPE ENGINE
-========================================================= */
+/* =====================================================
+   SWIPE
+===================================================== */
 
 function enableSwipe(card){
 
@@ -2411,109 +1984,9 @@ function enableSwipe(card){
   let dragging = false;
 
 
-  function move(event){
-
-    if(!dragging){
-      return;
-    }
-
-
-    const point =
-      event.touches
-      ?
-      event.touches[0]
-      :
-      event;
-
-
-    deltaX =
-      point.clientX - startX;
-
-
-    card.style.transition =
-      "none";
-
-
-    card.style.transform =
-      `
-        translateX(${deltaX}px)
-        rotate(${deltaX / 18}deg)
-      `;
-
-
-    const likeStamp =
-      card.querySelector(".like-stamp");
-
-    const nopeStamp =
-      card.querySelector(".nope-stamp");
-
-
-    likeStamp.style.opacity =
-      Math.min(
-        1,
-        Math.max(
-          0,
-          deltaX / 100
-        )
-      );
-
-
-    nopeStamp.style.opacity =
-      Math.min(
-        1,
-        Math.max(
-          0,
-          -deltaX / 100
-        )
-      );
-
-  }
-
-
-  function end(){
-
-    if(!dragging){
-      return;
-    }
-
-
-    dragging = false;
-
-
-    if(Math.abs(deltaX) > 105){
-
-      completeSwipe(
-        deltaX > 0
-        ?
-        "like"
-        :
-        "pass"
-      );
-
-    }else{
-
-      card.style.transition =
-        "transform .25s ease";
-
-      card.style.transform =
-        "";
-
-      card.querySelector(
-        ".like-stamp"
-      ).style.opacity = 0;
-
-      card.querySelector(
-        ".nope-stamp"
-      ).style.opacity = 0;
-
-    }
-
-  }
-
-
   card.addEventListener(
     "touchstart",
-    event => {
+    function(event){
 
       dragging = true;
 
@@ -2531,7 +2004,50 @@ function enableSwipe(card){
 
   card.addEventListener(
     "touchmove",
-    move,
+    function(event){
+
+      if(!dragging){
+        return;
+      }
+
+
+      const x =
+        event.touches[0].clientX;
+
+
+      deltaX =
+        x - startX;
+
+
+      card.style.transform =
+        "translateX("
+        + deltaX
+        + "px) rotate("
+        + (deltaX / 18)
+        + "deg)";
+
+
+      const silly =
+        card.querySelector(".silly-stamp");
+
+      const stinky =
+        card.querySelector(".stinky-stamp");
+
+
+      silly.style.opacity =
+        Math.max(
+          0,
+          deltaX / 100
+        );
+
+
+      stinky.style.opacity =
+        Math.max(
+          0,
+          -deltaX / 100
+        );
+
+    },
     {
       passive:true
     }
@@ -2540,50 +2056,53 @@ function enableSwipe(card){
 
   card.addEventListener(
     "touchend",
-    end
-  );
+    function(){
+
+      if(!dragging){
+        return;
+      }
 
 
-  card.addEventListener(
-    "mousedown",
-    event => {
+      dragging = false;
 
-      dragging = true;
 
-      startX =
-        event.clientX;
+      if(Math.abs(deltaX) > 100){
 
-      deltaX = 0;
+        finishSwipe(
+          deltaX > 0
+          ? "silly"
+          : "stinky"
+        );
+
+      }else{
+
+        card.style.transition =
+          "transform .25s ease";
+
+        card.style.transform =
+          "";
+
+        card.querySelector(
+          ".silly-stamp"
+        ).style.opacity = 0;
+
+        card.querySelector(
+          ".stinky-stamp"
+        ).style.opacity = 0;
+
+      }
 
     }
-  );
-
-
-  window.addEventListener(
-    "mousemove",
-    move
-  );
-
-
-  window.addEventListener(
-    "mouseup",
-    end
   );
 
 }
 
 
-/* =========================================================
-   COMPLETE SWIPE
-========================================================= */
+/* =====================================================
+   FINISH SWIPE
+===================================================== */
 
-function completeSwipe(type){
-
-  const person =
-    men[
-      currentIndex % men.length
-    ];
-
+function finishSwipe(type){
 
   const card =
     deck.querySelector(".card");
@@ -2594,160 +2113,124 @@ function completeSwipe(type){
   }
 
 
+  const person =
+    men[
+      currentIndex % men.length
+    ];
+
+
   card.style.transition =
-    "transform .35s ease, opacity .35s ease";
+    "transform .3s ease, opacity .3s ease";
 
 
   card.style.transform =
-    `
-      translate(
-        ${type === "like" ? "1100px" : "-1100px"},
-        80px
-      )
-      rotate(
-        ${type === "like" ? "25deg" : "-25deg"}
-      )
-    `;
+    type === "silly"
+    ?
+    "translateX(1100px) rotate(25deg)"
+    :
+    "translateX(-1100px) rotate(-25deg)";
 
 
   card.style.opacity = "0";
 
 
-  setTimeout(() => {
+  setTimeout(function(){
 
-    if(type === "like"){
+    if(type === "silly"){
 
-      const alreadyLiked =
-        likedMen.some(
-          item =>
-            item.name === person.name &&
-            item.age === person.age
-        );
+      const exists =
+        likedMen.some(function(item){
+
+          return item.name === person.name
+              && item.age === person.age;
+
+        });
 
 
-      if(!alreadyLiked){
+      if(!exists){
 
         likedMen.push(person);
 
       }
 
 
-      showToast(
-        "♥ Breumble!"
-      );
+      showToast("🤪 SILLY!");
 
     }else{
 
-      showToast(
-        "Passed ✓"
-      );
+      showToast("💩 STINKY!");
 
     }
 
 
     currentIndex++;
 
-    saveState();
+    if(currentIndex >= men.length){
+
+      currentIndex = 0;
+
+    }
+
 
     renderCards();
 
-  },220);
+  },250);
 
 }
 
 
-/* =========================================================
-   LIKE BUTTON
-========================================================= */
+/* =====================================================
+   SILLY BUTTON
+===================================================== */
 
 document
-  .getElementById("likeButton")
-  .addEventListener(
-    "click",
-    () => {
+  .getElementById("sillyButton")
+  .onclick =
+  function(){
 
-      completeSwipe("like");
+    finishSwipe("silly");
 
-    }
-  );
+  };
 
 
-/* =========================================================
-   DISLIKE BUTTON
-========================================================= */
+/* =====================================================
+   STINKY BUTTON
+===================================================== */
 
 document
-  .getElementById("dislikeButton")
-  .addEventListener(
-    "click",
-    () => {
+  .getElementById("stinkyButton")
+  .onclick =
+  function(){
 
-      completeSwipe("pass");
+    finishSwipe("stinky");
 
-    }
-  );
+  };
 
 
-/* =========================================================
-   START BUTTON
-=========================================================
+/* =====================================================
+   START
+===================================================== */
 
-   Uses both click and pointer protection so it behaves
-   properly on iPhone Safari/WebKit.
-========================================================= */
+startButton.onclick =
+  function(){
 
-function startBreumbling(event){
+    welcome.classList.add("hide");
 
-  if(event){
-    event.preventDefault();
-    event.stopPropagation();
-  }
+    setTimeout(function(){
 
+      welcome.style.display =
+        "none";
 
-  if(welcome.classList.contains("hide")){
-    return;
-  }
+      renderCards();
 
+    },350);
 
-  welcome.classList.add("hide");
+  };
 
 
-  setTimeout(() => {
-
-    welcome.style.display =
-      "none";
-
-  },360);
-
-
-  renderCards();
-
-}
-
-
-/*
-   Pointer event is preferred on modern iPhone.
-*/
-
-startButton.addEventListener(
-  "pointerup",
-  startBreumbling
-);
-
-
-/*
-   Click is kept as a fallback.
-*/
-
-startButton.addEventListener(
-  "click",
-  startBreumbling
-);
-
-
-/* =========================================================
-   PROFILE SHEET
-========================================================= */
+/* =====================================================
+   PROFILE
+===================================================== */
 
 function openProfile(){
 
@@ -2769,31 +2252,25 @@ function closeProfile(){
 
 document
   .getElementById("headerProfile")
-  .addEventListener(
-    "click",
-    openProfile
-  );
+  .onclick =
+  openProfile;
 
 
 document
   .getElementById("profileButton")
-  .addEventListener(
-    "click",
-    openProfile
-  );
+  .onclick =
+  openProfile;
 
 
 document
   .getElementById("closeProfile")
-  .addEventListener(
-    "click",
-    closeProfile
-  );
+  .onclick =
+  closeProfile;
 
 
-/* =========================================================
+/* =====================================================
    LIKES
-========================================================= */
+===================================================== */
 
 function renderLikes(){
 
@@ -2816,11 +2293,11 @@ function renderLikes(){
         "
       >
 
-        No crushes yet.
+        No SILLY picks yet. 🤪
 
-        <br>
+        <br><br>
 
-        Start swiping. ♥
+        Start Breumbling!
 
       </div>
 
@@ -2832,98 +2309,96 @@ function renderLikes(){
 
 
   list.innerHTML =
-    likedMen.map(person => `
+    likedMen.map(function(person){
 
-      <div class="liked">
+      return `
 
-        <img
-          src="${portrait(person.photo)}"
-          alt="${person.name}"
-          onerror="this.src='${fallbackPortrait()}'"
-        >
+        <div class="liked">
 
-        <div>
+          <img
+            src="${portrait(person.photo)}"
+            onerror="this.src='${fallbackImage()}'"
+            alt="${person.name}"
+          >
 
-          <strong>
-            ${person.name}, ${person.age}
-          </strong>
+          <div>
 
-          <small>
-            📍 ${person.city}
-          </small>
+            <strong>
+              ${person.name}, ${person.age}
+            </strong>
 
-          <small>
-            ${person.job}
-          </small>
+            <small>
+              📍 ${person.city}
+            </small>
+
+            <small>
+              ${person.job}
+            </small>
+
+          </div>
 
         </div>
 
-      </div>
+      `;
 
-    `).join("");
+    }).join("");
 
 }
 
 
-/* =========================================================
-   OPEN LIKES
-========================================================= */
+/* =====================================================
+   LIKES OPEN
+===================================================== */
 
 document
   .getElementById("likesButton")
-  .addEventListener(
-    "click",
-    () => {
+  .onclick =
+  function(){
 
-      renderLikes();
+    renderLikes();
 
-      likesSheet.classList.add(
-        "open"
-      );
+    likesSheet.classList.add(
+      "open"
+    );
 
-    }
-  );
+  };
 
 
-/* =========================================================
-   CLOSE LIKES
-========================================================= */
+/* =====================================================
+   LIKES CLOSE
+===================================================== */
 
 document
   .getElementById("closeLikes")
-  .addEventListener(
-    "click",
-    () => {
+  .onclick =
+  function(){
 
-      likesSheet.classList.remove(
-        "open"
-      );
+    likesSheet.classList.remove(
+      "open"
+    );
 
-    }
-  );
+  };
 
 
-/* =========================================================
+/* =====================================================
    DISCOVER
-========================================================= */
+===================================================== */
 
 document
   .getElementById("discoverButton")
-  .addEventListener(
-    "click",
-    () => {
+  .onclick =
+  function(){
 
-      likesSheet.classList.remove(
-        "open"
-      );
+    likesSheet.classList.remove(
+      "open"
+    );
 
-    }
-  );
+  };
 
 
-/* =========================================================
-   INITIAL RENDER
-========================================================= */
+/* =====================================================
+   INITIAL
+===================================================== */
 
 renderCards();
 
