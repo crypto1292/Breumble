@@ -4,3163 +4,1474 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
 <meta name="theme-color" content="#080808">
-<title>BREUMBLE</title>
+<title>Breumble</title>
 
 <style>
-*{
-  box-sizing:border-box;
-  -webkit-tap-highlight-color:transparent
-}
-
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{
-  margin:0;
-  width:100%;
-  height:100%;
-  overflow:hidden;
-  background:#080808;
-  color:#fff;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif
+ margin:0;width:100%;height:100%;overflow:hidden;
+ background:#080808;color:#fff;
+ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif
 }
+button{font-family:inherit;border:0;outline:0;cursor:pointer}
+.app{width:100%;max-width:520px;height:100dvh;margin:auto;background:#080808;display:flex;flex-direction:column}
 
-button{
-  font-family:inherit;
-  border:0;
-  outline:0;
-  cursor:pointer
-}
-
-.app{
-  width:100%;
-  max-width:520px;
-  height:100dvh;
-  margin:auto;
-  background:#080808;
-  display:flex;
-  flex-direction:column
-}
-
-/* =========================
-   WELCOME
-========================= */
-
+/* WELCOME */
 #welcome{
-  position:fixed;
-  inset:0;
-  z-index:9999;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:20px;
-  background:
-    radial-gradient(circle at 50% 10%,#594713,#171107 35%,#050505 80%);
-  transition:.35s
+ position:fixed;inset:0;z-index:9999;
+ display:flex;flex-direction:column;align-items:center;justify-content:center;
+ text-align:center;padding:20px;
+ background:radial-gradient(circle at 50% 10%,#594713,#171107 35%,#050505 80%);
+ transition:.35s
 }
-
-#welcome.hide{
-  opacity:0;
-  visibility:hidden;
-  pointer-events:none
-}
-
-.logo-big{
-  font-size:52px;
-  font-weight:1000;
-  letter-spacing:-4px
-}
-
-.logo-big span,
-.logo span{
-  color:#f4c542
-}
-
-.subtitle{
-  margin-top:5px;
-  color:#aaa;
-  font-size:10px;
-  font-weight:900;
-  letter-spacing:2px;
-  text-transform:uppercase
-}
-
+#welcome.hide{opacity:0;visibility:hidden;pointer-events:none}
+.logo-big{font-size:52px;font-weight:1000;letter-spacing:-4px}
+.logo-big span,.logo span{color:#f4c542}
+.subtitle{margin-top:5px;color:#aaa;font-size:10px;font-weight:900;letter-spacing:2px;text-transform:uppercase}
 .breanna-photo{
-  width:205px;
-  height:260px;
-  margin-top:25px;
-  object-fit:cover;
-  border-radius:28px;
-  border:3px solid #f4c542;
-  box-shadow:0 25px 65px #000
+ width:205px;height:260px;margin-top:25px;object-fit:cover;
+ border-radius:28px;border:3px solid #f4c542;box-shadow:0 25px 65px #000
 }
-
-.breanna-name{
-  margin-top:15px;
-  font-size:31px;
-  font-weight:1000
-}
-
-.breanna-job{
-  margin-top:4px;
-  color:#aaa;
-  font-size:13px;
-  font-weight:700
-}
-
+.breanna-name{margin-top:15px;font-size:31px;font-weight:1000}
+.breanna-job{margin-top:4px;color:#aaa;font-size:13px;font-weight:700}
 .start{
-  width:255px;
-  height:62px;
-  margin-top:23px;
-  border-radius:999px;
-  background:#f4c542;
-  color:#111;
-  font-weight:1000;
-  font-size:15px
+ width:255px;height:62px;margin-top:23px;border-radius:999px;
+ background:#f4c542;color:#111;font-weight:1000;font-size:15px
 }
 
-/* =========================
-   HEADER
-========================= */
-
+/* HEADER */
 .header{
-  height:65px;
-  flex:0 0 65px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:8px 14px
+ height:65px;flex:0 0 65px;display:flex;align-items:center;
+ justify-content:space-between;padding:8px 14px
 }
-
-.logo{
-  font-size:28px;
-  font-weight:1000;
-  letter-spacing:-2px
-}
-
+.logo{font-size:28px;font-weight:1000;letter-spacing:-2px}
 .header-photo{
-  width:38px;
-  height:38px;
-  border-radius:50%;
-  object-fit:cover;
-  border:2px solid #f4c542
+ width:38px;height:38px;border-radius:50%;object-fit:cover;
+ border:2px solid #f4c542
 }
+.header-profile{display:flex;align-items:center;gap:7px;font-size:11px;font-weight:900}
+.header-button{width:40px;height:40px;border-radius:50%;background:#202020;color:#fff}
 
-.header-profile{
-  display:flex;
-  align-items:center;
-  gap:7px;
-  font-size:11px;
-  font-weight:900
-}
-
-.header-button{
-  width:40px;
-  height:40px;
-  border-radius:50%;
-  background:#202020;
-  color:#fff
-}
-
-/* =========================
-   CARDS
-========================= */
-
-.main{
-  position:relative;
-  flex:1;
-  min-height:0;
-  padding:4px 14px 0
-}
-
-.deck{
-  position:relative;
-  width:100%;
-  height:100%
-}
-
+/* MAIN */
+.main{position:relative;flex:1;min-height:0;padding:4px 14px 0}
+.deck{position:relative;width:100%;height:100%}
 .card{
-  position:absolute;
-  inset:0;
-  overflow:hidden;
-  border-radius:28px;
-  background:#181818;
-  box-shadow:0 20px 55px #000;
-  touch-action:none;
-  user-select:none
+ position:absolute;inset:0;overflow:hidden;border-radius:28px;
+ background:#181818;box-shadow:0 20px 55px #000;
+ touch-action:none;user-select:none
 }
-
-.card img{
-  width:100%;
-  height:100%;
-  object-fit:cover
-}
-
+.card img{width:100%;height:100%;object-fit:cover}
 .card:after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(
-      transparent 28%,
-      transparent 45%,
-      rgba(0,0,0,.96)
-    )
+ content:"";position:absolute;inset:0;
+ background:linear-gradient(transparent 28%,transparent 45%,rgba(0,0,0,.96))
 }
-
-.card-info{
-  position:absolute;
-  left:20px;
-  right:20px;
-  bottom:18px;
-  z-index:5
-}
-
-.card-name{
-  font-size:30px;
-  font-weight:1000
-}
-
-.card-age{
-  margin-left:5px;
-  font-size:20px;
-  color:#ddd
-}
-
-.card-job{
-  margin-top:5px;
-  color:#ddd;
-  font-size:13px;
-  font-weight:800
-}
-
-.card-bio{
-  margin-top:7px;
-  color:#eee;
-  font-size:13px;
-  line-height:1.4
-}
-
-.tags{
-  display:flex;
-  gap:5px;
-  margin-top:9px;
-  flex-wrap:wrap
-}
-
-.tag{
-  padding:6px 9px;
-  border-radius:999px;
-  background:#ffffff22;
-  font-size:10px;
-  font-weight:900
-}
-
+.card-info{position:absolute;left:20px;right:20px;bottom:18px;z-index:5}
+.card-name{font-size:30px;font-weight:1000}
+.card-age{margin-left:5px;font-size:20px;color:#ddd}
+.card-job{margin-top:5px;color:#ddd;font-size:13px;font-weight:800}
+.card-bio{margin-top:7px;color:#eee;font-size:13px;line-height:1.4}
+.tags{display:flex;gap:5px;margin-top:9px;flex-wrap:wrap}
+.tag{padding:6px 9px;border-radius:999px;background:#ffffff22;font-size:10px;font-weight:900}
 .counter{
-  position:absolute;
-  z-index:30;
-  top:10px;
-  right:24px;
-  padding:6px 10px;
-  border-radius:999px;
-  background:#000b;
-  color:#ddd;
-  font-size:10px;
-  font-weight:900
+ position:absolute;z-index:30;top:10px;right:24px;padding:6px 10px;
+ border-radius:999px;background:#000b;color:#ddd;font-size:10px;font-weight:900
 }
 
-/* =========================
-   ACTIONS
-========================= */
-
+/* ACTIONS */
 .actions{
-  height:116px;
-  flex:0 0 116px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-  padding:6px 12px
+ height:125px;flex:0 0 125px;display:flex;flex-direction:column;
+ align-items:center;justify-content:center;gap:7px;padding:5px 10px
 }
-
-.vibe-label{
-  color:#aaa;
-  font-size:10px;
-  font-weight:1000;
-  letter-spacing:2px
-}
-
-.action-row{
-  width:100%;
-  display:flex;
-  justify-content:center;
-  gap:12px
-}
-
+.vibe-label{color:#aaa;font-size:9px;font-weight:1000;letter-spacing:2px}
+.action-row{width:100%;display:flex;justify-content:center;gap:7px}
 .action{
-  flex:1;
-  max-width:210px;
-  height:67px;
-  border-radius:18px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:9px;
-  font-size:17px;
-  font-weight:1000
+ height:63px;border-radius:17px;display:flex;align-items:center;
+ justify-content:center;gap:6px;font-size:12px;font-weight:1000
+}
+.silly{flex:1;background:#f4c542;color:#111;border:3px solid #ffe995}
+.stinky{flex:1;background:#272727;color:#fff;border:3px solid #888}
+.supa{
+ flex:1.18;background:#3b1b08;color:#fff;border:3px solid #ff9c45;
+ box-shadow:0 0 15px #ff6b1733
 }
 
-.silly{
-  background:#f4c542;
-  color:#111;
-  border:3px solid #ffe995
-}
-
-.stinky{
-  background:#252525;
-  color:#fff;
-  border:3px solid #888
-}
-
-/* =========================
-   NAV
-========================= */
-
+/* NAV */
 .nav{
-  height:65px;
-  flex:0 0 65px;
-  display:flex;
-  background:#0d0d0df5;
-  border-top:1px solid #ffffff10;
-  padding-bottom:env(safe-area-inset-bottom)
+ height:65px;flex:0 0 65px;display:flex;background:#0d0d0df5;
+ border-top:1px solid #ffffff10;padding-bottom:env(safe-area-inset-bottom)
 }
-
-.nav button{
-  flex:1;
-  background:transparent;
-  color:#777;
-  font-size:10px;
-  font-weight:900
-}
-
-.nav button.active{
-  color:#fff
-}
-
-.nav-icon{
-  display:block;
-  margin-bottom:2px;
-  font-size:20px
-}
-
-.nav-profile{
-  display:flex!important;
-  align-items:center;
-  justify-content:center
-}
-
+.nav button{flex:1;background:transparent;color:#777;font-size:10px;font-weight:900}
+.nav button.active{color:#fff}
+.nav-icon{display:block;margin-bottom:2px;font-size:20px}
+.nav-profile{display:flex!important;align-items:center;justify-content:center}
 .nav-profile img{
-  width:42px;
-  height:42px;
-  object-fit:cover;
-  border-radius:50%;
-  border:2px solid #f4c542
+ width:42px;height:42px;object-fit:cover;border-radius:50%;border:2px solid #f4c542
 }
 
-/* =========================
-   XRAY
-========================= */
-
-#xrayScreen{
-  position:fixed;
-  inset:0;
-  z-index:9000;
-  display:none;
-  flex-direction:column;
-  background:
-    radial-gradient(
-      ellipse at center,
-      #17252a,
-      #080d10 58%,
-      #020405
-    );
-  overflow:hidden
+/* FLASH */
+.flash{
+ position:fixed;inset:0;z-index:200000;display:flex;
+ flex-direction:column;align-items:center;justify-content:center;
+ text-align:center;opacity:0;visibility:hidden;pointer-events:none
+}
+.flash.active{animation:flashIn 1s ease}
+#sillyMode{background:#f4c542;color:#111}
+#stinkyMode{background:#514719;color:#fff}
+#supaMode{background:#27100a;color:#fff}
+.flash-emoji{font-size:95px;animation:emojiBounce .8s ease}
+.flash-text{margin-top:12px;font-size:42px;font-weight:1000;letter-spacing:-1px}
+.flash-sub{margin-top:7px;font-size:12px;font-weight:900;letter-spacing:2px;opacity:.8}
+@keyframes flashIn{
+ 0%{opacity:0;visibility:visible;transform:scale(.7)}
+ 18%{opacity:1;transform:scale(1.08)}
+ 72%{opacity:1;transform:scale(1)}
+ 100%{opacity:0;visibility:hidden;transform:scale(1.12)}
+}
+@keyframes emojiBounce{
+ 0%{transform:scale(.2) rotate(-20deg)}
+ 55%{transform:scale(1.2) rotate(8deg)}
+ 100%{transform:scale(1)}
 }
 
-#xrayScreen.open{
-  display:flex;
-  animation:xrayFade .35s ease
+/* SUPA STINKY ANIMATION */
+.smell-person{position:relative;width:160px;height:155px;margin-bottom:5px}
+.head{
+ position:absolute;left:50px;top:8px;width:60px;height:60px;
+ border-radius:50%;background:#d79b73
+}
+.body{
+ position:absolute;left:38px;top:65px;width:84px;height:80px;
+ border-radius:35px 35px 10px 10px;background:#333
+}
+.arm{
+ position:absolute;width:72px;height:18px;border-radius:20px;
+ background:#d79b73;top:67px;right:-2px;
+ transform:rotate(-35deg);transform-origin:left center;
+ animation:wave .55s infinite alternate ease-in-out
+}
+.hand{position:absolute;right:-12px;top:47px;font-size:40px;transform:rotate(-20deg)}
+.smell{
+ position:absolute;left:0;top:12px;font-size:43px;
+ animation:floatSmell 1.1s infinite ease-in-out alternate
+}
+@keyframes wave{from{transform:rotate(-45deg)}to{transform:rotate(-15deg)}}
+@keyframes floatSmell{
+ from{transform:translateY(10px) rotate(-8deg);opacity:.5}
+ to{transform:translateY(-10px) rotate(8deg);opacity:1}
 }
 
-@keyframes xrayFade{
-  from{opacity:0}
-  to{opacity:1}
-}
-
-.xray-header{
-  height:75px;
-  flex:0 0 75px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:12px 15px;
-  background:#020607dd;
-  border-bottom:1px solid #8de9ff18
-}
-
-.xray-title{
-  font-size:18px;
-  font-weight:1000;
-  letter-spacing:1px
-}
-
-.xray-title small{
-  display:block;
-  margin-top:3px;
-  color:#65b8c7;
-  font-size:9px;
-  letter-spacing:2px
-}
-
-.xray-close{
-  width:43px;
-  height:43px;
-  border-radius:50%;
-  background:#172126;
-  color:#fff;
-  font-size:25px
-}
-
-.xray-body{
-  position:relative;
-  flex:1;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden
-}
-
-.xray-film{
-  position:relative;
-  width:94%;
-  height:88%;
-  border-radius:25px;
-  overflow:hidden;
-  background:
-    radial-gradient(
-      ellipse at center,
-      #38545a,
-      #1a292d 42%,
-      #081013 78%,
-      #020506
-    );
-  border:1px solid #91e6f030;
-  box-shadow:
-    inset 0 0 80px #000,
-    0 15px 60px #000
-}
-
-.xray-label,
-.xray-corner{
-  position:absolute;
-  top:15px;
-  color:#8dd6e1;
-  font:10px monospace;
-  letter-spacing:1px;
-  opacity:.8
-}
-
-.xray-label{left:15px}
-.xray-corner{right:15px}
-
-.skull{
-  position:absolute;
-  left:50%;
-  top:48%;
-  width:90%;
-  height:85%;
-  transform:translate(-50%,-50%);
-  opacity:.88
-}
-
-.jaw{
-  position:absolute;
-  left:50%;
-  bottom:8%;
-  width:72%;
-  height:30%;
-  transform:translateX(-50%);
-  border:9px solid #d7edf0;
-  border-top:0;
-  border-radius:0 0 50% 50%;
-  filter:drop-shadow(0 0 8px #c8eef4);
-  opacity:.78
-}
-
-.upper-jaw{
-  position:absolute;
-  left:50%;
-  top:18%;
-  width:75%;
-  height:24%;
-  transform:translateX(-50%);
-  border-bottom:8px solid #d8eef0;
-  border-radius:0 0 50% 50%;
-  opacity:.65
-}
-
-.teeth{
-  position:absolute;
-  left:50%;
-  width:76%;
-  transform:translateX(-50%);
-  display:flex;
-  justify-content:center;
-  gap:2px
-}
-
-.teeth.upper{top:27%}
-.teeth.lower{
-  bottom:20%;
-  transform:translateX(-50%) rotate(180deg)
-}
-
-.tooth{
-  width:6.5%;
-  height:75px;
-  max-height:14vh;
-  border:2px solid #e6f8fa;
-  border-radius:40% 40% 48% 48%;
-  background:
-    linear-gradient(
-      90deg,
-      #b8d2d5,
-      #f1ffff,
-      #a9c4c8
-    );
-  box-shadow:0 0 5px #d9fbff;
-  opacity:.85
-}
-
-.tooth:nth-child(2n){height:68px}
-.tooth:nth-child(3n){height:61px}
-.tooth:nth-child(4n){height:72px}
-
-.scan-line{
-  position:absolute;
-  left:4%;
-  right:4%;
-  top:5%;
-  height:4px;
-  z-index:8;
-  background:#7ff5ff;
-  box-shadow:
-    0 0 7px #7ff5ff,
-    0 0 20px #7ff5ff;
-  animation:scan 4.5s ease-in-out infinite
-}
-
-.scan-glow{
-  position:absolute;
-  left:4%;
-  right:4%;
-  top:0;
-  height:100px;
-  z-index:7;
-  background:
-    linear-gradient(
-      to bottom,
-      transparent,
-      #69eaff12,
-      transparent
-    );
-  animation:scanGlow 4.5s ease-in-out infinite
-}
-
-@keyframes scan{
-  0%{top:5%}
-  50%{top:90%}
-  100%{top:5%}
-}
-
-@keyframes scanGlow{
-  0%{top:0}
-  50%{top:82%}
-  100%{top:0}
-}
-
-.dental-mirror{
-  position:absolute;
-  z-index:12;
-  left:20%;
-  top:42%;
-  width:115px;
-  height:115px;
-  transform:
-    translate(-50%,-50%)
-    rotate(-25deg);
-  animation:
-    mirrorExamine 5.5s ease-in-out infinite;
-  filter:drop-shadow(0 5px 8px #000)
-}
-
-.mirror-head{
-  position:absolute;
-  left:0;
-  top:0;
-  width:58px;
-  height:58px;
-  border-radius:50%;
-  border:5px solid #d8f5f7;
-  background:
-    radial-gradient(
-      circle at 35% 30%,
-      #fff,
-      #a7c7ca 40%,
-      #4d6c70 75%,
-      #dffeff
-    );
-  box-shadow:0 0 13px #9beaf1
-}
-
-.mirror-head:after{
-  content:"";
-  position:absolute;
-  inset:9px;
-  border-radius:50%;
-  background:
-    radial-gradient(
-      circle at 40% 30%,
-      #fff,
-      #607b80 60%,
-      #26383b
-    )
-}
-
-.mirror-handle{
-  position:absolute;
-  left:43px;
-  top:48px;
-  width:8px;
-  height:72px;
-  border-radius:99px;
-  background:
-    linear-gradient(
-      90deg,
-      #637e82,
-      #e9ffff,
-      #627c80
-    );
-  transform:rotate(-18deg);
-  transform-origin:top
-}
-
-@keyframes mirrorExamine{
-  0%{
-    left:15%;
-    top:30%;
-    transform:
-      translate(-50%,-50%)
-      rotate(-25deg)
-  }
-  22%{
-    left:48%;
-    top:35%;
-    transform:
-      translate(-50%,-50%)
-      rotate(-8deg)
-  }
-  45%{
-    left:75%;
-    top:43%;
-    transform:
-      translate(-50%,-50%)
-      rotate(18deg)
-  }
-  68%{
-    left:55%;
-    top:68%;
-    transform:
-      translate(-50%,-50%)
-      rotate(30deg)
-  }
-  85%{
-    left:27%;
-    top:70%;
-    transform:
-      translate(-50%,-50%)
-      rotate(-8deg)
-  }
-  100%{
-    left:15%;
-    top:30%;
-    transform:
-      translate(-50%,-50%)
-      rotate(-25deg)
-  }
-}
-
-.exam-status{
-  position:absolute;
-  z-index:15;
-  left:50%;
-  bottom:17px;
-  transform:translateX(-50%);
-  width:90%;
-  text-align:center;
-  color:#83cbd4;
-  font:11px monospace;
-  letter-spacing:1px;
-  text-transform:uppercase
-}
-
-.exam-status span{
-  display:block;
-  margin-top:5px;
-  color:#fff;
-  font-size:10px
-}
-
-.no-cavities{
-  position:absolute;
-  z-index:30;
-  left:50%;
-  top:50%;
-  transform:
-    translate(-50%,-50%)
-    scale(.7);
-  width:90%;
-  padding:22px 14px;
-  border:2px solid #73f1a2;
-  border-radius:22px;
-  background:#06120bcc;
-  backdrop-filter:blur(10px);
-  text-align:center;
-  opacity:0;
-  pointer-events:none
-}
-
-.no-cavities.show{
-  animation:
-    resultAppear .7s ease forwards
-}
-
-.result-check{
-  font-size:45px
-}
-
-.result-title{
-  margin-top:7px;
-  color:#73f1a2;
-  font-size:25px;
-  font-weight:1000
-}
-
-.result-sub{
-  margin-top:6px;
-  color:#d8ffe6;
-  font:11px monospace
-}
-
-@keyframes resultAppear{
-  0%{
-    opacity:0;
-    transform:
-      translate(-50%,-50%)
-      scale(.7)
-  }
-  70%{
-    opacity:1;
-    transform:
-      translate(-50%,-50%)
-      scale(1.06)
-  }
-  100%{
-    opacity:1;
-    transform:
-      translate(-50%,-50%)
-      scale(1)
-  }
-}
-
-.xray-footer{
-  height:62px;
-  flex:0 0 62px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#67878d;
-  font:9px monospace;
-  letter-spacing:1px;
-  background:#020607
-}
-
-/* =========================
-   PROFILE
-========================= */
-
+/* PROFILE */
 .sheet{
-  position:fixed;
-  inset:0;
-  z-index:500;
-  display:none;
-  align-items:flex-end;
-  background:#000c
+ position:fixed;inset:0;z-index:500;display:none;align-items:flex-end;background:#000c
 }
-
-.sheet.open{
-  display:flex
-}
-
+.sheet.open{display:flex}
 .panel{
-  width:100%;
-  max-width:520px;
-  max-height:94dvh;
-  overflow:auto;
-  margin:auto auto 0;
-  border-radius:30px 30px 0 0;
-  background:#111
+ width:100%;max-width:520px;max-height:94dvh;overflow:auto;margin:auto auto 0;
+ border-radius:30px 30px 0 0;background:#111
 }
-
 .close{
-  position:absolute;
-  z-index:10;
-  top:13px;
-  right:13px;
-  width:40px;
-  height:40px;
-  border-radius:50%;
-  background:#000b;
-  color:#fff;
-  font-size:25px
+ position:absolute;z-index:10;top:13px;right:13px;width:40px;height:40px;
+ border-radius:50%;background:#000b;color:#fff;font-size:25px
 }
-
-.profile-photo{
-  position:relative;
-  height:350px
-}
-
-.profile-photo img{
-  width:100%;
-  height:100%;
-  object-fit:cover
-}
-
+.profile-photo{position:relative;height:350px}
+.profile-photo img{width:100%;height:100%;object-fit:cover}
 .profile-photo:after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(
-      transparent 35%,
-      #000
-    )
+ content:"";position:absolute;inset:0;background:linear-gradient(transparent 35%,#000)
 }
-
-.profile-title{
-  position:absolute;
-  left:20px;
-  bottom:18px;
-  z-index:5
-}
-
-.profile-title h1{
-  margin:0;
-  font-size:36px
-}
-
-.profile-title p{
-  margin:4px 0;
-  color:#ddd
-}
-
-.profile-content{
-  padding:20px 20px 40px
-}
-
-.label{
-  color:#f4c542;
-  font-size:11px;
-  font-weight:1000;
-  letter-spacing:1px
-}
-
-.bio{
-  margin-top:10px;
-  color:#ddd;
-  line-height:1.6;
-  font-size:15px
-}
-
-.profile-tags{
-  display:flex;
-  flex-wrap:wrap;
-  gap:7px;
-  margin-top:18px
-}
-
+.profile-title{position:absolute;left:20px;bottom:18px;z-index:5}
+.profile-title h1{margin:0;font-size:36px}
+.profile-title p{margin:4px 0;color:#ddd}
+.profile-content{padding:20px 20px 40px}
+.label{color:#f4c542;font-size:11px;font-weight:1000;letter-spacing:1px}
+.bio{margin-top:10px;color:#ddd;line-height:1.6;font-size:15px}
+.profile-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}
 .profile-tag{
-  padding:8px 11px;
-  border-radius:999px;
-  background:#242424;
-  font-size:11px;
-  font-weight:900
+ padding:8px 11px;border-radius:999px;background:#242424;font-size:11px;font-weight:900
 }
 
-/* =========================
-   SILLY
-========================= */
-
-#sillyMode{
-  position:fixed;
-  inset:0;
-  z-index:99999;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  background:#f4c542;
-  color:#111;
-  opacity:0;
-  visibility:hidden;
-  pointer-events:none
-}
-
-#sillyMode.active{
-  animation:sillyFlash .9s ease
-}
-
-.sillyBurst{
-  font-size:82px
-}
-
-.sillyText{
-  margin-top:12px;
-  font-size:42px;
-  font-weight:1000;
-  text-shadow:4px 4px #fff
-}
-
-@keyframes sillyFlash{
-  0%{
-    opacity:0;
-    visibility:visible
-  }
-  15%{opacity:1}
-  70%{opacity:1}
-  100%{
-    opacity:0;
-    visibility:hidden
-  }
-}
-
-/* =========================
-   MATCH
-========================= */
-
+/* MATCH */
 #matchScreen{
-  position:fixed;
-  inset:0;
-  z-index:100000;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  padding:24px;
-  text-align:center;
-  background:
-    radial-gradient(
-      circle at 50% 25%,
-      #59430e,
-      #171107 45%,
-      #060606
-    );
-  opacity:0;
-  visibility:hidden;
-  pointer-events:none
+ position:fixed;inset:0;z-index:100000;display:flex;flex-direction:column;
+ align-items:center;justify-content:center;padding:24px;text-align:center;
+ background:radial-gradient(circle at 50% 25%,#59430e,#171107 45%,#060606);
+ opacity:0;visibility:hidden;pointer-events:none
 }
-
-#matchScreen.show{
-  animation:matchIn .5s ease forwards;
-  pointer-events:auto
-}
-
-@keyframes matchIn{
-  from{
-    opacity:0;
-    transform:scale(1.08)
-  }
-  to{
-    opacity:1;
-    transform:scale(1);
-    visibility:visible
-  }
-}
-
-.match-small{
-  color:#f4c542;
-  font-size:12px;
-  font-weight:1000;
-  letter-spacing:3px
-}
-
-.match-title{
-  margin-top:8px;
-  font-size:50px;
-  font-weight:1000
-}
-
-.match-title span{
-  color:#f4c542
-}
-
-.match-photos{
-  display:flex;
-  margin-top:28px
-}
-
+#matchScreen.show{animation:matchIn .5s ease forwards;pointer-events:auto}
+@keyframes matchIn{from{opacity:0;transform:scale(1.08)}to{opacity:1;transform:scale(1);visibility:visible}}
+.match-small{color:#f4c542;font-size:12px;font-weight:1000;letter-spacing:3px}
+.match-title{margin-top:8px;font-size:50px;font-weight:1000}
+.match-title span{color:#f4c542}
+.match-photos{display:flex;margin-top:28px}
 .match-photo{
-  width:135px;
-  height:175px;
-  object-fit:cover;
-  border-radius:24px;
-  border:3px solid #f4c542
+ width:135px;height:175px;object-fit:cover;border-radius:24px;border:3px solid #f4c542
 }
-
-.match-photo:first-child{
-  transform:rotate(-7deg);
-  margin-right:-20px
+.match-photo:first-child{transform:rotate(-7deg);margin-right:-20px}
+.match-photo:last-child{transform:rotate(7deg);margin-left:-20px}
+.match-name{margin-top:25px;font-size:24px;font-weight:1000}
+.match-message{margin-top:7px;color:#bbb;font-size:13px}
+.match-chat,.match-close{
+ width:100%;max-width:310px;height:52px;border-radius:999px;
+ margin-top:20px;font-weight:1000
 }
+.match-chat{background:#f4c542;color:#111}
+.match-close{margin-top:8px;background:#242424;color:#fff}
 
-.match-photo:last-child{
-  transform:rotate(7deg);
-  margin-left:-20px
+/* CHAT */
+#chatScreen{
+ position:fixed;inset:0;z-index:300000;display:flex;
+ flex-direction:column;background:#0b0b0b
 }
-
-.match-name{
-  margin-top:25px;
-  font-size:24px;
-  font-weight:1000
-}
-
-.match-message{
-  margin-top:7px;
-  color:#bbb;
-  font-size:13px
-}
-
-.match-chat,
-.match-close{
-  width:100%;
-  max-width:310px;
-  height:52px;
-  border-radius:999px;
-  margin-top:20px;
-  font-weight:1000
-}
-
-.match-chat{
-  background:#f4c542;
-  color:#111
-}
-
-.match-close{
-  margin-top:8px;
-  background:#242424;
-  color:#fff
-}
-
-/* =========================
-   CHAT
-========================= */
-
-#temporaryChat{
-  position:fixed;
-  inset:0;
-  z-index:300000;
-  display:flex;
-  flex-direction:column;
-  background:#0b0b0b
-}
-
 .chat-header{
-  height:70px;
-  flex:0 0 70px;
-  display:flex;
-  align-items:center;
-  gap:10px;
-  padding:8px 12px;
-  background:#111;
-  border-bottom:1px solid #ffffff12
+ height:70px;flex:0 0 70px;display:flex;align-items:center;gap:10px;
+ padding:8px 12px;background:#111;border-bottom:1px solid #ffffff12
 }
-
 .chat-back{
-  width:42px;
-  height:42px;
-  border-radius:50%;
-  background:#252525;
-  color:#fff;
-  font-size:25px
+ width:42px;height:42px;border-radius:50%;background:#252525;
+ color:#fff;font-size:25px
 }
-
 .chat-avatar{
-  width:44px;
-  height:44px;
-  border-radius:50%;
-  object-fit:cover;
-  border:2px solid #f4c542
+ width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid #f4c542
 }
-
-.chat-person{
-  min-width:0;
-  flex:1
-}
-
-.chat-person strong{
-  display:block;
-  color:#fff;
-  font-size:15px
-}
-
-.chat-status{
-  margin-top:2px;
-  color:#69d88b;
-  font-size:10px;
-  font-weight:800
-}
-
-.chat-more{
-  width:40px;
-  height:40px;
-  border-radius:50%;
-  background:#202020;
-  color:#aaa;
-  font-size:20px
-}
-
-.chat-messages{
-  flex:1;
-  overflow:auto;
-  padding:18px 13px 12px;
-  scroll-behavior:smooth
-}
-
-.chat-day{
-  text-align:center;
-  color:#666;
-  font-size:9px;
-  font-weight:900;
-  letter-spacing:1px;
-  margin:4px 0 20px
-}
-
-.message-row{
-  display:flex;
-  margin:8px 0
-}
-
-.message-row.mine{
-  justify-content:flex-end
-}
-
+.chat-person{min-width:0;flex:1}
+.chat-person strong{display:block;color:#fff;font-size:15px}
+.chat-status{margin-top:2px;color:#69d88b;font-size:10px;font-weight:800}
+.chat-more{width:40px;height:40px;border-radius:50%;background:#202020;color:#aaa;font-size:20px}
+.chat-messages{flex:1;overflow:auto;padding:18px 13px 12px}
+.chat-day{text-align:center;color:#666;font-size:9px;font-weight:900;letter-spacing:1px;margin:4px 0 20px}
+.message-row{display:flex;margin:8px 0}
+.message-row.mine{justify-content:flex-end}
 .message{
-  position:relative;
-  max-width:78%;
-  padding:11px 14px 8px;
-  border-radius:19px;
-  font-size:14px;
-  line-height:1.42;
-  word-wrap:break-word
+ max-width:78%;padding:11px 14px 8px;border-radius:19px;
+ font-size:14px;line-height:1.42;word-wrap:break-word
 }
-
-.message.them{
-  background:#252525;
-  color:#fff;
-  border-bottom-left-radius:5px
-}
-
-.message.mine{
-  background:#f4c542;
-  color:#111;
-  border-bottom-right-radius:5px
-}
-
-.message-time{
-  display:inline-block;
-  margin-left:7px;
-  color:#999;
-  font-size:8px;
-  vertical-align:bottom
-}
-
-.message.mine .message-time{
-  color:#705f1b
-}
-
-.read-receipt{
-  margin-top:2px;
-  margin-right:4px;
-  text-align:right;
-  color:#777;
-  font-size:8px
-}
-
-.typing-row{
-  display:flex;
-  margin:8px 0;
-  opacity:0;
-  transition:.2s
-}
-
-.typing-row.show{
-  opacity:1
-}
-
+.message.them{background:#252525;color:#fff;border-bottom-left-radius:5px}
+.message.mine{background:#f4c542;color:#111;border-bottom-right-radius:5px}
+.message-time{display:inline-block;margin-left:7px;color:#999;font-size:8px;vertical-align:bottom}
+.message.mine .message-time{color:#705f1b}
+.typing-row{display:flex;margin:8px 13px;opacity:0;transition:.2s}
+.typing-row.show{opacity:1}
 .typing{
-  display:flex;
-  align-items:center;
-  gap:4px;
-  padding:11px 14px;
-  border-radius:18px;
-  border-bottom-left-radius:5px;
-  background:#252525
+ display:flex;align-items:center;gap:4px;padding:11px 14px;
+ border-radius:18px;border-bottom-left-radius:5px;background:#252525
 }
-
 .typing i{
-  display:block;
-  width:6px;
-  height:6px;
-  border-radius:50%;
-  background:#aaa;
-  animation:typingDot 1.2s infinite
+ display:block;width:6px;height:6px;border-radius:50%;background:#aaa;
+ animation:typingDot 1.2s infinite
 }
-
-.typing i:nth-child(2){
-  animation-delay:.15s
-}
-
-.typing i:nth-child(3){
-  animation-delay:.3s
-}
-
+.typing i:nth-child(2){animation-delay:.15s}
+.typing i:nth-child(3){animation-delay:.3s}
 @keyframes typingDot{
-  0%,60%,100%{
-    transform:translateY(0);
-    opacity:.45
-  }
-  30%{
-    transform:translateY(-4px);
-    opacity:1
-  }
+ 0%,60%,100%{transform:translateY(0);opacity:.45}
+ 30%{transform:translateY(-4px);opacity:1}
 }
-
 .chat-suggestions{
-  display:flex;
-  gap:7px;
-  padding:8px 10px;
-  overflow-x:auto;
-  background:#111;
-  scrollbar-width:none
+ display:flex;gap:7px;padding:8px 10px;overflow-x:auto;
+ background:#111;scrollbar-width:none
 }
-
-.chat-suggestions::-webkit-scrollbar{
-  display:none
-}
-
+.chat-suggestions::-webkit-scrollbar{display:none}
 .chat-suggestion{
-  flex:0 0 auto;
-  padding:9px 12px;
-  border-radius:999px;
-  background:#242424;
-  color:#eee;
-  font-size:10px;
-  font-weight:800
+ flex:0 0 auto;padding:9px 12px;border-radius:999px;
+ background:#242424;color:#eee;font-size:10px;font-weight:800
 }
-
 .chat-input-area{
-  display:flex;
-  gap:8px;
-  padding:9px 10px;
-  padding-bottom:
-    calc(
-      9px +
-      env(safe-area-inset-bottom)
-    );
-  background:#111
+ display:flex;gap:8px;padding:9px 10px;
+ padding-bottom:calc(9px + env(safe-area-inset-bottom));background:#111
 }
-
 .chat-input{
-  flex:1;
-  min-width:0;
-  height:46px;
-  border:0;
-  outline:0;
-  border-radius:999px;
-  padding:0 16px;
-  background:#242424;
-  color:#fff;
-  font-size:14px
+ flex:1;min-width:0;height:46px;border:0;outline:0;border-radius:999px;
+ padding:0 16px;background:#242424;color:#fff;font-size:14px
 }
-
 .chat-send{
-  width:46px;
-  height:46px;
-  flex:0 0 46px;
-  border-radius:50%;
-  background:#f4c542;
-  color:#111;
-  font-size:18px;
-  font-weight:1000
+ width:46px;height:46px;flex:0 0 46px;border-radius:50%;
+ background:#f4c542;color:#111;font-size:18px;font-weight:1000
 }
 
-/* =========================
-   MOBILE
-========================= */
+/* DISCOVER XRAY */
+#xrayScreen{
+ position:fixed;inset:0;z-index:90000;background:#050505;
+ display:none;flex-direction:column;align-items:center;justify-content:center;
+ text-align:center;padding:20px
+}
+#xrayScreen.show{display:flex}
+.xray{
+ width:min(86vw,390px);height:min(66vh,520px);
+ border:4px solid #ddd;border-radius:12px;
+ background:
+ radial-gradient(ellipse at 50% 48%,#555 0 4%,transparent 5%),
+ radial-gradient(ellipse at 38% 35%,#777 0 5%,transparent 6%),
+ radial-gradient(ellipse at 62% 35%,#777 0 5%,transparent 6%),
+ linear-gradient(90deg,#111,#777,#111);
+ filter:grayscale(1) contrast(1.5);
+ position:relative;overflow:hidden
+}
+.xray:before{
+ content:"";
+ position:absolute;left:50%;top:5%;bottom:5%;width:7px;
+ transform:translateX(-50%);background:#ddd;border-radius:50%
+}
+.mirror{
+ position:absolute;left:18%;top:36%;font-size:70px;
+ animation:mirrorMove 2s infinite alternate ease-in-out
+}
+@keyframes mirrorMove{
+ from{transform:translate(0,0) rotate(-15deg)}
+ to{transform:translate(160px,60px) rotate(20deg)}
+}
+.xray-title{margin-top:18px;font-size:27px;font-weight:1000}
+.xray-status{margin-top:8px;color:#aaa;font-size:12px}
+.xray-close{
+ margin-top:20px;width:220px;height:50px;border-radius:999px;
+ background:#f4c542;color:#111;font-weight:1000
+}
 
 @media(max-height:700px){
-
-  .header{
-    height:58px;
-    flex-basis:58px
-  }
-
-  .actions{
-    height:104px;
-    flex-basis:104px
-  }
-
-  .action{
-    height:58px
-  }
-
-  .nav{
-    height:58px;
-    flex-basis:58px
-  }
-
-  .breanna-photo{
-    width:170px;
-    height:215px
-  }
+ .header{height:58px;flex-basis:58px}
+ .actions{height:115px;flex-basis:115px}
+ .action{height:56px;font-size:10px}
+ .nav{height:58px;flex-basis:58px}
+ .breanna-photo{width:170px;height:215px}
 }
 </style>
 </head>
 
 <body>
 
-<!-- =========================
-     WELCOME
-========================= -->
-
+<!-- WELCOME -->
 <div id="welcome">
 
-  <div class="logo-big">
-    BREUM<span>BLE</span>
-  </div>
+ <div class="logo-big">BREUM<span>BLE</span></div>
 
-  <div class="subtitle">
-    Breanna's dating adventure
-  </div>
+ <div class="subtitle">Breanna's dating adventure</div>
 
-  <img
-    class="breanna-photo"
-    src="IMG_5053.jpeg"
-    alt="Breanna"
-  >
+ <img class="breanna-photo" src="IMG_5053.jpeg" alt="Breanna">
 
-  <div class="breanna-name">
-    Breanna
-  </div>
+ <div class="breanna-name">Breanna</div>
 
-  <div class="breanna-job">
-    Dental Hygienist • Smile Quality Control
-  </div>
+ <div class="breanna-job">
+  Dental Receptionist • Appointment Enforcer
+ </div>
 
-  <button
-    class="start"
-    id="startButton"
-  >
-    LET'S BREUMBLE 🤪
-  </button>
+ <button class="start" id="startButton">
+  LET'S BREUMBLE 🤪
+ </button>
 
 </div>
 
-
-<!-- =========================
-     MAIN APP
-========================= -->
 
 <div class="app">
 
 <header class="header">
 
-  <button
-    class="header-button"
-    id="headerProfile"
-  >
-    👤
-  </button>
+ <button class="header-button" id="headerProfile">👤</button>
 
-  <div class="logo">
-    BREUM<span>BLE</span>
-  </div>
+ <div class="logo">BREUM<span>BLE</span></div>
 
-  <div class="header-profile">
-
-    Breanna
-
-    <img
-      class="header-photo"
-      src="IMG_5053.jpeg"
-      alt="Breanna"
-    >
-
-  </div>
+ <div class="header-profile">
+  Breanna
+  <img class="header-photo" src="IMG_5053.jpeg" alt="Breanna">
+ </div>
 
 </header>
 
 
 <main class="main">
 
-  <div
-    class="deck"
-    id="deck"
-  ></div>
+ <div class="deck" id="deck"></div>
 
-  <div
-    class="counter"
-    id="counter"
-  >
-    1 / 500
-  </div>
+ <div class="counter" id="counter">1 / 1</div>
 
 </main>
 
 
 <div class="actions">
 
-  <div class="vibe-label">
-    WHAT'S THE VIBE?
-  </div>
+ <div class="vibe-label">WHAT'S THE VIBE?</div>
 
-  <div class="action-row">
+ <div class="action-row">
 
-    <button
-      class="action stinky"
-      id="stinkyButton"
-    >
-      💩 STINKY
-    </button>
+  <button class="action stinky" id="stinkyButton">
+   💩 STINKY
+  </button>
 
-    <button
-      class="action silly"
-      id="sillyButton"
-    >
-      🤪 SILLY
-    </button>
+  <button class="action silly" id="sillyButton">
+   🤪 SILLY
+  </button>
 
-  </div>
+  <button class="action supa" id="supaButton">
+   🤢 SUPA STINKY
+  </button>
+
+ </div>
 
 </div>
 
 
 <nav class="nav">
 
-  <button
-    class="active"
-    id="discoverButton"
-  >
-    <span class="nav-icon">🦷</span>
-    Discover
-  </button>
+ <button class="active" id="discoverButton">
+  <span class="nav-icon">🦷</span>
+  Discover
+ </button>
 
-  <button id="likesButton">
+ <button id="likesButton">
+  <span class="nav-icon">🤪</span>
+  Likes
+ </button>
 
-    <span class="nav-icon">
-      🤪
-    </span>
-
-    Likes
-
-  </button>
-
-  <button
-    id="profileButton"
-    class="nav-profile"
-  >
-
-    <img
-      src="IMG_5053.jpeg"
-      alt="Breanna"
-    >
-
-  </button>
+ <button id="profileButton" class="nav-profile">
+  <img src="IMG_5053.jpeg" alt="Breanna">
+ </button>
 
 </nav>
 
 </div>
 
 
-<!-- =========================
-     XRAY
-========================= -->
+<!-- SILLY FLASH -->
+<div class="flash" id="sillyMode">
 
-<div id="xrayScreen">
+ <div class="flash-emoji">🤪</div>
 
-<header class="xray-header">
+ <div class="flash-text">SILLY MODE</div>
 
-  <div class="xray-title">
-
-    BREANNA'S DENTAL SCAN
-
-    <small>
-      PROFESSIONAL SMILE ANALYSIS
-    </small>
-
-  </div>
-
-  <button
-    class="xray-close"
-    id="xrayClose"
-  >
-    ×
-  </button>
-
-</header>
-
-
-<div class="xray-body">
-
-<div class="xray-film">
-
-  <div class="xray-label">
-    XRAY • FULL MOUTH
-  </div>
-
-  <div class="xray-corner">
-    SCAN 001
-  </div>
-
-
-  <div class="skull">
-
-    <div class="upper-jaw"></div>
-
-    <div class="jaw"></div>
-
-    <div class="teeth upper">
-
-      <div class="tooth"></div>
-      <div class="tooth"></div>
-      <div class="tooth"></div>
-      <div class="tooth"></div>
-      <div class="tooth"></div>
-      <div class="tooth"></div>
-      <div class="tooth"></div>
-      <div class="tooth"></div>
-      <div class="tooth"></div>
-      <div class="tooth"></div>
-      <div class="tooth"></div>
-      <div class="tooth"></div>
-      <div class="tooth"></div>
-      <div class="tooth"></div>
-      <div class="tooth"></div>
-      <div class="tooth"></div>
-
-    </div>
-
-
-    <div class="teeth lower">
-
-      <div class="tooth"></div>
-      <div class="tooth"></div>
-      <div class="tooth"></div>
-      <div class="tooth"></div>
-      <div class="tooth"></div>
-      <div class="tooth"></div>
-      <div class="tooth"></div>
-      <div class="tooth"></div>
-      <div class="tooth"></div>
-      <div class="tooth"></div>
-      <div class="tooth"></div>
-      <div class="tooth"></div>
-      <div class="tooth"></div>
-      <div class="tooth"></div>
-      <div class="tooth"></div>
-      <div class="tooth"></div>
-
-    </div>
-
-  </div>
-
-
-  <div class="scan-glow"></div>
-  <div class="scan-line"></div>
-
-
-  <div class="dental-mirror">
-
-    <div class="mirror-head"></div>
-    <div class="mirror-handle"></div>
-
-  </div>
-
-
-  <div
-    class="no-cavities"
-    id="noCavities"
-  >
-
-    <div class="result-check">
-      🦷✓
-    </div>
-
-    <div class="result-title">
-      NO CAVITIES HERE
-    </div>
-
-    <div class="result-sub">
-      SMILE APPROVED • LOOKS LIKE A KEEPER
-    </div>
-
-  </div>
-
-
-  <div class="exam-status">
-
-    <div id="examStatus">
-      ANALYZING DENTAL STRUCTURE...
-    </div>
-
-    <span>
-      Please remain still while Breanna investigates.
-    </span>
-
-  </div>
-
-</div>
-</div>
-
-
-<footer class="xray-footer">
-
-  BREUMBLE DENTAL INTELLIGENCE SYSTEM
-  •
-  SMILE QUALITY CONTROL
-
-</footer>
+ <div class="flash-sub">SMILE APPROVED</div>
 
 </div>
 
 
-<!-- =========================
-     SILLY MODE
-========================= -->
+<!-- STINKY FLASH -->
+<div class="flash" id="stinkyMode">
 
-<div id="sillyMode">
+ <div class="flash-emoji">💩</div>
 
-  <div class="sillyBurst">
-    🤪
-  </div>
+ <div class="flash-text">STINKY MODE</div>
 
-  <div class="sillyText">
-    SILLY MODE
-  </div>
+ <div class="flash-sub">
+  DENTAL RECEPTION HAS BEEN NOTIFIED
+ </div>
 
 </div>
 
 
-<!-- =========================
-     MATCH
-========================= -->
+<!-- SUPA STINKY FLASH -->
+<div class="flash" id="supaMode">
 
+ <div class="smell-person">
+
+  <div class="smell">💨</div>
+  <div class="head"></div>
+  <div class="body"></div>
+  <div class="arm"></div>
+  <div class="hand">🖐️</div>
+
+ </div>
+
+ <div class="flash-text">SUPA STINKY</div>
+
+ <div class="flash-sub">
+  SOMEONE OPEN A WINDOW 💨
+ </div>
+
+</div>
+
+
+<!-- MATCH -->
 <div id="matchScreen">
 
-  <div class="match-small">
-    YOU TWO SAID SILLY
-  </div>
+ <div class="match-small">YOU TWO SAID SILLY</div>
 
-  <div class="match-title">
-    IT'S A <span>MATCH!</span>
-  </div>
+ <div class="match-title">
+  IT'S A <span>MATCH!</span>
+ </div>
 
-  <div class="match-photos">
+ <div class="match-photos">
 
-    <img
-      class="match-photo"
-      src="IMG_5053.jpeg"
-      alt="Breanna"
-    >
+  <img class="match-photo" src="IMG_5053.jpeg" alt="Breanna">
 
-    <img
-      class="match-photo"
-      id="matchPersonPhoto"
-      alt="Match"
-    >
+  <img class="match-photo" id="matchPersonPhoto"
+       src="stinky-guy.JPEG" alt="Match">
 
-  </div>
+ </div>
 
-  <div
-    class="match-name"
-    id="matchPersonName"
-  ></div>
+ <div class="match-name" id="matchPersonName">
+  Mr. Stinky
+ </div>
 
-  <div class="match-message">
-    The smile passed inspection. 🦷
-  </div>
+ <div class="match-message">
+  The smile passed inspection. 🦷
+ </div>
 
-  <button
-    class="match-chat"
-    id="openChatButton"
-  >
-    💬 START CONVERSATION
-  </button>
+ <button class="match-chat" id="openChatButton">
+  💬 START CONVERSATION
+ </button>
 
-  <button
-    class="match-close"
-    id="closeMatchButton"
-  >
-    KEEP BREUMBLING
-  </button>
+ <button class="match-close" id="closeMatchButton">
+  KEEP BREUMBLING
+ </button>
 
 </div>
 
 
-<!-- =========================
-     PROFILE
-========================= -->
+<!-- BREANNA PROFILE -->
+<div class="sheet" id="profileSheet">
 
-<div
-  class="sheet"
-  id="profileSheet"
->
+ <div class="panel">
 
-<div class="panel">
+  <button class="close" id="closeProfile">×</button>
 
-<button
-  class="close"
-  id="closeProfile"
->
-  ×
-</button>
+  <div class="profile-photo">
 
-<div class="profile-photo">
+   <img src="IMG_5053.jpeg" alt="Breanna">
 
-  <img
-    src="IMG_5053.jpeg"
-    alt="Breanna"
-  >
+   <div class="profile-title">
 
-  <div class="profile-title">
+    <h1>Breanna</h1>
 
-    <h1>
-      Breanna
-    </h1>
+    <p>Dental Receptionist • Appointment Enforcer</p>
 
-    <p>
-      Dental Hygienist • Smile Quality Control
-    </p>
+   </div>
 
   </div>
+
+
+  <div class="profile-content">
+
+   <div class="label">ABOUT BREANNA</div>
+
+   <div class="bio">
+
+    I'm a dental receptionist, which means I spend my
+    days answering phones, booking appointments,
+    moving appointments, confirming appointments,
+    rescheduling appointments and politely explaining
+    that yes... you really do need that appointment. 😂
+
+    <br><br>
+
+    I'm basically the person standing between you and
+    the dentist's waiting room. I know everyone's name,
+    everyone's appointment time and, somehow, everyone's
+    excuse for cancelling at the last minute.
+
+    <br><br>
+
+    I'm looking for someone funny, kind, confident,
+    affectionate and capable of making a conversation
+    more interesting than "hey."
+
+    <br><br>
+
+    Bonus points if you actually show up when you say
+    you will.
+
+    <br><br>
+
+    Extra bonus points if you don't make me call you
+    three times to remind you about your appointment.
+
+    <br><br>
+
+    And if your breath could knock over a houseplant,
+    don't worry. I know exactly who to call. 😏🦷
+
+   </div>
+
+
+   <div class="profile-tags">
+
+    <div class="profile-tag">🦷 Dental Receptionist</div>
+    <div class="profile-tag">😂 Sarcasm</div>
+    <div class="profile-tag">📅 Appointment Queen</div>
+    <div class="profile-tag">☕ Coffee</div>
+    <div class="profile-tag">🎬 Movies</div>
+    <div class="profile-tag">🦷 Smile Quality Control</div>
+
+   </div>
+
+  </div>
+
+ </div>
 
 </div>
 
 
-<div class="profile-content">
+<!-- XRAY -->
+<div id="xrayScreen">
 
-  <div class="label">
-    ABOUT BREANNA
-  </div>
+ <div class="xray">
+  <div class="mirror">🔍</div>
+ </div>
 
-  <div class="bio">
+ <div class="xray-title" id="xrayTitle">
+  DENTAL DISCOVERY
+ </div>
 
-    I'm a dental hygienist, which means I spend most
-    of my professional life politely explaining that yes...
-    your gums really do need attention.
+ <div class="xray-status" id="xrayStatus">
+  Dental mirror scanning...
+ </div>
 
-    <br><br>
+ <button class="xray-close" id="xrayClose">
+  BACK TO DISCOVER
+ </button>
 
-    I know more about plaque, tartar, gingivitis,
-    periodontal pockets and proper brushing technique
-    than the average person probably wants to hear
-    about on a first date.
-
-    <br><br>
-
-    I'm looking for someone funny, confident, kind,
-    affectionate and capable of carrying a conversation
-    without checking their phone every twelve seconds.
-
-    <br><br>
-
-    Bonus points if you actually floss.
-
-    <br><br>
-
-    Double bonus points if I don't have to remind you
-    that flossing is not optional. 😏
-
-  </div>
-
-
-  <div class="profile-tags">
-
-    <div class="profile-tag">
-      🦷 Dental Hygienist
-    </div>
-
-    <div class="profile-tag">
-      😂 Sarcasm
-    </div>
-
-    <div class="profile-tag">
-      🎬 Movies
-    </div>
-
-    <div class="profile-tag">
-      ☕ Coffee
-    </div>
-
-    <div class="profile-tag">
-      ✨ Great Smiles
-    </div>
-
-    <div class="profile-tag">
-      🧵 Flossing Advocate
-    </div>
-
-  </div>
-
-</div>
-
-</div>
 </div>
 
 
 <script>
 
-/* =========================================
-   PEOPLE
-========================================= */
+/* =========================================================
+   BREUMBLE — SINGLE PROFILE
+========================================================= */
 
-const names=[
-  "Alex Hayes",
-  "Marcus Carter",
-  "Ryan Brooks",
-  "Daniel Reed",
-  "Ethan Parker",
-  "Michael Grant",
-  "Jordan Morgan",
-  "Andrew Bennett",
-  "Chris Coleman",
-  "Matthew Warren",
-  "James Foster",
-  "Noah Hunter",
-  "Brandon Mason",
-  "Tyler King",
-  "David Turner",
-  "Liam Cooper",
-  "Kevin West",
-  "Jason Knight",
-  "Nathan Stone",
-  "Steven Bishop"
-];
+const person = {
+ id:1,
+ name:"Mr. Stinky",
+ age:32,
+ job:"Professional Appointment Avoider",
+ image:"stinky-guy.JPEG",
 
-const cities=[
-  "Los Angeles",
-  "New York",
-  "Miami",
-  "Chicago",
-  "Toronto",
-  "Vancouver",
-  "San Diego",
-  "Boston",
-  "Austin",
-  "Nashville",
-  "Denver",
-  "Seattle",
-  "Las Vegas",
-  "Atlanta",
-  "San Francisco"
-];
-
-const jobs=[
-  "Actor",
-  "Film Producer",
-  "Creative Director",
-  "Architect",
-  "Tech Founder",
-  "Entrepreneur",
-  "Music Producer",
-  "Photographer",
-  "Restaurant Owner",
-  "Attorney",
-  "Sports Agent",
-  "Fashion Executive",
-  "Director",
-  "TV Producer",
-  "Designer"
-];
-
-const bios=[
-  "Big on great restaurants, spontaneous trips and making people laugh.",
-  "Coffee addict with excellent dinner recommendations and questionable dance moves.",
-  "Weekend adventures, good movies and absolutely no interest in boring dates.",
-  "Confident enough to dress up for dinner and relaxed enough to order dessert.",
-  "Looking for someone who can laugh at themselves and doesn't take dating too seriously.",
-  "Professional by day, terrible karaoke singer by night.",
-  "Always planning the next trip and occasionally pretending I know where I'm going.",
-  "Big fan of old-school romance, handwritten notes and very good food.",
-  "I make a surprisingly good breakfast and an even better reservation.",
-  "Movie nerd looking for someone who won't judge the amount of popcorn I order."
-];
-
-const portraitIds=[
-  0,1,2,3,4,5,6,7,8,9,
-  10,11,12,13,14,15,16,17,18,19,
-  20,21,22,23,24,25,26,27,28,29,
-  30,31,32,33,34,35,36,37,38,39,
-  40,41,42,43,44,45,46,47,48,49
-];
-
-const men=[];
-
-for(let i=0;i<500;i++){
-
-  men.push({
-
-    id:i,
-
-    name:names[i%names.length],
-
-    age:27+(i%21),
-
-    city:cities[i%cities.length],
-
-    job:jobs[i%jobs.length],
-
-    bio:bios[i%bios.length],
-
-    image:
-      `https://randomuser.me/api/portraits/men/${portraitIds[i%portraitIds.length]}.jpg`
-
-  });
-
-}
+ bio:
+ "Legend has it, he was once one of the stinkiest " +
+ "people alive. 💨 After years of ignoring dental " +
+ "appointments, questionable flossing habits and " +
+ "dangerously strong coffee breath, he's finally " +
+ "accepted that he needs professional intervention. " +
+ "He's looking for a dental receptionist who can keep " +
+ "him on schedule, book his appointments and help " +
+ "launch Operation: Fresh Breath. 🦷😂"
+};
 
 
-/* =========================================
+/* =========================================================
    STATE
-========================================= */
+========================================================= */
 
-let currentIndex=0;
-let liked=[];
+let alreadySwiped=false;
 let currentMatch=null;
+let conversation=[];
+let chatOpen=false;
 
 
-/* =========================================
+/* =========================================================
    ELEMENTS
-========================================= */
+========================================================= */
 
-const welcome=
-  document.getElementById("welcome");
-
-const deck=
-  document.getElementById("deck");
-
-const counter=
-  document.getElementById("counter");
-
-const xrayScreen=
-  document.getElementById("xrayScreen");
-
-const noCavities=
-  document.getElementById("noCavities");
-
-const examStatus=
-  document.getElementById("examStatus");
+const welcome=document.getElementById("welcome");
+const deck=document.getElementById("deck");
+const counter=document.getElementById("counter");
 
 
-/* =========================================
+/* =========================================================
    START
-========================================= */
+========================================================= */
 
-document
-  .getElementById("startButton")
-  .onclick=()=>{
+document.getElementById("startButton").onclick=()=>{
 
-    welcome.classList.add("hide");
+ welcome.classList.add("hide");
 
-    setTimeout(()=>{
-
-      welcome.style.display="none";
-
-    },350);
-
-  };
-
-
-/* =========================================
-   RENDER
-========================================= */
-
-function renderCards(){
-
-  deck.innerHTML="";
-
-  for(let p=2;p>=0;p--){
-
-    const index=
-      currentIndex+p;
-
-    if(index>=men.length)
-      continue;
-
-    const person=
-      men[index];
-
-    const card=
-      document.createElement("div");
-
-    card.className="card";
-
-    card.style.zIndex=
-      100-p;
-
-    card.innerHTML=`
-
-      <img
-        src="${person.image}"
-        alt="${person.name}"
-      >
-
-      <div class="card-info">
-
-        <div>
-
-          <span class="card-name">
-            ${person.name}
-          </span>
-
-          <span class="card-age">
-            ${person.age}
-          </span>
-
-        </div>
-
-        <div class="card-job">
-          ${person.job}
-        </div>
-
-        <div class="card-bio">
-          ${person.bio}
-        </div>
-
-        <div class="tags">
-
-          <span class="tag">
-            ${person.city}
-          </span>
-
-          <span class="tag">
-            Travel
-          </span>
-
-          <span class="tag">
-            Movies
-          </span>
-
-          <span class="tag">
-            Food
-          </span>
-
-        </div>
-
-      </div>
-
-    `;
-
-    if(p===0){
-
-      enableSwipe(card);
-
-    }
-
-    deck.appendChild(card);
-
-  }
-
-  counter.textContent=
-    `${currentIndex+1} / 500`;
-
-}
-
-
-/* =========================================
-   SWIPE
-========================================= */
-
-function enableSwipe(card){
-
-  let startX=0;
-  let deltaX=0;
-
-  card.addEventListener(
-    "touchstart",
-    e=>{
-
-      startX=
-        e.touches[0].clientX;
-
-    },
-    {passive:true}
-  );
-
-  card.addEventListener(
-    "touchmove",
-    e=>{
-
-      deltaX=
-        e.touches[0].clientX-startX;
-
-      card.style.transform=
-        `translateX(${deltaX}px)
-         rotate(${deltaX/18}deg)`;
-
-    },
-    {passive:true}
-  );
-
-  card.addEventListener(
-    "touchend",
-    ()=>{
-
-      if(Math.abs(deltaX)>100){
-
-        finishSwipe(
-          deltaX>0
-          ?"silly"
-          :"stinky"
-        );
-
-      }else{
-
-        card.style.transform="";
-
-      }
-
-    }
-  );
-
-}
-
-
-/* =========================================
-   FINISH SWIPE
-========================================= */
-
-function finishSwipe(type){
-
-  const card=
-    deck.querySelector(".card");
-
-  if(!card)
-    return;
-
-  const person=
-    men[currentIndex];
-
-  card.style.transition=".35s ease";
-
-  card.style.transform=
-    type==="silly"
-      ? "translateX(1100px) rotate(25deg)"
-      : "translateX(-1100px) rotate(-25deg)";
-
-  card.style.opacity="0";
-
-
-  if(type==="silly"){
-
-    liked.push(person);
-
-    currentMatch=
-      person;
-
-    showSilly();
-
-
-    setTimeout(()=>{
-
-      document
-        .getElementById("matchPersonPhoto")
-        .src=person.image;
-
-      document
-        .getElementById("matchPersonName")
-        .textContent=
-          `${person.name}, ${person.age}`;
-
-      document
-        .getElementById("matchScreen")
-        .classList.add("show");
-
-    },800);
-
-  }
-
-
-  setTimeout(()=>{
-
-    currentIndex++;
-
-    if(currentIndex>=500)
-      currentIndex=0;
-
-    renderCards();
-
-  },350);
-
-}
-
-
-/* =========================================
-   BUTTONS
-========================================= */
-
-document
-  .getElementById("sillyButton")
-  .onclick=()=>{
-    finishSwipe("silly");
-  };
-
-
-document
-  .getElementById("stinkyButton")
-  .onclick=()=>{
-    finishSwipe("stinky");
-  };
-
-
-/* =========================================
-   SILLY ANIMATION
-========================================= */
-
-function showSilly(){
-
-  const screen=
-    document.getElementById("sillyMode");
-
-  screen.classList.remove("active");
-
-  void screen.offsetWidth;
-
-  screen.classList.add("active");
-
-}
-
-
-/* =========================================
-   XRAY
-========================================= */
-
-document
-  .getElementById("discoverButton")
-  .onclick=()=>{
-
-    xrayScreen.classList.add("open");
-
-    noCavities.classList.remove("show");
-
-    examStatus.textContent=
-      "ANALYZING DENTAL STRUCTURE...";
-
-
-    setTimeout(()=>{
-
-      examStatus.textContent=
-        "SCANNING UPPER DENTITION...";
-
-    },1600);
-
-
-    setTimeout(()=>{
-
-      examStatus.textContent=
-        "EXAMINING LOWER DENTITION...";
-
-    },3200);
-
-
-    setTimeout(()=>{
-
-      examStatus.textContent=
-        "ANALYSIS COMPLETE";
-
-      noCavities.classList.add("show");
-
-    },5000);
-
-  };
-
-
-document
-  .getElementById("xrayClose")
-  .onclick=()=>{
-
-    xrayScreen.classList.remove("open");
-
-    noCavities.classList.remove("show");
-
-  };
-
-
-/* =========================================
-   PROFILE
-========================================= */
-
-const profileSheet=
-  document.getElementById("profileSheet");
-
-
-document
-  .getElementById("headerProfile")
-  .onclick=()=>{
-
-    profileSheet.classList.add("open");
-
-  };
-
-
-document
-  .getElementById("profileButton")
-  .onclick=()=>{
-
-    profileSheet.classList.add("open");
-
-  };
-
-
-document
-  .getElementById("closeProfile")
-  .onclick=()=>{
-
-    profileSheet.classList.remove("open");
-
-  };
-
-
-/* =========================================
-   LIKES
-========================================= */
-
-document
-  .getElementById("likesButton")
-  .onclick=()=>{
-
-    if(!liked.length){
-
-      alert(
-        "No SILLY matches yet! 🤪"
-      );
-
-      return;
-
-    }
-
-    alert(
-      `You have ${liked.length} SILLY match${liked.length===1?"":"es"}! 🤪`
-    );
-
-  };
-
-
-/* =========================================
-   MATCH CLOSE
-========================================= */
-
-document
-  .getElementById("closeMatchButton")
-  .onclick=()=>{
-
-    document
-      .getElementById("matchScreen")
-      .classList.remove("show");
-
-  };
-
-
-/* =========================================
-   OPEN CHAT
-========================================= */
-
-document
-  .getElementById("openChatButton")
-  .onclick=()=>{
-
-    if(!currentMatch)
-      return;
-
-    document
-      .getElementById("matchScreen")
-      .classList.remove("show");
-
-    openRealChat();
-
-  };
-
-
-/* =========================================
-   PERSONALITY SYSTEM
-========================================= */
-
-const personalities={
-
-  actor:{
-    openings:[
-      "Okay 😂 I have to admit, getting a SILLY from a dental hygienist was not on my bingo card.",
-      "Well, apparently my personality survived the dental inspection 😂.",
-      "I feel like being classified as SILLY is either a compliment or a warning."
-    ],
-
-    responses:[
-      "I like that answer 😂.",
-      "Okay, you're actually pretty funny.",
-      "That's exactly the kind of answer I was hoping for.",
-      "Now I'm curious about you."
-    ]
-
-  },
-
-  creative:{
-    openings:[
-      "Okay, I'm intrigued. What made you choose SILLY instead of STINKY? 😂",
-      "I respect the SILLY vote. Very important decision.",
-      "So apparently we both have questionable judgment. This could be fun."
-    ],
-
-    responses:[
-      "I think we're going to get along.",
-      "Okay, that actually made me laugh.",
-      "You've definitely got my attention.",
-      "I like your energy."
-    ]
-
-  },
-
-  business:{
-    openings:[
-      "I think we've officially made a very important business decision here 😂.",
-      "I'll consider that SILLY as a strong first-round approval.",
-      "Apparently my dating strategy is working. Step one: get classified as SILLY."
-    ],
-
-    responses:[
-      "That's a surprisingly good answer.",
-      "Okay, I'm impressed.",
-      "I like someone who knows what they want.",
-      "Now you've got me curious."
-    ]
-
-  },
-
-  romantic:{
-    openings:[
-      "I'm going to take SILLY as a very good sign. 😏",
-      "Okay, I'll admit that match notification made me smile.",
-      "I have a feeling this conversation might be worth staying up for."
-    ],
-
-    responses:[
-      "I really like that.",
-      "Okay, that's cute.",
-      "You might be trouble. The good kind.",
-      "Now I definitely want to hear more."
-    ]
-
-  }
+ setTimeout(()=>{
+  welcome.style.display="none";
+ },350);
 
 };
 
 
-/* =========================================
-   GET PERSONALITY
-========================================= */
+/* =========================================================
+   CARD
+========================================================= */
 
-function getPersonality(person){
+function renderCard(){
 
-  const types=
-    Object.keys(personalities);
+ deck.innerHTML="";
 
-  return types[
-    person.id%types.length
+ const card=document.createElement("div");
+
+ card.className="card";
+
+ card.innerHTML=`
+
+  <img src="${person.image}" alt="Breumble profile">
+
+  <div class="card-info">
+
+   <div>
+    <span class="card-name">${person.name}</span>
+    <span class="card-age">${person.age}</span>
+   </div>
+
+   <div class="card-job">${person.job}</div>
+
+   <div class="card-bio">${person.bio}</div>
+
+   <div class="tags">
+
+    <span class="tag">🤢 SUPA STINKY</span>
+    <span class="tag">🦷 Needs Appointment</span>
+    <span class="tag">☕ Coffee Breath</span>
+
+   </div>
+
+  </div>
+ `;
+
+ enableSwipe(card);
+
+ deck.appendChild(card);
+
+ counter.textContent=alreadySwiped ? "DONE" : "1 / 1";
+
+}
+
+
+/* =========================================================
+   TOUCH SWIPE
+========================================================= */
+
+function enableSwipe(card){
+
+ let startX=0;
+ let deltaX=0;
+
+ card.addEventListener("touchstart",e=>{
+  startX=e.touches[0].clientX;
+ },{passive:true});
+
+ card.addEventListener("touchmove",e=>{
+
+  deltaX=e.touches[0].clientX-startX;
+
+  card.style.transform=
+   `translateX(${deltaX}px) rotate(${deltaX/18}deg)`;
+
+ },{passive:true});
+
+ card.addEventListener("touchend",()=>{
+
+  if(Math.abs(deltaX)>100){
+
+   finishSwipe(deltaX>0 ? "silly" : "stinky");
+
+  }else{
+
+   card.style.transform="";
+
+  }
+
+ });
+
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+document.getElementById("sillyButton").onclick=()=>{
+ finishSwipe("silly");
+};
+
+document.getElementById("stinkyButton").onclick=()=>{
+ finishSwipe("stinky");
+};
+
+document.getElementById("supaButton").onclick=()=>{
+ finishSwipe("supa");
+};
+
+
+/* =========================================================
+   SWIPE ACTION
+========================================================= */
+
+function finishSwipe(type){
+
+ if(alreadySwiped)return;
+
+ alreadySwiped=true;
+
+ const card=deck.querySelector(".card");
+
+ if(card){
+
+  card.style.transition=".45s ease";
+
+  if(type==="silly"){
+
+   card.style.transform=
+    "translateX(1100px) rotate(25deg)";
+
+  }else{
+
+   card.style.transform=
+    "translateX(-1100px) rotate(-25deg)";
+
+  }
+
+  card.style.opacity="0";
+
+ }
+
+
+ if(type==="silly"){
+
+  showFlash("sillyMode");
+
+  currentMatch=person;
+
+  setTimeout(()=>{
+
+   document.getElementById("matchPersonPhoto").src=
+    person.image;
+
+   document.getElementById("matchPersonName").textContent=
+    `${person.name}, ${person.age}`;
+
+   document.getElementById("matchScreen").classList.add("show");
+
+  },850);
+
+ }
+
+
+ if(type==="stinky"){
+
+  showFlash("stinkyMode");
+
+ }
+
+
+ if(type==="supa"){
+
+  showFlash("supaMode");
+
+ }
+
+
+ setTimeout(()=>{
+  counter.textContent="DONE";
+ },500);
+
+}
+
+
+/* =========================================================
+   FLASH
+========================================================= */
+
+function showFlash(id){
+
+ const el=document.getElementById(id);
+
+ el.classList.remove("active");
+
+ void el.offsetWidth;
+
+ el.classList.add("active");
+
+}
+
+
+/* =========================================================
+   PROFILE
+========================================================= */
+
+const profileSheet=
+ document.getElementById("profileSheet");
+
+document.getElementById("headerProfile").onclick=()=>{
+ profileSheet.classList.add("open");
+};
+
+document.getElementById("profileButton").onclick=()=>{
+ profileSheet.classList.add("open");
+};
+
+document.getElementById("closeProfile").onclick=()=>{
+ profileSheet.classList.remove("open");
+};
+
+
+/* =========================================================
+   MATCH
+========================================================= */
+
+document.getElementById("closeMatchButton").onclick=()=>{
+
+ document.getElementById("matchScreen")
+  .classList.remove("show");
+
+};
+
+
+/* =========================================================
+   REALISTIC SIMULATED AI CHAT
+========================================================= */
+
+document.getElementById("openChatButton").onclick=()=>{
+
+ document.getElementById("matchScreen")
+  .classList.remove("show");
+
+ openChat();
+
+};
+
+
+function openChat(){
+
+ if(chatOpen)return;
+
+ chatOpen=true;
+
+ const chat=document.createElement("div");
+
+ chat.id="chatScreen";
+
+ chat.innerHTML=`
+
+  <div class="chat-header">
+
+   <button class="chat-back" id="chatBack">‹</button>
+
+   <img class="chat-avatar"
+        src="${person.image}"
+        alt="Match">
+
+   <div class="chat-person">
+
+    <strong>${person.name}</strong>
+
+    <div class="chat-status" id="chatStatus">
+     ● Active now
+    </div>
+
+   </div>
+
+   <button class="chat-more">⋯</button>
+
+  </div>
+
+
+  <div class="chat-messages" id="chatMessages">
+
+   <div class="chat-day">TODAY</div>
+
+  </div>
+
+
+  <div class="typing-row" id="typingRow">
+
+   <div class="typing">
+    <i></i><i></i><i></i>
+   </div>
+
+  </div>
+
+
+  <div class="chat-suggestions">
+
+   <button class="chat-suggestion">
+    Be honest... do you floss?
+   </button>
+
+   <button class="chat-suggestion">
+    What's your ideal first date?
+   </button>
+
+   <button class="chat-suggestion">
+    Tell me something funny.
+   </button>
+
+   <button class="chat-suggestion">
+    Why are you so stinky?
+   </button>
+
+  </div>
+
+
+  <div class="chat-input-area">
+
+   <input
+    class="chat-input"
+    id="chatInput"
+    autocomplete="off"
+    placeholder="Message ${person.name}..."
+   >
+
+   <button class="chat-send" id="chatSend">
+    ➤
+   </button>
+
+  </div>
+ `;
+
+ document.body.appendChild(chat);
+
+
+ const messages=
+  document.getElementById("chatMessages");
+
+ const typing=
+  document.getElementById("typingRow");
+
+ const status=
+  document.getElementById("chatStatus");
+
+ const input=
+  document.getElementById("chatInput");
+
+
+ /* BACK */
+
+ document.getElementById("chatBack").onclick=()=>{
+
+  chat.remove();
+  chatOpen=false;
+
+ };
+
+
+ /* MESSAGE */
+
+ function addMessage(text,who){
+
+  const row=document.createElement("div");
+
+  row.className=
+   "message-row"+
+   (who==="mine"?" mine":"");
+
+
+  const bubble=document.createElement("div");
+
+  bubble.className=
+   "message "+
+   (who==="mine"?"mine":"them");
+
+
+  bubble.innerHTML=
+   escapeHTML(text)+
+   `<span class="message-time">
+    ${new Date().toLocaleTimeString([],{
+     hour:"numeric",
+     minute:"2-digit"
+    })}
+   </span>`;
+
+
+  row.appendChild(bubble);
+
+  messages.appendChild(row);
+
+  messages.scrollTop=messages.scrollHeight;
+
+ }
+
+
+ /* TYPING */
+
+ function showTyping(){
+
+  typing.classList.add("show");
+  status.textContent="● Typing...";
+
+  messages.scrollTop=messages.scrollHeight;
+
+ }
+
+
+ function hideTyping(){
+
+  typing.classList.remove("show");
+  status.textContent="● Active now";
+
+ }
+
+
+ /* OPENING */
+
+ setTimeout(()=>{
+
+  showTyping();
+
+  setTimeout(()=>{
+
+   hideTyping();
+
+   addMessage(
+    "Okay, I'm going to assume SILLY means you didn't completely reject me 😂. I should probably introduce myself before you ask me to schedule a dental appointment.",
+    "them"
+   );
+
+  },1100);
+
+ },450);
+
+
+ /* =====================================================
+    SMART SIMULATED RESPONSE ENGINE
+ ===================================================== */
+
+ function generateReply(text){
+
+  const t=text.toLowerCase().trim();
+
+  /* greetings */
+
+  if(
+   /\b(hi|hey|hello|hiya|heyy|heyyy)\b/.test(t)
+  ){
+
+   const replies=[
+    "Hey you 😏 I was wondering when you were going to say something.",
+    "Hey 😂 I promise I'm much more charming once you get past the questionable breath situation.",
+    "Hi! Okay, important question: are you always this cute or is the app just being generous?"
+   ];
+
+   return random(replies);
+  }
+
+
+  /* laughing */
+
+  if(
+   /\b(lol|haha|hahaha|lmao|😂|🤣)\b/.test(t)
+  ){
+
+   const replies=[
+    "Okay good, you're laughing. That's basically a five-star review for my personality 😂.",
+    "See? We're already getting somewhere. I haven't even mentioned my dental history yet.",
+    "I knew I could make you laugh. Now I'm slightly concerned you've encouraged me."
+   ];
+
+   return random(replies);
+  }
+
+
+  /* dental */
+
+  if(
+   /\b(dental|dentist|teeth|tooth|floss|cavity|breath|hygien|cleaning)\b/.test(t)
+  ){
+
+   const replies=[
+    "I feel like I should be nervous telling a dental receptionist about my hygiene habits 😂.",
+    "Okay, before you judge me, I HAVE been meaning to make that appointment.",
+    "You're a dental receptionist? That explains why I suddenly feel like I'm being evaluated 😂.",
+    "Listen... I know what you're thinking. Yes, I probably do need an appointment."
+   ];
+
+   return random(replies);
+  }
+
+
+  /* date */
+
+  if(
+   /\b(date|coffee|dinner|drink|meet|hang|hangout|restaurant)\b/.test(t)
+  ){
+
+   const replies=[
+    "I'm definitely not opposed to that. Coffee is probably safer than dinner because I need time to prepare emotionally 😂.",
+    "Honestly? I'd take you somewhere we can actually talk. Coffee, drinks, maybe dinner if I survive the first hour.",
+    "Are you casually suggesting a date right now? Because I'm absolutely going to pretend I didn't notice how smooth that was 😏."
+   ];
+
+   return random(replies);
+  }
+
+
+  /* compliments */
+
+  if(
+   /\b(cute|handsome|hot|good looking|attractive|sexy|beautiful)\b/.test(t)
+  ){
+
+   const replies=[
+    "Careful. Compliments like that are exactly how you end up responsible for my confidence.",
+    "Well now I'm smiling at my phone like an idiot 😂.",
+    "Okay... I was not prepared for you to be this nice to me."
+   ];
+
+   return random(replies);
+  }
+
+
+  /* work */
+
+  if(
+   /\b(work|job|office|career|busy|shift)\b/.test(t)
+  ){
+
+   return "So tell me about your day. And be honest — does working around dentists make you automatically judge everyone's teeth? 😂";
+  }
+
+
+  /* question about him */
+
+  if(
+   /\b(you|your|about you|tell me)\b/.test(t) &&
+   t.length<70
+  ){
+
+   const replies=[
+    "I'm pretty easygoing, slightly sarcastic, and apparently in desperate need of a dental appointment 😂. What about you?",
+    "I'm the kind of guy who can turn a quick coffee into a three-hour conversation. Probably because I talk too much.",
+    "Honestly? I'm happiest when I'm laughing, eating somewhere good, and around people I actually like."
+   ];
+
+   return random(replies);
+  }
+
+
+  /* short replies */
+
+  if(t.length<12){
+
+   const replies=[
+    "That's a very mysterious answer 😂. You're going to make me work for this, aren't you?",
+    "Okay, I need a little more than that 😏.",
+    "You're keeping me guessing. I kinda like it.",
+    "Interesting... I'm listening 👀."
+   ];
+
+   return random(replies);
+  }
+
+
+  /* question */
+
+  if(t.includes("?")){
+
+   const replies=[
+    "That's actually a really good question. I'd say I'm happiest when I'm around someone who can make me laugh. What about you?",
+    "Hmm... I like that question. My answer might surprise you 😂. What's yours?",
+    "You ask good questions. I feel like I'm going to have to keep up now."
+   ];
+
+   return random(replies);
+  }
+
+
+  /* generic conversational replies */
+
+  const replies=[
+
+   "Okay, I actually like that answer. You seem like someone I'd have a really easy time talking to.",
+
+   "See, this is exactly why I said I wanted someone who could hold a conversation 😂.",
+
+   "I wasn't expecting this conversation to get interesting this quickly.",
+
+   "You're making it very difficult for me to pretend I'm playing it cool right now.",
+
+   "I like your vibe. There's something about the way you talk that makes me want to know more.",
+
+   "Okay, now I'm curious. What's something about you that I wouldn't guess from your profile?",
+
+   "I feel like there's a story behind that. And yes, I'm absolutely asking you to tell me 😂.",
+
+   "You're definitely more interesting than the average dating-app conversation. I'll give you that.",
+
+   "I could get used to talking to you. Just don't tell my dental receptionist I said that."
   ];
 
-}
+  return random(replies);
 
+ }
 
-/* =========================================
-   TIME
-========================================= */
 
-function currentTime(){
+ function random(arr){
 
-  return new Date().toLocaleTimeString(
-    [],
-    {
-      hour:"numeric",
-      minute:"2-digit"
-    }
-  );
+  return arr[
+   Math.floor(Math.random()*arr.length)
+  ];
 
-}
+ }
 
 
-/* =========================================
-   CHAT
-========================================= */
+ /* =====================================================
+    SEND
+ ===================================================== */
 
-function openRealChat(){
+ function sendMessage(){
 
-  const person=
-    currentMatch;
+  const text=input.value.trim();
 
-  if(!person)
-    return;
+  if(!text)return;
 
+  addMessage(text,"mine");
 
-  const old=
-    document.getElementById(
-      "temporaryChat"
-    );
+  input.value="";
 
-  if(old)
-    old.remove();
+  conversation.push({
+   who:"Breanna",
+   text:text
+  });
 
 
-  const chat=
-    document.createElement("div");
+  showTyping();
 
-  chat.id=
-    "temporaryChat";
 
+  /*
+    Natural delay based on message length.
+    This makes the simulated conversation feel less robotic.
+  */
 
-  chat.innerHTML=`
-
-    <div class="chat-header">
-
-      <button
-        class="chat-back"
-        id="chatBack"
-      >
-        ‹
-      </button>
-
-
-      <img
-        class="chat-avatar"
-        src="${person.image}"
-        alt="${person.name}"
-      >
-
-
-      <div class="chat-person">
-
-        <strong>
-          ${person.name}
-        </strong>
-
-        <div
-          class="chat-status"
-          id="chatStatus"
-        >
-          ● Active now
-        </div>
-
-      </div>
-
-
-      <button class="chat-more">
-        ⋯
-      </button>
-
-    </div>
-
-
-    <div
-      class="chat-messages"
-      id="chatMessages"
-    >
-
-      <div class="chat-day">
-        TODAY
-      </div>
-
-    </div>
-
-
-    <div
-      class="typing-row"
-      id="typingRow"
-    >
-
-      <div class="typing">
-
-        <i></i>
-        <i></i>
-        <i></i>
-
-      </div>
-
-    </div>
-
-
-    <div
-      class="chat-suggestions"
-      id="chatSuggestions"
-    >
-
-      <button class="chat-suggestion">
-        What's your ideal first date?
-      </button>
-
-      <button class="chat-suggestion">
-        Be honest... do you floss?
-      </button>
-
-      <button class="chat-suggestion">
-        Tell me something funny.
-      </button>
-
-      <button class="chat-suggestion">
-        What's your go-to drink?
-      </button>
-
-    </div>
-
-
-    <div class="chat-input-area">
-
-      <input
-        class="chat-input"
-        id="chatInput"
-        autocomplete="off"
-        placeholder="Message ${person.name}..."
-      >
-
-      <button
-        class="chat-send"
-        id="chatSend"
-      >
-        ➤
-      </button>
-
-    </div>
-
-  `;
-
-
-  document.body.appendChild(chat);
-
-
-  const messages=
-    document.getElementById(
-      "chatMessages"
-    );
-
-  const typing=
-    document.getElementById(
-      "typingRow"
-    );
-
-  const input=
-    document.getElementById(
-      "chatInput"
-    );
-
-  const status=
-    document.getElementById(
-      "chatStatus"
-    );
-
-
-  /* BACK */
-
-  document
-    .getElementById("chatBack")
-    .onclick=()=>{
-
-      chat.remove();
-
-    };
-
-
-  /* MESSAGE HELPERS */
-
-  function addMessage(
-    text,
-    who="them"
-  ){
-
-    const row=
-      document.createElement("div");
-
-    row.className=
-      "message-row"+
-      (who==="mine"?" mine":"");
-
-
-    const bubble=
-      document.createElement("div");
-
-    bubble.className=
-      "message "+
-      (who==="mine"?"mine":"them");
-
-
-    bubble.innerHTML=
-      escapeHTML(text)+
-      `<span class="message-time">
-        ${currentTime()}
-      </span>`;
-
-
-    row.appendChild(bubble);
-
-    messages.appendChild(row);
-
-    messages.scrollTop=
-      messages.scrollHeight;
-
-
-    if(who==="mine"){
-
-      const receipt=
-        document.createElement("div");
-
-      receipt.className=
-        "read-receipt";
-
-      receipt.textContent=
-        "Read";
-
-      row.appendChild(receipt);
-
-    }
-
-  }
-
-
-  /* TYPING */
-
-  function showTyping(){
-
-    typing.classList.add("show");
-
-    messages.scrollTop=
-      messages.scrollHeight;
-
-  }
-
-
-  function hideTyping(){
-
-    typing.classList.remove("show");
-
-  }
-
-
-  /* REALISTIC RESPONSE */
-
-  function sendGuyMessage(
-    text,
-    delay=1100
-  ){
-
-    showTyping();
-
-    status.textContent=
-      "● Typing...";
-
-
-    setTimeout(()=>{
-
-      hideTyping();
-
-      status.textContent=
-        "● Active now";
-
-      addMessage(
-        text,
-        "them"
-      );
-
-    },delay);
-
-  }
-
-
-  /* OPENING */
-
-  const personality=
-    getPersonality(person);
-
-  const personalityData=
-    personalities[personality];
-
-  const opening=
-    personalityData.openings[
-      person.id%
-      personalityData.openings.length
-    ];
-
-
-  setTimeout(()=>{
-
-    sendGuyMessage(
-      opening,
-      1200
-    );
-
-  },500);
-
-
-  /* SEND */
-
-  function sendMessage(){
-
-    const text=
-      input.value.trim();
-
-    if(!text)
-      return;
-
-
-    addMessage(
-      text,
-      "mine"
-    );
-
-    input.value="";
-
-
-    generateResponse(
-      text,
-      person
-    );
-
-  }
-
-
-  /* =========================================
-     CONTEXTUAL RESPONSE ENGINE
-  ========================================= */
-
-  function generateResponse(
-    text,
-    person
-  ){
-
-    const lower=
-      text.toLowerCase();
-
-
-    let response;
-
-
-    /* NAME */
-
-    if(
-      lower.includes("name") ||
-      lower.includes("call you")
-    ){
-
-      response=
-        `I'm ${person.name}, although I'm starting to think you already know that 😂. What should I know about you?`;
-
-    }
-
-
-    /* DENTIST */
-
-    else if(
-      lower.includes("dent") ||
-      lower.includes("hygien") ||
-      lower.includes("teeth") ||
-      lower.includes("tooth")
-    ){
-
-      const dentalReplies=[
-
-        "Okay, I knew dating a dental hygienist came with risks 😂.",
-
-        "So are you secretly judging my teeth right now? Be honest.",
-
-        "I feel like I should schedule a cleaning before our first date just to be safe 😂.",
-
-        "Alright, serious question... how bad is it if someone doesn't floss every day?",
-
-        "You have officially made me self-conscious about my smile 😂."
-
-      ];
-
-      response=
-        dentalReplies[
-          person.id%
-          dentalReplies.length
-        ];
-
-    }
-
-
-    /* FLOSS */
-
-    else if(
-      lower.includes("floss")
-    ){
-
-      const flossReplies=[
-
-        "Okay okay, I floss. I swear 😂.",
-
-        "I knew this question was coming eventually.",
-
-        "Fine. You've caught me. I could probably be better about it.",
-
-        "Is this the part where I have to prove it? 😂"
-
-      ];
-
-      response=
-        flossReplies[
-          person.id%
-          flossReplies.length
-        ];
-
-    }
-
-
-    /* DATE */
-
-    else if(
-      lower.includes("date") ||
-      lower.includes("dinner") ||
-      lower.includes("drink")
-    ){
-
-      const dateReplies=[
-
-        "I'm thinking somewhere relaxed where we can actually talk. Then drinks if we're having too much fun to leave.",
-
-        "Good food, good drinks and somewhere we don't have to yell over the music.",
-
-        "Honestly? Dinner somewhere great, then a walk somewhere interesting.",
-
-        "I'm a fan of a low-pressure first date. Great food and even better conversation."
-
-      ];
-
-      response=
-        dateReplies[
-          person.id%
-          dateReplies.length
-        ];
-
-    }
-
-
-    /* TRAVEL */
-
-    else if(
-      lower.includes("travel") ||
-      lower.includes("trip") ||
-      lower.includes("vacation")
-    ){
-
-      response=
-        "Definitely travel. Give me a free weekend and I'm already looking at flights 😂. What's somewhere you've always wanted to go?";
-
-    }
-
-
-    /* MOVIES */
-
-    else if(
-      lower.includes("movie") ||
-      lower.includes("film") ||
-      lower.includes("netflix")
-    ){
-
-      response=
-        "Okay, now we're talking. I'm a huge movie person. What's your comfort movie?";
-
-    }
-
-
-    /* FUNNY */
-
-    else if(
-      lower.includes("funny") ||
-      lower.includes("joke") ||
-      lower.includes("laugh")
-    ){
-
-      response=
-        "My best jokes are significantly funnier after two drinks, so you'll have to earn the premium content 😂.";
-
-    }
-
-
-    /* QUESTION */
-
-    else if(
-      text.includes("?")
-    ){
-
-      response=
-        `That's a good question. I'd probably say ${person.bio.toLowerCase()} What about you?`;
-
-    }
-
-
-    /* SHORT */
-
-    else if(
-      text.length<8
-    ){
-
-      const shortReplies=[
-
-        "Haha, I like that 😂.",
-
-        "Okay, I'm listening.",
-
-        "You're making me curious.",
-
-        "Tell me more.",
-
-        "I need more information than that 😂."
-
-      ];
-
-      response=
-        shortReplies[
-          person.id%
-          shortReplies.length
-        ];
-
-    }
-
-
-    /* DEFAULT */
-
-    else{
-
-      const data=
-        personalities[
-          getPersonality(person)
-        ];
-
-      response=
-        data.responses[
-          Math.floor(
-            Math.random()*
-            data.responses.length
-          )
-        ]+
-        " What about you?";
-
-    }
-
-
-    sendGuyMessage(
-      response,
-      900+
-      Math.floor(
-        Math.random()*1300
-      )
-    );
-
-  }
-
-
-  /* QUICK REPLIES */
-
-  document
-    .querySelectorAll(
-      ".chat-suggestion"
+  const delay=
+   Math.min(
+    2800,
+    Math.max(
+     900,
+     650+text.length*24
     )
-    .forEach(button=>{
-
-      button.onclick=()=>{
-
-        input.value=
-          button.textContent;
-
-        sendMessage();
-
-      };
-
-    });
-
-
-  /* SEND BUTTON */
-
-  document
-    .getElementById("chatSend")
-    .onclick=
-      sendMessage;
-
-
-  /* ENTER */
-
-  input.addEventListener(
-    "keydown",
-    e=>{
-
-      if(e.key==="Enter"){
-
-        e.preventDefault();
-
-        sendMessage();
-
-      }
-
-    }
-  );
+   );
 
 
   setTimeout(()=>{
 
-    input.focus();
+   hideTyping();
 
-  },700);
+   const reply=
+    generateReply(text);
+
+   conversation.push({
+    who:person.name,
+    text:reply
+   });
+
+   addMessage(reply,"them");
+
+  },delay);
+
+ }
+
+
+ document.getElementById("chatSend").onclick=
+  sendMessage;
+
+
+ input.addEventListener("keydown",e=>{
+
+  if(e.key==="Enter"){
+
+   e.preventDefault();
+
+   sendMessage();
+
+  }
+
+ });
+
+
+ /* QUICK REPLIES */
+
+ document
+  .querySelectorAll(".chat-suggestion")
+  .forEach(button=>{
+
+   button.onclick=()=>{
+
+    input.value=button.textContent;
+
+    sendMessage();
+
+   };
+
+  });
+
+
+ setTimeout(()=>{
+  input.focus();
+ },700);
 
 }
 
 
-/* =========================================
-   ESCAPE
-========================================= */
+/* =========================================================
+   DISCOVER / XRAY
+========================================================= */
+
+const xrayScreen=
+ document.getElementById("xrayScreen");
+
+document.getElementById("discoverButton").onclick=()=>{
+
+ xrayScreen.classList.add("show");
+
+ const title=
+  document.getElementById("xrayTitle");
+
+ const status=
+  document.getElementById("xrayStatus");
+
+ title.textContent="DENTAL DISCOVERY";
+ status.textContent="Dental mirror scanning...";
+
+ setTimeout(()=>{
+  status.textContent="Checking upper teeth...";
+ },1000);
+
+ setTimeout(()=>{
+  status.textContent="Checking lower teeth...";
+ },2000);
+
+ setTimeout(()=>{
+  title.textContent="NO CAVITIES HERE";
+  status.textContent=
+   "Dental inspection complete. 🦷✨";
+ },3200);
+
+};
+
+document.getElementById("xrayClose").onclick=()=>{
+ xrayScreen.classList.remove("show");
+};
+
+
+/* =========================================================
+   LIKES
+========================================================= */
+
+document.getElementById("likesButton").onclick=()=>{
+
+ if(currentMatch){
+
+  alert(
+   "🤪 SILLY MATCH\n\n"+
+   currentMatch.name+
+   "\n\nYour smile passed inspection. 🦷"
+  );
+
+ }else{
+
+  alert("No SILLY matches yet! 🤪");
+
+ }
+
+};
+
+
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
 
 function escapeHTML(text){
 
-  const div=
-    document.createElement("div");
+ const div=document.createElement("div");
 
-  div.textContent=
-    text;
+ div.textContent=text;
 
-  return div.innerHTML;
+ return div.innerHTML;
 
 }
 
 
-/* =========================================
-   START APP
-========================================= */
+/* =========================================================
+   INITIALIZE
+========================================================= */
 
-renderCards();
+renderCard();
 
 </script>
 
