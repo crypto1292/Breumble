@@ -45,9 +45,7 @@ button{
     radial-gradient(circle at 50% -20%,#4b350d,#171107 30%,#080808 70%);
 }
 
-/* =========================
-   WELCOME
-========================= */
+/* WELCOME */
 
 #welcome{
   position:fixed;
@@ -129,9 +127,7 @@ button{
   transform:scale(.94);
 }
 
-/* =========================
-   HEADER
-========================= */
+/* HEADER */
 
 .header{
   height:68px;
@@ -173,9 +169,7 @@ button{
   font-size:18px;
 }
 
-/* =========================
-   MAIN
-========================= */
+/* MAIN */
 
 .main{
   position:relative;
@@ -335,9 +329,7 @@ button{
   pointer-events:none;
 }
 
-/* =========================
-   DECISION AREA
-========================= */
+/* ACTIONS */
 
 .actions{
   position:relative;
@@ -349,12 +341,7 @@ button{
   justify-content:center;
   gap:8px;
   padding:6px 12px 8px;
-  background:
-    linear-gradient(
-      to bottom,
-      #08080800,
-      #080808 18%
-    );
+  background:linear-gradient(to bottom,#08080800,#080808 18%);
 }
 
 .vibe-label{
@@ -384,9 +371,7 @@ button{
   gap:9px;
   font-size:17px;
   font-weight:1000;
-  transition:
-    transform .12s ease,
-    box-shadow .12s ease;
+  transition:transform .12s ease,box-shadow .12s ease;
 }
 
 .action:active{
@@ -401,35 +386,17 @@ button{
   background:#f4c542;
   color:#111;
   border:3px solid #ffe995;
-  box-shadow:
-    0 6px 0 #a47c09,
-    0 10px 28px #000;
+  box-shadow:0 6px 0 #a47c09,0 10px 28px #000;
 }
 
 .stinky{
   background:#252525;
   color:#fff;
   border:3px solid #888;
-  box-shadow:
-    0 6px 0 #111,
-    0 10px 28px #000;
+  box-shadow:0 6px 0 #111,0 10px 28px #000;
 }
 
-.silly:hover{
-  box-shadow:
-    0 6px 0 #a47c09,
-    0 13px 35px #f4c54244;
-}
-
-.stinky:hover{
-  box-shadow:
-    0 6px 0 #111,
-    0 13px 35px #ffffff20;
-}
-
-/* =========================
-   NAV
-========================= */
+/* NAV */
 
 .nav{
   height:65px;
@@ -459,9 +426,7 @@ button{
   font-size:20px;
 }
 
-/* =========================
-   SILLY MODE
-========================= */
+/* SILLY MODE */
 
 #sillyMode{
   position:fixed;
@@ -485,8 +450,6 @@ button{
 
 .sillyBurst{
   font-size:82px;
-  line-height:1;
-  animation:sillyEmoji .9s cubic-bezier(.2,.8,.2,1);
 }
 
 .sillyText{
@@ -507,44 +470,13 @@ button{
 }
 
 @keyframes sillyFlash{
-  0%{
-    opacity:0;
-    visibility:visible;
-    transform:scale(1.3);
-  }
-  12%{
-    opacity:1;
-    transform:scale(1);
-  }
-  65%{
-    opacity:1;
-    transform:scale(1);
-  }
-  100%{
-    opacity:0;
-    visibility:hidden;
-    transform:scale(.96);
-  }
+  0%{opacity:0;visibility:visible;transform:scale(1.3)}
+  12%{opacity:1;transform:scale(1)}
+  65%{opacity:1;transform:scale(1)}
+  100%{opacity:0;visibility:hidden;transform:scale(.96)}
 }
 
-@keyframes sillyEmoji{
-  0%{
-    transform:scale(0) rotate(-25deg);
-  }
-  35%{
-    transform:scale(1.25) rotate(12deg);
-  }
-  60%{
-    transform:scale(.9) rotate(-5deg);
-  }
-  100%{
-    transform:scale(1) rotate(0);
-  }
-}
-
-/* =========================
-   MATCH
-========================= */
+/* MATCH */
 
 #matchScreen{
   position:fixed;
@@ -556,8 +488,7 @@ button{
   justify-content:center;
   padding:24px;
   text-align:center;
-  background:
-    radial-gradient(circle at 50% 25%,#59430e,#171107 45%,#060606);
+  background:radial-gradient(circle at 50% 25%,#59430e,#171107 45%,#060606);
   opacity:0;
   visibility:hidden;
   pointer-events:none;
@@ -648,21 +579,11 @@ button{
 }
 
 @keyframes matchIn{
-  0%{
-    opacity:0;
-    visibility:visible;
-    transform:scale(1.1);
-  }
-  100%{
-    opacity:1;
-    visibility:visible;
-    transform:scale(1);
-  }
+  0%{opacity:0;visibility:visible;transform:scale(1.1)}
+  100%{opacity:1;visibility:visible;transform:scale(1)}
 }
 
-/* =========================
-   SHEETS
-========================= */
+/* SHEETS */
 
 .sheet{
   position:fixed;
@@ -701,9 +622,7 @@ button{
   font-size:25px;
 }
 
-/* =========================
-   PROFILE
-========================= */
+/* PROFILE */
 
 .profile-photo{
   position:relative;
@@ -762,10 +681,6 @@ button{
   line-height:1.58;
 }
 
-.bio strong{
-  color:#fff;
-}
-
 .profile-tags{
   display:flex;
   flex-wrap:wrap;
@@ -809,9 +724,7 @@ button{
   text-align:right;
 }
 
-/* =========================
-   LIKES
-========================= */
+/* LIKES */
 
 .likes-panel{
   padding:20px 20px 35px;
@@ -853,9 +766,7 @@ button{
   color:#999;
 }
 
-/* =========================
-   CHAT
-========================= */
+/* CHAT */
 
 #chatScreen{
   position:fixed;
@@ -927,6 +838,7 @@ button{
 .message{
   display:flex;
   margin-bottom:10px;
+  animation:messageIn .25s ease;
 }
 
 .message.me{
@@ -951,6 +863,55 @@ button{
 
 .message:not(.me) .bubble{
   border-bottom-left-radius:5px;
+}
+
+@keyframes messageIn{
+  from{
+    opacity:0;
+    transform:translateY(7px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+.typing{
+  display:flex;
+  align-items:center;
+  gap:4px;
+  width:max-content;
+  padding:12px 15px;
+  border-radius:18px;
+  background:#242424;
+  margin-bottom:10px;
+}
+
+.typing span{
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:#888;
+  animation:typingDot 1s infinite;
+}
+
+.typing span:nth-child(2){
+  animation-delay:.15s;
+}
+
+.typing span:nth-child(3){
+  animation-delay:.3s;
+}
+
+@keyframes typingDot{
+  0%,60%,100%{
+    transform:translateY(0);
+    opacity:.5;
+  }
+  30%{
+    transform:translateY(-4px);
+    opacity:1;
+  }
 }
 
 .suggestions{
@@ -1006,9 +967,7 @@ button{
   font-size:18px;
 }
 
-/* =========================
-   TOAST / LOADING
-========================= */
+/* TOAST */
 
 .toast{
   position:fixed;
@@ -1058,9 +1017,7 @@ button{
 }
 
 @keyframes spin{
-  to{
-    transform:rotate(360deg);
-  }
+  to{transform:rotate(360deg)}
 }
 
 @media(max-height:700px){
@@ -1080,10 +1037,6 @@ button{
     font-size:15px;
   }
 
-  .action-icon{
-    font-size:23px;
-  }
-
   .nav{
     height:58px;
     flex-basis:58px;
@@ -1097,16 +1050,11 @@ button{
   .profile-photo{
     height:300px;
   }
-
 }
 </style>
 </head>
 
 <body>
-
-<!-- =========================
-     WELCOME
-========================= -->
 
 <div id="welcome">
 
@@ -1132,20 +1080,12 @@ button{
     Dental Hygienist • Smile Quality Control
   </div>
 
-  <button
-    class="start"
-    id="startButton"
-    type="button"
-  >
+  <button class="start" id="startButton">
     LET'S BREUMBLE 🤪
   </button>
 
 </div>
 
-
-<!-- =========================
-     APP
-========================= -->
 
 <div class="app">
 
@@ -1154,7 +1094,6 @@ button{
     <button
       class="header-button"
       id="headerProfile"
-      type="button"
     >
       👤
     </button>
@@ -1164,15 +1103,12 @@ button{
     </div>
 
     <div class="header-profile">
-
       Breanna
-
       <img
         class="header-photo"
         src="IMG_5053.jpeg"
         alt="Breanna"
       >
-
     </div>
 
   </header>
@@ -1180,15 +1116,9 @@ button{
 
   <main class="main">
 
-    <div
-      class="deck"
-      id="deck"
-    >
+    <div class="deck" id="deck">
 
-      <div
-        class="loading"
-        id="loading"
-      >
+      <div class="loading" id="loading">
 
         <div>
 
@@ -1203,17 +1133,12 @@ button{
 
     </div>
 
-    <div
-      class="counter"
-      id="counter"
-    >
+    <div class="counter" id="counter">
       0 / 500
     </div>
 
   </main>
 
-
-  <!-- BIGGER DECISION BUTTONS -->
 
   <div class="actions">
 
@@ -1226,30 +1151,17 @@ button{
       <button
         class="action stinky"
         id="stinkyButton"
-        type="button"
       >
-
-        <span class="action-icon">
-          💩
-        </span>
-
+        <span class="action-icon">💩</span>
         STINKY
-
       </button>
-
 
       <button
         class="action silly"
         id="sillyButton"
-        type="button"
       >
-
-        <span class="action-icon">
-          🤪
-        </span>
-
+        <span class="action-icon">🤪</span>
         SILLY
-
       </button>
 
     </div>
@@ -1259,46 +1171,19 @@ button{
 
   <nav class="nav">
 
-    <button
-      class="active"
-      id="discoverButton"
-      type="button"
-    >
-
-      <span class="nav-icon">
-        🔥
-      </span>
-
+    <button class="active" id="discoverButton">
+      <span class="nav-icon">🔥</span>
       Discover
-
     </button>
 
-
-    <button
-      id="likesButton"
-      type="button"
-    >
-
-      <span class="nav-icon">
-        🤪
-      </span>
-
+    <button id="likesButton">
+      <span class="nav-icon">🤪</span>
       Likes
-
     </button>
 
-
-    <button
-      id="profileButton"
-      type="button"
-    >
-
-      <span class="nav-icon">
-        👤
-      </span>
-
+    <button id="profileButton">
+      <span class="nav-icon">👤</span>
       Breanna
-
     </button>
 
   </nav>
@@ -1306,9 +1191,7 @@ button{
 </div>
 
 
-<!-- =========================
-     SILLY MODE
-========================= -->
+<!-- SILLY MODE -->
 
 <div id="sillyMode">
 
@@ -1327,9 +1210,7 @@ button{
 </div>
 
 
-<!-- =========================
-     MATCH
-========================= -->
+<!-- MATCH -->
 
 <div id="matchScreen">
 
@@ -1363,14 +1244,12 @@ button{
   ></div>
 
   <div class="match-message">
-    The smile passed inspection.
-    Start the conversation. 🦷
+    The smile passed inspection. Start the conversation. 🦷
   </div>
 
   <button
     class="match-chat"
     id="openChatButton"
-    type="button"
   >
     💬 START CONVERSATION
   </button>
@@ -1378,7 +1257,6 @@ button{
   <button
     class="match-close"
     id="closeMatchButton"
-    type="button"
   >
     KEEP BREUMBLING
   </button>
@@ -1386,22 +1264,13 @@ button{
 </div>
 
 
-<!-- =========================
-     PROFILE
-========================= -->
+<!-- PROFILE -->
 
-<div
-  class="sheet"
-  id="profileSheet"
->
+<div class="sheet" id="profileSheet">
 
   <div class="panel">
 
-    <button
-      class="close"
-      id="closeProfile"
-      type="button"
-    >
+    <button class="close" id="closeProfile">
       ×
     </button>
 
@@ -1414,9 +1283,7 @@ button{
 
       <div class="profile-title">
 
-        <h1>
-          Breanna
-        </h1>
+        <h1>Breanna</h1>
 
         <p>
           Dental Hygienist • Smile Quality Control
@@ -1425,7 +1292,6 @@ button{
       </div>
 
     </div>
-
 
     <div class="profile-content">
 
@@ -1455,8 +1321,7 @@ button{
         <br><br>
 
         So naturally I've developed a very specific
-        appreciation for a
-        <strong>great smile.</strong>
+        appreciation for a <strong>great smile.</strong>
 
         <br><br>
 
@@ -1476,12 +1341,6 @@ button{
 
         <br><br>
 
-        I love coffee, movies, good food, spontaneous
-        plans, laughing until my stomach hurts and
-        people who don't take themselves too seriously.
-
-        <br><br>
-
         Bonus points if you actually floss.
 
         <br>
@@ -1491,39 +1350,17 @@ button{
 
       </div>
 
-
       <div class="profile-tags">
 
-        <div class="profile-tag">
-          🦷 Dental Hygienist
-        </div>
-
-        <div class="profile-tag">
-          ☕ Coffee
-        </div>
-
-        <div class="profile-tag">
-          🎬 Movies
-        </div>
-
-        <div class="profile-tag">
-          😂 Sarcasm
-        </div>
-
-        <div class="profile-tag">
-          ❤️ Romance
-        </div>
-
-        <div class="profile-tag">
-          ✨ Great Smiles
-        </div>
-
-        <div class="profile-tag">
-          🧵 Flossing Advocate
-        </div>
+        <div class="profile-tag">🦷 Dental Hygienist</div>
+        <div class="profile-tag">☕ Coffee</div>
+        <div class="profile-tag">🎬 Movies</div>
+        <div class="profile-tag">😂 Sarcasm</div>
+        <div class="profile-tag">❤️ Romance</div>
+        <div class="profile-tag">✨ Great Smiles</div>
+        <div class="profile-tag">🧵 Flossing Advocate</div>
 
       </div>
-
 
       <div class="section">
 
@@ -1575,22 +1412,13 @@ button{
 </div>
 
 
-<!-- =========================
-     LIKES
-========================= -->
+<!-- LIKES -->
 
-<div
-  class="sheet"
-  id="likesSheet"
->
+<div class="sheet" id="likesSheet">
 
   <div class="panel likes-panel">
 
-    <button
-      class="close"
-      id="closeLikes"
-      type="button"
-    >
+    <button class="close" id="closeLikes">
       ×
     </button>
 
@@ -1608,21 +1436,13 @@ button{
 </div>
 
 
-<!-- =========================
-     CHAT
-========================= -->
+<!-- CHAT -->
 
-<div
-  id="chatScreen"
->
+<div id="chatScreen">
 
   <header class="chat-header">
 
-    <button
-      class="chat-back"
-      id="chatBack"
-      type="button"
-    >
+    <button class="chat-back" id="chatBack">
       ‹
     </button>
 
@@ -1650,13 +1470,7 @@ button{
   <main
     class="chat-messages"
     id="chatMessages"
-  >
-
-    <div class="chat-date">
-      TODAY
-    </div>
-
-  </main>
+  ></main>
 
 
   <div
@@ -1664,25 +1478,20 @@ button{
     id="suggestions"
   >
 
-    <button
-      class="suggestion"
-      type="button"
-    >
-      What's your best first-date idea?
+    <button class="suggestion">
+      What's your ideal first date?
     </button>
 
-    <button
-      class="suggestion"
-      type="button"
-    >
-      Be honest... do you floss?
+    <button class="suggestion">
+      Be honest... do you actually floss?
     </button>
 
-    <button
-      class="suggestion"
-      type="button"
-    >
-      What's your go-to movie?
+    <button class="suggestion">
+      What's your comfort movie?
+    </button>
+
+    <button class="suggestion">
+      Where would you travel tomorrow?
     </button>
 
   </div>
@@ -1701,7 +1510,6 @@ button{
     <button
       class="send-button"
       id="sendButton"
-      type="button"
     >
       ➤
     </button>
@@ -1711,181 +1519,218 @@ button{
 </div>
 
 
-<div
-  class="toast"
-  id="toast"
-></div>
+<div class="toast" id="toast"></div>
 
 
 <script>
 
 /* =========================
-   CONFIG
+   APP DATA
 ========================= */
 
 const TOTAL=500;
 
-
-/* =========================
-   IMAGE POOL
-========================= */
-
 const PHOTO_POOL=[];
 
 for(let i=0;i<100;i++){
-
   PHOTO_POOL.push(
     "https://randomuser.me/api/portraits/men/"+i+".jpg"
   );
-
 }
 
-
-/* =========================
-   PROFILE DATA
-========================= */
-
 const firstNames=[
-  "Alex","Marcus","Ryan","Daniel","Ethan",
-  "Michael","Jordan","Andrew","Chris","Matthew",
-  "James","Noah","Brandon","Tyler","David",
-  "Liam","Kevin","Jason","Nathan","Steven",
-  "Adam","Eric","Justin","Sean","Anthony",
-  "Ben","Jake","Thomas","William","Luke",
-  "Cole","Patrick","Nicholas","Jonathan","Dylan",
-  "Cameron","Logan","Mason","Owen","Caleb",
-  "Adrian","Julian","Leo","Max","Elliot",
-  "Theo","Jack","Miles","Nolan","Zachary"
+"Alex","Marcus","Ryan","Daniel","Ethan",
+"Michael","Jordan","Andrew","Chris","Matthew",
+"James","Noah","Brandon","Tyler","David",
+"Liam","Kevin","Jason","Nathan","Steven",
+"Adam","Eric","Justin","Sean","Anthony",
+"Ben","Jake","Thomas","William","Luke",
+"Cole","Patrick","Nicholas","Jonathan","Dylan",
+"Cameron","Logan","Mason","Owen","Caleb",
+"Adrian","Julian","Leo","Max","Elliot",
+"Theo","Jack","Miles","Nolan","Zachary"
 ];
 
 const lastNames=[
-  "Hayes","Carter","Brooks","Reed","Parker",
-  "Grant","Morgan","Bennett","Coleman","Warren",
-  "Foster","Hunter","Mason","King","Turner",
-  "Cooper","West","Knight","Stone","Bishop"
+"Hayes","Carter","Brooks","Reed","Parker",
+"Grant","Morgan","Bennett","Coleman","Warren",
+"Foster","Hunter","Mason","King","Turner",
+"Cooper","West","Knight","Stone","Bishop"
 ];
 
 const cities=[
-  "Los Angeles","New York","Miami","Chicago",
-  "Toronto","Vancouver","San Diego","Boston",
-  "Austin","Nashville","Denver","Seattle",
-  "Las Vegas","Atlanta","San Francisco",
-  "Montreal","Dallas","Phoenix","Orlando","London"
+"Los Angeles","New York","Miami","Chicago",
+"Toronto","Vancouver","San Diego","Boston",
+"Austin","Nashville","Denver","Seattle",
+"Las Vegas","Atlanta","San Francisco",
+"Montreal","Dallas","Phoenix","Orlando","London"
 ];
 
 const jobs=[
-  "Actor","Film Producer","Creative Director",
-  "Architect","Tech Founder","Entrepreneur",
-  "Music Producer","Photographer","Restaurant Owner",
-  "Attorney","Sports Agent","Fashion Executive",
-  "Investment Manager","TV Producer","Director",
-  "Fitness Coach","Software Engineer",
-  "Travel Entrepreneur","Real Estate Developer",
-  "Record Executive","Luxury Brand Consultant",
-  "Professional Athlete","Chef","Pilot","Doctor",
-  "Designer","Journalist","Event Producer"
+"Actor","Film Producer","Creative Director",
+"Architect","Tech Founder","Entrepreneur",
+"Music Producer","Photographer","Restaurant Owner",
+"Attorney","Sports Agent","Fashion Executive",
+"Investment Manager","TV Producer","Director",
+"Fitness Coach","Software Engineer",
+"Travel Entrepreneur","Real Estate Developer",
+"Music Executive","Luxury Brand Consultant",
+"Professional Athlete","Chef","Pilot","Doctor",
+"Designer","Journalist","Event Producer"
 ];
 
-const archetypes=[
-  "Action Hero","Romantic Lead","British Heartthrob",
-  "Funny Guy","Bad Boy","Golden Retriever",
-  "Brooding Artist","Tech Billionaire","Fitness Guy",
-  "Movie Nerd","Adventure Guy","Old-School Gentleman",
-  "Musician","Foodie","Silver Fox","Beach Guy",
-  "Travel Guy","Creative Guy","Quietly Confident",
-  "Professional Charmer"
+const personalities=[
+{
+ type:"playful",
+ intro:[
+  "Okay, I have to ask... what exactly qualified me for SILLY? 😂",
+  "Well, apparently I passed the silly test. I'm taking that as a compliment.",
+  "I saw SILLY and thought, yep, that's probably my category. 😂"
+ ],
+ replies:[
+  "Okay, I like your sense of humor already.",
+  "That actually made me laugh.",
+  "You're trouble, aren't you? 😂",
+  "I have a feeling we'd have way too much fun together."
+ ]
+},
+{
+ type:"confident",
+ intro:[
+  "I'll admit it — I was hoping you'd pick SILLY.",
+  "Good choice. I was wondering whether you'd swipe SILLY.",
+  "I'm going to assume SILLY means I caught your attention."
+ ],
+ replies:[
+  "I like someone who knows what she wants.",
+  "That's a pretty good answer.",
+  "You might actually be my kind of person.",
+  "Okay, now I'm curious about you."
+ ]
+},
+{
+ type:"romantic",
+ intro:[
+  "So we matched. I think that's a pretty good start.",
+  "I'm glad you picked SILLY. You have a very interesting profile.",
+  "Okay, now I'm curious. What made you smile about my profile?"
+ ],
+ replies:[
+  "That's actually really sweet.",
+  "I like getting to know someone slowly.",
+  "Good conversation is underrated.",
+  "You seem easy to talk to."
+ ]
+},
+{
+ type:"sarcastic",
+ intro:[
+  "Well this is awkward. We matched and now I have to be interesting.",
+  "Excellent. I survived the mysterious SILLY test.",
+  "So apparently my face has been approved by dental hygiene authorities. 😂"
+ ],
+ replies:[
+  "Okay, that was actually funny.",
+  "I'm going to pretend that was smooth.",
+  "You might have just earned another point.",
+  "I appreciate the honesty. 😂"
+ ]
+},
+{
+ type:"adventurous",
+ intro:[
+  "SILLY match! Quick question: spontaneous road trip or fancy dinner?",
+  "I feel like we skipped the small talk and went straight to the interesting part.",
+  "Okay, important question — what's the most spontaneous thing you've done lately?"
+ ],
+ replies:[
+  "That sounds like my kind of weekend.",
+  "We might have to put that on the list.",
+  "Okay, now I definitely want to hear more.",
+  "I like someone who's up for an adventure."
+ ]
+}
 ];
 
 const bios=[
-  "Big on great restaurants, spontaneous trips and making people laugh.",
-  "Coffee addict with excellent dinner recommendations and questionable dance moves.",
-  "Weekend adventures, good movies and absolutely no interest in boring dates.",
-  "Confident enough to dress up for dinner and relaxed enough to order dessert.",
-  "Looking for someone who can laugh at themselves and doesn't take dating too seriously.",
-  "Professional by day, terrible karaoke singer by night.",
-  "Always planning the next trip and occasionally pretending I know where I'm going.",
-  "Big fan of old-school romance, handwritten notes and very good food.",
-  "I make a surprisingly good breakfast and an even better reservation.",
-  "Movie nerd looking for someone who won't judge the amount of popcorn I order.",
-  "Gym, coffee, travel and trying to convince myself I enjoy running.",
-  "Quietly competitive. Especially at trivia.",
-  "Life is better with good food, good music and someone fun beside you.",
-  "Looking for chemistry, conversation and someone who laughs at terrible jokes.",
-  "Ambitious, affectionate and always up for a last-minute adventure."
+"Big on great restaurants, spontaneous trips and making people laugh.",
+"Coffee addict with excellent dinner recommendations and questionable dance moves.",
+"Weekend adventures, good movies and absolutely no interest in boring dates.",
+"Confident enough to dress up for dinner and relaxed enough to order dessert.",
+"Looking for someone who can laugh at themselves and doesn't take dating too seriously.",
+"Professional by day, terrible karaoke singer by night.",
+"Always planning the next trip and occasionally pretending I know where I'm going.",
+"Big fan of old-school romance, handwritten notes and very good food.",
+"I make a surprisingly good breakfast and an even better reservation.",
+"Movie nerd looking for someone who won't judge the amount of popcorn I order.",
+"Gym, coffee, travel and trying to convince myself I enjoy running.",
+"Quietly competitive. Especially at trivia.",
+"Life is better with good food, good music and someone fun beside you.",
+"Looking for chemistry, conversation and someone who laughs at terrible jokes.",
+"Ambitious, affectionate and always up for a last-minute adventure."
 ];
 
 const tagSets=[
-  ["Travel","Food","Comedy"],
-  ["Coffee","Movies","Romance"],
-  ["Fitness","Beach","Travel"],
-  ["Music","Concerts","Nightlife"],
-  ["Food","Cooking","Wine"],
-  ["Movies","Popcorn","Travel"],
-  ["Hiking","Adventure","Nature"],
-  ["Fashion","Design","Art"],
-  ["Sports","Fitness","Travel"],
-  ["Books","Coffee","Culture"],
-  ["Business","Travel","Food"],
-  ["Photography","Music","Travel"]
+["Travel","Food","Comedy"],
+["Coffee","Movies","Romance"],
+["Fitness","Beach","Travel"],
+["Music","Concerts","Nightlife"],
+["Food","Cooking","Wine"],
+["Movies","Popcorn","Travel"],
+["Hiking","Adventure","Nature"],
+["Fashion","Design","Art"],
+["Sports","Fitness","Travel"],
+["Books","Coffee","Culture"],
+["Business","Travel","Food"],
+["Photography","Music","Travel"]
 ];
-
-
-/* =========================
-   STATE
-========================= */
 
 let men=[];
 let currentIndex=0;
 let likedMen=[];
 let currentMatch=null;
+let conversation=[];
+let typingTimer=null;
 
 
 /* =========================
    ELEMENTS
 ========================= */
 
-const welcome=
-  document.getElementById("welcome");
-
-const deck=
-  document.getElementById("deck");
-
-const loading=
-  document.getElementById("loading");
-
-const counter=
-  document.getElementById("counter");
-
-const toast=
-  document.getElementById("toast");
-
-const sillyMode=
-  document.getElementById("sillyMode");
-
-const matchScreen=
-  document.getElementById("matchScreen");
-
-const chatScreen=
-  document.getElementById("chatScreen");
+const welcome=document.getElementById("welcome");
+const deck=document.getElementById("deck");
+const loading=document.getElementById("loading");
+const counter=document.getElementById("counter");
+const toast=document.getElementById("toast");
+const sillyMode=document.getElementById("sillyMode");
+const matchScreen=document.getElementById("matchScreen");
+const chatScreen=document.getElementById("chatScreen");
+const chatMessages=document.getElementById("chatMessages");
+const chatInput=document.getElementById("chatInput");
 
 
 /* =========================
-   SEEDED NUMBER
+   HELPERS
 ========================= */
 
 function seededNumber(n){
-
-  const x=
-    Math.sin(n*12.9898)*
-    43758.5453;
-
+  const x=Math.sin(n*12.9898)*43758.5453;
   return x-Math.floor(x);
+}
 
+function showToast(text){
+
+  toast.textContent=text;
+  toast.classList.add("show");
+
+  setTimeout(()=>{
+    toast.classList.remove("show");
+  },1200);
 }
 
 
 /* =========================
-   CREATE MEN
+   CREATE PROFILES
 ========================= */
 
 function createMen(){
@@ -1896,66 +1741,50 @@ function createMen(){
 
     const seed=i+17;
 
-    const first=
-      firstNames[i%firstNames.length];
+    const first=firstNames[i%firstNames.length];
 
     const last=
       lastNames[
         Math.floor(
-          seededNumber(seed)*
-          lastNames.length
+          seededNumber(seed)*lastNames.length
         )
       ];
 
     const age=
       27+
-      Math.floor(
-        seededNumber(seed+1)*22
-      );
+      Math.floor(seededNumber(seed+1)*22);
 
     const city=
       cities[
         Math.floor(
-          seededNumber(seed+2)*
-          cities.length
+          seededNumber(seed+2)*cities.length
         )
       ];
 
     const job=
       jobs[
         Math.floor(
-          seededNumber(seed+3)*
-          jobs.length
-        )
-      ];
-
-    const archetype=
-      archetypes[
-        Math.floor(
-          seededNumber(seed+4)*
-          archetypes.length
+          seededNumber(seed+3)*jobs.length
         )
       ];
 
     const bio=
       bios[
         Math.floor(
-          seededNumber(seed+5)*
-          bios.length
+          seededNumber(seed+5)*bios.length
         )
       ];
 
     const tags=
       tagSets[
         Math.floor(
-          seededNumber(seed+6)*
-          tagSets.length
+          seededNumber(seed+6)*tagSets.length
         )
       ];
 
-    const photo=
-      PHOTO_POOL[
-        i%PHOTO_POOL.length
+    const personality=
+      personalities[
+        i%personalities.length
       ];
 
     men.push({
@@ -1964,253 +1793,119 @@ function createMen(){
       age,
       city,
       job,
-      archetype,
       bio,
       tags,
-      image:photo
+      personality,
+      image:PHOTO_POOL[i%PHOTO_POOL.length]
     });
-
   }
-
 }
 
 
 /* =========================
-   TOAST
-========================= */
-
-function showToast(text){
-
-  toast.textContent=text;
-
-  toast.classList.add("show");
-
-  setTimeout(()=>{
-    toast.classList.remove("show");
-  },1200);
-
-}
-
-
-/* =========================
-   SILLY MODE
-========================= */
-
-function showSillyMode(){
-
-  sillyMode.classList.remove("active");
-
-  void sillyMode.offsetWidth;
-
-  sillyMode.classList.add("active");
-
-  setTimeout(()=>{
-    sillyMode.classList.remove("active");
-  },900);
-
-}
-
-
-/* =========================
-   MATCH
-========================= */
-
-function showMatch(person){
-
-  currentMatch=person;
-
-  document.getElementById(
-    "matchPersonPhoto"
-  ).src=person.image;
-
-  document.getElementById(
-    "matchPersonName"
-  ).textContent=
-    person.name+", "+person.age;
-
-  setTimeout(()=>{
-
-    matchScreen.classList.add("show");
-
-  },950);
-
-}
-
-
-/* =========================
-   CLOSE MATCH
-========================= */
-
-document.getElementById(
-  "closeMatchButton"
-).onclick=()=>{
-
-  matchScreen.classList.remove("show");
-
-};
-
-
-/* =========================
-   CARD
-========================= */
-
-function createCard(person,position){
-
-  const card=
-    document.createElement("div");
-
-  card.className="card";
-
-  card.style.zIndex=
-    100-position;
-
-  card.innerHTML=`
-
-    <img
-      class="person-image"
-      src="${person.image}"
-      alt="${person.name}"
-    >
-
-    <div class="card-top">
-
-      <div class="badge">
-        ✓ Dating profile
-      </div>
-
-      <div class="location">
-        📍 ${person.city}
-      </div>
-
-    </div>
-
-    <div class="stamp silly-stamp">
-      SILLY 🤪
-    </div>
-
-    <div class="stamp stinky-stamp">
-      STINKY 💩
-    </div>
-
-    <div class="card-info">
-
-      <div>
-
-        <span class="card-name">
-          ${person.name}
-        </span>
-
-        <span class="card-age">
-          ${person.age}
-        </span>
-
-      </div>
-
-      <div class="card-job">
-        ${person.job}
-      </div>
-
-      <div class="card-bio">
-        ${person.bio}
-      </div>
-
-      <div class="tags">
-
-        ${person.tags.map(tag=>`
-          <span class="tag">
-            ${tag}
-          </span>
-        `).join("")}
-
-      </div>
-
-    </div>
-  `;
-
-
-  const image=
-    card.querySelector(".person-image");
-
-
-  image.onerror=function(){
-
-    image.onerror=null;
-
-    image.src=
-      PHOTO_POOL[
-        (person.id+37)%
-        PHOTO_POOL.length
-      ];
-
-  };
-
-
-  if(position===0){
-
-    enableSwipe(card);
-
-  }
-
-
-  return card;
-
-}
-
-
-/* =========================
-   RENDER
+   RENDER CARDS
 ========================= */
 
 function renderCards(){
 
   deck.innerHTML="";
 
-  for(
-    let position=2;
-    position>=0;
-    position--
-  ){
+  for(let position=2;position>=0;position--){
 
-    const index=
-      currentIndex+
-      position;
+    const index=currentIndex+position;
 
-    if(index>=men.length){
+    if(index>=men.length)continue;
 
-      continue;
+    const person=men[index];
 
-    }
+    const card=document.createElement("div");
 
-    const person=
-      men[index];
+    card.className="card";
+    card.style.zIndex=100-position;
 
-    const card=
-      createCard(
-        person,
-        position
-      );
+    card.innerHTML=`
 
-    if(position>0){
+      <img
+        class="person-image"
+        src="${person.image}"
+        alt="${person.name}"
+      >
 
-      card.style.transform=
-        "scale("+
-        (1-position*.035)+
-        ") translateY("+
-        position*10+
-        "px)";
+      <div class="card-top">
 
+        <div class="badge">
+          ✓ Dating profile
+        </div>
+
+        <div class="location">
+          📍 ${person.city}
+        </div>
+
+      </div>
+
+      <div class="stamp silly-stamp">
+        SILLY 🤪
+      </div>
+
+      <div class="stamp stinky-stamp">
+        STINKY 💩
+      </div>
+
+      <div class="card-info">
+
+        <div>
+
+          <span class="card-name">
+            ${person.name}
+          </span>
+
+          <span class="card-age">
+            ${person.age}
+          </span>
+
+        </div>
+
+        <div class="card-job">
+          ${person.job}
+        </div>
+
+        <div class="card-bio">
+          ${person.bio}
+        </div>
+
+        <div class="tags">
+
+          ${person.tags.map(tag=>`
+            <span class="tag">${tag}</span>
+          `).join("")}
+
+        </div>
+
+      </div>
+    `;
+
+    const image=card.querySelector(".person-image");
+
+    image.onerror=function(){
+
+      image.onerror=null;
+
+      image.src=
+        PHOTO_POOL[
+          (person.id+37)%PHOTO_POOL.length
+        ];
+
+    };
+
+    if(position===0){
+      enableSwipe(card);
     }
 
     deck.appendChild(card);
-
   }
 
-
   counter.textContent=
-    (currentIndex+1)+
-    " / "+
-    TOTAL;
-
+    (currentIndex+1)+" / "+TOTAL;
 }
 
 
@@ -2224,96 +1919,93 @@ function enableSwipe(card){
   let deltaX=0;
   let dragging=false;
 
+  card.addEventListener("touchstart",e=>{
 
-  card.addEventListener(
-    "touchstart",
-    e=>{
+    dragging=true;
+    startX=e.touches[0].clientX;
+    deltaX=0;
 
-      dragging=true;
-
-      startX=
-        e.touches[0].clientX;
-
-      deltaX=0;
-
-    },
-    {passive:true}
-  );
+  },{passive:true});
 
 
-  card.addEventListener(
-    "touchmove",
-    e=>{
+  card.addEventListener("touchmove",e=>{
 
-      if(!dragging)return;
+    if(!dragging)return;
 
-      deltaX=
-        e.touches[0].clientX-
-        startX;
+    deltaX=e.touches[0].clientX-startX;
 
-      card.style.transform=
-        "translateX("+
-        deltaX+
-        "px) rotate("+
-        deltaX/18+
-        "deg)";
+    card.style.transform=
+      "translateX("+deltaX+"px) rotate("+deltaX/18+"deg)";
 
+    card.querySelector(".silly-stamp").style.opacity=
+      Math.max(0,deltaX/100);
 
-      card.querySelector(
-        ".silly-stamp"
-      ).style.opacity=
-        Math.max(
-          0,
-          deltaX/100
-        );
+    card.querySelector(".stinky-stamp").style.opacity=
+      Math.max(0,-deltaX/100);
+
+  },{passive:true});
 
 
-      card.querySelector(
-        ".stinky-stamp"
-      ).style.opacity=
-        Math.max(
-          0,
-          -deltaX/100
-        );
+  card.addEventListener("touchend",()=>{
 
-    },
-    {passive:true}
-  );
+    if(!dragging)return;
 
+    dragging=false;
 
-  card.addEventListener(
-    "touchend",
-    ()=>{
+    if(Math.abs(deltaX)>100){
 
-      if(!dragging)return;
+      finishSwipe(
+        deltaX>0 ? "silly" : "stinky"
+      );
 
-      dragging=false;
+    }else{
 
-      if(Math.abs(deltaX)>100){
+      card.style.transform="";
 
-        finishSwipe(
-          deltaX>0
-          ?"silly"
-          :"stinky"
-        );
-
-      }else{
-
-        card.style.transform="";
-
-        card.querySelector(
-          ".silly-stamp"
-        ).style.opacity=0;
-
-        card.querySelector(
-          ".stinky-stamp"
-        ).style.opacity=0;
-
-      }
+      card.querySelector(".silly-stamp").style.opacity=0;
+      card.querySelector(".stinky-stamp").style.opacity=0;
 
     }
-  );
 
+  });
+}
+
+
+/* =========================
+   SILLY ANIMATION
+========================= */
+
+function showSillyMode(){
+
+  sillyMode.classList.remove("active");
+
+  void sillyMode.offsetWidth;
+
+  sillyMode.classList.add("active");
+
+  setTimeout(()=>{
+    sillyMode.classList.remove("active");
+  },900);
+}
+
+
+/* =========================
+   MATCH
+========================= */
+
+function showMatch(person){
+
+  currentMatch=person;
+
+  document.getElementById("matchPersonPhoto").src=
+    person.image;
+
+  document.getElementById("matchPersonName").textContent=
+    person.name+", "+person.age;
+
+  setTimeout(()=>{
+    matchScreen.classList.add("show");
+  },850);
 }
 
 
@@ -2323,48 +2015,33 @@ function enableSwipe(card){
 
 function finishSwipe(type){
 
-  if(!men.length)return;
-
-  const card=
-    deck.querySelector(".card");
+  const card=deck.querySelector(".card");
 
   if(!card)return;
 
-  const person=
-    men[currentIndex];
-
+  const person=men[currentIndex];
 
   card.style.transition=
     "transform .3s ease,opacity .3s ease";
 
-
   card.style.transform=
     type==="silly"
-    ?"translateX(1100px) rotate(25deg)"
-    :"translateX(-1100px) rotate(-25deg)";
-
+      ?"translateX(1100px) rotate(25deg)"
+      :"translateX(-1100px) rotate(-25deg)";
 
   card.style.opacity="0";
 
 
   if(type==="silly"){
 
-    if(
-      !likedMen.some(
-        p=>p.id===person.id
-      )
-    ){
-
+    if(!likedMen.some(p=>p.id===person.id)){
       likedMen.push(person);
-
     }
 
     showSillyMode();
 
     setTimeout(()=>{
-
       showMatch(person);
-
     },300);
 
   }else{
@@ -2379,17 +2056,13 @@ function finishSwipe(type){
     currentIndex++;
 
     if(currentIndex>=TOTAL){
-
       currentIndex=0;
-
       showToast("500 complete! 🔄");
-
     }
 
     renderCards();
 
   },350);
-
 }
 
 
@@ -2397,40 +2070,30 @@ function finishSwipe(type){
    BUTTONS
 ========================= */
 
-document.getElementById(
-  "sillyButton"
-).onclick=()=>{
-
+document.getElementById("sillyButton").onclick=()=>{
   finishSwipe("silly");
-
 };
 
-
-document.getElementById(
-  "stinkyButton"
-).onclick=()=>{
-
+document.getElementById("stinkyButton").onclick=()=>{
   finishSwipe("stinky");
-
 };
 
-
-/* =========================
-   START
-========================= */
-
-document.getElementById(
-  "startButton"
-).onclick=()=>{
+document.getElementById("startButton").onclick=()=>{
 
   welcome.classList.add("hide");
 
   setTimeout(()=>{
-
     welcome.style.display="none";
-
   },350);
+};
 
+
+/* =========================
+   MATCH CLOSE
+========================= */
+
+document.getElementById("closeMatchButton").onclick=()=>{
+  matchScreen.classList.remove("show");
 };
 
 
@@ -2439,33 +2102,19 @@ document.getElementById(
 ========================= */
 
 const profileSheet=
-  document.getElementById(
-    "profileSheet"
-  );
+  document.getElementById("profileSheet");
 
-function openProfile(){
-
+document.getElementById("headerProfile").onclick=()=>{
   profileSheet.classList.add("open");
+};
 
-}
+document.getElementById("profileButton").onclick=()=>{
+  profileSheet.classList.add("open");
+};
 
-function closeProfile(){
-
+document.getElementById("closeProfile").onclick=()=>{
   profileSheet.classList.remove("open");
-
-}
-
-document.getElementById(
-  "headerProfile"
-).onclick=openProfile;
-
-document.getElementById(
-  "profileButton"
-).onclick=openProfile;
-
-document.getElementById(
-  "closeProfile"
-).onclick=closeProfile;
+};
 
 
 /* =========================
@@ -2473,51 +2122,35 @@ document.getElementById(
 ========================= */
 
 const likesSheet=
-  document.getElementById(
-    "likesSheet"
-  );
+  document.getElementById("likesSheet");
 
 const likedList=
-  document.getElementById(
-    "likedList"
-  );
-
+  document.getElementById("likedList");
 
 function renderLikes(){
 
   if(!likedMen.length){
 
     likedList.innerHTML=`
-
       <div style="
         text-align:center;
         color:#888;
         padding:35px 10px;
         line-height:1.6;
       ">
-
         No SILLY picks yet. 🤪
-
         <br><br>
-
         Start Breumbling!
-
       </div>
-
     `;
 
     return;
-
   }
-
 
   likedList.innerHTML=
     likedMen.map(person=>`
 
-      <div
-        class="liked"
-        data-id="${person.id}"
-      >
+      <div class="liked" data-id="${person.id}">
 
         <img
           src="${person.image}"
@@ -2541,133 +2174,222 @@ function renderLikes(){
         </div>
 
       </div>
-
     `).join("");
 
 
-  likedList
-    .querySelectorAll(".liked")
-    .forEach(item=>{
+  likedList.querySelectorAll(".liked").forEach(item=>{
 
-      item.onclick=()=>{
+    item.onclick=()=>{
 
-        const person=
-          likedMen.find(
-            p=>
-              p.id===
-              Number(item.dataset.id)
-          );
+      const person=
+        likedMen.find(
+          p=>p.id===Number(item.dataset.id)
+        );
 
-        if(person){
-
-          openChat(person);
-
-        }
-
-      };
-
-    });
-
+      if(person){
+        openChat(person);
+      }
+    };
+  });
 }
 
-
-document.getElementById(
-  "likesButton"
-).onclick=()=>{
+document.getElementById("likesButton").onclick=()=>{
 
   renderLikes();
-
   likesSheet.classList.add("open");
 
 };
 
-
-document.getElementById(
-  "closeLikes"
-).onclick=()=>{
-
+document.getElementById("closeLikes").onclick=()=>{
   likesSheet.classList.remove("open");
-
 };
 
 
 /* =========================
-   CHAT
+   CHAT PERSONALITY
 ========================= */
 
-const chatPersonName=
-  document.getElementById(
-    "chatPersonName"
-  );
+function getOpening(person){
 
-const chatPersonPhoto=
-  document.getElementById(
-    "chatPersonPhoto"
-  );
+  const choices=
+    person.personality.intro;
 
-const chatMessages=
-  document.getElementById(
-    "chatMessages"
-  );
-
-const chatInput=
-  document.getElementById(
-    "chatInput"
-  );
+  return choices[
+    Math.floor(
+      Math.random()*choices.length
+    )
+  ];
+}
 
 
-function openChat(person){
+function getContextReply(person,text){
 
-  currentMatch=person;
+  const lower=text.toLowerCase();
 
-  matchScreen.classList.remove("show");
+  if(
+    lower.includes("floss")||
+    lower.includes("teeth")||
+    lower.includes("dent")
+  ){
 
-  likesSheet.classList.remove("open");
+    return [
+      "Okay, I knew the dental hygienist question was coming eventually. 😂",
+      "For the record, I floss. I'm not risking the dental-hygienist review.",
+      "I feel like my oral hygiene is suddenly being judged very seriously.",
+      "Honestly, I was hoping you'd ask. My dental hygiene record is clean. 😏"
+    ][Math.floor(Math.random()*4)];
 
-  chatPersonName.textContent=
-    person.name+
-    ", "+
-    person.age;
-
-  chatPersonPhoto.src=
-    person.image;
+  }
 
 
-  chatMessages.innerHTML=`
+  if(
+    lower.includes("movie")||
+    lower.includes("film")||
+    lower.includes("netflix")
+  ){
 
-    <div class="chat-date">
-      TODAY
+    return [
+      "Okay, movie taste is important. What would you pick for a first movie night?",
+      "Now we're getting into dangerous territory because I have strong movie opinions.",
+      "I'm always down for a good movie. What's one you could watch a hundred times?",
+      "That's a very important question. What's your comfort movie?"
+    ][Math.floor(Math.random()*4)];
+
+  }
+
+
+  if(
+    lower.includes("travel")||
+    lower.includes("trip")||
+    lower.includes("vacation")
+  ){
+
+    return [
+      "I'm always thinking about the next trip. Where would you go tomorrow if you could?",
+      "That sounds like my kind of trip. Are you more beach or city?",
+      "Okay, now you're making me want to book a flight.",
+      "I could talk about travel for hours. What's at the top of your list?"
+    ][Math.floor(Math.random()*4)];
+
+  }
+
+
+  if(
+    lower.includes("coffee")||
+    lower.includes("drink")||
+    lower.includes("restaurant")||
+    lower.includes("food")||
+    lower.includes("dinner")
+  ){
+
+    return [
+      "Okay, now we're talking. I take restaurant recommendations very seriously.",
+      "I'm definitely judging your food choices now. 😂 What's your favorite spot?",
+      "A good dinner is basically half the dating experience.",
+      "You had me at food. What would you order?"
+    ][Math.floor(Math.random()*4)];
+
+  }
+
+
+  if(
+    lower.includes("date")||
+    lower.includes("dating")
+  ){
+
+    return [
+      "Honestly? Somewhere we can actually talk and laugh.",
+      "I'd pick drinks or dinner somewhere relaxed, then see where the night goes.",
+      "Something simple. Good food, good conversation, no pressure.",
+      "I'm more into chemistry than an elaborate plan."
+    ][Math.floor(Math.random()*4)];
+
+  }
+
+
+  if(
+    lower.includes("haha")||
+    lower.includes("lol")||
+    lower.includes("😂")||
+    lower.includes("funny")
+  ){
+
+    return [
+      "Okay, making you laugh is officially becoming my goal.",
+      "I'll take that as a very good sign. 😂",
+      "See? We're already getting along.",
+      "Careful. Encouraging my sense of humor could be dangerous."
+    ][Math.floor(Math.random()*4)];
+
+  }
+
+
+  return person.personality.replies[
+    Math.floor(
+      Math.random()*
+      person.personality.replies.length
+    )
+  ];
+}
+
+
+/* =========================
+   CHAT UI
+========================= */
+
+function addMessage(text,me=false){
+
+  const message=
+    document.createElement("div");
+
+  message.className=
+    me ? "message me" : "message";
+
+  message.innerHTML=`
+    <div class="bubble">
+      ${escapeHtml(text)}
     </div>
-
-    <div class="message">
-
-      <div class="bubble">
-        Well... you picked SILLY. 🤪
-        I guess that means I have to say hello.
-      </div>
-
-    </div>
-
-    <div class="message">
-
-      <div class="bubble">
-        So what's the story?
-        What made you swipe SILLY?
-      </div>
-
-    </div>
-
   `;
 
+  chatMessages.appendChild(message);
 
-  chatScreen.classList.add("open");
+  chatMessages.scrollTop=
+    chatMessages.scrollHeight;
+}
 
-  setTimeout(()=>{
 
-    chatInput.focus();
+function showTyping(){
 
-  },250);
+  removeTyping();
 
+  const typing=
+    document.createElement("div");
+
+  typing.id="typingIndicator";
+
+  typing.className="typing";
+
+  typing.innerHTML=`
+    <span></span>
+    <span></span>
+    <span></span>
+  `;
+
+  chatMessages.appendChild(typing);
+
+  chatMessages.scrollTop=
+    chatMessages.scrollHeight;
+}
+
+
+function removeTyping(){
+
+  const old=
+    document.getElementById(
+      "typingIndicator"
+    );
+
+  if(old)old.remove();
 }
 
 
@@ -2675,30 +2397,44 @@ function openChat(person){
    OPEN CHAT
 ========================= */
 
-document.getElementById(
-  "openChatButton"
-).onclick=()=>{
+function openChat(person){
 
-  if(currentMatch){
+  currentMatch=person;
 
-    openChat(currentMatch);
+  matchScreen.classList.remove("show");
+  likesSheet.classList.remove("open");
 
-  }
+  document.getElementById("chatPersonName").textContent=
+    person.name+", "+person.age;
 
-};
+  document.getElementById("chatPersonPhoto").src=
+    person.image;
 
 
-/* =========================
-   BACK CHAT
-========================= */
+  conversation=[];
 
-document.getElementById(
-  "chatBack"
-).onclick=()=>{
+  chatMessages.innerHTML=`
+    <div class="chat-date">
+      TODAY
+    </div>
+  `;
 
-  chatScreen.classList.remove("open");
+  chatScreen.classList.add("open");
 
-};
+
+  setTimeout(()=>{
+
+    const opening=getOpening(person);
+
+    addMessage(opening,false);
+
+    conversation.push({
+      from:"match",
+      text:opening
+    });
+
+  },650);
+}
 
 
 /* =========================
@@ -2707,13 +2443,11 @@ document.getElementById(
 
 function escapeHtml(text){
 
-  const div=
-    document.createElement("div");
+  const div=document.createElement("div");
 
   div.textContent=text;
 
   return div.innerHTML;
-
 }
 
 
@@ -2724,137 +2458,159 @@ function sendMessage(){
 
   if(!text)return;
 
+  addMessage(text,true);
 
-  const message=
-    document.createElement("div");
-
-  message.className=
-    "message me";
-
-  message.innerHTML=`
-
-    <div class="bubble">
-      ${escapeHtml(text)}
-    </div>
-
-  `;
-
-  chatMessages.appendChild(message);
+  conversation.push({
+    from:"breanna",
+    text:text
+  });
 
   chatInput.value="";
 
-  chatMessages.scrollTop=
-    chatMessages.scrollHeight;
+  showTyping();
 
 
-  setTimeout(()=>{
+  const delay=
+    900+
+    Math.random()*1300;
+
+
+  typingTimer=setTimeout(()=>{
+
+    removeTyping();
 
     if(!currentMatch)return;
 
     const reply=
-      document.createElement("div");
+      getContextReply(
+        currentMatch,
+        text
+      );
 
-    reply.className=
-      "message";
+    addMessage(reply,false);
 
-
-    const replies=[
-
-      "Okay, I like your answer. 😂",
-
-      "Now we're getting somewhere.",
-
-      "That might actually be a pretty good first date.",
-
-      "I was hoping you'd say that. 😏",
-
-      "You seem fun. I think we're going to get along.",
-
-      "Important question: coffee or cocktails?"
-
-    ];
+    conversation.push({
+      from:"match",
+      text:reply
+    });
 
 
-    const response=
-      replies[
-        Math.floor(
-          Math.random()*
-          replies.length
-        )
+    setTimeout(()=>{
+
+      if(!currentMatch)return;
+
+      const followUps=[
+
+        "What about you?",
+
+        "So what are you usually like on a first date?",
+
+        "Okay, now I want to know more about you.",
+
+        "What's something I wouldn't guess from your profile?",
+
+        "I feel like there's a story there. 😂",
+
+        "What are you doing this weekend?"
+
       ];
 
 
-    reply.innerHTML=`
+      if(
+        conversation.length>=4 &&
+        Math.random()>.35
+      ){
 
-      <div class="bubble">
-        ${response}
-      </div>
+        addMessage(
+          followUps[
+            Math.floor(
+              Math.random()*
+              followUps.length
+            )
+          ],
+          false
+        );
 
-    `;
+      }
 
+    },500);
 
-    chatMessages.appendChild(reply);
-
-    chatMessages.scrollTop=
-      chatMessages.scrollHeight;
-
-  },700);
-
+  },delay);
 }
 
 
-document.getElementById(
-  "sendButton"
-).onclick=
+document.getElementById("sendButton").onclick=
   sendMessage;
 
 
-chatInput.addEventListener(
-  "keydown",
-  e=>{
+chatInput.addEventListener("keydown",e=>{
 
-    if(e.key==="Enter"){
+  if(e.key==="Enter"){
 
-      e.preventDefault();
+    e.preventDefault();
 
-      sendMessage();
-
-    }
+    sendMessage();
 
   }
-);
+
+});
 
 
 /* =========================
    SUGGESTIONS
 ========================= */
 
-document
-  .querySelectorAll(".suggestion")
-  .forEach(button=>{
+document.querySelectorAll(".suggestion").forEach(button=>{
 
-    button.onclick=()=>{
+  button.onclick=()=>{
 
-      chatInput.value=
-        button.textContent;
+    chatInput.value=
+      button.textContent;
 
-      chatInput.focus();
+    chatInput.focus();
 
-    };
+  };
 
-  });
+});
+
+
+/* =========================
+   CHAT BACK
+========================= */
+
+document.getElementById("chatBack").onclick=()=>{
+
+  if(typingTimer){
+    clearTimeout(typingTimer);
+  }
+
+  removeTyping();
+
+  chatScreen.classList.remove("open");
+
+};
+
+
+/* =========================
+   MATCH CHAT BUTTON
+========================= */
+
+document.getElementById("openChatButton").onclick=()=>{
+
+  if(currentMatch){
+    openChat(currentMatch);
+  }
+
+};
 
 
 /* =========================
    DISCOVER
 ========================= */
 
-document.getElementById(
-  "discoverButton"
-).onclick=()=>{
+document.getElementById("discoverButton").onclick=()=>{
 
   likesSheet.classList.remove("open");
-
   profileSheet.classList.remove("open");
 
 };
@@ -2869,9 +2625,7 @@ createMen();
 setTimeout(()=>{
 
   if(loading){
-
     loading.remove();
-
   }
 
   renderCards();
