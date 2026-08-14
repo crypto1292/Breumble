@@ -4,843 +4,814 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
 <meta name="theme-color" content="#080808">
+
 <title>BREUMBLE</title>
 
 <style>
 
+/* =====================================================
+   BASE
+===================================================== */
+
 *{
-box-sizing:border-box;
--webkit-tap-highlight-color:transparent;
+  box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent;
 }
 
 html,body{
-margin:0;
-height:100%;
-overflow:hidden;
-background:#080808;
-color:#fff;
-font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  margin:0;
+  height:100%;
+  overflow:hidden;
+  background:#080808;
+  color:#fff;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
 }
 
 button{
-font:inherit;
-border:0;
-cursor:pointer;
+  font:inherit;
+  border:0;
+  cursor:pointer;
 }
-
-/* =========================
-APP
-========================= */
 
 .app{
-height:100dvh;
-max-width:520px;
-margin:auto;
-display:flex;
-flex-direction:column;
+  width:100%;
+  max-width:520px;
+  height:100dvh;
+  margin:auto;
 
-background:
-radial-gradient(
-circle at 50% -10%,
-#422d08,
-#090909 45%
-);
+  display:flex;
+  flex-direction:column;
+
+  background:
+    radial-gradient(
+      circle at 50% -15%,
+      #46300b,
+      #090909 48%
+    );
 }
 
-/* =========================
-WELCOME SCREEN
-========================= */
+/* =====================================================
+   WELCOME
+===================================================== */
 
 .welcome{
-position:fixed;
-inset:0;
-z-index:100;
+  position:fixed;
+  inset:0;
+  z-index:100;
 
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
 
-padding:25px;
-text-align:center;
+  padding:25px;
 
-background:
-radial-gradient(
-circle at 50% 15%,
-#49310b,
-#090909 58%
-);
+  text-align:center;
 
-transition:
-opacity .5s ease,
-transform .5s ease;
+  background:
+    radial-gradient(
+      circle at 50% 10%,
+      #4a330d,
+      #080808 60%
+    );
+
+  transition:
+    opacity .45s ease,
+    transform .45s ease;
 }
 
 .welcome.hide{
-opacity:0;
-transform:scale(1.05);
-pointer-events:none;
+  opacity:0;
+  transform:scale(1.04);
+  pointer-events:none;
 }
 
-.welcome-logo{
-font-size:48px;
-font-weight:1000;
-letter-spacing:-4px;
-margin-bottom:5px;
+.logo-big{
+  font-size:48px;
+  font-weight:1000;
+  letter-spacing:-4px;
 }
 
-.welcome-logo b{
-color:#f4c542;
+.logo-big b{
+  color:#f4c542;
 }
 
-.welcome-subtitle{
-color:#aaa;
-font-size:13px;
-font-weight:800;
-letter-spacing:2px;
-text-transform:uppercase;
-margin-bottom:24px;
-}
-
-.welcome-photo-wrap{
-position:relative;
-
-width:220px;
-height:280px;
-
-margin-bottom:25px;
+.welcome-sub{
+  color:#999;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  font-size:11px;
+  font-weight:800;
+  margin:4px 0 22px;
 }
 
 .welcome-photo{
-width:100%;
-height:100%;
+  width:220px;
+  height:280px;
 
-object-fit:cover;
+  object-fit:cover;
 
-border-radius:28px;
+  border-radius:28px;
 
-border:3px solid #f4c542;
+  border:3px solid #f4c542;
 
-box-shadow:
-0 20px 60px #000,
-0 0 35px #f4c54222;
-
-display:block;
-}
-
-.welcome-photo-wrap:after{
-content:"❤️";
-
-position:absolute;
-
-right:-13px;
-bottom:-13px;
-
-width:52px;
-height:52px;
-
-display:grid;
-place-items:center;
-
-background:#f4c542;
-
-color:#111;
-
-border-radius:50%;
-
-font-size:25px;
-
-border:4px solid #090909;
+  box-shadow:
+    0 20px 60px #000,
+    0 0 35px #f4c54222;
 }
 
 .welcome-name{
-font-size:34px;
-font-weight:1000;
-letter-spacing:-1px;
+  margin-top:20px;
+  font-size:34px;
+  font-weight:1000;
 }
 
-.welcome-text{
-margin:5px 0 22px;
-
-color:#aaa;
-
-font-size:15px;
+.welcome-description{
+  color:#aaa;
+  margin:5px 0 22px;
+  font-size:14px;
 }
 
-.start-btn{
-padding:16px 30px;
+.start{
+  padding:16px 28px;
+  border-radius:99px;
 
-border-radius:99px;
+  background:#f4c542;
+  color:#111;
 
-background:#f4c542;
+  font-size:16px;
+  font-weight:1000;
 
-color:#111;
-
-font-weight:1000;
-
-font-size:16px;
-
-box-shadow:0 10px 30px #000;
+  box-shadow:0 10px 30px #000;
 }
 
-.start-btn:active{
-transform:scale(.94);
-}
-
-/* =========================
-HEADER
-========================= */
+/* =====================================================
+   HEADER
+===================================================== */
 
 header{
-height:72px;
+  height:70px;
+  flex-shrink:0;
 
-display:flex;
-align-items:center;
-justify-content:space-between;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
 
-padding:10px 15px;
-
-flex-shrink:0;
+  padding:10px 15px;
 }
 
 .logo{
-font-size:29px;
-font-weight:1000;
-letter-spacing:-2px;
+  font-size:29px;
+  font-weight:1000;
+  letter-spacing:-2px;
 }
 
 .logo b{
-color:#f4c542;
+  color:#f4c542;
 }
 
-.profile-mini{
-display:flex;
-align-items:center;
+.header-profile{
+  display:flex;
+  align-items:center;
+  gap:7px;
 
-gap:8px;
-
-font-size:11px;
-font-weight:800;
+  font-size:11px;
+  font-weight:800;
 }
 
-.profile-mini img{
-width:38px;
-height:38px;
+.header-profile img{
+  width:38px;
+  height:38px;
 
-border-radius:50%;
+  object-fit:cover;
 
-object-fit:cover;
+  border-radius:50%;
 
-border:2px solid #f4c542;
+  border:2px solid #f4c542;
 }
 
-.icon{
-width:42px;
-height:42px;
+.profile-button{
+  width:42px;
+  height:42px;
 
-border-radius:50%;
+  border-radius:50%;
 
-background:#191919;
+  background:#1a1a1a;
+  color:#fff;
 
-color:#fff;
-
-font-size:20px;
+  font-size:19px;
 }
 
-/* =========================
-MAIN
-========================= */
+/* =====================================================
+   CARD AREA
+===================================================== */
 
 main{
-flex:1;
-min-height:0;
+  flex:1;
+  min-height:0;
 
-padding:5px 14px;
+  padding:5px 14px;
 }
 
 .deck{
-position:relative;
-height:100%;
+  position:relative;
+  height:100%;
 }
 
-/* =========================
-CARDS
-========================= */
-
 .card{
-position:absolute;
-inset:0;
+  position:absolute;
+  inset:0;
 
-overflow:hidden;
+  overflow:hidden;
 
-border-radius:28px;
+  background:#161616;
 
-background:#171717;
+  border-radius:28px;
 
-box-shadow:0 18px 45px #000;
+  box-shadow:
+    0 20px 50px #000;
 
-touch-action:none;
+  touch-action:none;
+  user-select:none;
 
-user-select:none;
-
-transition:
-transform .3s ease,
-opacity .3s ease;
+  transition:
+    transform .3s ease,
+    opacity .3s ease;
 }
 
 .card img{
-width:100%;
-height:100%;
+  width:100%;
+  height:100%;
 
-object-fit:cover;
-
-display:block;
+  object-fit:cover;
 }
 
 .card:after{
-content:"";
+  content:"";
 
-position:absolute;
-inset:0;
+  position:absolute;
+  inset:0;
 
-background:
-linear-gradient(
-transparent 35%,
-transparent 50%,
-#000e 100%
-);
+  background:
+    linear-gradient(
+      transparent 30%,
+      transparent 47%,
+      #000e 100%
+    );
 }
 
-.info{
-position:absolute;
+.card-info{
+  position:absolute;
+  z-index:3;
 
-z-index:3;
-
-left:22px;
-right:22px;
-bottom:22px;
+  left:22px;
+  right:22px;
+  bottom:20px;
 }
 
-.name{
-font-size:30px;
-font-weight:900;
+.card-name{
+  font-size:30px;
+  font-weight:1000;
 }
 
-.age{
-font-size:20px;
-color:#ddd;
+.card-age{
+  font-size:19px;
+  color:#ddd;
+  margin-left:4px;
 }
 
-.meta{
-margin-top:7px;
-
-color:#eee;
-
-font-size:14px;
+.card-description{
+  margin-top:6px;
+  color:#eee;
+  font-size:14px;
 }
 
-.tag{
-display:inline-block;
+.badge{
+  display:inline-block;
 
-background:#ffffff22;
+  margin-top:9px;
+  margin-right:4px;
 
-padding:6px 9px;
+  padding:6px 9px;
 
-border-radius:20px;
+  border-radius:99px;
 
-margin:7px 4px 0 0;
+  background:#ffffff20;
 
-font-size:11px;
-
-font-weight:800;
+  font-size:10px;
+  font-weight:900;
 }
 
-/* =========================
-SWIPE STAMPS
-========================= */
+/* =====================================================
+   SWIPE LABELS
+===================================================== */
 
 .stamp{
-position:absolute;
+  position:absolute;
+  z-index:6;
 
-z-index:5;
+  top:35px;
 
-top:35px;
+  padding:7px 13px;
 
-padding:7px 13px;
+  border:4px solid;
 
-border:4px solid;
+  border-radius:10px;
 
-border-radius:10px;
+  font-size:25px;
+  font-weight:1000;
 
-font-size:27px;
-
-font-weight:1000;
-
-opacity:0;
+  opacity:0;
 }
 
-.likeStamp{
-left:20px;
+.like-stamp{
+  left:20px;
 
-color:#45e58a;
+  color:#45e58a;
+  border-color:#45e58a;
 
-border-color:#45e58a;
-
-transform:rotate(-12deg);
+  transform:rotate(-10deg);
 }
 
-.noStamp{
-right:20px;
+.nope-stamp{
+  right:20px;
 
-color:#ff5263;
+  color:#ff5263;
+  border-color:#ff5263;
 
-border-color:#ff5263;
-
-transform:rotate(12deg);
+  transform:rotate(10deg);
 }
 
-/* =========================
-ACTION AREA
-========================= */
+/* =====================================================
+   ACTIONS
+===================================================== */
 
 .actions{
-height:92px;
+  height:92px;
+  flex-shrink:0;
 
-display:flex;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 
-justify-content:center;
-
-align-items:center;
-
-gap:18px;
-
-flex-shrink:0;
+  gap:22px;
 }
 
 .action{
-border-radius:50%;
+  display:grid;
+  place-items:center;
 
-display:grid;
+  border-radius:50%;
 
-place-items:center;
+  box-shadow:
+    0 7px 20px #0009;
 
-box-shadow:0 8px 20px #0008;
-
-transition:
-transform .15s ease;
+  transition:
+    transform .15s ease;
 }
 
 .action:active{
-transform:scale(.88);
+  transform:scale(.88);
 }
 
-/* PASS */
+/* Simple dislike */
 
-.pass{
-width:66px;
-height:66px;
+.dislike{
+  width:64px;
+  height:64px;
 
-background:
-linear-gradient(
-145deg,
-#42151b,
-#170b0d
-);
+  background:#181818;
 
-border:3px solid #ff5263;
+  border:2px solid #777;
+
+  color:#aaa;
+
+  font-size:27px;
 }
 
-/* LIKE */
+/* Simple like */
 
 .like{
-width:74px;
-height:74px;
+  width:72px;
+  height:72px;
 
-background:
-linear-gradient(
-145deg,
-#16472e,
-#0b2016
-);
+  background:#183b28;
 
-border:3px solid #45e58a;
+  border:2px solid #45e58a;
+
+  color:#fff;
+
+  font-size:30px;
 }
 
-/* SUPER */
+/* Simple tooth */
 
-.super{
-width:52px;
-height:52px;
+.clean-tooth{
+  width:28px;
+  height:32px;
 
-background:#151f35;
+  background:#fff;
 
-border:2px solid #55b9ff;
+  border-radius:
+    8px
+    8px
+    12px
+    12px;
 
-color:#55b9ff;
+  position:relative;
 
-font-size:23px;
+  box-shadow:
+    inset 0 -3px 0 #ddd;
 }
 
-/* =========================
-GOOD TEETH
-========================= */
+.clean-tooth:after{
+  content:"";
 
-.good-mouth{
-width:50px;
-height:31px;
+  position:absolute;
 
-display:flex;
+  left:6px;
+  right:6px;
+  bottom:5px;
 
-align-items:flex-start;
+  height:2px;
 
-justify-content:center;
+  background:#eee;
 
-overflow:hidden;
-
-background:#fff;
-
-border-radius:
-8px
-8px
-22px
-22px;
-
-padding:
-2px
-3px
-5px;
-
-box-shadow:
-0 2px 5px #0008;
-
-position:relative;
+  border-radius:50%;
 }
 
-.good-mouth span{
-width:8px;
-height:16px;
-
-background:#fff;
-
-border:1px solid #ddd;
-
-border-radius:
-0
-0
-4px
-4px;
-
-display:block;
-}
-
-.good-mouth:after{
-content:"";
-
-position:absolute;
-
-width:31px;
-height:4px;
-
-background:#f1a8b0;
-
-border-radius:50%;
-
-margin-top:20px;
-}
-
-/* =========================
-BAD TEETH
-========================= */
-
-.bad-mouth{
-width:50px;
-height:31px;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-overflow:hidden;
-
-background:#351616;
-
-border:2px solid #8b3b3b;
-
-border-radius:
-7px
-7px
-18px
-18px;
-
-padding:1px;
-
-position:relative;
-
-box-shadow:
-inset 0 2px 5px #000;
-}
-
-.bad-tooth{
-font-size:13px;
-
-width:10px;
-height:18px;
-
-display:block;
-
-filter:
-saturate(.55)
-sepia(.35);
-
-transform:rotate(-5deg);
-}
-
-.bad-tooth.crooked{
-transform:
-rotate(27deg)
-translateY(3px);
-}
-
-.bad-mouth .gap{
-width:7px;
-height:18px;
-
-display:block;
-}
-
-/* =========================
-EMPTY
-========================= */
-
-.empty{
-height:100%;
-
-display:grid;
-
-place-items:center;
-
-text-align:center;
-
-padding:30px;
-}
-
-.empty h2{
-font-size:29px;
-
-margin:8px 0;
-}
-
-.empty p{
-color:#aaa;
-}
-
-.reset{
-padding:13px 20px;
-
-border-radius:99px;
-
-background:#f4c542;
-
-color:#111;
-
-font-weight:900;
-}
-
-/* =========================
-BOTTOM NAV
-========================= */
+/* =====================================================
+   NAV
+===================================================== */
 
 nav{
-height:68px;
+  height:67px;
+  flex-shrink:0;
 
-display:flex;
+  display:flex;
 
-border-top:
-1px solid #ffffff12;
+  border-top:
+    1px solid #ffffff12;
 
-background:#0c0c0cf5;
+  background:#0c0c0cf5;
 
-backdrop-filter:blur(20px);
-
-flex-shrink:0;
+  backdrop-filter:blur(20px);
 }
 
 nav button{
-flex:1;
+  flex:1;
 
-background:none;
+  background:none;
 
-color:#777;
+  color:#777;
 
-font-size:11px;
-
-font-weight:800;
+  font-size:10px;
+  font-weight:800;
 }
 
 nav button.active{
-color:#fff;
+  color:#fff;
 }
 
 nav span{
-display:block;
-
-font-size:21px;
-
-margin-bottom:2px;
+  display:block;
+  font-size:20px;
+  margin-bottom:2px;
 }
 
-/* =========================
-LIKES PANEL
-========================= */
+/* =====================================================
+   PROFILE SHEET
+===================================================== */
 
 .sheet{
-position:fixed;
+  position:fixed;
+  inset:0;
 
-inset:0;
+  z-index:200;
 
-background:#0009;
+  display:none;
+  align-items:flex-end;
 
-z-index:110;
-
-display:none;
-
-align-items:flex-end;
+  background:#000b;
 }
 
 .sheet.open{
-display:flex;
+  display:flex;
 }
 
-.panel{
-width:100%;
+.profile-panel{
+  width:100%;
+  max-width:520px;
 
-max-width:520px;
+  max-height:92dvh;
 
-margin:auto;
+  overflow:auto;
 
-background:#151515;
+  margin:auto;
 
-border-radius:
-28px
-28px
-0
-0;
+  background:
+    linear-gradient(
+      #181818,
+      #0c0c0c
+    );
 
-padding:
-18px
-20px
-30px;
+  border-radius:
+    30px
+    30px
+    0
+    0;
 
-max-height:82dvh;
-
-overflow:auto;
+  padding-bottom:35px;
 }
 
-.panel h2{
-margin:
-4px
-0
-18px;
+.profile-hero{
+  position:relative;
+
+  height:330px;
+}
+
+.profile-hero img{
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  display:block;
+}
+
+.profile-hero:after{
+  content:"";
+
+  position:absolute;
+  inset:0;
+
+  background:
+    linear-gradient(
+      transparent 35%,
+      #000 100%
+    );
 }
 
 .close{
-float:right;
+  position:absolute;
 
-width:34px;
-height:34px;
+  z-index:10;
 
-border-radius:50%;
+  top:14px;
+  right:14px;
 
-background:#292929;
+  width:38px;
+  height:38px;
 
-color:#fff;
+  border-radius:50%;
 
-font-size:20px;
+  background:#000b;
+
+  color:#fff;
+
+  font-size:23px;
 }
 
-.list{
-display:grid;
+.profile-title{
+  position:absolute;
 
-gap:10px;
+  z-index:5;
+
+  bottom:18px;
+  left:20px;
 }
 
-.liked{
-display:flex;
+.profile-title h1{
+  margin:0;
 
-align-items:center;
-
-gap:12px;
-
-background:#202020;
-
-border-radius:15px;
-
-padding:8px;
+  font-size:35px;
+  font-weight:1000;
 }
 
-.liked img{
-width:62px;
-height:72px;
+.profile-title p{
+  margin:3px 0 0;
 
-object-fit:cover;
-
-border-radius:10px;
+  color:#ddd;
 }
 
-.liked strong{
-font-size:17px;
+.profile-content{
+  padding:18px 20px;
 }
 
-.liked small{
-display:block;
+.profile-bio{
+  font-size:15px;
 
-color:#999;
+  line-height:1.55;
 
-margin-top:3px;
+  color:#ddd;
 }
 
-/* =========================
-TOAST
-========================= */
+.profile-bio strong{
+  color:#fff;
+}
+
+.profile-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+
+  margin:17px 0;
+}
+
+.profile-tag{
+  padding:8px 11px;
+
+  background:#242424;
+
+  border-radius:99px;
+
+  color:#ddd;
+
+  font-size:11px;
+  font-weight:800;
+}
+
+.profile-section{
+  margin-top:20px;
+}
+
+.profile-section h3{
+  margin:0 0 9px;
+
+  font-size:13px;
+
+  color:#f4c542;
+
+  text-transform:uppercase;
+
+  letter-spacing:1px;
+}
+
+.profile-row{
+  display:flex;
+
+  justify-content:space-between;
+
+  padding:11px 0;
+
+  border-bottom:
+    1px solid #ffffff0d;
+
+  color:#bbb;
+
+  font-size:14px;
+}
+
+.profile-row strong{
+  color:#fff;
+}
+
+/* =====================================================
+   LIKES
+===================================================== */
+
+.likes-panel{
+  width:100%;
+  max-width:520px;
+
+  max-height:85dvh;
+
+  overflow:auto;
+
+  margin:auto;
+
+  background:#151515;
+
+  border-radius:
+    28px
+    28px
+    0
+    0;
+
+  padding:20px;
+}
+
+.likes-panel h2{
+  margin:0 0 17px;
+}
+
+.liked-list{
+  display:grid;
+  gap:10px;
+}
+
+.liked-person{
+  display:flex;
+  align-items:center;
+
+  gap:12px;
+
+  background:#222;
+
+  padding:8px;
+
+  border-radius:15px;
+}
+
+.liked-person img{
+  width:62px;
+  height:72px;
+
+  object-fit:cover;
+
+  border-radius:10px;
+}
+
+.liked-person strong{
+  font-size:16px;
+}
+
+.liked-person small{
+  display:block;
+
+  margin-top:3px;
+
+  color:#999;
+}
+
+/* =====================================================
+   EMPTY
+===================================================== */
+
+.empty{
+  height:100%;
+
+  display:grid;
+  place-items:center;
+
+  text-align:center;
+
+  padding:30px;
+}
+
+.empty h2{
+  font-size:28px;
+}
+
+.empty p{
+  color:#999;
+}
+
+.reset{
+  padding:14px 22px;
+
+  border-radius:99px;
+
+  background:#f4c542;
+
+  color:#111;
+
+  font-weight:900;
+}
+
+/* =====================================================
+   TOAST
+===================================================== */
 
 .toast{
-position:fixed;
+  position:fixed;
 
-z-index:200;
+  z-index:500;
 
-left:50%;
+  left:50%;
+  bottom:90px;
 
-bottom:88px;
+  transform:
+    translate(-50%,20px);
 
-transform:
-translate(-50%,20px);
+  opacity:0;
 
-opacity:0;
+  padding:
+    11px
+    17px;
 
-background:#fff;
+  border-radius:99px;
 
-color:#111;
+  background:#fff;
 
-padding:
-11px
-16px;
+  color:#111;
 
-border-radius:99px;
+  font-weight:900;
 
-font-weight:900;
+  transition:.25s;
 
-transition:.25s;
-
-pointer-events:none;
+  pointer-events:none;
 }
 
 .toast.show{
-opacity:1;
+  opacity:1;
 
-transform:
-translate(-50%,0);
+  transform:
+    translate(-50%,0);
 }
 
 </style>
@@ -850,29 +821,21 @@ translate(-50%,0);
 <body>
 
 
-<!-- ==================================================
-     BREANNA'S BUILT-IN PROFILE
-================================================== -->
+<!-- =====================================================
+     BREANNA OPENING PROFILE
+===================================================== -->
 
 <div
 class="welcome"
 id="welcome">
 
-<div class="welcome-logo">
-
+<div class="logo-big">
 BREUM<b>BLE</b>
-
 </div>
 
-
-<div class="welcome-subtitle">
-
+<div class="welcome-sub">
 Hollywood Crush Edition
-
 </div>
-
-
-<div class="welcome-photo-wrap">
 
 <img
 class="welcome-photo"
@@ -880,25 +843,16 @@ src="IMG_5053.jpeg"
 alt="Breanna"
 >
 
-</div>
-
-
 <div class="welcome-name">
-
 Breanna
-
 </div>
 
-
-<div class="welcome-text">
-
-Ready to find your Hollywood crush?
-
+<div class="welcome-description">
+Dental hygienist • Professional smile inspector
 </div>
-
 
 <button
-class="start-btn"
+class="start"
 id="startBtn">
 
 START BREUMBLING ❤️
@@ -909,19 +863,18 @@ START BREUMBLING ❤️
 
 
 
-<!-- ==================================================
-     MAIN APP
-================================================== -->
+<!-- =====================================================
+     APP
+===================================================== -->
 
 <div class="app">
 
 
 <header>
 
-
 <button
-class="icon"
-id="profileBtn">
+class="profile-button"
+id="profileButton">
 
 👤
 
@@ -929,18 +882,15 @@ id="profileBtn">
 
 
 <div class="logo">
-
 BREUM<b>BLE</b>
-
 </div>
 
 
-<div class="profile-mini">
+<div class="header-profile">
 
 <span>
 Breanna
 </span>
-
 
 <img
 src="IMG_5053.jpeg"
@@ -964,79 +914,33 @@ id="deck">
 
 
 
-<!-- ==================================================
+<!-- =====================================================
      ACTION BUTTONS
-================================================== -->
+===================================================== -->
 
 <div class="actions">
 
 
-<!-- BAD TEETH = PASS -->
+<!-- DISLIKE -->
 
 <button
-class="action pass"
-id="passBtn">
+class="action dislike"
+id="dislikeBtn"
+aria-label="Dislike">
 
-<span class="bad-mouth">
-
-
-<span class="bad-tooth">
-🦷
-</span>
-
-
-<span class="bad-tooth crooked">
-🦷
-</span>
-
-
-<span class="bad-tooth">
-🦷
-</span>
-
-
-<span class="gap">
-</span>
-
-
-<span class="bad-tooth">
-🦷
-</span>
-
-
-</span>
+✕
 
 </button>
 
 
-
-<!-- SUPER LIKE -->
-
-<button
-class="action super"
-id="superBtn">
-
-★
-
-</button>
-
-
-
-<!-- PERFECT TEETH = LIKE -->
+<!-- LIKE -->
 
 <button
 class="action like"
-id="likeBtn">
+id="likeBtn"
+aria-label="Like">
 
-<span class="good-mouth">
-
-<span>🦷</span>
-<span>🦷</span>
-<span>🦷</span>
-<span>🦷</span>
-<span>🦷</span>
-
-</span>
+<span class="clean-tooth"></span>
 
 </button>
 
@@ -1045,19 +949,17 @@ id="likeBtn">
 
 
 
-<!-- ==================================================
-     NAVIGATION
-================================================== -->
+<!-- =====================================================
+     NAV
+===================================================== -->
 
 <nav>
 
-
 <button
 class="active"
-id="homeNav">
+id="discoverNav">
 
 <span>🔥</span>
-
 Discover
 
 </button>
@@ -1067,8 +969,7 @@ Discover
 id="likesNav">
 
 <span>❤️</span>
-
-Breumbles
+Likes
 
 </button>
 
@@ -1077,29 +978,214 @@ Breumbles
 id="profileNav">
 
 <span>👤</span>
-
 Breanna
 
 </button>
 
-
 </nav>
+
+</div>
+
+
+
+<!-- =====================================================
+     BREANNA FULL PROFILE
+===================================================== -->
+
+<div
+class="sheet"
+id="profileSheet">
+
+<div class="profile-panel">
+
+
+<div class="profile-hero">
+
+<button
+class="close"
+id="closeProfile">
+
+×
+</button>
+
+
+<img
+src="IMG_5053.jpeg"
+alt="Breanna"
+>
+
+
+<div class="profile-title">
+
+<h1>
+Breanna
+</h1>
+
+<p>
+Dental Hygienist • Smile Enthusiast
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="profile-content">
+
+
+<div class="profile-bio">
+
+<strong>
+About Breanna
+</strong>
+
+<br><br>
+
+Dental hygienist by day, professional handsome-man
+evaluator by night. I spend my working hours making
+people's smiles better, so naturally I've developed
+very high standards for them. 😏
+
+<br><br>
+
+Looking for someone who can make me laugh,
+keep up with my sarcasm, and preferably owns
+a toothbrush.
+
+<br><br>
+
+Bonus points for a great smile.
+
+Extra bonus points if I don't have to remind you
+to floss.
+
+<br><br>
+
+I'm here for good conversation, good chemistry,
+and seeing whether Hollywood has produced anyone
+who can actually impress me.
+
+</div>
+
+
+
+<div class="profile-tags">
+
+<div class="profile-tag">
+🦷 Dental Hygienist
+</div>
+
+<div class="profile-tag">
+😂 Sarcasm
+</div>
+
+<div class="profile-tag">
+❤️ Romance
+</div>
+
+<div class="profile-tag">
+🎬 Movies
+</div>
+
+<div class="profile-tag">
+☕ Coffee
+</div>
+
+<div class="profile-tag">
+✨ Great Smiles
+</div>
+
+</div>
+
+
+
+<div class="profile-section">
+
+<h3>
+The Important Stuff
+</h3>
+
+
+<div class="profile-row">
+<span>Occupation</span>
+<strong>Dental Hygienist</strong>
+</div>
+
+
+<div class="profile-row">
+<span>Specialty</span>
+<strong>Smile Quality Control</strong>
+</div>
+
+
+<div class="profile-row">
+<span>Dating Philosophy</span>
+<strong>Make me laugh</strong>
+</div>
+
+
+<div class="profile-row">
+<span>Dealbreaker</span>
+<strong>Bad hygiene 😬</strong>
+</div>
+
+
+<div class="profile-row">
+<span>Weakness</span>
+<strong>A great smile</strong>
+</div>
+
+
+<div class="profile-row">
+<span>Green Flag</span>
+<strong>Actually flosses</strong>
+</div>
 
 
 </div>
 
 
 
-<!-- ==================================================
-     BREUMBLES PANEL
-================================================== -->
+<div class="profile-section">
+
+<h3>
+Her Type
+</h3>
+
+<div class="profile-bio">
+
+Confident but not cocky.
+Funny without trying too hard.
+Kind when nobody is watching.
+And obviously...
+
+<strong>
+a dangerously good smile.
+</strong>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     LIKES SHEET
+===================================================== -->
 
 <div
 class="sheet"
 id="likesSheet">
 
-<div class="panel">
-
+<div class="likes-panel">
 
 <button
 class="close"
@@ -1109,19 +1195,14 @@ id="closeLikes">
 
 </button>
 
-
 <h2>
-
-❤️ Breanna's Breumbles
-
+❤️ Breanna's Likes
 </h2>
 
-
 <div
-class="list"
-id="likesList">
+class="liked-list"
+id="likedList">
 </div>
-
 
 </div>
 
@@ -1138,11 +1219,13 @@ id="toast">
 
 <script>
 
-/* ==================================================
-   HOLLYWOOD ACTORS
-================================================== */
+/* =====================================================
+   HOLLYWOOD LINEUP
 
-const actors=[
+   Large lineup so Breanna can keep swiping.
+===================================================== */
+
+const men = [
 
 [
 "Chris Evans",
@@ -1156,13 +1239,6 @@ const actors=[
 "43",
 "Superman • The Witcher",
 "Henry_Cavill"
-],
-
-[
-"Michael B. Jordan",
-"39",
-"Creed • Black Panther",
-"Michael_B._Jordan"
 ],
 
 [
@@ -1180,17 +1256,17 @@ const actors=[
 ],
 
 [
+"Michael B. Jordan",
+"39",
+"Creed • Black Panther",
+"Michael_B._Jordan"
+],
+
+[
 "Pedro Pascal",
 "51",
 "The Last of Us • Gladiator II",
 "Pedro_Pascal"
-],
-
-[
-"Regé-Jean Page",
-"38",
-"Bridgerton • The Gray Man",
-"Regé-Jean_Page"
 ],
 
 [
@@ -1210,8 +1286,15 @@ const actors=[
 [
 "Glen Powell",
 "37",
-"Anyone But You • Top Gun",
+"Top Gun • Anyone But You",
 "Glen_Powell"
+],
+
+[
+"Simu Liu",
+"37",
+"Shang-Chi • Barbie",
+"Simu_Liu"
 ],
 
 [
@@ -1222,98 +1305,229 @@ const actors=[
 ],
 
 [
-"Simu Liu",
-"37",
-"Shang-Chi • Barbie",
-"Simu_Liu"
+"Regé-Jean Page",
+"38",
+"Bridgerton • The Gray Man",
+"Regé-Jean_Page"
+],
+
+[
+"John Krasinski",
+"46",
+"The Office • A Quiet Place",
+"John_Krasinski"
+],
+
+[
+"Zac Efron",
+"38",
+"The Greatest Showman • Baywatch",
+"Zac_Efron"
+],
+
+[
+"Channing Tatum",
+"46",
+"Magic Mike • 21 Jump Street",
+"Channing_Tatum"
+],
+
+[
+"Jake Gyllenhaal",
+"45",
+"Nightcrawler • Road House",
+"Jake_Gyllenhaal"
+],
+
+[
+"Jensen Ackles",
+"48",
+"Supernatural • The Boys",
+"Jensen_Ackles"
+],
+
+[
+"Matt Bomer",
+"48",
+"White Collar • Fellow Travelers",
+"Matt_Bomer"
+],
+
+[
+"Sebastian Stan",
+"44",
+"Captain America • The Apprentice",
+"Sebastian_Stan"
+],
+
+[
+"Robert Pattinson",
+"40",
+"The Batman • Twilight",
+"Robert_Pattinson"
+],
+
+[
+"Devon Sawa",
+"47",
+"Final Destination • Chucky",
+"Devon_Sawa"
+],
+
+[
+"Joseph Gordon-Levitt",
+"45",
+"Inception • 10 Things I Hate About You",
+"Joseph_Gordon-Levitt"
+],
+
+[
+"Andrew Garfield",
+"43",
+"The Amazing Spider-Man • Tick Tick Boom",
+"Andrew_Garfield"
+],
+
+[
+"James McAvoy",
+"47",
+"X-Men • Split",
+"James_McAvoy"
+],
+
+[
+"Henry Golding",
+"39",
+"Crazy Rich Asians • The Gentlemen",
+"Henry_Golding"
+],
+
+[
+"Daniel Craig",
+"58",
+"James Bond • Knives Out",
+"Daniel_Craig"
+],
+
+[
+"Richard Madden",
+"40",
+"Bodyguard • Eternals",
+"Richard_Madden"
+],
+
+[
+"Tom Hiddleston",
+"45",
+"Loki • The Night Manager",
+"Tom_Hiddleston"
+],
+
+[
+"Reginald VelJohnson",
+"73",
+"Family Matters • Die Hard",
+"Reginald_VelJohnson"
+],
+
+[
+"Taylor Zakhar Perez",
+"34",
+"Red White & Royal Blue",
+"Taylor_Zakhar_Perez"
+],
+
+[
+"Lucien Laviscount",
+"34",
+"Emily in Paris • Scream Queens",
+"Lucien_Laviscount"
+],
+
+[
+"Bridgerton's Anthony",
+"38",
+"Period Drama • Dangerous Smile",
+"Jonathan_Bailey"
 ]
 
 ];
 
 
-/* ==================================================
-   APP STATE
-================================================== */
+/* =====================================================
+   STATE
+===================================================== */
 
-let index =
+let current =
 Number(
 localStorage.getItem(
-"breumbleIndex"
+"breumbleCurrent"
 ) || 0
 );
 
-
-let liked =
+let likes =
 JSON.parse(
 localStorage.getItem(
-"breumbleLiked"
+"breumbleLikes"
 ) || "[]"
 );
 
 
-/* ==================================================
+/* =====================================================
    ELEMENTS
-================================================== */
+===================================================== */
 
 const deck =
-document.getElementById(
-"deck"
-);
-
+document.getElementById("deck");
 
 const toast =
-document.getElementById(
-"toast"
-);
+document.getElementById("toast");
 
 
-/* ==================================================
+/* =====================================================
    SAVE SWIPE DATA
-================================================== */
+
+   Notice: no profile photo is stored.
+===================================================== */
 
 function save(){
 
 localStorage.setItem(
-"breumbleIndex",
-index
+"breumbleCurrent",
+current
 );
 
 localStorage.setItem(
-"breumbleLiked",
-JSON.stringify(liked)
+"breumbleLikes",
+JSON.stringify(likes)
 );
 
 }
 
 
-/* ==================================================
+/* =====================================================
    TOAST
-================================================== */
+===================================================== */
 
-function showToast(message){
+function message(text){
 
-toast.textContent =
-message;
+toast.textContent=text;
 
-toast.classList.add(
-"show"
-);
+toast.classList.add("show");
 
 setTimeout(
 ()=>{
-toast.classList.remove(
-"show"
-);
+toast.classList.remove("show");
 },
-1300
+1200
 );
 
 }
 
 
-/* ==================================================
-   PLACEHOLDER FOR ACTOR PHOTOS
-================================================== */
+/* =====================================================
+   PLACEHOLDER
+===================================================== */
 
 function placeholder(name){
 
@@ -1323,7 +1537,6 @@ name
 .map(x=>x[0])
 .join("");
 
-
 return "data:image/svg+xml;charset=UTF-8,"+
 encodeURIComponent(`
 
@@ -1332,59 +1545,31 @@ xmlns="http://www.w3.org/2000/svg"
 width="800"
 height="1100">
 
-<defs>
-
-<linearGradient
-id="g"
-x1="0"
-x2="1"
-y1="0"
-y2="1">
-
-<stop
-stop-color="#3a2508"/>
-
-<stop
-offset=".5"
-stop-color="#111"/>
-
-<stop
-offset="1"
-stop-color="#5b1019"/>
-
-</linearGradient>
-
-</defs>
-
-
 <rect
 width="100%"
 height="100%"
-fill="url(#g)"
+fill="#242424"
 />
-
 
 <text
 x="50%"
 y="48%"
-dominant-baseline="middle"
 text-anchor="middle"
 fill="#f4c542"
-font-size="150"
+font-size="140"
 font-family="Arial"
-font-weight="900">
+font-weight="bold">
 
 ${initials}
 
 </text>
 
-
 <text
 x="50%"
-y="60%"
+y="58%"
 text-anchor="middle"
 fill="white"
-font-size="34"
+font-size="30"
 font-family="Arial">
 
 ${name}
@@ -1398,11 +1583,11 @@ ${name}
 }
 
 
-/* ==================================================
-   GET ACTOR PHOTO
-================================================== */
+/* =====================================================
+   GET WIKIPEDIA PHOTO
+===================================================== */
 
-async function actorImage(slug){
+async function getPhoto(slug){
 
 try{
 
@@ -1415,17 +1600,14 @@ encodeURIComponent(slug)
 "?redirect=true"
 );
 
-
 const data =
 await response.json();
 
-
-return(
+return (
 data.thumbnail?.source ||
 data.originalimage?.source ||
 ""
 );
-
 
 }catch(e){
 
@@ -1436,24 +1618,16 @@ return "";
 }
 
 
-/* ==================================================
-   CREATE ACTOR CARD
-================================================== */
+/* =====================================================
+   CREATE CARD
+===================================================== */
 
-function makeCard(
-actor,
-position
-){
+function createCard(person,position){
 
 const card =
-document.createElement(
-"div"
-);
+document.createElement("div");
 
-
-card.className =
-"card";
-
+card.className="card";
 
 card.style.zIndex =
 100-position;
@@ -1462,85 +1636,60 @@ card.style.zIndex =
 card.innerHTML = `
 
 <img
-class="actorPhoto"
-src="${placeholder(actor[0])}"
-alt="${actor[0]}"
+class="person-photo"
+src="${placeholder(person[0])}"
+alt="${person[0]}"
 >
 
-
-<div class="stamp likeStamp">
-
+<div class="stamp like-stamp">
 LIKE
-
 </div>
 
-
-<div class="stamp noStamp">
-
+<div class="stamp nope-stamp">
 NOPE
-
 </div>
 
-
-<div class="info">
-
+<div class="card-info">
 
 <div>
 
-<span class="name">
-
-${actor[0]}
-
+<span class="card-name">
+${person[0]}
 </span>
 
-
-<span class="age">
-
-${actor[1]}
-
+<span class="card-age">
+${person[1]}
 </span>
 
 </div>
 
-
-<div class="meta">
-
-${actor[2]}
-
+<div class="card-description">
+${person[2]}
 </div>
 
-
-<span class="tag">
-
+<span class="badge">
 HOLLYWOOD
-
 </span>
 
-
-<span class="tag">
-
-BREUMBLE
-
+<span class="badge">
+SMILE CHECK
 </span>
-
 
 </div>
 
 `;
 
 
-actorImage(
-actor[3]
-)
+/* Load real public image */
+
+getPhoto(person[3])
 .then(url=>{
 
 if(url){
 
-card
-.querySelector(
-".actorPhoto"
-)
-.src=url;
+card.querySelector(
+".person-photo"
+).src=url;
 
 }
 
@@ -1549,7 +1698,7 @@ card
 
 if(position===0){
 
-attachSwipe(card);
+enableSwipe(card);
 
 }
 
@@ -1559,79 +1708,32 @@ return card;
 }
 
 
-/* ==================================================
-   RENDER DECK
-================================================== */
+/* =====================================================
+   RENDER
+===================================================== */
 
 function render(){
 
 deck.innerHTML="";
 
 
-if(index>=actors.length){
+/*
+   Instead of ending permanently,
+   the lineup loops forever.
+*/
 
-deck.innerHTML = `
+if(current >= men.length){
 
-<div class="empty">
-
-<div>
-
-<div style="font-size:60px">
-
-🎬
-
-</div>
-
-
-<h2>
-
-That's a wrap!
-
-</h2>
-
-
-<p>
-
-Breanna has seen everyone
-in this Breumble lineup.
-
-</p>
-
-
-<button
-class="reset"
-id="resetBtn">
-
-Start Over
-
-</button>
-
-</div>
-
-</div>
-
-`;
-
-
-document.getElementById(
-"resetBtn"
-).onclick=()=>{
-
-index=0;
-
-liked=[];
+current=0;
 
 save();
 
-render();
-
-};
-
-
-return;
-
 }
 
+
+/*
+   Put three cards on screen.
+*/
 
 for(
 let position=2;
@@ -1639,15 +1741,16 @@ position>=0;
 position--
 ){
 
-const i =
-index+position;
-
-
-if(i<actors.length){
+const person =
+men[
+(current+position)
+%
+men.length
+];
 
 const card =
-makeCard(
-actors[i],
+createCard(
+person,
 position
 );
 
@@ -1669,19 +1772,15 @@ deck.appendChild(card);
 
 }
 
-}
 
+/* =====================================================
+   SWIPE
+===================================================== */
 
-/* ==================================================
-   SWIPE ENGINE
-================================================== */
-
-function attachSwipe(card){
+function enableSwipe(card){
 
 let startX=0;
-
-let dx=0;
-
+let deltaX=0;
 let dragging=false;
 
 
@@ -1699,45 +1798,40 @@ event.touches[0]
 event;
 
 
-dx =
+deltaX =
 point.clientX-startX;
 
 
-const rotation =
-dx/18;
-
-
-card.style.transition =
-"none";
+card.style.transition="none";
 
 
 card.style.transform =
 `
-translate(${dx}px,0)
-rotate(${rotation}deg)
+translateX(${deltaX}px)
+rotate(${deltaX/18}deg)
 `;
 
 
 card.querySelector(
-".likeStamp"
+".like-stamp"
 ).style.opacity =
 Math.min(
 1,
 Math.max(
 0,
-dx/110
+deltaX/100
 )
 );
 
 
 card.querySelector(
-".noStamp"
+".nope-stamp"
 ).style.opacity =
 Math.min(
 1,
 Math.max(
 0,
--dx/110
+-deltaX/100
 )
 );
 
@@ -1753,29 +1847,26 @@ return;
 dragging=false;
 
 
-if(Math.abs(dx)>105){
+if(Math.abs(deltaX)>100){
 
-finish(
-dx>0
+swipe(
+deltaX>0
 ?
 "like"
 :
-"pass"
+"dislike"
 );
 
 }else{
 
-card.style.transform =
-"";
-
+card.style.transform="";
 
 card.querySelector(
-".likeStamp"
+".like-stamp"
 ).style.opacity=0;
 
-
 card.querySelector(
-".noStamp"
+".nope-stamp"
 ).style.opacity=0;
 
 }
@@ -1785,28 +1876,24 @@ card.querySelector(
 
 card.addEventListener(
 "touchstart",
-event=>{
+e=>{
 
 dragging=true;
 
 startX =
-event.touches[0].clientX;
+e.touches[0].clientX;
 
-dx=0;
+deltaX=0;
 
 },
-{
-passive:true
-}
+{passive:true}
 );
 
 
 card.addEventListener(
 "touchmove",
 move,
-{
-passive:true
-}
+{passive:true}
 );
 
 
@@ -1818,14 +1905,13 @@ end
 
 card.addEventListener(
 "mousedown",
-event=>{
+e=>{
 
 dragging=true;
 
-startX =
-event.clientX;
+startX=e.clientX;
 
-dx=0;
+deltaX=0;
 
 }
 );
@@ -1845,23 +1931,23 @@ end
 }
 
 
-/* ==================================================
-   FINISH SWIPE
-================================================== */
+/* =====================================================
+   SWIPE RESULT
+===================================================== */
 
-function finish(type){
+function swipe(type){
 
-const actor =
-actors[index];
-
+const person =
+men[
+current %
+men.length
+];
 
 const card =
-deck.querySelector(
-".card"
-);
+deck.querySelector(".card");
 
 
-if(!actor||!card)
+if(!card)
 return;
 
 
@@ -1872,48 +1958,60 @@ card.style.transition =
 card.style.transform =
 `
 translate(
-${type==="like"?1000:-1000}px,
+${type==="like"
+?
+"1000px"
+:
+"-1000px"
+},
 80px
 )
 rotate(
-${type==="like"?25:-25}deg
+${type==="like"
+?
+"24deg"
+:
+"-24deg"
 )
 `;
 
 
-card.style.opacity =
-"0";
+card.style.opacity="0";
 
 
 setTimeout(
 ()=>{
 
+if(type==="like"){
+
 if(
-type==="like" &&
-!liked.some(
-x=>x[0]===actor[0]
+!likes.some(
+x=>x[0]===person[0]
 )
 ){
 
-liked.push(actor);
+likes.push(person);
+
+}
+
+message(
+"❤️ Breumble!"
+);
+
+}else{
+
+message(
+"✕ Passed!"
+);
 
 }
 
 
-index++;
+current++;
 
 save();
 
 render();
-
-
-showToast(
-type==="like"
-?
-"❤️ Breumble!"
-:
-"✕ Next!"
-);
 
 },
 220
@@ -1922,94 +2020,117 @@ type==="like"
 }
 
 
-/* ==================================================
-   ACTION BUTTONS
-================================================== */
-
-document.getElementById(
-"passBtn"
-).onclick =
-()=>{
-finish("pass");
-};
-
+/* =====================================================
+   BUTTONS
+===================================================== */
 
 document.getElementById(
 "likeBtn"
 ).onclick =
 ()=>{
-finish("like");
+swipe("like");
 };
 
 
 document.getElementById(
-"superBtn"
+"dislikeBtn"
 ).onclick =
 ()=>{
-finish("like");
+swipe("dislike");
 };
 
 
-/* ==================================================
-   START BREUMBLING
-================================================== */
+/* =====================================================
+   START
+===================================================== */
 
 document.getElementById(
 "startBtn"
-).onclick = ()=>{
+).onclick=()=>{
 
 const welcome =
 document.getElementById(
 "welcome"
 );
 
-
-welcome.classList.add(
-"hide"
-);
-
+welcome.classList.add("hide");
 
 setTimeout(
 ()=>{
 welcome.style.display="none";
 },
-550
+500
 );
-
 
 render();
 
 };
 
 
-/* ==================================================
-   LIKED ACTORS
-================================================== */
+/* =====================================================
+   BREANNA FULL PROFILE
+===================================================== */
+
+function openProfile(){
+
+document
+.getElementById("profileSheet")
+.classList.add("open");
+
+}
+
+
+function closeProfile(){
+
+document
+.getElementById("profileSheet")
+.classList.remove("open");
+
+}
+
+
+document.getElementById(
+"profileButton"
+).onclick =
+openProfile;
+
+
+document.getElementById(
+"profileNav"
+).onclick =
+openProfile;
+
+
+document.getElementById(
+"closeProfile"
+).onclick =
+closeProfile;
+
+
+/* =====================================================
+   LIKES
+===================================================== */
 
 function renderLikes(){
 
 const list =
 document.getElementById(
-"likesList"
+"likedList"
 );
 
 
-if(!liked.length){
+if(!likes.length){
 
-list.innerHTML = `
+list.innerHTML=`
 
 <p
 style="
-color:#999;
 text-align:center;
-line-height:1.6
+color:#888;
+padding:25px 0;
 ">
 
-No Breumbles yet.
-
-<br>
-
-Start swiping! ❤️
+No Hollywood crushes yet. 😏
 
 </p>
 
@@ -2021,31 +2142,25 @@ return;
 
 
 list.innerHTML =
-liked.map(
-actor=>`
+likes.map(
+person=>`
 
-<div class="liked">
+<div class="liked-person">
 
 <img
-src="${placeholder(actor[0])}"
-data-slug="${actor[3]}"
-alt="${actor[0]}"
+src="${placeholder(person[0])}"
+data-slug="${person[3]}"
+alt="${person[0]}"
 >
-
 
 <div>
 
 <strong>
-
-${actor[0]}
-
+${person[0]}
 </strong>
 
-
 <small>
-
-${actor[2]}
-
+${person[2]}
 </small>
 
 </div>
@@ -2056,14 +2171,11 @@ ${actor[2]}
 ).join("");
 
 
-[
-...list.querySelectorAll(
-"img"
-)
-]
+list
+.querySelectorAll("img")
 .forEach(img=>{
 
-actorImage(
+getPhoto(
 img.dataset.slug
 )
 .then(url=>{
@@ -2078,24 +2190,15 @@ img.src=url;
 }
 
 
-/* ==================================================
-   NAVIGATION
-================================================== */
-
 document.getElementById(
 "likesNav"
 ).onclick=()=>{
 
 renderLikes();
 
-
 document
-.getElementById(
-"likesSheet"
-)
-.classList.add(
-"open"
-);
+.getElementById("likesSheet")
+.classList.add("open");
 
 };
 
@@ -2105,56 +2208,30 @@ document.getElementById(
 ).onclick=()=>{
 
 document
-.getElementById(
-"likesSheet"
-)
-.classList.remove(
-"open"
-);
+.getElementById("likesSheet")
+.classList.remove("open");
 
 };
 
 
-document.getElementById(
-"profileBtn"
-).onclick=()=>{
-
-showToast(
-"Breanna • Hollywood Crush Edition ❤️"
-);
-
-};
-
+/* =====================================================
+   DISCOVER
+===================================================== */
 
 document.getElementById(
-"profileNav"
-).onclick=()=>{
-
-showToast(
-"Breanna • Hollywood Crush Edition ❤️"
-);
-
-};
-
-
-document.getElementById(
-"homeNav"
+"discoverNav"
 ).onclick=()=>{
 
 document
-.getElementById(
-"likesSheet"
-)
-.classList.remove(
-"open"
-);
+.getElementById("likesSheet")
+.classList.remove("open");
 
 };
 
 
-/* ==================================================
+/* =====================================================
    INITIALIZE
-================================================== */
+===================================================== */
 
 render();
 
