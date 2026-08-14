@@ -22,7 +22,9 @@ html,body{
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
 }
 
-body{overscroll-behavior:none}
+body{
+  overscroll-behavior:none;
+}
 
 button{
   font-family:inherit;
@@ -37,7 +39,10 @@ button{
   --gray:#242424;
 }
 
-/* WELCOME */
+
+/* =========================================================
+   WELCOME
+========================================================= */
 
 #welcome{
   position:fixed;
@@ -49,7 +54,8 @@ button{
   justify-content:center;
   text-align:center;
   padding:20px;
-  background:radial-gradient(circle at 50% 10%,#594713,#171107 35%,#050505 80%);
+  background:
+    radial-gradient(circle at 50% 10%,#594713,#171107 35%,#050505 80%);
   transition:.35s;
 }
 
@@ -65,7 +71,10 @@ button{
   letter-spacing:-4px;
 }
 
-.logo-big span,.logo span{color:var(--yellow)}
+.logo-big span,
+.logo span{
+  color:var(--yellow);
+}
 
 .subtitle{
   margin-top:5px;
@@ -110,7 +119,10 @@ button{
   font-size:15px;
 }
 
-/* APP */
+
+/* =========================================================
+   APP
+========================================================= */
 
 .app{
   width:100%;
@@ -122,7 +134,10 @@ button{
   flex-direction:column;
 }
 
-/* HEADER */
+
+/* =========================================================
+   HEADER
+========================================================= */
 
 .header{
   height:65px;
@@ -163,7 +178,10 @@ button{
   color:#fff;
 }
 
-/* CARD */
+
+/* =========================================================
+   CARD
+========================================================= */
 
 .main{
   position:relative;
@@ -305,7 +323,10 @@ button{
   font-weight:900;
 }
 
-/* ACTIONS */
+
+/* =========================================================
+   ACTIONS
+========================================================= */
 
 .actions{
   height:125px;
@@ -365,7 +386,10 @@ button{
   box-shadow:0 0 18px #ff6b1755;
 }
 
-/* NAV */
+
+/* =========================================================
+   NAV
+========================================================= */
 
 .nav{
   height:65px;
@@ -384,7 +408,9 @@ button{
   font-weight:900;
 }
 
-.nav button.active{color:#fff}
+.nav button.active{
+  color:#fff;
+}
 
 .nav-icon{
   display:block;
@@ -406,7 +432,10 @@ button{
   border:2px solid var(--yellow);
 }
 
-/* FLASHES */
+
+/* =========================================================
+   FLASHES
+========================================================= */
 
 .flash{
   position:fixed;
@@ -422,7 +451,9 @@ button{
   pointer-events:none;
 }
 
-.flash.active{animation:flashIn 1.25s ease}
+.flash.active{
+  animation:flashIn 1.25s ease;
+}
 
 #sillyMode{
   background:var(--yellow);
@@ -435,7 +466,8 @@ button{
 }
 
 #supaMode{
-  background:radial-gradient(circle at 50% 45%,#68420d,#1c0d06 45%,#050505 85%);
+  background:
+    radial-gradient(circle at 50% 45%,#68420d,#1c0d06 45%,#050505 85%);
   color:#fff;
   overflow:hidden;
 }
@@ -461,19 +493,42 @@ button{
 }
 
 @keyframes flashIn{
-  0%{opacity:0;visibility:visible;transform:scale(.7)}
-  15%{opacity:1;transform:scale(1.08)}
-  72%{opacity:1;transform:scale(1)}
-  100%{opacity:0;visibility:hidden;transform:scale(1.12)}
+  0%{
+    opacity:0;
+    visibility:visible;
+    transform:scale(.7);
+  }
+  15%{
+    opacity:1;
+    transform:scale(1.08);
+  }
+  72%{
+    opacity:1;
+    transform:scale(1);
+  }
+  100%{
+    opacity:0;
+    visibility:hidden;
+    transform:scale(1.12);
+  }
 }
 
 @keyframes emojiBounce{
-  0%{transform:scale(.2) rotate(-20deg)}
-  55%{transform:scale(1.2) rotate(8deg)}
-  100%{transform:scale(1)}
+  0%{
+    transform:scale(.2) rotate(-20deg);
+  }
+  55%{
+    transform:scale(1.2) rotate(8deg);
+  }
+  100%{
+    transform:scale(1);
+  }
 }
 
-/* SUPA STINKY */
+
+/* =========================================================
+   SUPA STINKY CHARACTER
+========================================================= */
 
 .stinky-character{
   position:relative;
@@ -513,8 +568,13 @@ button{
   background:#111;
 }
 
-.stinky-eye.one{left:99px}
-.stinky-eye.two{left:133px}
+.stinky-eye.one{
+  left:99px;
+}
+
+.stinky-eye.two{
+  left:133px;
+}
 
 .stinky-mouth{
   position:absolute;
@@ -568,9 +628,22 @@ button{
   animation:stinkCloud 1.2s infinite ease-in-out alternate;
 }
 
-.cloud1{left:4px;top:70px}
-.cloud2{right:0;top:132px;animation-delay:.3s}
-.cloud3{left:17px;top:184px;animation-delay:.55s}
+.cloud1{
+  left:4px;
+  top:70px;
+}
+
+.cloud2{
+  right:0;
+  top:132px;
+  animation-delay:.3s;
+}
+
+.cloud3{
+  left:17px;
+  top:184px;
+  animation-delay:.55s;
+}
 
 .smell-line{
   position:absolute;
@@ -582,9 +655,25 @@ button{
   animation:odorWave 1s infinite ease-in-out alternate;
 }
 
-.line1{left:2px;top:126px;transform:rotate(-20deg)}
-.line2{right:1px;top:75px;transform:rotate(20deg);animation-delay:.25s}
-.line3{left:15px;top:230px;transform:rotate(12deg);animation-delay:.5s}
+.line1{
+  left:2px;
+  top:126px;
+  transform:rotate(-20deg);
+}
+
+.line2{
+  right:1px;
+  top:75px;
+  transform:rotate(20deg);
+  animation-delay:.25s;
+}
+
+.line3{
+  left:15px;
+  top:230px;
+  transform:rotate(12deg);
+  animation-delay:.5s;
+}
 
 @keyframes dramaticWave{
   from{transform:rotate(-48deg)}
@@ -592,16 +681,31 @@ button{
 }
 
 @keyframes stinkCloud{
-  from{transform:translate(0,10px) scale(.75) rotate(-8deg);opacity:.35}
-  to{transform:translate(15px,-14px) scale(1.08) rotate(9deg);opacity:1}
+  from{
+    transform:translate(0,10px) scale(.75) rotate(-8deg);
+    opacity:.35;
+  }
+  to{
+    transform:translate(15px,-14px) scale(1.08) rotate(9deg);
+    opacity:1;
+  }
 }
 
 @keyframes odorWave{
-  from{transform:translateX(-4px) scale(.8);opacity:.25}
-  to{transform:translateX(18px) scale(1.15);opacity:.9}
+  from{
+    transform:translateX(-4px) scale(.8);
+    opacity:.25;
+  }
+  to{
+    transform:translateX(18px) scale(1.15);
+    opacity:.9;
+  }
 }
 
-/* PROFILE SHEETS */
+
+/* =========================================================
+   PROFILE SHEETS
+========================================================= */
 
 .sheet{
   position:fixed;
@@ -612,7 +716,9 @@ button{
   background:#000c;
 }
 
-.sheet.open{display:flex}
+.sheet.open{
+  display:flex;
+}
 
 .panel{
   width:100%;
@@ -622,7 +728,6 @@ button{
   margin:auto auto 0;
   border-radius:30px 30px 0 0;
   background:#111;
-  position:relative;
 }
 
 .close{
@@ -716,7 +821,10 @@ button{
   font-weight:1000;
 }
 
-/* MATCH */
+
+/* =========================================================
+   MATCH
+========================================================= */
 
 #matchScreen{
   position:fixed;
@@ -728,7 +836,8 @@ button{
   justify-content:center;
   padding:24px;
   text-align:center;
-  background:radial-gradient(circle at 50% 25%,#59430e,#171107 45%,#060606);
+  background:
+    radial-gradient(circle at 50% 25%,#59430e,#171107 45%,#060606);
   opacity:0;
   visibility:hidden;
   pointer-events:none;
@@ -740,8 +849,15 @@ button{
 }
 
 @keyframes matchIn{
-  from{opacity:0;transform:scale(1.08)}
-  to{opacity:1;transform:scale(1);visibility:visible}
+  from{
+    opacity:0;
+    transform:scale(1.08);
+  }
+  to{
+    opacity:1;
+    transform:scale(1);
+    visibility:visible;
+  }
 }
 
 .match-small{
@@ -757,33 +873,13 @@ button{
   font-weight:1000;
 }
 
-.match-title span{color:var(--yellow)}
-
-/* NEW: ENTIRE MATCH PROFILE IS CLICKABLE */
-
-.match-profile-click{
-  width:100%;
-  max-width:360px;
-  margin:28px auto 0;
-  padding:0;
-  border:0;
-  outline:0;
-  background:transparent;
-  color:#fff;
-  cursor:pointer;
-  display:block;
-  text-align:center;
-  -webkit-tap-highlight-color:transparent;
-}
-
-.match-profile-click:active{
-  transform:scale(.97);
+.match-title span{
+  color:var(--yellow);
 }
 
 .match-photos{
   display:flex;
-  justify-content:center;
-  margin-top:0;
+  margin-top:28px;
 }
 
 .match-photo{
@@ -816,18 +912,6 @@ button{
   font-size:13px;
 }
 
-.tap-profile-hint{
-  margin-top:10px;
-  color:#888;
-  font-size:10px;
-  font-weight:800;
-}
-
-.match-profile-click:hover .match-name,
-.match-profile-click:focus .match-name{
-  color:var(--yellow);
-}
-
 .match-bio-button,
 .match-chat,
 .match-close{
@@ -856,7 +940,10 @@ button{
   color:#fff;
 }
 
-/* CHAT */
+
+/* =========================================================
+   CHAT
+========================================================= */
 
 #chatScreen{
   position:fixed;
@@ -942,10 +1029,12 @@ button{
   margin:8px 0;
 }
 
-.message-row.mine{justify-content:flex-end}
+.message-row.mine{
+  justify-content:flex-end;
+}
 
 .message{
-  max-width:78%;
+  max-width:82%;
   padding:11px 14px 8px;
   border-radius:19px;
   font-size:14px;
@@ -973,16 +1062,23 @@ button{
   vertical-align:bottom;
 }
 
-.message.mine .message-time{color:#705f1b}
+.message.mine .message-time{
+  color:#705f1b;
+}
 
 .typing-row{
   display:flex;
   margin:8px 13px;
   opacity:0;
   transition:.2s;
+  height:0;
+  overflow:hidden;
 }
 
-.typing-row.show{opacity:1}
+.typing-row.show{
+  opacity:1;
+  height:auto;
+}
 
 .typing{
   display:flex;
@@ -1003,12 +1099,23 @@ button{
   animation:typingDot 1.2s infinite;
 }
 
-.typing i:nth-child(2){animation-delay:.15s}
-.typing i:nth-child(3){animation-delay:.3s}
+.typing i:nth-child(2){
+  animation-delay:.15s;
+}
+
+.typing i:nth-child(3){
+  animation-delay:.3s;
+}
 
 @keyframes typingDot{
-  0%,60%,100%{transform:translateY(0);opacity:.45}
-  30%{transform:translateY(-4px);opacity:1}
+  0%,60%,100%{
+    transform:translateY(0);
+    opacity:.45;
+  }
+  30%{
+    transform:translateY(-4px);
+    opacity:1;
+  }
 }
 
 .chat-suggestions{
@@ -1020,7 +1127,9 @@ button{
   scrollbar-width:none;
 }
 
-.chat-suggestions::-webkit-scrollbar{display:none}
+.chat-suggestions::-webkit-scrollbar{
+  display:none;
+}
 
 .chat-suggestion{
   flex:0 0 auto;
@@ -1064,13 +1173,17 @@ button{
   font-weight:1000;
 }
 
-/* X-RAY */
+
+/* =========================================================
+   REALISTIC DENTAL X-RAY
+========================================================= */
 
 #xrayScreen{
   position:fixed;
   inset:0;
   z-index:450000;
-  background:radial-gradient(circle at 50% 25%,#272e2e,#090d0d 65%,#020303 100%);
+  background:
+    radial-gradient(circle at 50% 25%,#272e2e,#090d0d 65%,#020303 100%);
   display:none;
   flex-direction:column;
   align-items:center;
@@ -1079,7 +1192,9 @@ button{
   padding:15px;
 }
 
-#xrayScreen.show{display:flex}
+#xrayScreen.show{
+  display:flex;
+}
 
 .xray-label{
   color:var(--yellow);
@@ -1096,8 +1211,18 @@ button{
   border:3px solid #555;
   border-radius:22px;
   overflow:hidden;
-  background:radial-gradient(ellipse at 50% 48%,rgba(255,255,255,.18) 0%,rgba(230,230,230,.12) 18%,rgba(90,90,90,.08) 42%,rgba(0,0,0,.9) 76%);
-  box-shadow:0 0 22px rgba(255,255,255,.3),0 0 70px rgba(255,255,255,.08),inset 0 0 70px #000;
+  background:
+    radial-gradient(
+      ellipse at 50% 48%,
+      rgba(255,255,255,.18) 0%,
+      rgba(230,230,230,.12) 18%,
+      rgba(90,90,90,.08) 42%,
+      rgba(0,0,0,.9) 76%
+    );
+  box-shadow:
+    0 0 22px rgba(255,255,255,.3),
+    0 0 70px rgba(255,255,255,.08),
+    inset 0 0 70px #000;
   animation:xrayFlicker 2.4s infinite;
 }
 
@@ -1115,8 +1240,16 @@ button{
   top:9%;
   bottom:9%;
   border-radius:48%;
-  background:radial-gradient(ellipse at 50% 50%,#080808 0%,#050505 48%,#000 70%);
-  box-shadow:0 0 35px #000,inset 0 0 35px #000;
+  background:
+    radial-gradient(
+      ellipse at 50% 50%,
+      #080808 0%,
+      #050505 48%,
+      #000 70%
+    );
+  box-shadow:
+    0 0 35px #000,
+    inset 0 0 35px #000;
 }
 
 .gum-upper{
@@ -1127,8 +1260,17 @@ button{
   top:17%;
   height:31%;
   border-radius:48% 48% 30% 30%;
-  background:linear-gradient(180deg,#ffd0d0 0%,#f18e9c 28%,#d75d72 63%,#8f3e50 100%);
-  box-shadow:0 0 12px rgba(255,150,165,.55),inset 0 -15px 20px rgba(80,0,20,.35);
+  background:
+    linear-gradient(
+      180deg,
+      #ffd0d0 0%,
+      #f18e9c 28%,
+      #d75d72 63%,
+      #8f3e50 100%
+    );
+  box-shadow:
+    0 0 12px rgba(255,150,165,.55),
+    inset 0 -15px 20px rgba(80,0,20,.35);
 }
 
 .gum-lower{
@@ -1139,8 +1281,17 @@ button{
   bottom:16%;
   height:29%;
   border-radius:30% 30% 48% 48%;
-  background:linear-gradient(180deg,#8f3e50 0%,#d75d72 38%,#f18e9c 70%,#ffd0d0 100%);
-  box-shadow:0 0 12px rgba(255,150,165,.45),inset 0 15px 20px rgba(80,0,20,.3);
+  background:
+    linear-gradient(
+      180deg,
+      #8f3e50 0%,
+      #d75d72 38%,
+      #f18e9c 70%,
+      #ffd0d0 100%
+    );
+  box-shadow:
+    0 0 12px rgba(255,150,165,.45),
+    inset 0 15px 20px rgba(80,0,20,.3);
 }
 
 .mouth-opening{
@@ -1151,7 +1302,13 @@ button{
   top:25%;
   bottom:24%;
   border-radius:50%;
-  background:radial-gradient(ellipse,#050505 0%,#0d0508 55%,#000 100%);
+  background:
+    radial-gradient(
+      ellipse,
+      #050505 0%,
+      #0d0508 55%,
+      #000 100%
+    );
   box-shadow:inset 0 0 40px #000;
 }
 
@@ -1161,16 +1318,35 @@ button{
   width:23px;
   height:39px;
   border-radius:42% 42% 48% 48%;
-  background:linear-gradient(90deg,#c9c9c9 0%,#fff 25%,#fff 55%,#d9d9d9 82%,#a7a7a7 100%);
+  background:
+    linear-gradient(
+      90deg,
+      #c9c9c9 0%,
+      #fff 25%,
+      #ffffff 55%,
+      #d9d9d9 82%,
+      #a7a7a7 100%
+    );
   border:1px solid #fff;
-  box-shadow:0 0 5px rgba(255,255,255,.8),0 0 13px rgba(255,255,255,.35),inset -3px 0 4px rgba(100,100,100,.35);
-  transition:.35s;
+  box-shadow:
+    0 0 5px rgba(255,255,255,.8),
+    0 0 13px rgba(255,255,255,.35),
+    inset -3px 0 4px rgba(100,100,100,.35);
+  transition:.35s transform,.35s box-shadow,.35s background;
 }
 
 .tooth.lower{
   height:35px;
   border-radius:48% 48% 42% 42%;
-  background:linear-gradient(90deg,#a9a9a9 0%,#dedede 24%,#fff 52%,#dedede 78%,#a0a0a0 100%);
+  background:
+    linear-gradient(
+      90deg,
+      #a9a9a9 0%,
+      #dedede 24%,
+      #fff 52%,
+      #dedede 78%,
+      #a0a0a0 100%
+    );
 }
 
 .tooth:before{
@@ -1186,9 +1362,17 @@ button{
 }
 
 .tooth.checked{
-  background:linear-gradient(90deg,#f4c542,#fff9a6,#f4c542);
+  background:
+    linear-gradient(
+      90deg,
+      #f4c542,
+      #fff9a6,
+      #f4c542
+    );
   border-color:#fff;
-  box-shadow:0 0 8px #fff,0 0 22px var(--yellow);
+  box-shadow:
+    0 0 8px #fff,
+    0 0 22px var(--yellow);
   transform:scale(1.13);
 }
 
@@ -1212,8 +1396,15 @@ button{
   bottom:19%;
   height:20%;
   border-radius:50% 50% 48% 48%;
-  background:radial-gradient(ellipse at 50% 35%,#d26b7c,#813546 70%,#3a101c);
+  background:
+    radial-gradient(
+      ellipse at 50% 35%,
+      #d26b7c,
+      #813546 70%,
+      #3a101c
+    );
   opacity:.8;
+  box-shadow:inset 0 8px 15px rgba(255,180,190,.18);
 }
 
 .scan-line{
@@ -1224,7 +1415,10 @@ button{
   top:-12px;
   height:7px;
   background:var(--yellow);
-  box-shadow:0 0 10px #fff,0 0 25px var(--yellow),0 0 50px var(--yellow);
+  box-shadow:
+    0 0 10px #fff,
+    0 0 25px var(--yellow),
+    0 0 50px var(--yellow);
   animation:scanMouth 3.8s linear infinite;
 }
 
@@ -1235,7 +1429,13 @@ button{
   right:0;
   top:-40px;
   height:80px;
-  background:linear-gradient(transparent,#f4c54228,#f4c54212,transparent);
+  background:
+    linear-gradient(
+      transparent,
+      #f4c54228,
+      #f4c54212,
+      transparent
+    );
   animation:scanMouth 3.8s linear infinite;
 }
 
@@ -1253,8 +1453,15 @@ button{
   height:54px;
   border:5px solid #bbb;
   border-radius:50%;
-  background:radial-gradient(circle,rgba(255,255,255,.65),rgba(160,160,160,.15));
-  box-shadow:0 0 12px #fff,0 0 30px #fff5;
+  background:
+    radial-gradient(
+      circle,
+      rgba(255,255,255,.65),
+      rgba(160,160,160,.15)
+    );
+  box-shadow:
+    0 0 12px #fff,
+    0 0 30px #fff5;
   animation:mirrorInspect 4.2s infinite ease-in-out;
 }
 
@@ -1288,10 +1495,33 @@ button{
   opacity:.75;
 }
 
-.bracket1{left:8px;top:8px;border-right:0;border-bottom:0}
-.bracket2{right:8px;top:8px;border-left:0;border-bottom:0}
-.bracket3{left:8px;bottom:8px;border-right:0;border-top:0}
-.bracket4{right:8px;bottom:8px;border-left:0;border-top:0}
+.bracket1{
+  left:8px;
+  top:8px;
+  border-right:0;
+  border-bottom:0;
+}
+
+.bracket2{
+  right:8px;
+  top:8px;
+  border-left:0;
+  border-bottom:0;
+}
+
+.bracket3{
+  left:8px;
+  bottom:8px;
+  border-right:0;
+  border-top:0;
+}
+
+.bracket4{
+  right:8px;
+  bottom:8px;
+  border-left:0;
+  border-top:0;
+}
 
 .xray-title{
   margin-top:13px;
@@ -1325,7 +1555,10 @@ button{
   font-weight:1000;
 }
 
-/* TOAST */
+
+/* =========================================================
+   TOAST
+========================================================= */
 
 .toast{
   position:fixed;
@@ -1342,29 +1575,70 @@ button{
   box-shadow:0 10px 30px #000;
 }
 
-/* MOBILE */
+
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media(max-height:700px){
-  .header{height:58px;flex-basis:58px}
-  .actions{height:115px;flex-basis:115px}
-  .action{height:56px;font-size:10px}
-  .nav{height:58px;flex-basis:58px}
-  .breanna-photo{width:170px;height:215px}
-  .card-photo{height:64%}
-  .card-info{padding-top:9px}
-  .card-bio{-webkit-line-clamp:2}
-  .dental-xray{height:55vh}
+
+  .header{
+    height:58px;
+    flex-basis:58px;
+  }
+
+  .actions{
+    height:115px;
+    flex-basis:115px;
+  }
+
+  .action{
+    height:56px;
+    font-size:10px;
+  }
+
+  .nav{
+    height:58px;
+    flex-basis:58px;
+  }
+
+  .breanna-photo{
+    width:170px;
+    height:215px;
+  }
+
+  .card-photo{
+    height:64%;
+  }
+
+  .card-info{
+    padding-top:9px;
+  }
+
+  .card-bio{
+    -webkit-line-clamp:2;
+  }
+
+  .dental-xray{
+    height:55vh;
+  }
+
 }
 </style>
 </head>
 
 <body>
 
-<!-- WELCOME -->
+
+<!-- =========================================================
+     WELCOME
+========================================================= -->
 
 <div id="welcome">
 
-  <div class="logo-big">BREUM<span>BLE</span></div>
+  <div class="logo-big">
+    BREUM<span>BLE</span>
+  </div>
 
   <div class="subtitle">
     Breanna's dental dating adventure
@@ -1376,7 +1650,9 @@ button{
     alt="Breanna"
   >
 
-  <div class="breanna-name">Breanna</div>
+  <div class="breanna-name">
+    Breanna
+  </div>
 
   <div class="breanna-job">
     Dental Receptionist • Appointment Enforcer
@@ -1388,15 +1664,22 @@ button{
 
 </div>
 
-<!-- APP -->
+
+<!-- =========================================================
+     MAIN APP
+========================================================= -->
 
 <div class="app">
 
   <header class="header">
 
-    <button class="header-button" id="headerProfile">👤</button>
+    <button class="header-button" id="headerProfile">
+      👤
+    </button>
 
-    <div class="logo">BREUM<span>BLE</span></div>
+    <div class="logo">
+      BREUM<span>BLE</span>
+    </div>
 
     <div class="header-profile">
       Breanna
@@ -1409,6 +1692,7 @@ button{
 
   </header>
 
+
   <main class="main">
 
     <div class="deck" id="deck"></div>
@@ -1418,6 +1702,7 @@ button{
     </div>
 
   </main>
+
 
   <div class="actions">
 
@@ -1443,6 +1728,7 @@ button{
 
   </div>
 
+
   <nav class="nav">
 
     <button class="active" id="discoverButton">
@@ -1466,11 +1752,16 @@ button{
 
 </div>
 
-<!-- SILLY -->
+
+<!-- =========================================================
+     SILLY
+========================================================= -->
 
 <div class="flash" id="sillyMode">
 
-  <div class="flash-emoji">🤪</div>
+  <div class="flash-emoji">
+    🤪
+  </div>
 
   <div class="flash-text">
     SILLY MODE
@@ -1482,11 +1773,16 @@ button{
 
 </div>
 
-<!-- STINKY -->
+
+<!-- =========================================================
+     STINKY
+========================================================= -->
 
 <div class="flash" id="stinkyMode">
 
-  <div class="flash-emoji">💩</div>
+  <div class="flash-emoji">
+    💩
+  </div>
 
   <div class="flash-text">
     STINKY MODE
@@ -1498,7 +1794,10 @@ button{
 
 </div>
 
-<!-- SUPA STINKY -->
+
+<!-- =========================================================
+     SUPA STINKY
+========================================================= -->
 
 <div class="flash" id="supaMode">
 
@@ -1513,19 +1812,18 @@ button{
     <div class="smell-line line3"></div>
 
     <div class="stinky-head">
-
       <div class="stinky-eye one"></div>
       <div class="stinky-eye two"></div>
-
       <div class="stinky-mouth"></div>
-
     </div>
 
     <div class="stinky-hair"></div>
     <div class="stinky-body"></div>
     <div class="stinky-arm"></div>
 
-    <div class="stinky-hand">🖐️</div>
+    <div class="stinky-hand">
+      🖐️
+    </div>
 
   </div>
 
@@ -1539,7 +1837,10 @@ button{
 
 </div>
 
-<!-- MATCH SCREEN -->
+
+<!-- =========================================================
+     MATCH SCREEN
+========================================================= -->
 
 <div id="matchScreen">
 
@@ -1551,72 +1852,57 @@ button{
     IT'S A <span>MATCH!</span>
   </div>
 
-  <!-- THE ENTIRE AREA IS NOW CLICKABLE -->
+  <div class="match-photos">
 
-  <button
-    type="button"
-    class="match-profile-click"
-    id="matchProfileClick"
-    aria-label="View Mr. Stinky's full profile"
-  >
+    <img
+      class="match-photo"
+      src="https://raw.githubusercontent.com/crypto1292/Breumble/main/IMG_5053.jpeg"
+      alt="Breanna"
+    >
 
-    <div class="match-photos">
+    <img
+      class="match-photo"
+      src="stinky-guy.JPEG"
+      alt="Match"
+    >
 
-      <img
-        class="match-photo"
-        src="https://raw.githubusercontent.com/crypto1292/Breumble/main/IMG_5053.jpeg"
-        alt="Breanna"
-      >
+  </div>
 
-      <img
-        class="match-photo"
-        src="stinky-guy.JPEG"
-        alt="Mr. Stinky"
-      >
+  <div class="match-name">
+    Mr. Stinky, 32
+  </div>
 
-    </div>
-
-    <div class="match-name">
-      Mr. Stinky, 32
-    </div>
-
-    <div class="match-message">
-      The smile passed inspection. 🦷
-    </div>
-
-    <div class="tap-profile-hint">
-      👆 Tap his profile to view his full bio
-    </div>
-
-  </button>
+  <div class="match-message">
+    The smile passed inspection. 🦷
+  </div>
 
   <button
     type="button"
     class="match-bio-button"
-    id="viewMatchBio"
-  >
+    id="viewMatchBio">
     👀 VIEW FULL BIO
   </button>
 
   <button
     type="button"
     class="match-chat"
-    id="openChatButton"
-  >
+    id="openChatButton">
     💬 START CONVERSATION
   </button>
 
   <button
     type="button"
     class="match-close"
-    id="closeMatchButton"
-  >
+    id="closeMatchButton">
     KEEP BREUMBLING
   </button>
 
 </div>
 
-<!-- FULL MATCH BIO -->
+
+<!-- =========================================================
+     FULL MATCH BIO
+========================================================= -->
 
 <div class="sheet" id="matchBioSheet">
 
@@ -1625,8 +1911,7 @@ button{
     <button
       type="button"
       class="close"
-      id="closeMatchBio"
-    >
+      id="closeMatchBio">
       ×
     </button>
 
@@ -1728,8 +2013,7 @@ button{
       <button
         type="button"
         class="profile-message"
-        id="bioMessageButton"
-      >
+        id="bioMessageButton">
         💬 MESSAGE HIM
       </button>
 
@@ -1739,7 +2023,10 @@ button{
 
 </div>
 
-<!-- BREANNA PROFILE -->
+
+<!-- =========================================================
+     BREANNA PROFILE
+========================================================= -->
 
 <div class="sheet" id="profileSheet">
 
@@ -1748,8 +2035,7 @@ button{
     <button
       type="button"
       class="close"
-      id="closeProfile"
-    >
+      id="closeProfile">
       ×
     </button>
 
@@ -1762,7 +2048,9 @@ button{
 
       <div class="profile-title">
 
-        <h1>Breanna</h1>
+        <h1>
+          Breanna
+        </h1>
 
         <p>
           Dental Receptionist 🦷
@@ -1824,7 +2112,10 @@ button{
 
 </div>
 
-<!-- X-RAY -->
+
+<!-- =========================================================
+     DENTAL X-RAY
+========================================================= -->
 
 <div id="xrayScreen">
 
@@ -1869,17 +2160,17 @@ button{
   <button
     type="button"
     class="xray-close"
-    id="xrayClose"
-  >
+    id="xrayClose">
     BACK TO DISCOVER
   </button>
 
 </div>
 
+
 <script>
 
 /* =========================================================
-   CONFIG
+   CONFIGURATION
 ========================================================= */
 
 const BREANNA_IMAGE =
@@ -1888,6 +2179,13 @@ const BREANNA_IMAGE =
 const GUY_IMAGE =
 "stinky-guy.JPEG";
 
+const STORAGE_KEY =
+"breumble_chat_v5";
+
+const PROFILE_MEMORY_KEY =
+"breumble_profile_memory_v5";
+
+
 const person={
   name:"Mr. Stinky",
   age:32,
@@ -1895,35 +2193,148 @@ const person={
   image:GUY_IMAGE
 };
 
+
+/* =========================================================
+   STATE
+========================================================= */
+
 let currentMatch=false;
 let swipeBusy=false;
 let chatOpen=false;
 
-/* ELEMENTS */
 
-const welcome=document.getElementById("welcome");
-const deck=document.getElementById("deck");
-const counter=document.getElementById("counter");
+/* =========================================================
+   LOCAL MEMORY
+========================================================= */
 
-/* START */
+function loadChat(){
 
-document.getElementById("startButton").addEventListener("click",()=>{
+  try{
+
+    const saved=
+      localStorage.getItem(STORAGE_KEY);
+
+    if(!saved)return [];
+
+    const parsed=
+      JSON.parse(saved);
+
+    return Array.isArray(parsed)
+      ? parsed
+      : [];
+
+  }catch(e){
+
+    return [];
+
+  }
+
+}
+
+
+function saveChat(messages){
+
+  try{
+
+    localStorage.setItem(
+      STORAGE_KEY,
+      JSON.stringify(messages.slice(-80))
+    );
+
+  }catch(e){}
+
+}
+
+
+function loadProfileMemory(){
+
+  try{
+
+    const saved=
+      localStorage.getItem(PROFILE_MEMORY_KEY);
+
+    if(!saved)return {
+      name:null,
+      job:null,
+      interests:[],
+      facts:[],
+      questionsAnswered:[]
+    };
+
+    return JSON.parse(saved);
+
+  }catch(e){
+
+    return {
+      name:null,
+      job:null,
+      interests:[],
+      facts:[],
+      questionsAnswered:[]
+    };
+
+  }
+
+}
+
+
+function saveProfileMemory(memory){
+
+  try{
+
+    localStorage.setItem(
+      PROFILE_MEMORY_KEY,
+      JSON.stringify(memory)
+    );
+
+  }catch(e){}
+
+}
+
+
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
+const welcome=
+document.getElementById("welcome");
+
+const deck=
+document.getElementById("deck");
+
+const counter=
+document.getElementById("counter");
+
+
+/* =========================================================
+   START
+========================================================= */
+
+document
+.getElementById("startButton")
+.addEventListener("click",()=>{
 
   welcome.classList.add("hide");
 
   setTimeout(()=>{
+
     welcome.style.display="none";
+
   },350);
 
 });
 
-/* CARD */
+
+/* =========================================================
+   CARD
+========================================================= */
 
 function renderCard(){
 
   deck.innerHTML="";
 
-  const card=document.createElement("div");
+  const card=
+    document.createElement("div");
 
   card.className="card";
 
@@ -1994,71 +2405,105 @@ function renderCard(){
   deck.appendChild(card);
 
   counter.textContent="1 / 1";
+
 }
 
-/* TOUCH SWIPE */
+
+/* =========================================================
+   SWIPE
+========================================================= */
 
 function enableSwipe(card){
 
   let startX=0;
   let deltaX=0;
 
-  card.addEventListener("touchstart",e=>{
+  card.addEventListener(
+    "touchstart",
+    e=>{
 
-    if(swipeBusy)return;
+      if(swipeBusy)return;
 
-    startX=e.touches[0].clientX;
+      startX=
+        e.touches[0].clientX;
 
-  },{passive:true});
+    },
+    {passive:true}
+  );
 
-  card.addEventListener("touchmove",e=>{
 
-    if(swipeBusy)return;
+  card.addEventListener(
+    "touchmove",
+    e=>{
 
-    deltaX=e.touches[0].clientX-startX;
+      if(swipeBusy)return;
 
-    card.style.transform=
-      `translateX(${deltaX}px) rotate(${deltaX/18}deg)`;
+      deltaX=
+        e.touches[0].clientX-startX;
 
-  },{passive:true});
+      card.style.transform=
+        `translateX(${deltaX}px)
+         rotate(${deltaX/18}deg)`;
 
-  card.addEventListener("touchend",()=>{
+    },
+    {passive:true}
+  );
 
-    if(swipeBusy)return;
 
-    if(Math.abs(deltaX)>100){
+  card.addEventListener(
+    "touchend",
+    ()=>{
 
-      finishSwipe(
-        deltaX>0 ? "silly" : "stinky"
-      );
+      if(swipeBusy)return;
 
-    }else{
+      if(Math.abs(deltaX)>100){
 
-      card.style.transform="";
+        finishSwipe(
+          deltaX>0
+          ?"silly"
+          :"stinky"
+        );
+
+      }else{
+
+        card.style.transform="";
+
+      }
+
+      deltaX=0;
 
     }
-
-    deltaX=0;
-
-  });
+  );
 
 }
 
-/* ACTIONS */
 
-document.getElementById("sillyButton").addEventListener("click",()=>{
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+document
+.getElementById("sillyButton")
+.addEventListener("click",()=>{
   finishSwipe("silly");
 });
 
-document.getElementById("stinkyButton").addEventListener("click",()=>{
+document
+.getElementById("stinkyButton")
+.addEventListener("click",()=>{
   finishSwipe("stinky");
 });
 
-document.getElementById("supaButton").addEventListener("click",()=>{
+document
+.getElementById("supaButton")
+.addEventListener("click",()=>{
   finishSwipe("supa");
 });
 
-/* SWIPE */
+
+/* =========================================================
+   SWIPE RESULT
+========================================================= */
 
 function finishSwipe(type){
 
@@ -2066,7 +2511,8 @@ function finishSwipe(type){
 
   swipeBusy=true;
 
-  const card=deck.querySelector(".card");
+  const card=
+    deck.querySelector(".card");
 
   if(card){
 
@@ -2079,7 +2525,9 @@ function finishSwipe(type){
       :"translateX(1100px) rotate(25deg)";
 
     card.style.opacity="0";
+
   }
+
 
   if(type==="silly"){
 
@@ -2097,13 +2545,20 @@ function finishSwipe(type){
 
   }
 
+
   if(type==="stinky"){
+
     showFlash("stinkyMode");
+
   }
 
+
   if(type==="supa"){
+
     showFlash("supaMode");
+
   }
+
 
   setTimeout(()=>{
 
@@ -2115,22 +2570,32 @@ function finishSwipe(type){
 
 }
 
-/* FLASH */
+
+/* =========================================================
+   FLASH
+========================================================= */
 
 function showFlash(id){
 
-  const el=document.getElementById(id);
+  const el=
+    document.getElementById(id);
 
   el.classList.remove("active");
 
   void el.offsetWidth;
 
   el.classList.add("active");
+
 }
 
-/* MATCH SCREEN */
 
-document.getElementById("closeMatchButton").addEventListener("click",()=>{
+/* =========================================================
+   MATCH
+========================================================= */
+
+document
+.getElementById("closeMatchButton")
+.addEventListener("click",()=>{
 
   document
   .getElementById("matchScreen")
@@ -2138,13 +2603,10 @@ document.getElementById("closeMatchButton").addEventListener("click",()=>{
 
 });
 
-/*
-  NEW FIX:
-  Clicking anywhere on the match profile
-  opens the full bio.
-*/
 
-document.getElementById("matchProfileClick").addEventListener("click",e=>{
+document
+.getElementById("viewMatchBio")
+.addEventListener("click",e=>{
 
   e.preventDefault();
   e.stopPropagation();
@@ -2155,22 +2617,10 @@ document.getElementById("matchProfileClick").addEventListener("click",e=>{
 
 });
 
-/* EXISTING BIO BUTTON */
 
-document.getElementById("viewMatchBio").addEventListener("click",e=>{
-
-  e.preventDefault();
-  e.stopPropagation();
-
-  document
-  .getElementById("matchBioSheet")
-  .classList.add("open");
-
-});
-
-/* CHAT */
-
-document.getElementById("openChatButton").addEventListener("click",()=>{
+document
+.getElementById("openChatButton")
+.addEventListener("click",()=>{
 
   document
   .getElementById("matchScreen")
@@ -2180,9 +2630,10 @@ document.getElementById("openChatButton").addEventListener("click",()=>{
 
 });
 
-/* MATCH BIO */
 
-document.getElementById("closeMatchBio").addEventListener("click",()=>{
+document
+.getElementById("closeMatchBio")
+.addEventListener("click",()=>{
 
   document
   .getElementById("matchBioSheet")
@@ -2190,7 +2641,10 @@ document.getElementById("closeMatchBio").addEventListener("click",()=>{
 
 });
 
-document.getElementById("bioMessageButton").addEventListener("click",()=>{
+
+document
+.getElementById("bioMessageButton")
+.addEventListener("click",()=>{
 
   document
   .getElementById("matchBioSheet")
@@ -2204,17 +2658,14 @@ document.getElementById("bioMessageButton").addEventListener("click",()=>{
 
 });
 
-/* BREANNA PROFILE */
 
-document.getElementById("profileButton").addEventListener("click",()=>{
+/* =========================================================
+   BREANNA PROFILE
+========================================================= */
 
-  document
-  .getElementById("profileSheet")
-  .classList.add("open");
-
-});
-
-document.getElementById("headerProfile").addEventListener("click",()=>{
+document
+.getElementById("profileButton")
+.addEventListener("click",()=>{
 
   document
   .getElementById("profileSheet")
@@ -2222,7 +2673,21 @@ document.getElementById("headerProfile").addEventListener("click",()=>{
 
 });
 
-document.getElementById("closeProfile").addEventListener("click",()=>{
+
+document
+.getElementById("headerProfile")
+.addEventListener("click",()=>{
+
+  document
+  .getElementById("profileSheet")
+  .classList.add("open");
+
+});
+
+
+document
+.getElementById("closeProfile")
+.addEventListener("click",()=>{
 
   document
   .getElementById("profileSheet")
@@ -2230,9 +2695,14 @@ document.getElementById("closeProfile").addEventListener("click",()=>{
 
 });
 
-/* LIKES */
 
-document.getElementById("likesButton").addEventListener("click",()=>{
+/* =========================================================
+   LIKES
+========================================================= */
+
+document
+.getElementById("likesButton")
+.addEventListener("click",()=>{
 
   if(currentMatch){
 
@@ -2242,30 +2712,1072 @@ document.getElementById("likesButton").addEventListener("click",()=>{
 
   }else{
 
-    showToast("No SILLY matches yet 🤪");
+    showToast(
+      "No SILLY matches yet 🤪"
+    );
 
   }
 
 });
 
-/* TOAST */
+
+/* =========================================================
+   TOAST
+========================================================= */
 
 function showToast(message){
 
-  const toast=document.createElement("div");
+  const toast=
+    document.createElement("div");
 
   toast.className="toast";
+
   toast.textContent=message;
 
   document.body.appendChild(toast);
 
   setTimeout(()=>{
+
     toast.remove();
+
   },1800);
 
 }
 
-/* CHAT */
+
+/* =========================================================
+   ADVANCED LOCAL CONVERSATION ENGINE
+========================================================= */
+
+function normalize(text){
+
+  return String(text || "")
+    .toLowerCase()
+    .replace(/[^\w\s?'!-]/g," ")
+    .replace(/\s+/g," ")
+    .trim();
+
+}
+
+
+function words(text){
+
+  return normalize(text)
+    .split(" ")
+    .filter(Boolean);
+
+}
+
+
+function containsAny(text,list){
+
+  const t=normalize(text);
+
+  return list.some(word=>{
+
+    return t.includes(word);
+
+  });
+
+}
+
+
+function random(arr){
+
+  return arr[
+    Math.floor(
+      Math.random()*arr.length
+    )
+  ];
+
+}
+
+
+function lastUserMessages(history,count=6){
+
+  return history
+    .filter(m=>m.who==="mine")
+    .slice(-count);
+
+}
+
+
+function lastThemMessages(history,count=6){
+
+  return history
+    .filter(m=>m.who==="them")
+    .slice(-count);
+
+}
+
+
+/* =========================================================
+   EXTRACT USER INFORMATION
+========================================================= */
+
+function updateMemory(text){
+
+  const memory=
+    loadProfileMemory();
+
+  const original=
+    String(text || "").trim();
+
+  const lower=
+    normalize(original);
+
+
+  /*
+    NAME
+  */
+
+  const namePatterns=[
+
+    /(?:my name is|i'm|im|i am|call me)\s+([a-z][a-z'-]{1,20})/i,
+
+    /(?:name's|names)\s+([a-z][a-z'-]{1,20})/i
+
+  ];
+
+
+  for(const pattern of namePatterns){
+
+    const match=
+      original.match(pattern);
+
+    if(match){
+
+      memory.name=
+        cleanName(match[1]);
+
+      break;
+
+    }
+
+  }
+
+
+  /*
+    JOB
+  */
+
+  const jobPatterns=[
+
+    /i work as (?:a|an)?\s*(.+?)(?:[.!?]|$)/i,
+
+    /i'm a[n]?\s+(.+?)(?:[.!?]|$)/i,
+
+    /i am a[n]?\s+(.+?)(?:[.!?]|$)/i,
+
+    /my job is\s+(.+?)(?:[.!?]|$)/i
+
+  ];
+
+
+  for(const pattern of jobPatterns){
+
+    const match=
+      original.match(pattern);
+
+    if(match){
+
+      const possible=
+        match[1].trim();
+
+      if(
+        possible.length>2 &&
+        possible.length<70
+      ){
+
+        memory.job=
+          possible;
+
+        break;
+
+      }
+
+    }
+
+  }
+
+
+  /*
+    LIKE / LOVE
+  */
+
+  const likesPatterns=[
+
+    /i (?:like|love|enjoy|adore)\s+(.+?)(?:[.!?]|$)/i,
+
+    /i'm into\s+(.+?)(?:[.!?]|$)/i,
+
+    /i really like\s+(.+?)(?:[.!?]|$)/i
+
+  ];
+
+
+  for(const pattern of likesPatterns){
+
+    const match=
+      original.match(pattern);
+
+    if(match){
+
+      const fact=
+        match[1].trim();
+
+      if(
+        fact.length>1 &&
+        fact.length<100
+      ){
+
+        if(
+          !memory.interests
+          .some(x=>normalize(x)===normalize(fact))
+        ){
+
+          memory.interests.push(fact);
+
+        }
+
+      }
+
+    }
+
+  }
+
+
+  /*
+    HOBBIES
+  */
+
+  const hobbyPatterns=[
+
+    /i (?:play|do|practice)\s+(.+?)(?:[.!?]|$)/i,
+
+    /my hobbies are\s+(.+?)(?:[.!?]|$)/i,
+
+    /for fun i\s+(.+?)(?:[.!?]|$)/i
+
+  ];
+
+
+  for(const pattern of hobbyPatterns){
+
+    const match=
+      original.match(pattern);
+
+    if(match){
+
+      const fact=
+        match[1].trim();
+
+      if(
+        fact.length>1 &&
+        fact.length<100
+      ){
+
+        if(
+          !memory.facts
+          .some(x=>normalize(x)===normalize(fact))
+        ){
+
+          memory.facts.push(fact);
+
+        }
+
+      }
+
+    }
+
+  }
+
+
+  /*
+    Generic personal facts
+  */
+
+  if(
+    /\b(i have|i've got|i live|i'm from|i am from)\b/i
+    .test(original)
+  ){
+
+    if(original.length<160){
+
+      if(
+        !memory.facts
+        .some(x=>normalize(x)===normalize(original))
+      ){
+
+        memory.facts.push(original);
+
+      }
+
+    }
+
+  }
+
+
+  /*
+    Keep memory compact.
+  */
+
+  memory.interests=
+    memory.interests.slice(-12);
+
+  memory.facts=
+    memory.facts.slice(-15);
+
+
+  saveProfileMemory(memory);
+
+  return memory;
+
+}
+
+
+function cleanName(name){
+
+  return String(name)
+    .trim()
+    .replace(/[^a-zA-Z'-]/g,"")
+    .replace(/^./,c=>c.toUpperCase());
+
+}
+
+
+/* =========================================================
+   QUESTION DETECTION
+========================================================= */
+
+function isQuestion(text){
+
+  const t=
+    normalize(text);
+
+  if(t.endsWith("?"))return true;
+
+  return containsAny(
+    t,
+    [
+      "what ",
+      "where ",
+      "when ",
+      "why ",
+      "who ",
+      "how ",
+      "do you ",
+      "are you ",
+      "is your ",
+      "can you ",
+      "would you ",
+      "have you ",
+      "did you ",
+      "will you ",
+      "tell me "
+    ]
+  );
+
+}
+
+
+function detectQuestionType(text){
+
+  const t=
+    normalize(text);
+
+  if(/\bwhat('?s| is) your name\b/.test(t))
+    return "name";
+
+  if(/\bhow old are you\b|\byour age\b/.test(t))
+    return "age";
+
+  if(/\bwhere (?:do you|are you) live\b/.test(t))
+    return "location";
+
+  if(/\bwhere are you from\b/.test(t))
+    return "location";
+
+  if(/\bwhat do you do\b|\bwhat is your job\b|\bwhat do you work\b/.test(t))
+    return "job";
+
+  if(/\bwhat do you like\b|\bwhat are you into\b|\bwhat do you enjoy\b/.test(t))
+    return "interests";
+
+  if(/\bhobbies\b|\bwhat do you do for fun\b/.test(t))
+    return "hobbies";
+
+  if(/\bwhat('s| is) your ideal date\b|\bideal first date\b/.test(t))
+    return "date";
+
+  if(/\bdo you have\b.*\bpet\b|\bdo you like dogs\b|\bdo you like cats\b/.test(t))
+    return "pets";
+
+  if(/\bwhy are you\b.*\bstinky\b|\bwhy.*stinky\b/.test(t))
+    return "stinky";
+
+  if(/\bfloss\b|\bdental\b|\bdentist\b|\bteeth\b|\btooth\b|\bcavity\b|\bbreath\b/.test(t))
+    return "dental";
+
+  return "general";
+
+}
+
+
+/* =========================================================
+   CHECK IF QUESTION ALREADY ANSWERED
+========================================================= */
+
+function askedBefore(history,keywords){
+
+  const mine=
+    history
+      .filter(m=>m.who==="mine")
+      .map(m=>normalize(m.text))
+      .join(" ");
+
+  return keywords.some(k=>
+    mine.includes(k)
+  );
+
+}
+
+
+/* =========================================================
+   CONTEXT SUMMARY
+========================================================= */
+
+function buildContext(history){
+
+  const memory=
+    loadProfileMemory();
+
+  const recent=
+    history
+      .slice(-12)
+      .map(m=>
+        `${m.who==="mine"?"Breanna":"Mr. Stinky"}: ${m.text}`
+      )
+      .join("\n");
+
+
+  return {
+
+    memory,
+
+    recent,
+
+    lastUser:
+      lastUserMessages(history,1)[0]?.text || "",
+
+    lastGuy:
+      lastThemMessages(history,1)[0]?.text || ""
+
+  };
+
+}
+
+
+/* =========================================================
+   SMART QUESTION ANSWERS
+========================================================= */
+
+function answerQuestion(text,history){
+
+  const type=
+    detectQuestionType(text);
+
+  const memory=
+    loadProfileMemory();
+
+  switch(type){
+
+    case "name":
+
+      return random([
+        "I'm Mr. Stinky 😂. You can call me Stinky though... apparently I've earned it.",
+        "Mr. Stinky. Yes, that's unfortunately my actual Breumble reputation 😂.",
+        "I'm Mr. Stinky, 32. And before you ask, yes, the nickname is completely deserved."
+      ]);
+
+
+    case "age":
+
+      return random([
+        "32. Old enough to know I should floss, apparently young enough to still forget 😂.",
+        "I'm 32. Prime age for questionable decisions and finally making those dental appointments.",
+        "32 😏. Don't worry, I still have plenty of bad jokes left."
+      ]);
+
+
+    case "job":
+
+      return random([
+        "I specialize in avoiding appointments... which is probably why I desperately need a dental receptionist 😂.",
+        "Professional Appointment Avoider. It's not technically a career, but I'm committed to it.",
+        "I have a complicated relationship with schedules. Especially dental schedules 😂."
+      ]);
+
+
+    case "interests":
+
+      if(memory.interests.length){
+
+        return `Honestly, I'm into ${memory.interests.slice(-3).join(", ")}. You actually gave me something to work with there 😂. What about you?`;
+
+      }
+
+      return random([
+        "I'm into good food, coffee, ridiculous conversations and people who can make me laugh.",
+        "Honestly? Coffee, funny people, spontaneous plans and pretending I'm going to floss regularly 😂.",
+        "I'm pretty easygoing. Good conversation, good food and a date that doesn't feel like an interview."
+      ]);
+
+
+    case "hobbies":
+
+      if(memory.facts.length){
+
+        return `I like that you're asking the important questions 😂. You mentioned ${memory.facts[memory.facts.length-1]}. What do you usually do when you're not busy with that?`;
+
+      }
+
+      return random([
+        "Coffee, going out, laughing at stupid things and occasionally pretending I'm responsible.",
+        "Anything involving good food, good company and not having to wear a tie.",
+        "I'm pretty spontaneous. Give me good company and I'm usually happy."
+      ]);
+
+
+    case "date":
+
+      return random([
+        "Coffee somewhere cozy, lots of talking, maybe food afterward. Somewhere we can actually laugh together.",
+        "I'd pick coffee and a walk, then see where the night goes. Low pressure, good conversation.",
+        "Honestly? Somewhere we can talk without feeling like we're conducting a job interview 😂."
+      ]);
+
+
+    case "location":
+
+      return random([
+        "I'm keeping my exact location mysterious for now 😏. But I'd definitely be up for talking about places you'd want to go.",
+        "Somewhere with coffee, food and acceptable air quality 😂.",
+        "I'll trade exact coordinates for a first-date suggestion."
+      ]);
+
+
+    case "pets":
+
+      return random([
+        "I'm definitely a fan of animals. They're probably less judgmental about my breath than dentists are 😂.",
+        "I like pets. Although I'd probably need to warn them about the whole Stinky situation first.",
+        "Animals are great. They also seem much better at accepting people exactly as they are 😂."
+      ]);
+
+
+    case "stinky":
+
+      return random([
+        "Long story. Coffee, questionable life choices and an alarming lack of dental appointments 😂.",
+        "Let's just say the nickname didn't come from nowhere.",
+        "I could explain, but I feel like that story is better told over coffee... preferably with mouthwash nearby.",
+        "Honestly? I'm working on it. That's where you come in, apparently 🦷😂."
+      ]);
+
+
+    case "dental":
+
+      return random([
+        "I knew eventually we'd get to the dental questions 😂. Yes, I probably need an appointment.",
+        "You're a dental receptionist and I'm Mr. Stinky. This feels almost suspiciously convenient.",
+        "Okay, okay. I admit it. My dental routine could use professional supervision.",
+        "I promise I'm not this much of a dental disaster every day 😂."
+      ]);
+
+
+    default:
+
+      return random([
+        "That's actually a good question. I like that you're not doing the usual boring dating-app interrogation.",
+        "Hmm. I hadn't thought about it that way. Tell me what made you ask?",
+        "I could give you the short answer, but I feel like there's a better conversation hiding behind that question.",
+        "Honestly? I like where this conversation is going. What made you curious about that?"
+      ]);
+
+  }
+
+}
+
+
+/* =========================================================
+   FOLLOW-UP CONTEXT
+========================================================= */
+
+function contextualReply(text,history){
+
+  const t=
+    normalize(text);
+
+  const context=
+    buildContext(history);
+
+  const memory=
+    context.memory;
+
+  const previous=
+    context.lastUser;
+
+
+  /*
+    If the user asks a direct question,
+    answer it first.
+  */
+
+  if(isQuestion(text)){
+
+    return answerQuestion(
+      text,
+      history
+    );
+
+  }
+
+
+  /*
+    Greetings.
+  */
+
+  if(
+    /^(hi|hey|hello|hiya|heyy|yo|sup)\b/.test(t)
+  ){
+
+    if(history.length>2){
+
+      return random([
+        "Hey again 😂. I was starting to wonder when you'd come back.",
+        "Hey you 😏. I'm still here.",
+        "Hi 😂. Okay, continue. I'm listening."
+      ]);
+
+    }
+
+    return random([
+      "Hey 😂. I was hoping you'd message.",
+      "Hey you 😏. How's your day going?",
+      "Hi! Important question: are you always this easy to talk to?"
+    ]);
+
+  }
+
+
+  /*
+    User says thanks.
+  */
+
+  if(
+    /\b(thanks|thank you|thx)\b/.test(t)
+  ){
+
+    return random([
+      "Anytime 😂.",
+      "You're welcome. I'm surprisingly useful when I'm not avoiding the dentist.",
+      "Of course 😏. Keep talking to me."
+    ]);
+
+  }
+
+
+  /*
+    User gives a name.
+  */
+
+  if(
+    memory.name &&
+    /\b(my name is|i'm|im|i am|call me)\b/i.test(text)
+  ){
+
+    return `Nice to officially meet you, ${memory.name} 😏. I feel like knowing your name makes this conversation much more real.`;
+
+  }
+
+
+  /*
+    Food.
+  */
+
+  if(
+    containsAny(
+      t,
+      [
+        "pizza",
+        "burger",
+        "sushi",
+        "food",
+        "restaurant",
+        "eat",
+        "dinner",
+        "lunch"
+      ]
+    )
+  ){
+
+    return random([
+      "Okay, now we're talking 😂. Food is definitely a valid dating priority. What's your go-to?",
+      "I'm immediately more interested now that food has entered the conversation.",
+      "That sounds good. I'm judging your food choices very seriously now 😂.",
+      "A food conversation on a dating app? Finally, someone understands the assignment."
+    ]);
+
+  }
+
+
+  /*
+    Coffee.
+  */
+
+  if(
+    /\bcoffee\b/.test(t)
+  ){
+
+    return random([
+      "Coffee is basically one of my personality traits 😂.",
+      "Coffee? Excellent. That's probably responsible for at least 40% of my questionable decisions.",
+      "Okay, coffee person. I can work with that 😏.",
+      "Now you're speaking my language."
+    ]);
+
+  }
+
+
+  /*
+    Work.
+  */
+
+  if(
+    containsAny(
+      t,
+      [
+        "work",
+        "job",
+        "office",
+        "shift",
+        "boss",
+        "coworker"
+      ]
+    )
+  ){
+
+    if(memory.job){
+
+      return `You mentioned you're ${memory.job}. That actually sounds interesting. What do you like most about it?`;
+
+    }
+
+    return random([
+      "Tell me more about that. Do you actually enjoy what you do?",
+      "Interesting. What's the best part of your job?",
+      "I always think someone's job says a little about them. Do you like yours?"
+    ]);
+
+  }
+
+
+  /*
+    Dating / relationship.
+  */
+
+  if(
+    containsAny(
+      t,
+      [
+        "relationship",
+        "dating",
+        "single",
+        "girlfriend",
+        "boyfriend",
+        "ex",
+        "love",
+        "romantic"
+      ]
+    )
+  ){
+
+    return random([
+      "I'm looking for something that feels easy and genuine. Good conversation matters a lot to me.",
+      "Honestly, I want someone I can laugh with and actually look forward to talking to.",
+      "I'm not trying to rush anything. I'd rather see if we genuinely click.",
+      "I think chemistry is mostly about how comfortable you feel talking to someone."
+    ]);
+
+  }
+
+
+  /*
+    Compliments.
+  */
+
+  if(
+    containsAny(
+      t,
+      [
+        "cute",
+        "handsome",
+        "hot",
+        "attractive",
+        "good looking",
+        "beautiful",
+        "pretty"
+      ]
+    )
+  ){
+
+    return random([
+      "Okay... that definitely made me smile 😂.",
+      "Careful. Compliments like that are exactly how you get me interested.",
+      "Well now I'm sitting here smiling at my phone like an idiot.",
+      "I wasn't prepared for you to be that nice to me 😏."
+    ]);
+
+  }
+
+
+  /*
+    Laughing.
+  */
+
+  if(
+    containsAny(
+      t,
+      [
+        "lol",
+        "haha",
+        "hahaha",
+        "lmao",
+        "😂"
+      ]
+    )
+  ){
+
+    return random([
+      "See? We're already getting somewhere 😂.",
+      "Okay good. Making you laugh is officially working.",
+      "I knew the terrible jokes would eventually pay off.",
+      "You're laughing now, but wait until you hear my dental appointment jokes."
+    ]);
+
+  }
+
+
+  /*
+    If they mention something from a previous
+    message, specifically reference it.
+  */
+
+  const recentMine=
+    lastUserMessages(history,6);
+
+
+  for(let i=recentMine.length-1;i>=0;i--){
+
+    const previousText=
+      recentMine[i].text;
+
+    const previousWords=
+      words(previousText)
+        .filter(w=>w.length>=5);
+
+
+    const meaningful=
+      previousWords
+        .filter(w=>
+          ![
+            "about",
+            "really",
+            "think",
+            "maybe",
+            "because",
+            "something",
+            "someone",
+            "actually",
+            "would",
+            "could",
+            "there",
+            "their",
+            "that's",
+            "don't",
+            "didn't"
+          ].includes(w)
+        );
+
+
+    const overlap=
+      meaningful.find(w=>
+        t.includes(w)
+      );
+
+
+    if(overlap){
+
+      return random([
+        `You mentioned ${overlap} earlier too 😂. I feel like there's a story there.`,
+        `Interesting that you brought up ${overlap}. Tell me more about that.`,
+        `I'm noticing a theme with ${overlap} 😏. What is it about that that you like?`
+      ]);
+
+    }
+
+  }
+
+
+  /*
+    User gives a long message.
+  */
+
+  if(text.length>100){
+
+    return random([
+      "Okay, I actually read all of that 😂. I like that you're giving me something real to work with.",
+      "I appreciate the detailed answer. You're definitely easier to talk to than most dating-app conversations.",
+      "That's actually interesting. I feel like there's more behind that story though.",
+      "I like how you explain things. It makes this feel more like an actual conversation."
+    ]);
+
+  }
+
+
+  /*
+    Short answers.
+  */
+
+  if(text.length<18){
+
+    return random([
+      "Hmm 👀. Tell me a little more.",
+      "Okay, I'm listening 😂. What else?",
+      "Interesting. Why do you say that?",
+      "I need more context now 😂.",
+      "Don't leave me hanging. Explain."
+    ]);
+
+  }
+
+
+  /*
+    Use stored interests if available.
+  */
+
+  if(memory.interests.length){
+
+    const interest=
+      memory.interests[
+        memory.interests.length-1
+      ];
+
+    return random([
+      `Speaking of that, I'm still curious about ${interest}. What got you into it?`,
+      `You seem like someone who has interesting stories. What's something you could talk about for hours?`,
+      `I like your vibe so far. What's something you're really passionate about?`
+    ]);
+
+  }
+
+
+  /*
+    General intelligent fallback.
+  */
+
+  return random([
+
+    "I actually like talking to you. What's something about you I wouldn't guess from your profile?",
+
+    "That's interesting. What made you get into that?",
+
+    "Okay, I'm curious now. Tell me something you normally wouldn't put on a dating profile.",
+
+    "You have my attention 😂. What's the story behind that?",
+
+    "I feel like there's more to that answer. Keep going.",
+
+    "That's the kind of answer that makes me want to know you better.",
+
+    "I'm liking this conversation. What's something that always makes you laugh?",
+
+    "Okay, important question: what's your idea of a genuinely great day?",
+
+    "You're surprisingly easy to talk to. What are you usually like on a first date?",
+
+    "I feel like we're getting past the boring dating-app questions now 😂."
+
+  ]);
+
+}
+
+
+/* =========================================================
+   RESPONSE QUALITY FILTER
+========================================================= */
+
+function improveReply(reply,history,userText){
+
+  if(!reply)return reply;
+
+  const normalized=
+    normalize(reply);
+
+
+  /*
+    Don't repeat exact recent response.
+  */
+
+  const recentThem=
+    lastThemMessages(history,8)
+      .map(m=>normalize(m.text));
+
+
+  if(
+    recentThem.includes(normalized)
+  ){
+
+    return random([
+
+      "Okay, I'm not going to give you the same boring answer twice 😂. What else do you want to know?",
+
+      "I feel like I've already covered that one. Let's make this conversation more interesting 😏.",
+
+      "Nope, I'm not repeating myself. Ask me something harder 😂."
+
+    ]);
+
+  }
+
+
+  /*
+    Avoid asking their name if we already know it.
+  */
+
+  const memory=
+    loadProfileMemory();
+
+
+  if(
+    memory.name &&
+    normalized.includes("what's your name")
+  ){
+
+    return `I remember your name is ${memory.name} 😏. See? I'm paying attention.`;
+
+  }
+
+
+  return reply;
+
+}
+
+
+/* =========================================================
+   CHAT
+========================================================= */
 
 function openChat(){
 
@@ -2273,9 +3785,12 @@ function openChat(){
 
   chatOpen=true;
 
-  const chat=document.createElement("div");
+
+  const chat=
+    document.createElement("div");
 
   chat.id="chatScreen";
+
 
   chat.innerHTML=`
 
@@ -2283,8 +3798,7 @@ function openChat(){
 
       <button
         class="chat-back"
-        id="chatBack"
-      >
+        id="chatBack">
         ‹
       </button>
 
@@ -2302,8 +3816,7 @@ function openChat(){
 
         <div
           class="chat-status"
-          id="chatStatus"
-        >
+          id="chatStatus">
           ● Active now
         </div>
 
@@ -2315,21 +3828,16 @@ function openChat(){
 
     </div>
 
+
     <div
       class="chat-messages"
-      id="chatMessages"
-    >
-
-      <div class="chat-day">
-        MATCHED JUST NOW
-      </div>
-
+      id="chatMessages">
     </div>
+
 
     <div
       class="typing-row"
-      id="typingRow"
-    >
+      id="typingRow">
 
       <div class="typing">
         <i></i>
@@ -2339,10 +3847,15 @@ function openChat(){
 
     </div>
 
+
     <div class="chat-suggestions">
 
       <button class="chat-suggestion">
-        Be honest... do you floss?
+        What's your name?
+      </button>
+
+      <button class="chat-suggestion">
+        What do you actually do for fun?
       </button>
 
       <button class="chat-suggestion">
@@ -2350,14 +3863,11 @@ function openChat(){
       </button>
 
       <button class="chat-suggestion">
-        Tell me something funny.
-      </button>
-
-      <button class="chat-suggestion">
         Why are you so stinky?
       </button>
 
     </div>
+
 
     <div class="chat-input-area">
 
@@ -2370,255 +3880,408 @@ function openChat(){
 
       <button
         class="chat-send"
-        id="chatSend"
-      >
+        id="chatSend">
         ➤
       </button>
 
     </div>
+
   `;
+
 
   document.body.appendChild(chat);
 
-  const messages=document.getElementById("chatMessages");
-  const typing=document.getElementById("typingRow");
-  const status=document.getElementById("chatStatus");
-  const input=document.getElementById("chatInput");
 
-  function addMessage(text,who){
+  const messages=
+    document.getElementById("chatMessages");
 
-    const row=document.createElement("div");
+  const typing=
+    document.getElementById("typingRow");
+
+  const status=
+    document.getElementById("chatStatus");
+
+  const input=
+    document.getElementById("chatInput");
+
+
+  let history=
+    loadChat();
+
+
+  /*
+    Render stored messages.
+  */
+
+  function renderHistory(){
+
+    messages.innerHTML=`
+
+      <div class="chat-day">
+        BREUMBLE CONVERSATION
+      </div>
+
+    `;
+
+
+    history.forEach(message=>{
+
+      addMessageToDOM(
+        message.text,
+        message.who,
+        message.time,
+        false
+      );
+
+    });
+
+  }
+
+
+  function addMessageToDOM(
+    text,
+    who,
+    timestamp,
+    scroll=true
+  ){
+
+    const row=
+      document.createElement("div");
 
     row.className=
       "message-row"+
       (who==="mine"?" mine":"");
 
-    const bubble=document.createElement("div");
+
+    const bubble=
+      document.createElement("div");
 
     bubble.className=
       "message "+
       (who==="mine"?"mine":"them");
 
+
+    const safe=
+      escapeHTML(text);
+
+
+    const time=
+      timestamp
+      ? new Date(timestamp)
+      : new Date();
+
+
     bubble.innerHTML=
-      escapeHTML(text)+
+      safe+
       `<span class="message-time">
-        ${new Date().toLocaleTimeString([],{
+        ${time.toLocaleTimeString([],{
           hour:"numeric",
           minute:"2-digit"
         })}
       </span>`;
 
+
     row.appendChild(bubble);
 
     messages.appendChild(row);
 
-    messages.scrollTop=messages.scrollHeight;
-  }
 
-  function smartReply(text){
+    if(scroll){
 
-    const t=text.toLowerCase();
-
-    if(/\b(hi|hey|hello|hiya)\b/.test(t)){
-
-      return random([
-        "Hey 😂 I was wondering when you were going to say something.",
-        "Hey you 😏 I promise I'm much more charming once you get past the questionable breath situation.",
-        "Hi! Important question: are you always this cute or is the app just being generous?"
-      ]);
+      messages.scrollTop=
+        messages.scrollHeight;
 
     }
-
-    if(/\b(floss|dentist|dental|teeth|tooth|cavity|breath|hygiene|cleaning)\b/.test(t)){
-
-      return random([
-        "Okay, I feel like I should be nervous telling a dental receptionist about my hygiene habits 😂.",
-        "Before you judge me, I HAVE been meaning to make that appointment.",
-        "You're a dental receptionist? That explains why I suddenly feel like I'm being evaluated 😂.",
-        "Listen... yes, I probably do need an appointment."
-      ]);
-
-    }
-
-    if(/\b(date|coffee|dinner|drink|meet|hang)\b/.test(t)){
-
-      return random([
-        "I'm definitely not opposed to that. Coffee might be safer than dinner while you assess the air quality 😂.",
-        "Honestly? I'd take you somewhere we can actually talk.",
-        "Are you casually suggesting a date right now? Because I'm absolutely going to pretend I didn't notice 😏."
-      ]);
-
-    }
-
-    if(/\b(cute|handsome|hot|attractive|good looking)\b/.test(t)){
-
-      return random([
-        "Careful. Compliments like that are exactly how you end up responsible for my confidence.",
-        "Well now I'm smiling at my phone like an idiot 😂.",
-        "Okay... I wasn't prepared for you to be this nice to me."
-      ]);
-
-    }
-
-    if(/\b(lol|haha|hahaha|lmao)\b/.test(t)){
-
-      return random([
-        "See? We're already getting somewhere 😂.",
-        "I knew I could make you laugh.",
-        "Okay good. Humor is clearly working in my favor."
-      ]);
-
-    }
-
-    if(t.length<15){
-
-      return random([
-        "You're keeping me guessing 😂. I kinda like it.",
-        "Okay, I need a little more than that 😏.",
-        "Interesting... I'm listening 👀."
-      ]);
-
-    }
-
-    return random([
-      "Okay, I actually like that answer. You seem really easy to talk to.",
-      "This is already way more interesting than most dating-app conversations 😂.",
-      "I wasn't expecting this conversation to get interesting this quickly.",
-      "You're making it very difficult for me to pretend I'm playing it cool.",
-      "I like your vibe. What's something about you I wouldn't guess from your profile?",
-      "I feel like there's a story behind that. Tell me more 😂.",
-      "You're definitely more interesting than the average dating-app conversation.",
-      "I could get used to talking to you. Just don't tell my dental receptionist I said that."
-    ]);
-  }
-
-  function random(arr){
-
-    return arr[
-      Math.floor(Math.random()*arr.length)
-    ];
 
   }
 
-  function send(){
 
-    const text=input.value.trim();
+  function addMessage(text,who){
 
-    if(!text)return;
+    const timestamp=
+      Date.now();
 
-    addMessage(text,"mine");
 
-    input.value="";
+    history.push({
 
-    typing.classList.add("show");
+      text,
+      who,
+      time:timestamp
 
-    status.textContent="● Typing...";
+    });
 
-    const delay=Math.min(
-      2800,
-      Math.max(
-        900,
-        650+text.length*24
-      )
+
+    history=
+      history.slice(-80);
+
+
+    saveChat(history);
+
+
+    addMessageToDOM(
+      text,
+      who,
+      timestamp,
+      true
     );
+
+  }
+
+
+  renderHistory();
+
+
+  /*
+    Initial message only on first-ever chat.
+  */
+
+  if(history.length===0){
 
     setTimeout(()=>{
 
-      typing.classList.remove("show");
-
-      status.textContent="● Active now";
-
       addMessage(
-        smartReply(text),
+        "Well... apparently the dental dating algorithm has decided we're a match 😂🦷",
         "them"
       );
+
+    },700);
+
+  }
+
+
+  /*
+    AI-like response timing.
+    Importantly, typing ALWAYS ends before
+    the reply gets added.
+  */
+
+  function send(){
+
+    if(typing.classList.contains("show"))
+      return;
+
+
+    const text=
+      input.value.trim();
+
+
+    if(!text)return;
+
+
+    /*
+      Save the user's information before
+      generating the response.
+    */
+
+    updateMemory(text);
+
+
+    addMessage(
+      text,
+      "mine"
+    );
+
+
+    input.value="";
+
+
+    /*
+      Snapshot the conversation now.
+    */
+
+    const responseHistory=
+      history.slice();
+
+
+    typing.classList.add("show");
+
+    status.textContent=
+      "● Typing...";
+
+
+    messages.scrollTop=
+      messages.scrollHeight;
+
+
+    /*
+      More natural response delay.
+    */
+
+    const delay=
+      Math.min(
+        2600,
+        Math.max(
+          750,
+          650+
+          Math.min(text.length*18,1200)
+        )
+      );
+
+
+    setTimeout(()=>{
+
+      /*
+        Hide typing BEFORE response.
+      */
+
+      typing.classList.remove("show");
+
+      status.textContent=
+        "● Active now";
+
+
+      let reply=
+        contextualReply(
+          text,
+          responseHistory
+        );
+
+
+      reply=
+        improveReply(
+          reply,
+          responseHistory,
+          text
+        );
+
+
+      addMessage(
+        reply,
+        "them"
+      );
+
 
     },delay);
 
   }
 
-  document.getElementById("chatSend").addEventListener("click",send);
 
-  input.addEventListener("keydown",e=>{
+  document
+  .getElementById("chatSend")
+  .addEventListener(
+    "click",
+    send
+  );
 
-    if(e.key==="Enter"){
 
-      e.preventDefault();
+  input.addEventListener(
+    "keydown",
+    e=>{
 
-      send();
+      if(e.key==="Enter"){
+
+        e.preventDefault();
+
+        send();
+
+      }
 
     }
+  );
 
-  });
 
-  document.querySelectorAll(".chat-suggestion").forEach(button=>{
+  document
+  .querySelectorAll(".chat-suggestion")
+  .forEach(button=>{
 
-    button.addEventListener("click",()=>{
+    button.addEventListener(
+      "click",
+      ()=>{
 
-      input.value=button.textContent.trim();
+        input.value=
+          button.textContent.trim();
 
-      send();
+        send();
 
-    });
-
-  });
-
-  document.getElementById("chatBack").addEventListener("click",()=>{
-
-    chat.remove();
-
-    chatOpen=false;
-
-  });
-
-  setTimeout(()=>{
-
-    addMessage(
-      "Well... apparently the dental dating algorithm has decided we're a match 😂🦷",
-      "them"
+      }
     );
 
-  },700);
+  });
 
-  setTimeout(()=>input.focus(),900);
+
+  document
+  .getElementById("chatBack")
+  .addEventListener(
+    "click",
+    ()=>{
+
+      chat.remove();
+
+      chatOpen=false;
+
+    }
+  );
+
+
+  setTimeout(
+    ()=>input.focus(),
+    900
+  );
 
 }
 
-/* CREATE X-RAY TEETH */
+
+/* =========================================================
+   DENTAL X-RAY TEETH
+========================================================= */
 
 function createTeeth(){
 
-  const container=document.getElementById("teeth");
+  const container=
+    document.getElementById("teeth");
 
   container.innerHTML="";
 
+
   for(let i=0;i<12;i++){
 
-    const tooth=document.createElement("div");
+    const tooth=
+      document.createElement("div");
 
     tooth.className="tooth";
 
-    const x=22+(i*4.9);
-    const curve=Math.abs(5.5-i)*1.2;
 
-    tooth.style.left=x+"%";
-    tooth.style.top=(25+curve)+"%";
+    const x=
+      22+(i*4.9);
+
+    const curve=
+      Math.abs(5.5-i)*1.2;
+
+
+    tooth.style.left=
+      x+"%";
+
+    tooth.style.top=
+      (25+curve)+"%";
+
 
     container.appendChild(tooth);
 
   }
 
+
   for(let i=0;i<12;i++){
 
-    const tooth=document.createElement("div");
+    const tooth=
+      document.createElement("div");
 
-    tooth.className="tooth lower";
+    tooth.className=
+      "tooth lower";
 
-    const x=22+(i*4.9);
-    const curve=Math.abs(5.5-i)*1.2;
 
-    tooth.style.left=x+"%";
-    tooth.style.top=(60-curve)+"%";
+    const x=
+      22+(i*4.9);
+
+    const curve=
+      Math.abs(5.5-i)*1.2;
+
+
+    tooth.style.left=
+      x+"%";
+
+    tooth.style.top=
+      (60-curve)+"%";
+
 
     container.appendChild(tooth);
 
@@ -2626,75 +4289,118 @@ function createTeeth(){
 
 }
 
+
 createTeeth();
 
-/* X-RAY */
 
-document.getElementById("discoverButton").addEventListener("click",()=>{
+/* =========================================================
+   X-RAY
+========================================================= */
 
-  const screen=document.getElementById("xrayScreen");
-  const title=document.getElementById("xrayTitle");
-  const status=document.getElementById("xrayStatus");
-  const result=document.getElementById("xrayResult");
+document
+.getElementById("discoverButton")
+.addEventListener("click",()=>{
+
+  const screen=
+    document.getElementById("xrayScreen");
+
+  const title=
+    document.getElementById("xrayTitle");
+
+  const status=
+    document.getElementById("xrayStatus");
+
+  const result=
+    document.getElementById("xrayResult");
+
 
   screen.classList.add("show");
 
-  title.textContent="DENTAL MATCH SCANNER";
 
-  status.textContent="Initializing mouth X-ray...";
+  title.textContent=
+    "DENTAL MATCH SCANNER";
+
+  status.textContent=
+    "Initializing mouth X-ray...";
 
   result.textContent=
     "Searching for cavities, red flags & compatible smiles ❤️";
 
-  const teeth=document.querySelectorAll(".tooth");
+
+  const teeth=
+    document.querySelectorAll(".tooth");
+
 
   teeth.forEach(t=>{
     t.classList.remove("checked");
   });
 
-  const messages=[
+
+  const scanMessages=[
+
     "Calibrating dental mirror...",
+
     "Scanning upper incisors...",
+
     "Checking canine compatibility...",
+
     "Inspecting premolars...",
+
     "Analyzing molars...",
+
     "Searching for hidden cavities...",
+
     "Checking for dating-app red flags...",
+
     "Comparing smile chemistry...",
+
     "Evaluating flossing potential...",
+
     "Finalizing dental compatibility..."
+
   ];
 
-  messages.forEach((message,i)=>{
 
-    setTimeout(()=>{
+  scanMessages.forEach(
+    (message,i)=>{
 
-      status.textContent=message;
+      setTimeout(()=>{
 
-    },300+i*300);
+        status.textContent=
+          message;
 
-  });
+      },300+i*300);
 
-  teeth.forEach((tooth,i)=>{
+    }
+  );
 
-    setTimeout(()=>{
 
-      tooth.classList.add("checked");
+  teeth.forEach(
+    (tooth,i)=>{
 
-    },500+i*110);
+      setTimeout(()=>{
 
-  });
+        tooth.classList.add("checked");
+
+      },500+i*110);
+
+    }
+  );
+
 
   setTimeout(()=>{
 
-    title.textContent="NO CAVITIES FOUND ❤️";
+    title.textContent=
+      "NO CAVITIES FOUND ❤️";
 
-    status.textContent="Dental inspection complete.";
+    status.textContent=
+      "Dental inspection complete.";
 
     result.textContent=
       "Possible match detected: great smile, questionable breath. 🦷💨";
 
   },3650);
+
 
   setTimeout(()=>{
 
@@ -2705,9 +4411,14 @@ document.getElementById("discoverButton").addEventListener("click",()=>{
 
 });
 
-/* CLOSE X-RAY */
 
-document.getElementById("xrayClose").addEventListener("click",()=>{
+/* =========================================================
+   CLOSE X-RAY
+========================================================= */
+
+document
+.getElementById("xrayClose")
+.addEventListener("click",()=>{
 
   document
   .getElementById("xrayScreen")
@@ -2715,35 +4426,51 @@ document.getElementById("xrayClose").addEventListener("click",()=>{
 
 });
 
-/* ESCAPE HTML */
+
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
 
 function escapeHTML(text){
 
-  const div=document.createElement("div");
+  const div=
+    document.createElement("div");
 
-  div.textContent=text;
+  div.textContent=
+    text;
 
   return div.innerHTML;
 
 }
 
-/* CLOSE SHEETS OUTSIDE */
 
-document.querySelectorAll(".sheet").forEach(sheet=>{
+/* =========================================================
+   CLOSE SHEETS OUTSIDE
+========================================================= */
 
-  sheet.addEventListener("click",e=>{
+document
+.querySelectorAll(".sheet")
+.forEach(sheet=>{
 
-    if(e.target===sheet){
+  sheet.addEventListener(
+    "click",
+    e=>{
 
-      sheet.classList.remove("open");
+      if(e.target===sheet){
+
+        sheet.classList.remove("open");
+
+      }
 
     }
-
-  });
+  );
 
 });
 
-/* INITIAL CARD */
+
+/* =========================================================
+   INITIAL CARD
+========================================================= */
 
 renderCard();
 
