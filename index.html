@@ -45,7 +45,9 @@ button{
     radial-gradient(circle at 50% -20%,#4b350d,#171107 30%,#080808 70%);
 }
 
-/* WELCOME */
+/* =========================
+   WELCOME
+========================= */
 
 #welcome{
   position:fixed;
@@ -112,8 +114,8 @@ button{
 }
 
 .start{
-  width:235px;
-  height:59px;
+  width:250px;
+  height:62px;
   margin-top:23px;
   border-radius:999px;
   background:#f4c542;
@@ -127,7 +129,9 @@ button{
   transform:scale(.94);
 }
 
-/* HEADER */
+/* =========================
+   HEADER
+========================= */
 
 .header{
   height:68px;
@@ -169,13 +173,15 @@ button{
   font-size:18px;
 }
 
-/* MAIN */
+/* =========================
+   MAIN
+========================= */
 
 .main{
   position:relative;
   flex:1;
   min-height:0;
-  padding:4px 14px 5px;
+  padding:4px 14px 0;
 }
 
 .deck{
@@ -229,7 +235,8 @@ button{
   pointer-events:none;
 }
 
-.badge,.location{
+.badge,
+.location{
   padding:7px 10px;
   border-radius:999px;
   background:#000b;
@@ -328,55 +335,101 @@ button{
   pointer-events:none;
 }
 
-/* ACTIONS */
+/* =========================
+   DECISION AREA
+========================= */
 
 .actions{
-  height:91px;
-  flex:0 0 91px;
+  position:relative;
+  height:116px;
+  flex:0 0 116px;
   display:flex;
+  flex-direction:column;
   align-items:center;
   justify-content:center;
-  gap:15px;
-  padding:5px 18px;
+  gap:8px;
+  padding:6px 12px 8px;
+  background:
+    linear-gradient(
+      to bottom,
+      #08080800,
+      #080808 18%
+    );
+}
+
+.vibe-label{
+  color:#aaa;
+  font-size:10px;
+  font-weight:1000;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+
+.action-row{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:12px;
 }
 
 .action{
   flex:1;
-  max-width:155px;
-  height:60px;
-  border-radius:999px;
+  max-width:210px;
+  height:67px;
+  border-radius:18px;
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:8px;
-  font-size:13px;
+  gap:9px;
+  font-size:17px;
   font-weight:1000;
-  transition:.12s;
+  transition:
+    transform .12s ease,
+    box-shadow .12s ease;
 }
 
 .action:active{
   transform:scale(.91);
 }
 
+.action-icon{
+  font-size:27px;
+}
+
 .silly{
   background:#f4c542;
   color:#111;
-  border:2px solid #ffe58b;
-  box-shadow:0 8px 22px #000;
+  border:3px solid #ffe995;
+  box-shadow:
+    0 6px 0 #a47c09,
+    0 10px 28px #000;
 }
 
 .stinky{
   background:#252525;
-  color:#ddd;
-  border:2px solid #666;
-  box-shadow:0 8px 22px #000;
+  color:#fff;
+  border:3px solid #888;
+  box-shadow:
+    0 6px 0 #111,
+    0 10px 28px #000;
 }
 
-.action-icon{
-  font-size:22px;
+.silly:hover{
+  box-shadow:
+    0 6px 0 #a47c09,
+    0 13px 35px #f4c54244;
 }
 
-/* NAV */
+.stinky:hover{
+  box-shadow:
+    0 6px 0 #111,
+    0 13px 35px #ffffff20;
+}
+
+/* =========================
+   NAV
+========================= */
 
 .nav{
   height:65px;
@@ -406,7 +459,9 @@ button{
   font-size:20px;
 }
 
-/* SILLY MODE */
+/* =========================
+   SILLY MODE
+========================= */
 
 #sillyMode{
   position:fixed;
@@ -441,7 +496,6 @@ button{
   letter-spacing:-2px;
   transform:rotate(-3deg);
   text-shadow:4px 4px 0 #fff;
-  animation:sillyWords .9s cubic-bezier(.2,.8,.2,1);
 }
 
 .sillySub{
@@ -450,36 +504,47 @@ button{
   font-weight:1000;
   letter-spacing:1.5px;
   text-transform:uppercase;
-  animation:sillySubAnimation .9s ease;
 }
 
 @keyframes sillyFlash{
-  0%{opacity:0;visibility:visible;transform:scale(1.3)}
-  12%{opacity:1;transform:scale(1)}
-  65%{opacity:1;transform:scale(1)}
-  100%{opacity:0;visibility:hidden;transform:scale(.96)}
+  0%{
+    opacity:0;
+    visibility:visible;
+    transform:scale(1.3);
+  }
+  12%{
+    opacity:1;
+    transform:scale(1);
+  }
+  65%{
+    opacity:1;
+    transform:scale(1);
+  }
+  100%{
+    opacity:0;
+    visibility:hidden;
+    transform:scale(.96);
+  }
 }
 
 @keyframes sillyEmoji{
-  0%{transform:scale(0) rotate(-25deg)}
-  35%{transform:scale(1.25) rotate(12deg)}
-  60%{transform:scale(.9) rotate(-5deg)}
-  100%{transform:scale(1) rotate(0)}
+  0%{
+    transform:scale(0) rotate(-25deg);
+  }
+  35%{
+    transform:scale(1.25) rotate(12deg);
+  }
+  60%{
+    transform:scale(.9) rotate(-5deg);
+  }
+  100%{
+    transform:scale(1) rotate(0);
+  }
 }
 
-@keyframes sillyWords{
-  0%{opacity:0;transform:scale(.5) rotate(-12deg)}
-  45%{opacity:1;transform:scale(1.15) rotate(3deg)}
-  100%{transform:scale(1) rotate(-3deg)}
-}
-
-@keyframes sillySubAnimation{
-  0%{opacity:0;transform:translateY(15px)}
-  55%{opacity:0;transform:translateY(15px)}
-  100%{opacity:1;transform:translateY(0)}
-}
-
-/* MATCH SCREEN */
+/* =========================
+   MATCH
+========================= */
 
 #matchScreen{
   position:fixed;
@@ -595,7 +660,9 @@ button{
   }
 }
 
-/* SHEETS */
+/* =========================
+   SHEETS
+========================= */
 
 .sheet{
   position:fixed;
@@ -634,7 +701,9 @@ button{
   font-size:25px;
 }
 
-/* BREANNA PROFILE */
+/* =========================
+   PROFILE
+========================= */
 
 .profile-photo{
   position:relative;
@@ -740,7 +809,9 @@ button{
   text-align:right;
 }
 
-/* LIKES */
+/* =========================
+   LIKES
+========================= */
 
 .likes-panel{
   padding:20px 20px 35px;
@@ -782,7 +853,9 @@ button{
   color:#999;
 }
 
-/* CHAT */
+/* =========================
+   CHAT
+========================= */
 
 #chatScreen{
   position:fixed;
@@ -933,13 +1006,15 @@ button{
   font-size:18px;
 }
 
-/* TOAST */
+/* =========================
+   TOAST / LOADING
+========================= */
 
 .toast{
   position:fixed;
   z-index:5000;
   left:50%;
-  bottom:96px;
+  bottom:110px;
   transform:translate(-50%,20px);
   opacity:0;
   pointer-events:none;
@@ -956,8 +1031,6 @@ button{
   opacity:1;
   transform:translate(-50%,0);
 }
-
-/* LOADING */
 
 .loading{
   position:absolute;
@@ -985,22 +1058,30 @@ button{
 }
 
 @keyframes spin{
-  to{transform:rotate(360deg)}
+  to{
+    transform:rotate(360deg);
+  }
 }
 
 @media(max-height:700px){
+
   .header{
     height:58px;
     flex-basis:58px;
   }
 
   .actions{
-    height:75px;
-    flex-basis:75px;
+    height:104px;
+    flex-basis:104px;
   }
 
   .action{
-    height:52px;
+    height:58px;
+    font-size:15px;
+  }
+
+  .action-icon{
+    font-size:23px;
   }
 
   .nav{
@@ -1016,13 +1097,16 @@ button{
   .profile-photo{
     height:300px;
   }
+
 }
 </style>
 </head>
 
 <body>
 
-<!-- WELCOME -->
+<!-- =========================
+     WELCOME
+========================= -->
 
 <div id="welcome">
 
@@ -1059,7 +1143,9 @@ button{
 </div>
 
 
-<!-- MAIN APP -->
+<!-- =========================
+     APP
+========================= -->
 
 <div class="app">
 
@@ -1127,25 +1213,46 @@ button{
   </main>
 
 
+  <!-- BIGGER DECISION BUTTONS -->
+
   <div class="actions">
 
-    <button
-      class="action stinky"
-      id="stinkyButton"
-      type="button"
-    >
-      <span class="action-icon">💩</span>
-      STINKY
-    </button>
+    <div class="vibe-label">
+      WHAT'S THE VIBE?
+    </div>
 
-    <button
-      class="action silly"
-      id="sillyButton"
-      type="button"
-    >
-      <span class="action-icon">🤪</span>
-      SILLY
-    </button>
+    <div class="action-row">
+
+      <button
+        class="action stinky"
+        id="stinkyButton"
+        type="button"
+      >
+
+        <span class="action-icon">
+          💩
+        </span>
+
+        STINKY
+
+      </button>
+
+
+      <button
+        class="action silly"
+        id="sillyButton"
+        type="button"
+      >
+
+        <span class="action-icon">
+          🤪
+        </span>
+
+        SILLY
+
+      </button>
+
+    </div>
 
   </div>
 
@@ -1157,24 +1264,41 @@ button{
       id="discoverButton"
       type="button"
     >
-      <span class="nav-icon">🔥</span>
+
+      <span class="nav-icon">
+        🔥
+      </span>
+
       Discover
+
     </button>
+
 
     <button
       id="likesButton"
       type="button"
     >
-      <span class="nav-icon">🤪</span>
+
+      <span class="nav-icon">
+        🤪
+      </span>
+
       Likes
+
     </button>
+
 
     <button
       id="profileButton"
       type="button"
     >
-      <span class="nav-icon">👤</span>
+
+      <span class="nav-icon">
+        👤
+      </span>
+
       Breanna
+
     </button>
 
   </nav>
@@ -1182,7 +1306,9 @@ button{
 </div>
 
 
-<!-- SILLY MODE -->
+<!-- =========================
+     SILLY MODE
+========================= -->
 
 <div id="sillyMode">
 
@@ -1201,7 +1327,9 @@ button{
 </div>
 
 
-<!-- MATCH SCREEN -->
+<!-- =========================
+     MATCH
+========================= -->
 
 <div id="matchScreen">
 
@@ -1232,11 +1360,11 @@ button{
   <div
     class="match-name"
     id="matchPersonName"
-  >
-  </div>
+  ></div>
 
   <div class="match-message">
-    The smile passed inspection. Start the conversation. 🦷
+    The smile passed inspection.
+    Start the conversation. 🦷
   </div>
 
   <button
@@ -1258,7 +1386,9 @@ button{
 </div>
 
 
-<!-- BREANNA PROFILE -->
+<!-- =========================
+     PROFILE
+========================= -->
 
 <div
   class="sheet"
@@ -1284,7 +1414,9 @@ button{
 
       <div class="profile-title">
 
-        <h1>Breanna</h1>
+        <h1>
+          Breanna
+        </h1>
 
         <p>
           Dental Hygienist • Smile Quality Control
@@ -1362,20 +1494,42 @@ button{
 
       <div class="profile-tags">
 
-        <div class="profile-tag">🦷 Dental Hygienist</div>
-        <div class="profile-tag">☕ Coffee</div>
-        <div class="profile-tag">🎬 Movies</div>
-        <div class="profile-tag">😂 Sarcasm</div>
-        <div class="profile-tag">❤️ Romance</div>
-        <div class="profile-tag">✨ Great Smiles</div>
-        <div class="profile-tag">🧵 Flossing Advocate</div>
+        <div class="profile-tag">
+          🦷 Dental Hygienist
+        </div>
+
+        <div class="profile-tag">
+          ☕ Coffee
+        </div>
+
+        <div class="profile-tag">
+          🎬 Movies
+        </div>
+
+        <div class="profile-tag">
+          😂 Sarcasm
+        </div>
+
+        <div class="profile-tag">
+          ❤️ Romance
+        </div>
+
+        <div class="profile-tag">
+          ✨ Great Smiles
+        </div>
+
+        <div class="profile-tag">
+          🧵 Flossing Advocate
+        </div>
 
       </div>
 
 
       <div class="section">
 
-        <h3>The Important Stuff</h3>
+        <h3>
+          The Important Stuff
+        </h3>
 
         <div class="row">
           <span>Occupation</span>
@@ -1421,7 +1575,9 @@ button{
 </div>
 
 
-<!-- LIKES -->
+<!-- =========================
+     LIKES
+========================= -->
 
 <div
   class="sheet"
@@ -1452,7 +1608,9 @@ button{
 </div>
 
 
-<!-- CHAT -->
+<!-- =========================
+     CHAT
+========================= -->
 
 <div
   id="chatScreen"
@@ -1561,30 +1719,31 @@ button{
 
 <script>
 
-/* ==========================================
-   DATA
-========================================== */
+/* =========================
+   CONFIG
+========================= */
 
-const TOTAL = 500;
+const TOTAL=500;
 
 
-/*
-  Public/generated portrait pool.
-  The profiles themselves are fictional.
-*/
+/* =========================
+   IMAGE POOL
+========================= */
 
-const PHOTO_POOL = [];
+const PHOTO_POOL=[];
 
 for(let i=0;i<100;i++){
 
   PHOTO_POOL.push(
-    "https://randomuser.me/api/portraits/men/"
-    + i +
-    ".jpg"
+    "https://randomuser.me/api/portraits/men/"+i+".jpg"
   );
 
 }
 
+
+/* =========================
+   PROFILE DATA
+========================= */
 
 const firstNames=[
   "Alex","Marcus","Ryan","Daniel","Ethan",
@@ -1599,14 +1758,12 @@ const firstNames=[
   "Theo","Jack","Miles","Nolan","Zachary"
 ];
 
-
 const lastNames=[
   "Hayes","Carter","Brooks","Reed","Parker",
   "Grant","Morgan","Bennett","Coleman","Warren",
   "Foster","Hunter","Mason","King","Turner",
   "Cooper","West","Knight","Stone","Bishop"
 ];
-
 
 const cities=[
   "Los Angeles","New York","Miami","Chicago",
@@ -1615,7 +1772,6 @@ const cities=[
   "Las Vegas","Atlanta","San Francisco",
   "Montreal","Dallas","Phoenix","Orlando","London"
 ];
-
 
 const jobs=[
   "Actor","Film Producer","Creative Director",
@@ -1630,7 +1786,6 @@ const jobs=[
   "Designer","Journalist","Event Producer"
 ];
 
-
 const archetypes=[
   "Action Hero","Romantic Lead","British Heartthrob",
   "Funny Guy","Bad Boy","Golden Retriever",
@@ -1640,7 +1795,6 @@ const archetypes=[
   "Travel Guy","Creative Guy","Quietly Confident",
   "Professional Charmer"
 ];
-
 
 const bios=[
   "Big on great restaurants, spontaneous trips and making people laugh.",
@@ -1660,7 +1814,6 @@ const bios=[
   "Ambitious, affectionate and always up for a last-minute adventure."
 ];
 
-
 const tagSets=[
   ["Travel","Food","Comedy"],
   ["Coffee","Movies","Romance"],
@@ -1677,9 +1830,9 @@ const tagSets=[
 ];
 
 
-/* ==========================================
+/* =========================
    STATE
-========================================== */
+========================= */
 
 let men=[];
 let currentIndex=0;
@@ -1687,23 +1840,38 @@ let likedMen=[];
 let currentMatch=null;
 
 
-/* ==========================================
+/* =========================
    ELEMENTS
-========================================== */
+========================= */
 
-const welcome=document.getElementById("welcome");
-const deck=document.getElementById("deck");
-const loading=document.getElementById("loading");
-const counter=document.getElementById("counter");
-const toast=document.getElementById("toast");
-const sillyMode=document.getElementById("sillyMode");
-const matchScreen=document.getElementById("matchScreen");
-const chatScreen=document.getElementById("chatScreen");
+const welcome=
+  document.getElementById("welcome");
+
+const deck=
+  document.getElementById("deck");
+
+const loading=
+  document.getElementById("loading");
+
+const counter=
+  document.getElementById("counter");
+
+const toast=
+  document.getElementById("toast");
+
+const sillyMode=
+  document.getElementById("sillyMode");
+
+const matchScreen=
+  document.getElementById("matchScreen");
+
+const chatScreen=
+  document.getElementById("chatScreen");
 
 
-/* ==========================================
-   SEEDED RANDOM
-========================================== */
+/* =========================
+   SEEDED NUMBER
+========================= */
 
 function seededNumber(n){
 
@@ -1716,9 +1884,9 @@ function seededNumber(n){
 }
 
 
-/* ==========================================
-   CREATE 500 MEN
-========================================== */
+/* =========================
+   CREATE MEN
+========================= */
 
 function createMen(){
 
@@ -1807,9 +1975,9 @@ function createMen(){
 }
 
 
-/* ==========================================
+/* =========================
    TOAST
-========================================== */
+========================= */
 
 function showToast(text){
 
@@ -1824,9 +1992,9 @@ function showToast(text){
 }
 
 
-/* ==========================================
+/* =========================
    SILLY MODE
-========================================== */
+========================= */
 
 function showSillyMode(){
 
@@ -1843,9 +2011,9 @@ function showSillyMode(){
 }
 
 
-/* ==========================================
+/* =========================
    MATCH
-========================================== */
+========================= */
 
 function showMatch(person){
 
@@ -1858,9 +2026,7 @@ function showMatch(person){
   document.getElementById(
     "matchPersonName"
   ).textContent=
-    person.name+
-    ", "+
-    person.age;
+    person.name+", "+person.age;
 
   setTimeout(()=>{
 
@@ -1871,9 +2037,9 @@ function showMatch(person){
 }
 
 
-/* ==========================================
+/* =========================
    CLOSE MATCH
-========================================== */
+========================= */
 
 document.getElementById(
   "closeMatchButton"
@@ -1884,17 +2050,19 @@ document.getElementById(
 };
 
 
-/* ==========================================
-   CREATE CARD
-========================================== */
+/* =========================
+   CARD
+========================= */
 
 function createCard(person,position){
 
-  const card=document.createElement("div");
+  const card=
+    document.createElement("div");
 
   card.className="card";
 
-  card.style.zIndex=100-position;
+  card.style.zIndex=
+    100-position;
 
   card.innerHTML=`
 
@@ -1978,7 +2146,9 @@ function createCard(person,position){
 
 
   if(position===0){
+
     enableSwipe(card);
+
   }
 
 
@@ -1987,9 +2157,9 @@ function createCard(person,position){
 }
 
 
-/* ==========================================
+/* =========================
    RENDER
-========================================== */
+========================= */
 
 function renderCards(){
 
@@ -2006,10 +2176,13 @@ function renderCards(){
       position;
 
     if(index>=men.length){
+
       continue;
+
     }
 
-    const person=men[index];
+    const person=
+      men[index];
 
     const card=
       createCard(
@@ -2032,6 +2205,7 @@ function renderCards(){
 
   }
 
+
   counter.textContent=
     (currentIndex+1)+
     " / "+
@@ -2040,9 +2214,9 @@ function renderCards(){
 }
 
 
-/* ==========================================
+/* =========================
    SWIPE
-========================================== */
+========================= */
 
 function enableSwipe(card){
 
@@ -2143,9 +2317,9 @@ function enableSwipe(card){
 }
 
 
-/* ==========================================
+/* =========================
    FINISH SWIPE
-========================================== */
+========================= */
 
 function finishSwipe(type){
 
@@ -2185,7 +2359,6 @@ function finishSwipe(type){
 
     }
 
-
     showSillyMode();
 
     setTimeout(()=>{
@@ -2193,7 +2366,6 @@ function finishSwipe(type){
       showMatch(person);
 
     },300);
-
 
   }else{
 
@@ -2221,27 +2393,31 @@ function finishSwipe(type){
 }
 
 
-/* ==========================================
+/* =========================
    BUTTONS
-========================================== */
+========================= */
 
 document.getElementById(
   "sillyButton"
 ).onclick=()=>{
+
   finishSwipe("silly");
+
 };
 
 
 document.getElementById(
   "stinkyButton"
 ).onclick=()=>{
+
   finishSwipe("stinky");
+
 };
 
 
-/* ==========================================
+/* =========================
    START
-========================================== */
+========================= */
 
 document.getElementById(
   "startButton"
@@ -2250,56 +2426,56 @@ document.getElementById(
   welcome.classList.add("hide");
 
   setTimeout(()=>{
+
     welcome.style.display="none";
+
   },350);
 
 };
 
 
-/* ==========================================
+/* =========================
    PROFILE
-========================================== */
+========================= */
 
 const profileSheet=
   document.getElementById(
     "profileSheet"
   );
 
-
 function openProfile(){
-  profileSheet.classList.add("open");
-}
 
+  profileSheet.classList.add("open");
+
+}
 
 function closeProfile(){
-  profileSheet.classList.remove("open");
-}
 
+  profileSheet.classList.remove("open");
+
+}
 
 document.getElementById(
   "headerProfile"
 ).onclick=openProfile;
 
-
 document.getElementById(
   "profileButton"
 ).onclick=openProfile;
-
 
 document.getElementById(
   "closeProfile"
 ).onclick=closeProfile;
 
 
-/* ==========================================
+/* =========================
    LIKES
-========================================== */
+========================= */
 
 const likesSheet=
   document.getElementById(
     "likesSheet"
   );
-
 
 const likedList=
   document.getElementById(
@@ -2327,9 +2503,11 @@ function renderLikes(){
         Start Breumbling!
 
       </div>
+
     `;
 
     return;
+
   }
 
 
@@ -2381,7 +2559,9 @@ function renderLikes(){
           );
 
         if(person){
+
           openChat(person);
+
         }
 
       };
@@ -2411,9 +2591,9 @@ document.getElementById(
 };
 
 
-/* ==========================================
+/* =========================
    CHAT
-========================================== */
+========================= */
 
 const chatPersonName=
   document.getElementById(
@@ -2483,15 +2663,17 @@ function openChat(person){
   chatScreen.classList.add("open");
 
   setTimeout(()=>{
+
     chatInput.focus();
+
   },250);
 
 }
 
 
-/* ==========================================
-   OPEN CHAT FROM MATCH
-========================================== */
+/* =========================
+   OPEN CHAT
+========================= */
 
 document.getElementById(
   "openChatButton"
@@ -2499,18 +2681,16 @@ document.getElementById(
 
   if(currentMatch){
 
-    openChat(
-      currentMatch
-    );
+    openChat(currentMatch);
 
   }
 
 };
 
 
-/* ==========================================
-   BACK FROM CHAT
-========================================== */
+/* =========================
+   BACK CHAT
+========================= */
 
 document.getElementById(
   "chatBack"
@@ -2521,9 +2701,21 @@ document.getElementById(
 };
 
 
-/* ==========================================
+/* =========================
    SEND MESSAGE
-========================================== */
+========================= */
+
+function escapeHtml(text){
+
+  const div=
+    document.createElement("div");
+
+  div.textContent=text;
+
+  return div.innerHTML;
+
+}
+
 
 function sendMessage(){
 
@@ -2532,6 +2724,7 @@ function sendMessage(){
 
   if(!text)return;
 
+
   const message=
     document.createElement("div");
 
@@ -2539,9 +2732,11 @@ function sendMessage(){
     "message me";
 
   message.innerHTML=`
+
     <div class="bubble">
       ${escapeHtml(text)}
     </div>
+
   `;
 
   chatMessages.appendChild(message);
@@ -2552,10 +2747,6 @@ function sendMessage(){
     chatMessages.scrollHeight;
 
 
-  /*
-    Fictional profile response.
-  */
-
   setTimeout(()=>{
 
     if(!currentMatch)return;
@@ -2563,16 +2754,26 @@ function sendMessage(){
     const reply=
       document.createElement("div");
 
-    reply.className="message";
+    reply.className=
+      "message";
+
 
     const replies=[
+
       "Okay, I like your answer. 😂",
+
       "Now we're getting somewhere.",
+
       "That might actually be a pretty good first date.",
+
       "I was hoping you'd say that. 😏",
+
       "You seem fun. I think we're going to get along.",
+
       "Important question: coffee or cocktails?"
+
     ];
+
 
     const response=
       replies[
@@ -2582,11 +2783,15 @@ function sendMessage(){
         )
       ];
 
+
     reply.innerHTML=`
+
       <div class="bubble">
         ${response}
       </div>
+
     `;
+
 
     chatMessages.appendChild(reply);
 
@@ -2620,9 +2825,9 @@ chatInput.addEventListener(
 );
 
 
-/* ==========================================
-   SUGGESTED MESSAGES
-========================================== */
+/* =========================
+   SUGGESTIONS
+========================= */
 
 document
   .querySelectorAll(".suggestion")
@@ -2640,46 +2845,33 @@ document
   });
 
 
-/* ==========================================
+/* =========================
    DISCOVER
-========================================== */
+========================= */
 
 document.getElementById(
   "discoverButton"
 ).onclick=()=>{
 
   likesSheet.classList.remove("open");
+
   profileSheet.classList.remove("open");
 
 };
 
 
-/* ==========================================
-   ESCAPE HTML
-========================================== */
-
-function escapeHtml(text){
-
-  const div=
-    document.createElement("div");
-
-  div.textContent=text;
-
-  return div.innerHTML;
-
-}
-
-
-/* ==========================================
+/* =========================
    INITIALIZE
-========================================== */
+========================= */
 
 createMen();
 
 setTimeout(()=>{
 
   if(loading){
+
     loading.remove();
+
   }
 
   renderCards();
