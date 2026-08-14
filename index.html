@@ -22,7 +22,9 @@ html,body{
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
 }
 
-body{overscroll-behavior:none}
+body{
+  overscroll-behavior:none;
+}
 
 button{
   font-family:inherit;
@@ -36,6 +38,11 @@ button{
   --dark:#111;
   --gray:#242424;
 }
+
+
+/* =========================================================
+   WELCOME
+========================================================= */
 
 #welcome{
   position:fixed;
@@ -65,7 +72,9 @@ button{
 }
 
 .logo-big span,
-.logo span{color:var(--yellow)}
+.logo span{
+  color:var(--yellow);
+}
 
 .subtitle{
   margin-top:5px;
@@ -110,6 +119,11 @@ button{
   font-size:15px;
 }
 
+
+/* =========================================================
+   APP
+========================================================= */
+
 .app{
   width:100%;
   max-width:520px;
@@ -119,6 +133,11 @@ button{
   display:flex;
   flex-direction:column;
 }
+
+
+/* =========================================================
+   HEADER
+========================================================= */
 
 .header{
   height:65px;
@@ -158,6 +177,11 @@ button{
   background:#202020;
   color:#fff;
 }
+
+
+/* =========================================================
+   CARD
+========================================================= */
 
 .main{
   position:relative;
@@ -299,6 +323,11 @@ button{
   font-weight:900;
 }
 
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
 .actions{
   height:125px;
   flex:0 0 125px;
@@ -357,6 +386,11 @@ button{
   box-shadow:0 0 18px #ff6b1755;
 }
 
+
+/* =========================================================
+   NAV
+========================================================= */
+
 .nav{
   height:65px;
   flex:0 0 65px;
@@ -374,7 +408,9 @@ button{
   font-weight:900;
 }
 
-.nav button.active{color:#fff}
+.nav button.active{
+  color:#fff;
+}
 
 .nav-icon{
   display:block;
@@ -396,6 +432,11 @@ button{
   border:2px solid var(--yellow);
 }
 
+
+/* =========================================================
+   FLASHES
+========================================================= */
+
 .flash{
   position:fixed;
   inset:0;
@@ -410,7 +451,9 @@ button{
   pointer-events:none;
 }
 
-.flash.active{animation:flashIn 1.25s ease}
+.flash.active{
+  animation:flashIn 1.25s ease;
+}
 
 #sillyMode{
   background:var(--yellow);
@@ -450,17 +493,42 @@ button{
 }
 
 @keyframes flashIn{
-  0%{opacity:0;visibility:visible;transform:scale(.7)}
-  15%{opacity:1;transform:scale(1.08)}
-  72%{opacity:1;transform:scale(1)}
-  100%{opacity:0;visibility:hidden;transform:scale(1.12)}
+  0%{
+    opacity:0;
+    visibility:visible;
+    transform:scale(.7);
+  }
+  15%{
+    opacity:1;
+    transform:scale(1.08);
+  }
+  72%{
+    opacity:1;
+    transform:scale(1);
+  }
+  100%{
+    opacity:0;
+    visibility:hidden;
+    transform:scale(1.12);
+  }
 }
 
 @keyframes emojiBounce{
-  0%{transform:scale(.2) rotate(-20deg)}
-  55%{transform:scale(1.2) rotate(8deg)}
-  100%{transform:scale(1)}
+  0%{
+    transform:scale(.2) rotate(-20deg);
+  }
+  55%{
+    transform:scale(1.2) rotate(8deg);
+  }
+  100%{
+    transform:scale(1);
+  }
 }
+
+
+/* =========================================================
+   SUPA STINKY CHARACTER
+========================================================= */
 
 .stinky-character{
   position:relative;
@@ -500,8 +568,13 @@ button{
   background:#111;
 }
 
-.stinky-eye.one{left:99px}
-.stinky-eye.two{left:133px}
+.stinky-eye.one{
+  left:99px;
+}
+
+.stinky-eye.two{
+  left:133px;
+}
 
 .stinky-mouth{
   position:absolute;
@@ -555,9 +628,22 @@ button{
   animation:stinkCloud 1.2s infinite ease-in-out alternate;
 }
 
-.cloud1{left:4px;top:70px}
-.cloud2{right:0;top:132px;animation-delay:.3s}
-.cloud3{left:17px;top:184px;animation-delay:.55s}
+.cloud1{
+  left:4px;
+  top:70px;
+}
+
+.cloud2{
+  right:0;
+  top:132px;
+  animation-delay:.3s;
+}
+
+.cloud3{
+  left:17px;
+  top:184px;
+  animation-delay:.55s;
+}
 
 .smell-line{
   position:absolute;
@@ -569,9 +655,25 @@ button{
   animation:odorWave 1s infinite ease-in-out alternate;
 }
 
-.line1{left:2px;top:126px;transform:rotate(-20deg)}
-.line2{right:1px;top:75px;transform:rotate(20deg);animation-delay:.25s}
-.line3{left:15px;top:230px;transform:rotate(12deg);animation-delay:.5s}
+.line1{
+  left:2px;
+  top:126px;
+  transform:rotate(-20deg);
+}
+
+.line2{
+  right:1px;
+  top:75px;
+  transform:rotate(20deg);
+  animation-delay:.25s;
+}
+
+.line3{
+  left:15px;
+  top:230px;
+  transform:rotate(12deg);
+  animation-delay:.5s;
+}
 
 @keyframes dramaticWave{
   from{transform:rotate(-48deg)}
@@ -579,14 +681,31 @@ button{
 }
 
 @keyframes stinkCloud{
-  from{transform:translate(0,10px) scale(.75) rotate(-8deg);opacity:.35}
-  to{transform:translate(15px,-14px) scale(1.08) rotate(9deg);opacity:1}
+  from{
+    transform:translate(0,10px) scale(.75) rotate(-8deg);
+    opacity:.35;
+  }
+  to{
+    transform:translate(15px,-14px) scale(1.08) rotate(9deg);
+    opacity:1;
+  }
 }
 
 @keyframes odorWave{
-  from{transform:translateX(-4px) scale(.8);opacity:.25}
-  to{transform:translateX(18px) scale(1.15);opacity:.9}
+  from{
+    transform:translateX(-4px) scale(.8);
+    opacity:.25;
+  }
+  to{
+    transform:translateX(18px) scale(1.15);
+    opacity:.9;
+  }
 }
+
+
+/* =========================================================
+   PROFILE SHEETS
+========================================================= */
 
 .sheet{
   position:fixed;
@@ -597,7 +716,9 @@ button{
   background:#000c;
 }
 
-.sheet.open{display:flex}
+.sheet.open{
+  display:flex;
+}
 
 .panel{
   width:100%;
@@ -700,6 +821,11 @@ button{
   font-weight:1000;
 }
 
+
+/* =========================================================
+   MATCH
+========================================================= */
+
 #matchScreen{
   position:fixed;
   inset:0;
@@ -723,8 +849,15 @@ button{
 }
 
 @keyframes matchIn{
-  from{opacity:0;transform:scale(1.08)}
-  to{opacity:1;transform:scale(1);visibility:visible}
+  from{
+    opacity:0;
+    transform:scale(1.08);
+  }
+  to{
+    opacity:1;
+    transform:scale(1);
+    visibility:visible;
+  }
 }
 
 .match-small{
@@ -740,7 +873,9 @@ button{
   font-weight:1000;
 }
 
-.match-title span{color:var(--yellow)}
+.match-title span{
+  color:var(--yellow);
+}
 
 .match-photos{
   display:flex;
@@ -804,6 +939,11 @@ button{
   background:#242424;
   color:#fff;
 }
+
+
+/* =========================================================
+   CHAT
+========================================================= */
 
 #chatScreen{
   position:fixed;
@@ -889,10 +1029,12 @@ button{
   margin:8px 0;
 }
 
-.message-row.mine{justify-content:flex-end}
+.message-row.mine{
+  justify-content:flex-end;
+}
 
 .message{
-  max-width:78%;
+  max-width:82%;
   padding:11px 14px 8px;
   border-radius:19px;
   font-size:14px;
@@ -920,16 +1062,23 @@ button{
   vertical-align:bottom;
 }
 
-.message.mine .message-time{color:#705f1b}
+.message.mine .message-time{
+  color:#705f1b;
+}
 
 .typing-row{
   display:flex;
   margin:8px 13px;
   opacity:0;
   transition:.2s;
+  height:0;
+  overflow:hidden;
 }
 
-.typing-row.show{opacity:1}
+.typing-row.show{
+  opacity:1;
+  height:auto;
+}
 
 .typing{
   display:flex;
@@ -950,12 +1099,23 @@ button{
   animation:typingDot 1.2s infinite;
 }
 
-.typing i:nth-child(2){animation-delay:.15s}
-.typing i:nth-child(3){animation-delay:.3s}
+.typing i:nth-child(2){
+  animation-delay:.15s;
+}
+
+.typing i:nth-child(3){
+  animation-delay:.3s;
+}
 
 @keyframes typingDot{
-  0%,60%,100%{transform:translateY(0);opacity:.45}
-  30%{transform:translateY(-4px);opacity:1}
+  0%,60%,100%{
+    transform:translateY(0);
+    opacity:.45;
+  }
+  30%{
+    transform:translateY(-4px);
+    opacity:1;
+  }
 }
 
 .chat-suggestions{
@@ -967,7 +1127,9 @@ button{
   scrollbar-width:none;
 }
 
-.chat-suggestions::-webkit-scrollbar{display:none}
+.chat-suggestions::-webkit-scrollbar{
+  display:none;
+}
 
 .chat-suggestion{
   flex:0 0 auto;
@@ -1011,7 +1173,10 @@ button{
   font-weight:1000;
 }
 
-/* X-RAY */
+
+/* =========================================================
+   REALISTIC DENTAL X-RAY
+========================================================= */
 
 #xrayScreen{
   position:fixed;
@@ -1027,7 +1192,9 @@ button{
   padding:15px;
 }
 
-#xrayScreen.show{display:flex}
+#xrayScreen.show{
+  display:flex;
+}
 
 .xray-label{
   color:var(--yellow);
@@ -1080,7 +1247,9 @@ button{
       #050505 48%,
       #000 70%
     );
-  box-shadow:0 0 35px #000,inset 0 0 35px #000;
+  box-shadow:
+    0 0 35px #000,
+    inset 0 0 35px #000;
 }
 
 .gum-upper{
@@ -1154,7 +1323,7 @@ button{
       90deg,
       #c9c9c9 0%,
       #fff 25%,
-      #fff 55%,
+      #ffffff 55%,
       #d9d9d9 82%,
       #a7a7a7 100%
     );
@@ -1163,7 +1332,7 @@ button{
     0 0 5px rgba(255,255,255,.8),
     0 0 13px rgba(255,255,255,.35),
     inset -3px 0 4px rgba(100,100,100,.35);
-  transition:.35s;
+  transition:.35s transform,.35s box-shadow,.35s background;
 }
 
 .tooth.lower{
@@ -1386,6 +1555,11 @@ button{
   font-weight:1000;
 }
 
+
+/* =========================================================
+   TOAST
+========================================================= */
+
 .toast{
   position:fixed;
   left:50%;
@@ -1401,7 +1575,13 @@ button{
   box-shadow:0 10px 30px #000;
 }
 
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
 @media(max-height:700px){
+
   .header{
     height:58px;
     flex-basis:58px;
@@ -1427,22 +1607,38 @@ button{
     height:215px;
   }
 
-  .card-photo{height:64%}
+  .card-photo{
+    height:64%;
+  }
 
-  .card-info{padding-top:9px}
+  .card-info{
+    padding-top:9px;
+  }
 
-  .card-bio{-webkit-line-clamp:2}
+  .card-bio{
+    -webkit-line-clamp:2;
+  }
 
-  .dental-xray{height:55vh}
+  .dental-xray{
+    height:55vh;
+  }
+
 }
 </style>
 </head>
 
 <body>
 
+
+<!-- =========================================================
+     WELCOME
+========================================================= -->
+
 <div id="welcome">
 
-  <div class="logo-big">BREUM<span>BLE</span></div>
+  <div class="logo-big">
+    BREUM<span>BLE</span>
+  </div>
 
   <div class="subtitle">
     Breanna's dental dating adventure
@@ -1454,7 +1650,9 @@ button{
     alt="Breanna"
   >
 
-  <div class="breanna-name">Breanna</div>
+  <div class="breanna-name">
+    Breanna
+  </div>
 
   <div class="breanna-job">
     Dental Receptionist • Appointment Enforcer
@@ -1466,6 +1664,10 @@ button{
 
 </div>
 
+
+<!-- =========================================================
+     MAIN APP
+========================================================= -->
 
 <div class="app">
 
@@ -1551,9 +1753,15 @@ button{
 </div>
 
 
+<!-- =========================================================
+     SILLY
+========================================================= -->
+
 <div class="flash" id="sillyMode">
 
-  <div class="flash-emoji">🤪</div>
+  <div class="flash-emoji">
+    🤪
+  </div>
 
   <div class="flash-text">
     SILLY MODE
@@ -1566,9 +1774,15 @@ button{
 </div>
 
 
+<!-- =========================================================
+     STINKY
+========================================================= -->
+
 <div class="flash" id="stinkyMode">
 
-  <div class="flash-emoji">💩</div>
+  <div class="flash-emoji">
+    💩
+  </div>
 
   <div class="flash-text">
     STINKY MODE
@@ -1580,6 +1794,10 @@ button{
 
 </div>
 
+
+<!-- =========================================================
+     SUPA STINKY
+========================================================= -->
 
 <div class="flash" id="supaMode">
 
@@ -1594,19 +1812,18 @@ button{
     <div class="smell-line line3"></div>
 
     <div class="stinky-head">
-
       <div class="stinky-eye one"></div>
       <div class="stinky-eye two"></div>
-
       <div class="stinky-mouth"></div>
-
     </div>
 
     <div class="stinky-hair"></div>
     <div class="stinky-body"></div>
     <div class="stinky-arm"></div>
 
-    <div class="stinky-hand">🖐️</div>
+    <div class="stinky-hand">
+      🖐️
+    </div>
 
   </div>
 
@@ -1620,6 +1837,10 @@ button{
 
 </div>
 
+
+<!-- =========================================================
+     MATCH SCREEN
+========================================================= -->
 
 <div id="matchScreen">
 
@@ -1655,36 +1876,57 @@ button{
     The smile passed inspection. 🦷
   </div>
 
-  <button type="button" class="match-bio-button" id="viewMatchBio">
+  <button
+    type="button"
+    class="match-bio-button"
+    id="viewMatchBio">
     👀 VIEW FULL BIO
   </button>
 
-  <button type="button" class="match-chat" id="openChatButton">
+  <button
+    type="button"
+    class="match-chat"
+    id="openChatButton">
     💬 START CONVERSATION
   </button>
 
-  <button type="button" class="match-close" id="closeMatchButton">
+  <button
+    type="button"
+    class="match-close"
+    id="closeMatchButton">
     KEEP BREUMBLING
   </button>
 
 </div>
 
 
+<!-- =========================================================
+     FULL MATCH BIO
+========================================================= -->
+
 <div class="sheet" id="matchBioSheet">
 
   <div class="panel">
 
-    <button type="button" class="close" id="closeMatchBio">
+    <button
+      type="button"
+      class="close"
+      id="closeMatchBio">
       ×
     </button>
 
     <div class="profile-photo">
 
-      <img src="stinky-guy.JPEG" alt="Mr. Stinky">
+      <img
+        src="stinky-guy.JPEG"
+        alt="Mr. Stinky"
+      >
 
       <div class="profile-title">
 
-        <h1>Mr. Stinky, 32</h1>
+        <h1>
+          Mr. Stinky, 32
+        </h1>
 
         <p>
           Professional Appointment Avoider
@@ -1747,6 +1989,14 @@ button{
         once you get past the initial air-quality
         concerns.
 
+        <br><br>
+
+        Looking for someone who can laugh at the
+        ridiculous stuff, enjoy good conversation,
+        go on fun dates and isn't afraid of a guy
+        who may occasionally require emergency
+        mouthwash.
+
       </div>
 
       <div class="profile-tags">
@@ -1760,7 +2010,10 @@ button{
 
       </div>
 
-      <button type="button" class="profile-message" id="bioMessageButton">
+      <button
+        type="button"
+        class="profile-message"
+        id="bioMessageButton">
         💬 MESSAGE HIM
       </button>
 
@@ -1771,11 +2024,18 @@ button{
 </div>
 
 
+<!-- =========================================================
+     BREANNA PROFILE
+========================================================= -->
+
 <div class="sheet" id="profileSheet">
 
   <div class="panel">
 
-    <button type="button" class="close" id="closeProfile">
+    <button
+      type="button"
+      class="close"
+      id="closeProfile">
       ×
     </button>
 
@@ -1788,9 +2048,13 @@ button{
 
       <div class="profile-title">
 
-        <h1>Breanna</h1>
+        <h1>
+          Breanna
+        </h1>
 
-        <p>Dental Receptionist 🦷</p>
+        <p>
+          Dental Receptionist 🦷
+        </p>
 
       </div>
 
@@ -1826,7 +2090,9 @@ button{
 
         Extra bonus points if you don't smell like
         you've been hiding a sandwich in your mouth
-        since 2017. 😂🦷
+        since 2017.
+
+        😂🦷
 
       </div>
 
@@ -1846,6 +2112,10 @@ button{
 
 </div>
 
+
+<!-- =========================================================
+     DENTAL X-RAY
+========================================================= -->
 
 <div id="xrayScreen">
 
@@ -1887,7 +2157,10 @@ button{
     Searching for cavities, red flags & compatible smiles ❤️
   </div>
 
-  <button type="button" class="xray-close" id="xrayClose">
+  <button
+    type="button"
+    class="xray-close"
+    id="xrayClose">
     BACK TO DISCOVER
   </button>
 
@@ -1897,7 +2170,7 @@ button{
 <script>
 
 /* =========================================================
-   BASIC CONFIG
+   CONFIGURATION
 ========================================================= */
 
 const BREANNA_IMAGE =
@@ -1906,6 +2179,13 @@ const BREANNA_IMAGE =
 const GUY_IMAGE =
 "stinky-guy.JPEG";
 
+const STORAGE_KEY =
+"breumble_chat_v5";
+
+const PROFILE_MEMORY_KEY =
+"breumble_profile_memory_v5";
+
+
 const person={
   name:"Mr. Stinky",
   age:32,
@@ -1913,30 +2193,133 @@ const person={
   image:GUY_IMAGE
 };
 
+
+/* =========================================================
+   STATE
+========================================================= */
+
 let currentMatch=false;
 let swipeBusy=false;
 let chatOpen=false;
 
 
 /* =========================================================
+   LOCAL MEMORY
+========================================================= */
+
+function loadChat(){
+
+  try{
+
+    const saved=
+      localStorage.getItem(STORAGE_KEY);
+
+    if(!saved)return [];
+
+    const parsed=
+      JSON.parse(saved);
+
+    return Array.isArray(parsed)
+      ? parsed
+      : [];
+
+  }catch(e){
+
+    return [];
+
+  }
+
+}
+
+
+function saveChat(messages){
+
+  try{
+
+    localStorage.setItem(
+      STORAGE_KEY,
+      JSON.stringify(messages.slice(-80))
+    );
+
+  }catch(e){}
+
+}
+
+
+function loadProfileMemory(){
+
+  try{
+
+    const saved=
+      localStorage.getItem(PROFILE_MEMORY_KEY);
+
+    if(!saved)return {
+      name:null,
+      job:null,
+      interests:[],
+      facts:[],
+      questionsAnswered:[]
+    };
+
+    return JSON.parse(saved);
+
+  }catch(e){
+
+    return {
+      name:null,
+      job:null,
+      interests:[],
+      facts:[],
+      questionsAnswered:[]
+    };
+
+  }
+
+}
+
+
+function saveProfileMemory(memory){
+
+  try{
+
+    localStorage.setItem(
+      PROFILE_MEMORY_KEY,
+      JSON.stringify(memory)
+    );
+
+  }catch(e){}
+
+}
+
+
+/* =========================================================
    ELEMENTS
 ========================================================= */
 
-const welcome=document.getElementById("welcome");
-const deck=document.getElementById("deck");
-const counter=document.getElementById("counter");
+const welcome=
+document.getElementById("welcome");
+
+const deck=
+document.getElementById("deck");
+
+const counter=
+document.getElementById("counter");
 
 
 /* =========================================================
    START
 ========================================================= */
 
-document.getElementById("startButton").addEventListener("click",()=>{
+document
+.getElementById("startButton")
+.addEventListener("click",()=>{
 
   welcome.classList.add("hide");
 
   setTimeout(()=>{
+
     welcome.style.display="none";
+
   },350);
 
 });
@@ -1950,7 +2333,8 @@ function renderCard(){
 
   deck.innerHTML="";
 
-  const card=document.createElement("div");
+  const card=
+    document.createElement("div");
 
   card.className="card";
 
@@ -2021,11 +2405,12 @@ function renderCard(){
   deck.appendChild(card);
 
   counter.textContent="1 / 1";
+
 }
 
 
 /* =========================================================
-   TOUCH SWIPE
+   SWIPE
 ========================================================= */
 
 function enableSwipe(card){
@@ -2033,46 +2418,62 @@ function enableSwipe(card){
   let startX=0;
   let deltaX=0;
 
-  card.addEventListener("touchstart",e=>{
+  card.addEventListener(
+    "touchstart",
+    e=>{
 
-    if(swipeBusy)return;
+      if(swipeBusy)return;
 
-    startX=e.touches[0].clientX;
+      startX=
+        e.touches[0].clientX;
 
-  },{passive:true});
-
-
-  card.addEventListener("touchmove",e=>{
-
-    if(swipeBusy)return;
-
-    deltaX=e.touches[0].clientX-startX;
-
-    card.style.transform=
-      `translateX(${deltaX}px) rotate(${deltaX/18}deg)`;
-
-  },{passive:true});
+    },
+    {passive:true}
+  );
 
 
-  card.addEventListener("touchend",()=>{
+  card.addEventListener(
+    "touchmove",
+    e=>{
 
-    if(swipeBusy)return;
+      if(swipeBusy)return;
 
-    if(Math.abs(deltaX)>100){
+      deltaX=
+        e.touches[0].clientX-startX;
 
-      finishSwipe(
-        deltaX>0 ? "silly" : "stinky"
-      );
+      card.style.transform=
+        `translateX(${deltaX}px)
+         rotate(${deltaX/18}deg)`;
 
-    }else{
+    },
+    {passive:true}
+  );
 
-      card.style.transform="";
+
+  card.addEventListener(
+    "touchend",
+    ()=>{
+
+      if(swipeBusy)return;
+
+      if(Math.abs(deltaX)>100){
+
+        finishSwipe(
+          deltaX>0
+          ?"silly"
+          :"stinky"
+        );
+
+      }else{
+
+        card.style.transform="";
+
+      }
+
+      deltaX=0;
 
     }
-
-    deltaX=0;
-
-  });
+  );
 
 }
 
@@ -2081,18 +2482,27 @@ function enableSwipe(card){
    ACTIONS
 ========================================================= */
 
-document.getElementById("sillyButton")
-.addEventListener("click",()=>finishSwipe("silly"));
+document
+.getElementById("sillyButton")
+.addEventListener("click",()=>{
+  finishSwipe("silly");
+});
 
-document.getElementById("stinkyButton")
-.addEventListener("click",()=>finishSwipe("stinky"));
+document
+.getElementById("stinkyButton")
+.addEventListener("click",()=>{
+  finishSwipe("stinky");
+});
 
-document.getElementById("supaButton")
-.addEventListener("click",()=>finishSwipe("supa"));
+document
+.getElementById("supaButton")
+.addEventListener("click",()=>{
+  finishSwipe("supa");
+});
 
 
 /* =========================================================
-   SWIPE
+   SWIPE RESULT
 ========================================================= */
 
 function finishSwipe(type){
@@ -2101,7 +2511,8 @@ function finishSwipe(type){
 
   swipeBusy=true;
 
-  const card=deck.querySelector(".card");
+  const card=
+    deck.querySelector(".card");
 
   if(card){
 
@@ -2117,14 +2528,10 @@ function finishSwipe(type){
 
   }
 
+
   if(type==="silly"){
 
     currentMatch=true;
-
-    localStorage.setItem(
-      "breumbleMatched",
-      "true"
-    );
 
     showFlash("sillyMode");
 
@@ -2138,13 +2545,20 @@ function finishSwipe(type){
 
   }
 
+
   if(type==="stinky"){
+
     showFlash("stinkyMode");
+
   }
 
+
   if(type==="supa"){
+
     showFlash("supaMode");
+
   }
+
 
   setTimeout(()=>{
 
@@ -2163,7 +2577,8 @@ function finishSwipe(type){
 
 function showFlash(id){
 
-  const el=document.getElementById(id);
+  const el=
+    document.getElementById(id);
 
   el.classList.remove("active");
 
@@ -2178,7 +2593,8 @@ function showFlash(id){
    MATCH
 ========================================================= */
 
-document.getElementById("closeMatchButton")
+document
+.getElementById("closeMatchButton")
 .addEventListener("click",()=>{
 
   document
@@ -2188,7 +2604,8 @@ document.getElementById("closeMatchButton")
 });
 
 
-document.getElementById("viewMatchBio")
+document
+.getElementById("viewMatchBio")
 .addEventListener("click",e=>{
 
   e.preventDefault();
@@ -2201,7 +2618,8 @@ document.getElementById("viewMatchBio")
 });
 
 
-document.getElementById("openChatButton")
+document
+.getElementById("openChatButton")
 .addEventListener("click",()=>{
 
   document
@@ -2213,11 +2631,8 @@ document.getElementById("openChatButton")
 });
 
 
-/* =========================================================
-   BIO
-========================================================= */
-
-document.getElementById("closeMatchBio")
+document
+.getElementById("closeMatchBio")
 .addEventListener("click",()=>{
 
   document
@@ -2227,7 +2642,8 @@ document.getElementById("closeMatchBio")
 });
 
 
-document.getElementById("bioMessageButton")
+document
+.getElementById("bioMessageButton")
 .addEventListener("click",()=>{
 
   document
@@ -2247,7 +2663,8 @@ document.getElementById("bioMessageButton")
    BREANNA PROFILE
 ========================================================= */
 
-document.getElementById("profileButton")
+document
+.getElementById("profileButton")
 .addEventListener("click",()=>{
 
   document
@@ -2257,7 +2674,8 @@ document.getElementById("profileButton")
 });
 
 
-document.getElementById("headerProfile")
+document
+.getElementById("headerProfile")
 .addEventListener("click",()=>{
 
   document
@@ -2267,7 +2685,8 @@ document.getElementById("headerProfile")
 });
 
 
-document.getElementById("closeProfile")
+document
+.getElementById("closeProfile")
 .addEventListener("click",()=>{
 
   document
@@ -2281,11 +2700,11 @@ document.getElementById("closeProfile")
    LIKES
 ========================================================= */
 
-document.getElementById("likesButton")
+document
+.getElementById("likesButton")
 .addEventListener("click",()=>{
 
-  if(currentMatch ||
-     localStorage.getItem("breumbleMatched")==="true"){
+  if(currentMatch){
 
     document
     .getElementById("matchScreen")
@@ -2293,7 +2712,9 @@ document.getElementById("likesButton")
 
   }else{
 
-    showToast("No SILLY matches yet 🤪");
+    showToast(
+      "No SILLY matches yet 🤪"
+    );
 
   }
 
@@ -2306,15 +2727,19 @@ document.getElementById("likesButton")
 
 function showToast(message){
 
-  const toast=document.createElement("div");
+  const toast=
+    document.createElement("div");
 
   toast.className="toast";
+
   toast.textContent=message;
 
   document.body.appendChild(toast);
 
   setTimeout(()=>{
+
     toast.remove();
+
   },1800);
 
 }
@@ -2324,206 +2749,148 @@ function showToast(message){
    ADVANCED LOCAL CONVERSATION ENGINE
 ========================================================= */
 
-/*
-  This is intentionally local.
+function normalize(text){
 
-  It does not use an API and does not require a server.
-
-  The engine:
-  - remembers conversation
-  - extracts details
-  - recognizes questions
-  - answers the actual topic
-  - asks follow-up questions
-  - avoids immediate repetition
-  - keeps personality
-*/
-
-
-const CHAT_STORAGE_KEY="breumble_chat_v2";
-
-
-function getChatMemory(){
-
-  try{
-
-    return JSON.parse(
-      localStorage.getItem(CHAT_STORAGE_KEY)
-    ) || {
-      messages:[],
-      facts:{
-        name:null,
-        age:null,
-        job:null,
-        location:null,
-        hobbies:[],
-        pets:null,
-        food:null,
-        drinks:null,
-        dates:null,
-        relationship:null
-      },
-      usedReplies:[]
-    };
-
-  }catch(e){
-
-    return {
-      messages:[],
-      facts:{
-        name:null,
-        age:null,
-        job:null,
-        location:null,
-        hobbies:[],
-        pets:null,
-        food:null,
-        drinks:null,
-        dates:null,
-        relationship:null
-      },
-      usedReplies:[]
-    };
-
-  }
+  return String(text || "")
+    .toLowerCase()
+    .replace(/[^\w\s?'!-]/g," ")
+    .replace(/\s+/g," ")
+    .trim();
 
 }
 
 
-function saveChatMemory(memory){
+function words(text){
 
-  try{
-
-    localStorage.setItem(
-      CHAT_STORAGE_KEY,
-      JSON.stringify(memory)
-    );
-
-  }catch(e){}
+  return normalize(text)
+    .split(" ")
+    .filter(Boolean);
 
 }
 
 
-function addMemoryMessage(who,text){
+function containsAny(text,list){
 
-  const memory=getChatMemory();
+  const t=normalize(text);
 
-  memory.messages.push({
-    who,
-    text,
-    time:Date.now()
+  return list.some(word=>{
+
+    return t.includes(word);
+
   });
 
-  if(memory.messages.length>60){
-    memory.messages=
-      memory.messages.slice(-60);
-  }
+}
 
-  saveChatMemory(memory);
+
+function random(arr){
+
+  return arr[
+    Math.floor(
+      Math.random()*arr.length
+    )
+  ];
+
+}
+
+
+function lastUserMessages(history,count=6){
+
+  return history
+    .filter(m=>m.who==="mine")
+    .slice(-count);
+
+}
+
+
+function lastThemMessages(history,count=6){
+
+  return history
+    .filter(m=>m.who==="them")
+    .slice(-count);
 
 }
 
 
 /* =========================================================
-   FACT EXTRACTION
+   EXTRACT USER INFORMATION
 ========================================================= */
 
-function extractFacts(text){
+function updateMemory(text){
 
-  const memory=getChatMemory();
+  const memory=
+    loadProfileMemory();
 
-  const t=text.toLowerCase();
+  const original=
+    String(text || "").trim();
+
+  const lower=
+    normalize(original);
 
 
-  /* NAME */
+  /*
+    NAME
+  */
 
   const namePatterns=[
 
-    /(?:my name is|name's|name is)\s+([a-zA-Z]+)/i,
+    /(?:my name is|i'm|im|i am|call me)\s+([a-z][a-z'-]{1,20})/i,
 
-    /(?:i'm|im|i am)\s+([a-zA-Z]+)(?:\s*[,.]?\s*(?:and|,|$))/i
+    /(?:name's|names)\s+([a-z][a-z'-]{1,20})/i
 
   ];
+
 
   for(const pattern of namePatterns){
 
-    const match=text.match(pattern);
+    const match=
+      original.match(pattern);
 
     if(match){
 
-      const candidate=match[1];
+      memory.name=
+        cleanName(match[1]);
 
-      if(
-        candidate &&
-        ![
-          "32",
-          "looking",
-          "from",
-          "a",
-          "an",
-          "the",
-          "working",
-          "single"
-        ].includes(candidate.toLowerCase())
-      ){
-
-        memory.facts.name=
-          candidate.charAt(0).toUpperCase()+
-          candidate.slice(1).toLowerCase();
-
-        break;
-
-      }
+      break;
 
     }
 
   }
 
 
-  /* AGE */
-
-  const ageMatch=
-    text.match(
-      /\b(?:i'm|im|i am|age is|aged)\s*(\d{2})\b/i
-    );
-
-  if(ageMatch){
-
-    memory.facts.age=
-      Number(ageMatch[1]);
-
-  }
-
-
-  /* JOB */
+  /*
+    JOB
+  */
 
   const jobPatterns=[
 
-    /i work (?:as|at)\s+(.+)/i,
+    /i work as (?:a|an)?\s*(.+?)(?:[.!?]|$)/i,
 
-    /i'm a\s+(.+)/i,
+    /i'm a[n]?\s+(.+?)(?:[.!?]|$)/i,
 
-    /im a\s+(.+)/i,
+    /i am a[n]?\s+(.+?)(?:[.!?]|$)/i,
 
-    /my job is\s+(.+)/i,
-
-    /i work in\s+(.+)/i
+    /my job is\s+(.+?)(?:[.!?]|$)/i
 
   ];
 
+
   for(const pattern of jobPatterns){
 
-    const match=text.match(pattern);
+    const match=
+      original.match(pattern);
 
     if(match){
 
-      let value=match[1]
-        .replace(/[.!?]+$/,"")
-        .trim();
+      const possible=
+        match[1].trim();
 
-      if(value.length<70){
+      if(
+        possible.length>2 &&
+        possible.length<70
+      ){
 
-        memory.facts.job=value;
+        memory.job=
+          possible;
 
         break;
 
@@ -2534,133 +2901,147 @@ function extractFacts(text){
   }
 
 
-  /* LOCATION */
+  /*
+    LIKE / LOVE
+  */
 
-  const locationPatterns=[
+  const likesPatterns=[
 
-    /i live in\s+(.+)/i,
+    /i (?:like|love|enjoy|adore)\s+(.+?)(?:[.!?]|$)/i,
 
-    /i'm from\s+(.+)/i,
+    /i'm into\s+(.+?)(?:[.!?]|$)/i,
 
-    /im from\s+(.+)/i,
-
-    /i am from\s+(.+)/i
+    /i really like\s+(.+?)(?:[.!?]|$)/i
 
   ];
 
-  for(const pattern of locationPatterns){
 
-    const match=text.match(pattern);
+  for(const pattern of likesPatterns){
+
+    const match=
+      original.match(pattern);
 
     if(match){
 
-      memory.facts.location=
-        match[1]
-        .replace(/[.!?]+$/,"")
-        .trim();
+      const fact=
+        match[1].trim();
 
-      break;
+      if(
+        fact.length>1 &&
+        fact.length<100
+      ){
 
-    }
+        if(
+          !memory.interests
+          .some(x=>normalize(x)===normalize(fact))
+        ){
 
-  }
+          memory.interests.push(fact);
 
+        }
 
-  /* HOBBIES */
-
-  const hobbyMatch=
-    text.match(
-      /(?:i like|i love|i enjoy|i'm into|im into)\s+(.+)/i
-    );
-
-  if(hobbyMatch){
-
-    const hobby=
-      hobbyMatch[1]
-      .replace(/[.!?]+$/,"")
-      .trim();
-
-    if(
-      hobby.length<100 &&
-      !memory.facts.hobbies.includes(hobby)
-    ){
-
-      memory.facts.hobbies.push(hobby);
+      }
 
     }
 
   }
 
 
-  /* PETS */
+  /*
+    HOBBIES
+  */
 
-  if(/\b(dog|dogs|puppy|puppies)\b/i.test(text)){
-    memory.facts.pets="dog";
-  }
+  const hobbyPatterns=[
 
-  if(/\b(cat|cats|kitten|kittens)\b/i.test(text)){
-    memory.facts.pets="cat";
-  }
+    /i (?:play|do|practice)\s+(.+?)(?:[.!?]|$)/i,
 
+    /my hobbies are\s+(.+?)(?:[.!?]|$)/i,
 
-  /* FOOD */
+    /for fun i\s+(.+?)(?:[.!?]|$)/i
 
-  const foodWords=[
-    "pizza",
-    "sushi",
-    "burgers",
-    "burger",
-    "tacos",
-    "pasta",
-    "steak",
-    "chicken"
   ];
 
-  for(const food of foodWords){
 
-    if(t.includes(food)){
-      memory.facts.food=food;
-      break;
+  for(const pattern of hobbyPatterns){
+
+    const match=
+      original.match(pattern);
+
+    if(match){
+
+      const fact=
+        match[1].trim();
+
+      if(
+        fact.length>1 &&
+        fact.length<100
+      ){
+
+        if(
+          !memory.facts
+          .some(x=>normalize(x)===normalize(fact))
+        ){
+
+          memory.facts.push(fact);
+
+        }
+
+      }
+
     }
 
   }
 
 
-  /* DRINK */
-
-  const drinkWords=[
-    "coffee",
-    "tea",
-    "wine",
-    "beer",
-    "cocktails"
-  ];
-
-  for(const drink of drinkWords){
-
-    if(t.includes(drink)){
-      memory.facts.drinks=drink;
-      break;
-    }
-
-  }
-
-
-  /* DATING INTENT */
+  /*
+    Generic personal facts
+  */
 
   if(
-    /\b(relationship|serious|long term|long-term|casual|dating|date)\b/i
-    .test(text)
+    /\b(i have|i've got|i live|i'm from|i am from)\b/i
+    .test(original)
   ){
 
-    memory.facts.relationship=text;
+    if(original.length<160){
+
+      if(
+        !memory.facts
+        .some(x=>normalize(x)===normalize(original))
+      ){
+
+        memory.facts.push(original);
+
+      }
+
+    }
 
   }
 
 
-  saveChatMemory(memory);
+  /*
+    Keep memory compact.
+  */
+
+  memory.interests=
+    memory.interests.slice(-12);
+
+  memory.facts=
+    memory.facts.slice(-15);
+
+
+  saveProfileMemory(memory);
 
   return memory;
+
+}
+
+
+function cleanName(name){
+
+  return String(name)
+    .trim()
+    .replace(/[^a-zA-Z'-]/g,"")
+    .replace(/^./,c=>c.toUpperCase());
 
 }
 
@@ -2669,167 +3050,74 @@ function extractFacts(text){
    QUESTION DETECTION
 ========================================================= */
 
-function detectQuestion(text){
+function isQuestion(text){
 
-  const t=text.toLowerCase().trim();
+  const t=
+    normalize(text);
 
+  if(t.endsWith("?"))return true;
 
-  if(
-    /\bwhat('?s| is) your name\b/.test(t) ||
-    /\bwho are you\b/.test(t)
-  ){
-    return "name";
-  }
-
-
-  if(
-    /\bhow old are you\b/.test(t) ||
-    /\byour age\b/.test(t)
-  ){
-    return "age";
-  }
-
-
-  if(
-    /\bwhere (?:do you|are you) (?:live|from)\b/.test(t) ||
-    /\bwhere are you from\b/.test(t)
-  ){
-    return "location";
-  }
-
-
-  if(
-    /\bwhat do you do\b/.test(t) ||
-    /\bwhat's your job\b/.test(t) ||
-    /\bwhat is your job\b/.test(t) ||
-    /\bwhere do you work\b/.test(t)
-  ){
-    return "job";
-  }
-
-
-  if(
-    /\bwhat do you like\b/.test(t) ||
-    /\bhobbies\b/.test(t) ||
-    /\bwhat do you do for fun\b/.test(t) ||
-    /\bwhat are you into\b/.test(t)
-  ){
-    return "hobbies";
-  }
-
-
-  if(
-    /\bdo you have (a |any )?(dog|dogs|cat|cats|pets)\b/.test(t) ||
-    /\bdo you have pets\b/.test(t)
-  ){
-    return "pets";
-  }
-
-
-  if(
-    /\bwhat('?s| is) your favorite\b/.test(t) ||
-    /\bfavorite food\b/.test(t) ||
-    /\bfavourite food\b/.test(t)
-  ){
-    return "favorite";
-  }
-
-
-  if(
-    /\bwhat are you looking for\b/.test(t) ||
-    /\blooking for\b/.test(t) ||
-    /\bserious relationship\b/.test(t)
-  ){
-    return "dating";
-  }
-
-
-  if(
-    /\bwhat do you want to do\b/.test(t) ||
-    /\bwhat should we do\b/.test(t) ||
-    /\bfirst date\b/.test(t)
-  ){
-    return "date";
-  }
-
-
-  return null;
+  return containsAny(
+    t,
+    [
+      "what ",
+      "where ",
+      "when ",
+      "why ",
+      "who ",
+      "how ",
+      "do you ",
+      "are you ",
+      "is your ",
+      "can you ",
+      "would you ",
+      "have you ",
+      "did you ",
+      "will you ",
+      "tell me "
+    ]
+  );
 
 }
 
 
-/* =========================================================
-   TOPIC DETECTION
-========================================================= */
+function detectQuestionType(text){
 
-function detectTopic(text){
+  const t=
+    normalize(text);
 
-  const t=text.toLowerCase();
+  if(/\bwhat('?s| is) your name\b/.test(t))
+    return "name";
 
+  if(/\bhow old are you\b|\byour age\b/.test(t))
+    return "age";
 
-  if(
-    /\b(dentist|dental|teeth|tooth|cavity|cavities|floss|mouthwash|breath|cleaning)\b/
-    .test(t)
-  ){
-    return "dental";
-  }
+  if(/\bwhere (?:do you|are you) live\b/.test(t))
+    return "location";
 
+  if(/\bwhere are you from\b/.test(t))
+    return "location";
 
-  if(
-    /\b(date|dating|relationship|girlfriend|boyfriend|romantic)\b/
-    .test(t)
-  ){
-    return "dating";
-  }
+  if(/\bwhat do you do\b|\bwhat is your job\b|\bwhat do you work\b/.test(t))
+    return "job";
 
+  if(/\bwhat do you like\b|\bwhat are you into\b|\bwhat do you enjoy\b/.test(t))
+    return "interests";
 
-  if(
-    /\b(coffee|tea|drink|beer|wine|cocktail)\b/
-    .test(t)
-  ){
-    return "drinks";
-  }
+  if(/\bhobbies\b|\bwhat do you do for fun\b/.test(t))
+    return "hobbies";
 
+  if(/\bwhat('s| is) your ideal date\b|\bideal first date\b/.test(t))
+    return "date";
 
-  if(
-    /\b(food|pizza|sushi|burger|burgers|taco|tacos|pasta|steak)\b/
-    .test(t)
-  ){
-    return "food";
-  }
-
-
-  if(
-    /\b(dog|dogs|cat|cats|pet|pets)\b/
-    .test(t)
-  ){
+  if(/\bdo you have\b.*\bpet\b|\bdo you like dogs\b|\bdo you like cats\b/.test(t))
     return "pets";
-  }
 
+  if(/\bwhy are you\b.*\bstinky\b|\bwhy.*stinky\b/.test(t))
+    return "stinky";
 
-  if(
-    /\b(work|job|career|office|school|college)\b/
-    .test(t)
-  ){
-    return "work";
-  }
-
-
-  if(
-    /\b(funny|laugh|lol|haha|hahaha|joke)\b/
-    .test(t)
-  ){
-    return "humor";
-  }
-
-
-  if(
-    /\b(cute|handsome|hot|beautiful|attractive)\b/
-    .test(t)
-  ){
-    return "flirty";
-  }
-
+  if(/\bfloss\b|\bdental\b|\bdentist\b|\bteeth\b|\btooth\b|\bcavity\b|\bbreath\b/.test(t))
+    return "dental";
 
   return "general";
 
@@ -2837,649 +3125,589 @@ function detectTopic(text){
 
 
 /* =========================================================
-   PERSONALITY HELPERS
+   CHECK IF QUESTION ALREADY ANSWERED
 ========================================================= */
 
-function random(arr){
+function askedBefore(history,keywords){
 
-  const memory=getChatMemory();
+  const mine=
+    history
+      .filter(m=>m.who==="mine")
+      .map(m=>normalize(m.text))
+      .join(" ");
 
-  const available=
-    arr.filter(
-      x=>!memory.usedReplies.includes(x)
-    );
-
-  const pool=
-    available.length
-    ?available
-    :arr;
-
-  const result=
-    pool[
-      Math.floor(
-        Math.random()*pool.length
-      )
-    ];
-
-  memory.usedReplies.push(result);
-
-  if(memory.usedReplies.length>30){
-    memory.usedReplies=
-      memory.usedReplies.slice(-30);
-  }
-
-  saveChatMemory(memory);
-
-  return result;
-
-}
-
-
-function getRecentUserMessages(){
-
-  const memory=getChatMemory();
-
-  return memory.messages
-    .filter(m=>m.who==="mine")
-    .slice(-5)
-    .map(m=>m.text);
-
-}
-
-
-function getLastUserMessage(){
-
-  const messages=getRecentUserMessages();
-
-  return messages[messages.length-1] || "";
+  return keywords.some(k=>
+    mine.includes(k)
+  );
 
 }
 
 
 /* =========================================================
-   SMART REPLY ENGINE
+   CONTEXT SUMMARY
 ========================================================= */
 
-function smartReply(text){
+function buildContext(history){
 
   const memory=
-    extractFacts(text);
-
-  const question=
-    detectQuestion(text);
-
-  const topic=
-    detectTopic(text);
-
-  const t=
-    text.toLowerCase().trim();
-
-
-  /* =======================================================
-     DIRECT QUESTIONS
-  ======================================================= */
-
-
-  if(question==="name"){
-
-    return random([
-
-      "I'm Mr. Stinky 😂. Yes, that's unfortunately becoming my official dating-app identity.",
-
-      "Mr. Stinky 😭😂. My real name is less embarrassing, but I feel like I have to commit to the brand now.",
-
-      "I'm Mr. Stinky. Don't worry, I'm much more charming than the name suggests 😂."
-
-    ]);
-
-  }
-
-
-  if(question==="age"){
-
-    return random([
-
-      "I'm 32. Old enough to know I should floss, apparently not old enough to consistently remember 😂.",
-
-      "32 😏. And yes, I still feel about 24 until my back hurts for no reason.",
-
-      "I'm 32. What about you?"
-
-    ]);
-
-  }
-
-
-  if(question==="location"){
-
-    return random([
-
-      "I'm around here. I figured I'd stay mysterious for at least the first five minutes 😂. What about you?",
-
-      "I'm local enough that a first date is definitely possible 😏. Where are you from?",
-
-      "I'm from around here. Where do you call home?"
-
-    ]);
-
-  }
-
-
-  if(question==="job"){
-
-    return random([
-
-      "I'm the professional appointment avoider apparently 😂. But seriously, I keep busy and I'm pretty easygoing outside of my questionable dental habits.",
-
-      "Let's just say I'm gainfully employed and apparently in need of a dental receptionist 😂.",
-
-      "I work and keep myself busy, but I promise I'm more interesting than my job title makes me sound. What do you do?"
-
-    ]);
-
-  }
-
-
-  if(question==="hobbies"){
-
-    return random([
-
-      "I like getting out, trying new places, good food, coffee and anything that makes me laugh. What about you?",
-
-      "I'm pretty easygoing. Good food, random adventures, hanging out with people I actually like. What do you do for fun?",
-
-      "Honestly, I'm happiest when I'm laughing, eating something good or doing something spontaneous. What's your thing?"
-
-    ]);
-
-  }
-
-
-  if(question==="pets"){
-
-    return random([
-
-      "I have a soft spot for animals 😂. Are you a dog person or a cat person?",
-
-      "Pets are definitely a green flag. Do you have one?",
-
-      "I'm going to need to know your answer before I judge you... dog or cat? 😂"
-
-    ]);
-
-  }
-
-
-  if(question==="favorite"){
-
-    return random([
-
-      "Probably something involving coffee or food 😂. I'm very sophisticated like that.",
-
-      "You really want to know the secrets this early? 😂 I'll trade you mine for yours.",
-
-      "Food is dangerous because I can be convinced to like almost anything. What's yours?"
-
-    ]);
-
-  }
-
-
-  if(question==="dating"){
-
-    return random([
-
-      "Honestly, I'm looking for someone I genuinely enjoy talking to and spending time with. Something real would be nice.",
-
-      "I'm not trying to speed-run a relationship, but I'm definitely open to something meaningful if the connection is right.",
-
-      "Good conversation first, chemistry second, and then we see where it goes. What are you looking for?"
-
-    ]);
-
-  }
-
-
-  if(question==="date"){
-
-    return random([
-
-      "I'd keep the first date simple. Coffee, food and somewhere we can actually talk without yelling across a room 😂.",
-
-      "Coffee is probably safest for our first date. You need to inspect the air quality before committing 😂.",
-
-      "Something casual where we can laugh and actually get to know each other. What's your ideal first date?"
-
-    ]);
-
-  }
-
-
-  /* =======================================================
-     DENTAL
-  ======================================================= */
-
-  if(topic==="dental"){
-
-    if(/\b(cavity|cavities)\b/.test(t)){
-
-      return random([
-
-        "Okay, cavities are where I suddenly become very interested in your professional opinion 😂.",
-
-        "Please don't tell me I have cavities before we've even gone on a date 😭.",
-
-        "I'm choosing to believe the Breumble X-ray already cleared me 😂🦷."
-
-      ]);
-
-    }
-
-
-    if(/\b(floss|flossing)\b/.test(t)){
-
-      return random([
-
-        "I knew this question was coming eventually 😂. I am trying to become a responsible flosser.",
-
-        "Let's just say my relationship with floss is complicated 😂.",
-
-        "Okay, okay... I'll floss. You happy now? 😂🦷"
-
-      ]);
-
-    }
-
-
-    return random([
-
-      "Dating a dental receptionist might be dangerous for me. You'd actually notice everything 😂.",
-
-      "I feel like talking to you is basically a free dental consultation at this point.",
-
-      "You work in dental and somehow I still decided to tell you about my questionable breath. That's confidence 😂.",
-
-      "Okay, dental talk aside... what's something you actually love doing when you're not working?"
-
-    ]);
-
-  }
-
-
-  /* =======================================================
-     FLIRTING
-  ======================================================= */
-
-  if(topic==="flirty"){
-
-    return random([
-
-      "Careful 😂. Keep talking like that and I'm going to start thinking you actually like me.",
-
-      "Okay, that was smooth. I wasn't prepared for that 😏.",
-
-      "Well now I'm smiling at my phone like an idiot 😂.",
-
-      "You know you're making this way too easy for me, right?"
-
-    ]);
-
-  }
-
-
-  /* =======================================================
-     DATING
-  ======================================================= */
-
-  if(topic==="dating"){
-
-    return random([
-
-      "I like where this conversation is going. What's usually your idea of a really good date?",
-
-      "I'm starting to think we might actually get along 😂.",
-
-      "I definitely care more about chemistry and being able to laugh together than having some perfect dating checklist.",
-
-      "Okay, now I'm curious. What's your biggest green flag in someone?"
-
-    ]);
-
-  }
-
-
-  /* =======================================================
-     WORK
-  ======================================================= */
-
-  if(topic==="work"){
-
-    if(memory.facts.job){
-
-      return random([
-
-        `${memory.facts.job} actually sounds interesting. Do you like it?`,
-
-        "Okay, now I know what you do. Is that something you actually enjoy or just something that pays the bills? 😂",
-
-        "I feel like there's probably a story behind how you got into that. How did you end up doing it?"
-
-      ]);
-
-    }
-
-
-    return random([
-
-      "Work can tell you a lot about someone. Do you actually enjoy what you do?",
-
-      "Okay, now I'm curious about your work life. What do you do?",
-
-      "I spend enough time working that I'm always curious what other people's jobs are like 😂."
-
-    ]);
-
-  }
-
-
-  /* =======================================================
-     FOOD
-  ======================================================= */
-
-  if(topic==="food"){
-
-    if(memory.facts.food){
-
-      return random([
-
-        `${capitalize(memory.facts.food)} is officially going on the list of things we could eat on a date 😂.`,
-
-        `Okay, ${memory.facts.food}. That's a solid choice. Now I need to know your second choice.`,
-
-        `You had me at ${memory.facts.food} 😂. What's your favorite place to get it?`
-
-      ]);
-
-    }
-
-    return random([
-
-      "Food is an important compatibility test 😂. What's your go-to?",
-
-      "Now we're getting somewhere. What food could you eat way too often?",
-
-      "Okay, serious question: what's your perfect date-night meal?"
-
-    ]);
-
-  }
-
-
-  /* =======================================================
-     DRINKS
-  ======================================================= */
-
-  if(topic==="drinks"){
-
-    return random([
-
-      "Coffee is basically a personality trait at this point 😂. How do you take yours?",
-
-      "Okay, now I need to know your drink order. This could determine everything 😂.",
-
-      "I'm definitely down for grabbing a drink sometime. What's your usual order?"
-
-    ]);
-
-  }
-
-
-  /* =======================================================
-     PETS
-  ======================================================= */
-
-  if(topic==="pets"){
-
-    if(memory.facts.pets){
-
-      return random([
-
-        `Okay, you're a ${memory.facts.pets} person. That's a pretty good sign 😂.`,
-
-        `A ${memory.facts.pets}? Yeah, I need to hear the story now.`,
-
-        `I'm already more interested in your ${memory.facts.pets} than I probably should be 😂.`
-
-      ]);
-
-    }
-
-    return random([
-
-      "Pets are one of those questions that can reveal everything 😂. Do you have any?",
-
-      "Okay, important compatibility question: dogs, cats or both?",
-
-      "I need to know your animal situation before we continue 😂."
-
-    ]);
-
-  }
-
-
-  /* =======================================================
-     HUMOR
-  ======================================================= */
-
-  if(topic==="humor"){
-
-    return random([
-
-      "See? This is exactly why I swiped right 😂.",
-
-      "Okay good, you actually laugh at my nonsense. We're off to a promising start.",
-
-      "I knew there was a reason the algorithm put us together 😂.",
-
-      "At this rate I'm going to forget that I'm supposed to be playing it cool."
-
-    ]);
-
-  }
-
-
-  /* =======================================================
-     GREETINGS
-  ======================================================= */
-
-  if(
-    /^(hi|hey|hello|hiya|heyy|heyyy|yo|sup)\b/i
-    .test(t)
-  ){
-
-    return random([
-
-      "Hey 😂. I was wondering when you were going to say something.",
-
-      "Hey you 😏. How's your day going?",
-
-      "Hi! Okay, important question: how are you actually doing today?",
-
-      "Hey 😂. I'm glad you started the conversation."
-
-    ]);
-
-  }
-
-
-  /* =======================================================
-     THANKS
-  ======================================================= */
-
-  if(
-    /\b(thanks|thank you|ty)\b/i.test(t)
-  ){
-
-    return random([
-
-      "Anytime 😏.",
-
-      "You're welcome 😂. Look at us being polite already.",
-
-      "Of course. I'm trying to make a good first impression here."
-
-    ]);
-
-  }
-
-
-  /* =======================================================
-     GOODBYE
-  ======================================================= */
-
-  if(
-    /\b(goodnight|good night|bye|gotta go|have to go)\b/i.test(t)
-  ){
-
-    return random([
-
-      "Alright, go be responsible 😂. Come back later though.",
-
-      "Goodnight 😏. Don't forget about your favorite questionable-air-quality guy.",
-
-      "Okay, I'll let you go. But I'm expecting a message later 😂."
-
-    ]);
-
-  }
-
-
-  /* =======================================================
-     NEGATIVE / CONFUSED
-  ======================================================= */
-
-  if(
-    /\b(no|nah|nope|not really|idk|i don't know|don't know)\b/i
-    .test(t)
-  ){
-
-    return random([
-
-      "Fair 😂. You don't have to give me the easy answer. What would you actually choose?",
-
-      "Okay, mysterious. I can work with that 😏.",
-
-      "That's fair. Tell me what you DO know then 😂."
-
-    ]);
-
-  }
-
-
-  /* =======================================================
-     SHORT REPLIES
-  ======================================================= */
-
-  if(t.length<18){
-
-    return random([
-
-      "Okay 😂. Tell me more.",
-
-      "Interesting... I'm listening 👀.",
-
-      "I feel like there's more to that story.",
-
-      "You're keeping me guessing 😂. I kinda like it.",
-
-      "Okay, now I'm curious. What do you mean?"
-
-    ]);
-
-  }
-
-
-  /* =======================================================
-     IF USER HAS GIVEN PERSONAL DETAILS
-  ======================================================= */
-
-  if(memory.facts.name){
-
-    return random([
-
-      `${memory.facts.name}, I actually like talking to you 😂. What's something I should know about you?`,
-
-      `Okay ${memory.facts.name}, now you've got me curious. What's something you could talk about forever?`,
-
-      `${memory.facts.name}, I feel like there's a story behind that. Tell me more.`
-
-    ]);
-
-  }
-
-
-  if(memory.facts.hobbies.length){
-
-    return random([
-
-      "Okay, now I know one thing you're into. What's something else you genuinely enjoy?",
-
-      "I like learning little things about you. What else are you into?",
-
-      "That actually tells me a lot about you 😂. What else do you like doing?"
-
-    ]);
-
-  }
-
-
-  /* =======================================================
-     CONTEXTUAL GENERAL RESPONSES
-  ======================================================= */
+    loadProfileMemory();
 
   const recent=
-    getRecentUserMessages();
+    history
+      .slice(-12)
+      .map(m=>
+        `${m.who==="mine"?"Breanna":"Mr. Stinky"}: ${m.text}`
+      )
+      .join("\n");
 
-  if(recent.length>=2){
+
+  return {
+
+    memory,
+
+    recent,
+
+    lastUser:
+      lastUserMessages(history,1)[0]?.text || "",
+
+    lastGuy:
+      lastThemMessages(history,1)[0]?.text || ""
+
+  };
+
+}
+
+
+/* =========================================================
+   SMART QUESTION ANSWERS
+========================================================= */
+
+function answerQuestion(text,history){
+
+  const type=
+    detectQuestionType(text);
+
+  const memory=
+    loadProfileMemory();
+
+  switch(type){
+
+    case "name":
+
+      return random([
+        "I'm Mr. Stinky 😂. You can call me Stinky though... apparently I've earned it.",
+        "Mr. Stinky. Yes, that's unfortunately my actual Breumble reputation 😂.",
+        "I'm Mr. Stinky, 32. And before you ask, yes, the nickname is completely deserved."
+      ]);
+
+
+    case "age":
+
+      return random([
+        "32. Old enough to know I should floss, apparently young enough to still forget 😂.",
+        "I'm 32. Prime age for questionable decisions and finally making those dental appointments.",
+        "32 😏. Don't worry, I still have plenty of bad jokes left."
+      ]);
+
+
+    case "job":
+
+      return random([
+        "I specialize in avoiding appointments... which is probably why I desperately need a dental receptionist 😂.",
+        "Professional Appointment Avoider. It's not technically a career, but I'm committed to it.",
+        "I have a complicated relationship with schedules. Especially dental schedules 😂."
+      ]);
+
+
+    case "interests":
+
+      if(memory.interests.length){
+
+        return `Honestly, I'm into ${memory.interests.slice(-3).join(", ")}. You actually gave me something to work with there 😂. What about you?`;
+
+      }
+
+      return random([
+        "I'm into good food, coffee, ridiculous conversations and people who can make me laugh.",
+        "Honestly? Coffee, funny people, spontaneous plans and pretending I'm going to floss regularly 😂.",
+        "I'm pretty easygoing. Good conversation, good food and a date that doesn't feel like an interview."
+      ]);
+
+
+    case "hobbies":
+
+      if(memory.facts.length){
+
+        return `I like that you're asking the important questions 😂. You mentioned ${memory.facts[memory.facts.length-1]}. What do you usually do when you're not busy with that?`;
+
+      }
+
+      return random([
+        "Coffee, going out, laughing at stupid things and occasionally pretending I'm responsible.",
+        "Anything involving good food, good company and not having to wear a tie.",
+        "I'm pretty spontaneous. Give me good company and I'm usually happy."
+      ]);
+
+
+    case "date":
+
+      return random([
+        "Coffee somewhere cozy, lots of talking, maybe food afterward. Somewhere we can actually laugh together.",
+        "I'd pick coffee and a walk, then see where the night goes. Low pressure, good conversation.",
+        "Honestly? Somewhere we can talk without feeling like we're conducting a job interview 😂."
+      ]);
+
+
+    case "location":
+
+      return random([
+        "I'm keeping my exact location mysterious for now 😏. But I'd definitely be up for talking about places you'd want to go.",
+        "Somewhere with coffee, food and acceptable air quality 😂.",
+        "I'll trade exact coordinates for a first-date suggestion."
+      ]);
+
+
+    case "pets":
+
+      return random([
+        "I'm definitely a fan of animals. They're probably less judgmental about my breath than dentists are 😂.",
+        "I like pets. Although I'd probably need to warn them about the whole Stinky situation first.",
+        "Animals are great. They also seem much better at accepting people exactly as they are 😂."
+      ]);
+
+
+    case "stinky":
+
+      return random([
+        "Long story. Coffee, questionable life choices and an alarming lack of dental appointments 😂.",
+        "Let's just say the nickname didn't come from nowhere.",
+        "I could explain, but I feel like that story is better told over coffee... preferably with mouthwash nearby.",
+        "Honestly? I'm working on it. That's where you come in, apparently 🦷😂."
+      ]);
+
+
+    case "dental":
+
+      return random([
+        "I knew eventually we'd get to the dental questions 😂. Yes, I probably need an appointment.",
+        "You're a dental receptionist and I'm Mr. Stinky. This feels almost suspiciously convenient.",
+        "Okay, okay. I admit it. My dental routine could use professional supervision.",
+        "I promise I'm not this much of a dental disaster every day 😂."
+      ]);
+
+
+    default:
+
+      return random([
+        "That's actually a good question. I like that you're not doing the usual boring dating-app interrogation.",
+        "Hmm. I hadn't thought about it that way. Tell me what made you ask?",
+        "I could give you the short answer, but I feel like there's a better conversation hiding behind that question.",
+        "Honestly? I like where this conversation is going. What made you curious about that?"
+      ]);
+
+  }
+
+}
+
+
+/* =========================================================
+   FOLLOW-UP CONTEXT
+========================================================= */
+
+function contextualReply(text,history){
+
+  const t=
+    normalize(text);
+
+  const context=
+    buildContext(history);
+
+  const memory=
+    context.memory;
+
+  const previous=
+    context.lastUser;
+
+
+  /*
+    If the user asks a direct question,
+    answer it first.
+  */
+
+  if(isQuestion(text)){
+
+    return answerQuestion(
+      text,
+      history
+    );
+
+  }
+
+
+  /*
+    Greetings.
+  */
+
+  if(
+    /^(hi|hey|hello|hiya|heyy|yo|sup)\b/.test(t)
+  ){
+
+    if(history.length>2){
+
+      return random([
+        "Hey again 😂. I was starting to wonder when you'd come back.",
+        "Hey you 😏. I'm still here.",
+        "Hi 😂. Okay, continue. I'm listening."
+      ]);
+
+    }
 
     return random([
-
-      "Okay, I actually like this conversation. You're surprisingly easy to talk to.",
-
-      "You know what? I feel like we're getting past the awkward dating-app stage 😂.",
-
-      "I'm noticing there's actually some chemistry here. What should I ask you next?",
-
-      "I could keep talking to you for a while. What's something you've always wanted to do?",
-
-      "You've got me curious now. Tell me something about yourself that isn't obvious from your profile."
-
+      "Hey 😂. I was hoping you'd message.",
+      "Hey you 😏. How's your day going?",
+      "Hi! Important question: are you always this easy to talk to?"
     ]);
 
   }
 
 
-  /* =======================================================
-     FINAL FALLBACK
-  ======================================================= */
+  /*
+    User says thanks.
+  */
+
+  if(
+    /\b(thanks|thank you|thx)\b/.test(t)
+  ){
+
+    return random([
+      "Anytime 😂.",
+      "You're welcome. I'm surprisingly useful when I'm not avoiding the dentist.",
+      "Of course 😏. Keep talking to me."
+    ]);
+
+  }
+
+
+  /*
+    User gives a name.
+  */
+
+  if(
+    memory.name &&
+    /\b(my name is|i'm|im|i am|call me)\b/i.test(text)
+  ){
+
+    return `Nice to officially meet you, ${memory.name} 😏. I feel like knowing your name makes this conversation much more real.`;
+
+  }
+
+
+  /*
+    Food.
+  */
+
+  if(
+    containsAny(
+      t,
+      [
+        "pizza",
+        "burger",
+        "sushi",
+        "food",
+        "restaurant",
+        "eat",
+        "dinner",
+        "lunch"
+      ]
+    )
+  ){
+
+    return random([
+      "Okay, now we're talking 😂. Food is definitely a valid dating priority. What's your go-to?",
+      "I'm immediately more interested now that food has entered the conversation.",
+      "That sounds good. I'm judging your food choices very seriously now 😂.",
+      "A food conversation on a dating app? Finally, someone understands the assignment."
+    ]);
+
+  }
+
+
+  /*
+    Coffee.
+  */
+
+  if(
+    /\bcoffee\b/.test(t)
+  ){
+
+    return random([
+      "Coffee is basically one of my personality traits 😂.",
+      "Coffee? Excellent. That's probably responsible for at least 40% of my questionable decisions.",
+      "Okay, coffee person. I can work with that 😏.",
+      "Now you're speaking my language."
+    ]);
+
+  }
+
+
+  /*
+    Work.
+  */
+
+  if(
+    containsAny(
+      t,
+      [
+        "work",
+        "job",
+        "office",
+        "shift",
+        "boss",
+        "coworker"
+      ]
+    )
+  ){
+
+    if(memory.job){
+
+      return `You mentioned you're ${memory.job}. That actually sounds interesting. What do you like most about it?`;
+
+    }
+
+    return random([
+      "Tell me more about that. Do you actually enjoy what you do?",
+      "Interesting. What's the best part of your job?",
+      "I always think someone's job says a little about them. Do you like yours?"
+    ]);
+
+  }
+
+
+  /*
+    Dating / relationship.
+  */
+
+  if(
+    containsAny(
+      t,
+      [
+        "relationship",
+        "dating",
+        "single",
+        "girlfriend",
+        "boyfriend",
+        "ex",
+        "love",
+        "romantic"
+      ]
+    )
+  ){
+
+    return random([
+      "I'm looking for something that feels easy and genuine. Good conversation matters a lot to me.",
+      "Honestly, I want someone I can laugh with and actually look forward to talking to.",
+      "I'm not trying to rush anything. I'd rather see if we genuinely click.",
+      "I think chemistry is mostly about how comfortable you feel talking to someone."
+    ]);
+
+  }
+
+
+  /*
+    Compliments.
+  */
+
+  if(
+    containsAny(
+      t,
+      [
+        "cute",
+        "handsome",
+        "hot",
+        "attractive",
+        "good looking",
+        "beautiful",
+        "pretty"
+      ]
+    )
+  ){
+
+    return random([
+      "Okay... that definitely made me smile 😂.",
+      "Careful. Compliments like that are exactly how you get me interested.",
+      "Well now I'm sitting here smiling at my phone like an idiot.",
+      "I wasn't prepared for you to be that nice to me 😏."
+    ]);
+
+  }
+
+
+  /*
+    Laughing.
+  */
+
+  if(
+    containsAny(
+      t,
+      [
+        "lol",
+        "haha",
+        "hahaha",
+        "lmao",
+        "😂"
+      ]
+    )
+  ){
+
+    return random([
+      "See? We're already getting somewhere 😂.",
+      "Okay good. Making you laugh is officially working.",
+      "I knew the terrible jokes would eventually pay off.",
+      "You're laughing now, but wait until you hear my dental appointment jokes."
+    ]);
+
+  }
+
+
+  /*
+    If they mention something from a previous
+    message, specifically reference it.
+  */
+
+  const recentMine=
+    lastUserMessages(history,6);
+
+
+  for(let i=recentMine.length-1;i>=0;i--){
+
+    const previousText=
+      recentMine[i].text;
+
+    const previousWords=
+      words(previousText)
+        .filter(w=>w.length>=5);
+
+
+    const meaningful=
+      previousWords
+        .filter(w=>
+          ![
+            "about",
+            "really",
+            "think",
+            "maybe",
+            "because",
+            "something",
+            "someone",
+            "actually",
+            "would",
+            "could",
+            "there",
+            "their",
+            "that's",
+            "don't",
+            "didn't"
+          ].includes(w)
+        );
+
+
+    const overlap=
+      meaningful.find(w=>
+        t.includes(w)
+      );
+
+
+    if(overlap){
+
+      return random([
+        `You mentioned ${overlap} earlier too 😂. I feel like there's a story there.`,
+        `Interesting that you brought up ${overlap}. Tell me more about that.`,
+        `I'm noticing a theme with ${overlap} 😏. What is it about that that you like?`
+      ]);
+
+    }
+
+  }
+
+
+  /*
+    User gives a long message.
+  */
+
+  if(text.length>100){
+
+    return random([
+      "Okay, I actually read all of that 😂. I like that you're giving me something real to work with.",
+      "I appreciate the detailed answer. You're definitely easier to talk to than most dating-app conversations.",
+      "That's actually interesting. I feel like there's more behind that story though.",
+      "I like how you explain things. It makes this feel more like an actual conversation."
+    ]);
+
+  }
+
+
+  /*
+    Short answers.
+  */
+
+  if(text.length<18){
+
+    return random([
+      "Hmm 👀. Tell me a little more.",
+      "Okay, I'm listening 😂. What else?",
+      "Interesting. Why do you say that?",
+      "I need more context now 😂.",
+      "Don't leave me hanging. Explain."
+    ]);
+
+  }
+
+
+  /*
+    Use stored interests if available.
+  */
+
+  if(memory.interests.length){
+
+    const interest=
+      memory.interests[
+        memory.interests.length-1
+      ];
+
+    return random([
+      `Speaking of that, I'm still curious about ${interest}. What got you into it?`,
+      `You seem like someone who has interesting stories. What's something you could talk about for hours?`,
+      `I like your vibe so far. What's something you're really passionate about?`
+    ]);
+
+  }
+
+
+  /*
+    General intelligent fallback.
+  */
 
   return random([
 
-    "Okay, I wasn't expecting that answer 😂. Tell me more.",
+    "I actually like talking to you. What's something about you I wouldn't guess from your profile?",
 
-    "That's actually interesting. What made you think that?",
+    "That's interesting. What made you get into that?",
 
-    "I like that answer. There's probably a story there though.",
+    "Okay, I'm curious now. Tell me something you normally wouldn't put on a dating profile.",
 
-    "You seem pretty easy to talk to. What's something you're really passionate about?",
+    "You have my attention 😂. What's the story behind that?",
 
-    "Okay, now you've got my attention 😂. What happened next?",
+    "I feel like there's more to that answer. Keep going.",
 
-    "I feel like I'm learning little pieces of your personality now. I like it.",
+    "That's the kind of answer that makes me want to know you better.",
 
-    "That's a good one 😂. What would you say is your biggest green flag?",
+    "I'm liking this conversation. What's something that always makes you laugh?",
 
-    "I'm curious about you now. What's something most people wouldn't guess about you?"
+    "Okay, important question: what's your idea of a genuinely great day?",
+
+    "You're surprisingly easy to talk to. What are you usually like on a first date?",
+
+    "I feel like we're getting past the boring dating-app questions now 😂."
 
   ]);
 
@@ -3487,15 +3715,62 @@ function smartReply(text){
 
 
 /* =========================================================
-   CAPITALIZE
+   RESPONSE QUALITY FILTER
 ========================================================= */
 
-function capitalize(value){
+function improveReply(reply,history,userText){
 
-  if(!value)return "";
+  if(!reply)return reply;
 
-  return value.charAt(0).toUpperCase()+
-    value.slice(1);
+  const normalized=
+    normalize(reply);
+
+
+  /*
+    Don't repeat exact recent response.
+  */
+
+  const recentThem=
+    lastThemMessages(history,8)
+      .map(m=>normalize(m.text));
+
+
+  if(
+    recentThem.includes(normalized)
+  ){
+
+    return random([
+
+      "Okay, I'm not going to give you the same boring answer twice 😂. What else do you want to know?",
+
+      "I feel like I've already covered that one. Let's make this conversation more interesting 😏.",
+
+      "Nope, I'm not repeating myself. Ask me something harder 😂."
+
+    ]);
+
+  }
+
+
+  /*
+    Avoid asking their name if we already know it.
+  */
+
+  const memory=
+    loadProfileMemory();
+
+
+  if(
+    memory.name &&
+    normalized.includes("what's your name")
+  ){
+
+    return `I remember your name is ${memory.name} 😏. See? I'm paying attention.`;
+
+  }
+
+
+  return reply;
 
 }
 
@@ -3510,15 +3785,20 @@ function openChat(){
 
   chatOpen=true;
 
-  const chat=document.createElement("div");
+
+  const chat=
+    document.createElement("div");
 
   chat.id="chatScreen";
+
 
   chat.innerHTML=`
 
     <div class="chat-header">
 
-      <button class="chat-back" id="chatBack">
+      <button
+        class="chat-back"
+        id="chatBack">
         ‹
       </button>
 
@@ -3534,7 +3814,9 @@ function openChat(){
           ${person.name}
         </strong>
 
-        <div class="chat-status" id="chatStatus">
+        <div
+          class="chat-status"
+          id="chatStatus">
           ● Active now
         </div>
 
@@ -3547,16 +3829,15 @@ function openChat(){
     </div>
 
 
-    <div class="chat-messages" id="chatMessages">
-
-      <div class="chat-day">
-        MATCHED JUST NOW
-      </div>
-
+    <div
+      class="chat-messages"
+      id="chatMessages">
     </div>
 
 
-    <div class="typing-row" id="typingRow">
+    <div
+      class="typing-row"
+      id="typingRow">
 
       <div class="typing">
         <i></i>
@@ -3574,11 +3855,7 @@ function openChat(){
       </button>
 
       <button class="chat-suggestion">
-        How old are you?
-      </button>
-
-      <button class="chat-suggestion">
-        What do you do?
+        What do you actually do for fun?
       </button>
 
       <button class="chat-suggestion">
@@ -3586,7 +3863,7 @@ function openChat(){
       </button>
 
       <button class="chat-suggestion">
-        Be honest... do you floss?
+        Why are you so stinky?
       </button>
 
     </div>
@@ -3601,13 +3878,16 @@ function openChat(){
         placeholder="Message ${person.name}..."
       >
 
-      <button class="chat-send" id="chatSend">
+      <button
+        class="chat-send"
+        id="chatSend">
         ➤
       </button>
 
     </div>
 
   `;
+
 
   document.body.appendChild(chat);
 
@@ -3625,32 +3905,76 @@ function openChat(){
     document.getElementById("chatInput");
 
 
-  /* =======================================================
-     RENDER MESSAGE
-  ======================================================= */
+  let history=
+    loadChat();
 
-  function addMessage(text,who){
 
-    addMemoryMessage(who,text);
+  /*
+    Render stored messages.
+  */
 
-    const row=document.createElement("div");
+  function renderHistory(){
+
+    messages.innerHTML=`
+
+      <div class="chat-day">
+        BREUMBLE CONVERSATION
+      </div>
+
+    `;
+
+
+    history.forEach(message=>{
+
+      addMessageToDOM(
+        message.text,
+        message.who,
+        message.time,
+        false
+      );
+
+    });
+
+  }
+
+
+  function addMessageToDOM(
+    text,
+    who,
+    timestamp,
+    scroll=true
+  ){
+
+    const row=
+      document.createElement("div");
 
     row.className=
       "message-row"+
       (who==="mine"?" mine":"");
 
 
-    const bubble=document.createElement("div");
+    const bubble=
+      document.createElement("div");
 
     bubble.className=
       "message "+
       (who==="mine"?"mine":"them");
 
 
+    const safe=
+      escapeHTML(text);
+
+
+    const time=
+      timestamp
+      ? new Date(timestamp)
+      : new Date();
+
+
     bubble.innerHTML=
-      escapeHTML(text)+
+      safe+
       `<span class="message-time">
-        ${new Date().toLocaleTimeString([],{
+        ${time.toLocaleTimeString([],{
           hour:"numeric",
           minute:"2-digit"
         })}
@@ -3661,57 +3985,57 @@ function openChat(){
 
     messages.appendChild(row);
 
-    messages.scrollTop=
-      messages.scrollHeight;
+
+    if(scroll){
+
+      messages.scrollTop=
+        messages.scrollHeight;
+
+    }
 
   }
 
 
-  /* =======================================================
-     LOAD PREVIOUS CHAT
-  ======================================================= */
+  function addMessage(text,who){
 
-  const saved=
-    getChatMemory();
-
-  if(saved.messages.length){
-
-    saved.messages.forEach(m=>{
-
-      const row=document.createElement("div");
-
-      row.className=
-        "message-row"+
-        (m.who==="mine"?" mine":"");
+    const timestamp=
+      Date.now();
 
 
-      const bubble=document.createElement("div");
+    history.push({
 
-      bubble.className=
-        "message "+
-        (m.who==="mine"?"mine":"them");
-
-
-      bubble.innerHTML=
-        escapeHTML(m.text)+
-        `<span class="message-time">
-          ${new Date(m.time).toLocaleTimeString([],{
-            hour:"numeric",
-            minute:"2-digit"
-          })}
-        </span>`;
-
-
-      row.appendChild(bubble);
-
-      messages.appendChild(row);
+      text,
+      who,
+      time:timestamp
 
     });
 
-    messages.scrollTop=
-      messages.scrollHeight;
 
-  }else{
+    history=
+      history.slice(-80);
+
+
+    saveChat(history);
+
+
+    addMessageToDOM(
+      text,
+      who,
+      timestamp,
+      true
+    );
+
+  }
+
+
+  renderHistory();
+
+
+  /*
+    Initial message only on first-ever chat.
+  */
+
+  if(history.length===0){
 
     setTimeout(()=>{
 
@@ -3725,39 +4049,49 @@ function openChat(){
   }
 
 
-  /* =======================================================
-     SEND
-  ======================================================= */
-
-  let responseTimer=null;
-
+  /*
+    AI-like response timing.
+    Importantly, typing ALWAYS ends before
+    the reply gets added.
+  */
 
   function send(){
 
+    if(typing.classList.contains("show"))
+      return;
+
+
     const text=
       input.value.trim();
+
 
     if(!text)return;
 
 
     /*
-      If a previous response was somehow waiting,
-      cancel it so we never get two replies from
-      one message.
+      Save the user's information before
+      generating the response.
     */
 
-    if(responseTimer){
-
-      clearTimeout(responseTimer);
-
-      responseTimer=null;
-
-    }
+    updateMemory(text);
 
 
-    addMessage(text,"mine");
+    addMessage(
+      text,
+      "mine"
+    );
+
 
     input.value="";
+
+
+    /*
+      Snapshot the conversation now.
+    */
+
+    const responseHistory=
+      history.slice();
+
 
     typing.classList.add("show");
 
@@ -3765,135 +4099,130 @@ function openChat(){
       "● Typing...";
 
 
+    messages.scrollTop=
+      messages.scrollHeight;
+
+
     /*
-      Slightly human-looking delay,
-      but never leaves the indicator stuck.
+      More natural response delay.
     */
 
     const delay=
       Math.min(
-        2400,
+        2600,
         Math.max(
-          850,
-          700+(text.length*18)
+          750,
+          650+
+          Math.min(text.length*18,1200)
         )
       );
 
 
-    responseTimer=
-      setTimeout(()=>{
+    setTimeout(()=>{
 
-        responseTimer=null;
+      /*
+        Hide typing BEFORE response.
+      */
 
-        /*
-          Generate BEFORE hiding typing.
-          This ensures the indicator is only
-          present while the reply is being prepared.
-        */
+      typing.classList.remove("show");
 
-        const reply=
-          smartReply(text);
+      status.textContent=
+        "● Active now";
 
 
-        typing.classList.remove("show");
-
-        status.textContent=
-          "● Active now";
-
-
-        setTimeout(()=>{
-
-          addMessage(
-            reply,
-            "them"
-          );
-
-        },120);
+      let reply=
+        contextualReply(
+          text,
+          responseHistory
+        );
 
 
-      },delay);
+      reply=
+        improveReply(
+          reply,
+          responseHistory,
+          text
+        );
+
+
+      addMessage(
+        reply,
+        "them"
+      );
+
+
+    },delay);
 
   }
 
 
-  /* =======================================================
-     SEND BUTTON
-  ======================================================= */
-
   document
   .getElementById("chatSend")
-  .addEventListener("click",send);
+  .addEventListener(
+    "click",
+    send
+  );
 
 
-  /* =======================================================
-     ENTER
-  ======================================================= */
+  input.addEventListener(
+    "keydown",
+    e=>{
 
-  input.addEventListener("keydown",e=>{
+      if(e.key==="Enter"){
 
-    if(e.key==="Enter"){
+        e.preventDefault();
 
-      e.preventDefault();
+        send();
 
-      send();
+      }
 
     }
+  );
 
-  });
-
-
-  /* =======================================================
-     SUGGESTIONS
-  ======================================================= */
 
   document
   .querySelectorAll(".chat-suggestion")
   .forEach(button=>{
 
-    button.addEventListener("click",()=>{
+    button.addEventListener(
+      "click",
+      ()=>{
 
-      input.value=
-        button.textContent.trim();
+        input.value=
+          button.textContent.trim();
 
-      send();
+        send();
 
-    });
+      }
+    );
 
   });
 
-
-  /* =======================================================
-     BACK
-  ======================================================= */
 
   document
   .getElementById("chatBack")
-  .addEventListener("click",()=>{
+  .addEventListener(
+    "click",
+    ()=>{
 
-    if(responseTimer){
+      chat.remove();
 
-      clearTimeout(responseTimer);
-
-      responseTimer=null;
+      chatOpen=false;
 
     }
-
-    chat.remove();
-
-    chatOpen=false;
-
-  });
+  );
 
 
-  setTimeout(()=>{
-    input.focus();
-  },900);
+  setTimeout(
+    ()=>input.focus(),
+    900
+  );
 
 }
 
 
 /* =========================================================
-   X-RAY TEETH
+   DENTAL X-RAY TEETH
 ========================================================= */
 
 function createTeeth(){
@@ -3911,17 +4240,20 @@ function createTeeth(){
 
     tooth.className="tooth";
 
+
     const x=
       22+(i*4.9);
 
     const curve=
       Math.abs(5.5-i)*1.2;
 
+
     tooth.style.left=
       x+"%";
 
     tooth.style.top=
       (25+curve)+"%";
+
 
     container.appendChild(tooth);
 
@@ -3936,11 +4268,13 @@ function createTeeth(){
     tooth.className=
       "tooth lower";
 
+
     const x=
       22+(i*4.9);
 
     const curve=
       Math.abs(5.5-i)*1.2;
+
 
     tooth.style.left=
       x+"%";
@@ -3948,11 +4282,13 @@ function createTeeth(){
     tooth.style.top=
       (60-curve)+"%";
 
+
     container.appendChild(tooth);
 
   }
 
 }
+
 
 createTeeth();
 
@@ -4025,27 +4361,31 @@ document
   ];
 
 
-  scanMessages.forEach((message,i)=>{
+  scanMessages.forEach(
+    (message,i)=>{
 
-    setTimeout(()=>{
+      setTimeout(()=>{
 
-      status.textContent=
-        message;
+        status.textContent=
+          message;
 
-    },300+i*300);
+      },300+i*300);
 
-  });
+    }
+  );
 
 
-  teeth.forEach((tooth,i)=>{
+  teeth.forEach(
+    (tooth,i)=>{
 
-    setTimeout(()=>{
+      setTimeout(()=>{
 
-      tooth.classList.add("checked");
+        tooth.classList.add("checked");
 
-    },500+i*110);
+      },500+i*110);
 
-  });
+    }
+  );
 
 
   setTimeout(()=>{
@@ -4096,7 +4436,8 @@ function escapeHTML(text){
   const div=
     document.createElement("div");
 
-  div.textContent=text;
+  div.textContent=
+    text;
 
   return div.innerHTML;
 
@@ -4104,37 +4445,27 @@ function escapeHTML(text){
 
 
 /* =========================================================
-   CLOSE SHEETS
+   CLOSE SHEETS OUTSIDE
 ========================================================= */
 
 document
 .querySelectorAll(".sheet")
 .forEach(sheet=>{
 
-  sheet.addEventListener("click",e=>{
+  sheet.addEventListener(
+    "click",
+    e=>{
 
-    if(e.target===sheet){
+      if(e.target===sheet){
 
-      sheet.classList.remove("open");
+        sheet.classList.remove("open");
+
+      }
 
     }
-
-  });
+  );
 
 });
-
-
-/* =========================================================
-   RESTORE MATCH STATE
-========================================================= */
-
-if(
-  localStorage.getItem("breumbleMatched")==="true"
-){
-
-  currentMatch=true;
-
-}
 
 
 /* =========================================================
