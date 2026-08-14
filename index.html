@@ -7,226 +7,1820 @@
 <title>Breumble</title>
 
 <style>
-*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#080808;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
-body{overscroll-behavior:none}
-button{font-family:inherit;border:0;outline:0;cursor:pointer}
+*{
+  box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent;
+}
 
-:root{--yellow:#f4c542;--dark:#111;--gray:#242424}
+html,body{
+  margin:0;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  background:#080808;
+  color:#fff;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+}
 
-/* APP */
-.app{width:100%;max-width:520px;height:100dvh;margin:auto;background:#080808;display:flex;flex-direction:column}
+body{
+  overscroll-behavior:none;
+}
 
-/* WELCOME */
+button{
+  font-family:inherit;
+  border:0;
+  outline:0;
+  cursor:pointer;
+}
+
+:root{
+  --yellow:#f4c542;
+  --dark:#111;
+  --gray:#242424;
+}
+
+
+/* =========================================================
+   WELCOME
+========================================================= */
+
 #welcome{
-position:fixed;inset:0;z-index:9999;
-display:flex;flex-direction:column;align-items:center;justify-content:center;
-text-align:center;padding:20px;
-background:radial-gradient(circle at 50% 10%,#594713,#171107 35%,#050505 80%);
-transition:.35s
+  position:fixed;
+  inset:0;
+  z-index:99999;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:20px;
+  background:
+    radial-gradient(circle at 50% 10%,#594713,#171107 35%,#050505 80%);
+  transition:.35s;
 }
-#welcome.hide{opacity:0;visibility:hidden;pointer-events:none}
-.logo-big{font-size:52px;font-weight:1000;letter-spacing:-4px}
-.logo-big span,.logo span{color:var(--yellow)}
-.subtitle{margin-top:5px;color:#aaa;font-size:10px;font-weight:900;letter-spacing:2px;text-transform:uppercase}
-.breanna-photo{width:205px;height:260px;margin-top:25px;object-fit:cover;border-radius:28px;border:3px solid var(--yellow);box-shadow:0 25px 65px #000}
-.breanna-name{margin-top:15px;font-size:31px;font-weight:1000}
-.breanna-job{margin-top:4px;color:#aaa;font-size:13px;font-weight:700}
-.start{width:255px;height:62px;margin-top:23px;border-radius:999px;background:var(--yellow);color:#111;font-weight:1000;font-size:15px}
 
-/* HEADER */
-.header{height:65px;flex:0 0 65px;display:flex;align-items:center;justify-content:space-between;padding:8px 14px}
-.logo{font-size:28px;font-weight:1000;letter-spacing:-2px}
-.header-photo{width:38px;height:38px;border-radius:50%;object-fit:cover;border:2px solid var(--yellow)}
-.header-profile{display:flex;align-items:center;gap:7px;font-size:11px;font-weight:900}
-.header-button{width:40px;height:40px;border-radius:50%;background:#202020;color:#fff}
+#welcome.hide{
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}
 
-/* CARD */
-.main{position:relative;flex:1;min-height:0;padding:4px 14px 0}
-.deck{position:relative;width:100%;height:100%}
+.logo-big{
+  font-size:52px;
+  font-weight:1000;
+  letter-spacing:-4px;
+}
+
+.logo-big span,
+.logo span{
+  color:var(--yellow);
+}
+
+.subtitle{
+  margin-top:5px;
+  color:#aaa;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+
+.breanna-photo{
+  width:205px;
+  height:260px;
+  margin-top:25px;
+  object-fit:cover;
+  border-radius:28px;
+  border:3px solid var(--yellow);
+  box-shadow:0 25px 65px #000;
+}
+
+.breanna-name{
+  margin-top:15px;
+  font-size:31px;
+  font-weight:1000;
+}
+
+.breanna-job{
+  margin-top:4px;
+  color:#aaa;
+  font-size:13px;
+  font-weight:700;
+}
+
+.start{
+  width:255px;
+  height:62px;
+  margin-top:23px;
+  border-radius:999px;
+  background:var(--yellow);
+  color:#111;
+  font-weight:1000;
+  font-size:15px;
+}
+
+
+/* =========================================================
+   APP
+========================================================= */
+
+.app{
+  width:100%;
+  max-width:520px;
+  height:100dvh;
+  margin:auto;
+  background:#080808;
+  display:flex;
+  flex-direction:column;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header{
+  height:65px;
+  flex:0 0 65px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:8px 14px;
+}
+
+.logo{
+  font-size:28px;
+  font-weight:1000;
+  letter-spacing:-2px;
+}
+
+.header-photo{
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  object-fit:cover;
+  border:2px solid var(--yellow);
+}
+
+.header-profile{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  font-size:11px;
+  font-weight:900;
+}
+
+.header-button{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  background:#202020;
+  color:#fff;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.main{
+  position:relative;
+  flex:1;
+  min-height:0;
+  padding:4px 14px 0;
+}
+
+.deck{
+  position:relative;
+  width:100%;
+  height:100%;
+}
+
 .card{
-position:absolute;inset:0;overflow:hidden;border-radius:27px;background:#151515;
-box-shadow:0 20px 55px #000;touch-action:none;user-select:none;
-display:flex;flex-direction:column;transition:transform .25s ease,opacity .25s ease
+  position:absolute;
+  inset:0;
+  overflow:hidden;
+  border-radius:27px;
+  background:#151515;
+  box-shadow:0 20px 55px #000;
+  touch-action:none;
+  user-select:none;
+  display:flex;
+  flex-direction:column;
+  transition:transform .25s ease,opacity .25s ease;
 }
-.card-photo{position:relative;width:100%;height:68%;min-height:0;background:#222;overflow:hidden}
-.card-photo img{width:100%;height:100%;object-fit:cover;object-position:center center;display:block}
-.card-photo:after{content:"";position:absolute;left:0;right:0;bottom:0;height:120px;background:linear-gradient(transparent,rgba(0,0,0,.8));pointer-events:none}
-.card-info{position:relative;flex:1;min-height:0;padding:13px 17px 12px;background:#171717;z-index:3}
-.card-name-line{display:flex;align-items:baseline;gap:7px}
-.card-name{font-size:25px;font-weight:1000}
-.card-age{font-size:18px;color:#aaa}
-.verified{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:var(--yellow);color:#111;font-size:11px;font-weight:1000}
-.card-job{margin-top:3px;color:#bbb;font-size:11px;font-weight:800}
-.card-bio{margin-top:8px;color:#eee;font-size:12px;line-height:1.35;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-.tags{display:flex;gap:5px;margin-top:8px;flex-wrap:wrap}
-.tag{padding:5px 8px;border-radius:999px;background:#282828;color:#ddd;font-size:9px;font-weight:900}
-.counter{position:absolute;z-index:30;top:10px;right:24px;padding:6px 10px;border-radius:999px;background:#000b;color:#ddd;font-size:10px;font-weight:900}
 
-/* ACTIONS */
-.actions{height:125px;flex:0 0 125px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;padding:5px 10px}
-.vibe-label{color:#aaa;font-size:9px;font-weight:1000;letter-spacing:2px}
-.action-row{width:100%;display:flex;justify-content:center;gap:7px}
-.action{height:63px;border-radius:17px;display:flex;align-items:center;justify-content:center;gap:5px;font-size:11px;font-weight:1000}
-.silly{flex:1;background:var(--yellow);color:#111;border:3px solid #ffe995}
-.stinky{flex:1;background:#272727;color:#fff;border:3px solid #777}
-.supa{flex:1.18;background:#351408;color:#fff;border:3px solid #ff9c45;box-shadow:0 0 18px #ff6b1755}
+.card-photo{
+  position:relative;
+  width:100%;
+  height:68%;
+  min-height:0;
+  background:#222;
+  overflow:hidden;
+}
 
-/* NAV */
-.nav{height:65px;flex:0 0 65px;display:flex;background:#0d0d0df5;border-top:1px solid #ffffff10;padding-bottom:env(safe-area-inset-bottom)}
-.nav button{flex:1;background:transparent;color:#777;font-size:10px;font-weight:900}
-.nav button.active{color:#fff}
-.nav-icon{display:block;margin-bottom:2px;font-size:20px}
-.nav-profile{display:flex!important;align-items:center;justify-content:center}
-.nav-profile img{width:42px;height:42px;object-fit:cover;border-radius:50%;border:2px solid var(--yellow)}
+.card-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center center;
+  display:block;
+}
 
-/* FLASH */
-.flash{position:fixed;inset:0;z-index:200000;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;opacity:0;visibility:hidden;pointer-events:none}
-.flash.active{animation:flashIn 1.25s ease}
-#sillyMode{background:var(--yellow);color:#111}
-#stinkyMode{background:#3b3510;color:#fff}
-#supaMode{background:radial-gradient(circle at 50% 45%,#68420d,#1c0d06 45%,#050505 85%);color:#fff;overflow:hidden}
-.flash-emoji{font-size:95px;animation:emojiBounce .8s ease}
-.flash-text{margin-top:12px;font-size:42px;font-weight:1000;letter-spacing:-1px}
-.flash-sub{margin-top:7px;font-size:12px;font-weight:900;letter-spacing:2px;opacity:.8}
+.card-photo:after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:140px;
+  background:linear-gradient(transparent,rgba(0,0,0,.85));
+  pointer-events:none;
+}
+
+.card-info{
+  position:relative;
+  flex:1;
+  min-height:0;
+  padding:13px 17px 12px;
+  background:#171717;
+  z-index:3;
+}
+
+.card-name-line{
+  display:flex;
+  align-items:baseline;
+  gap:7px;
+}
+
+.card-name{
+  font-size:25px;
+  font-weight:1000;
+}
+
+.card-age{
+  font-size:18px;
+  color:#aaa;
+}
+
+.verified{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:18px;
+  height:18px;
+  border-radius:50%;
+  background:var(--yellow);
+  color:#111;
+  font-size:11px;
+  font-weight:1000;
+}
+
+.card-job{
+  margin-top:3px;
+  color:#bbb;
+  font-size:11px;
+  font-weight:800;
+}
+
+.card-bio{
+  margin-top:8px;
+  color:#eee;
+  font-size:12px;
+  line-height:1.35;
+  display:-webkit-box;
+  -webkit-line-clamp:3;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+
+.tags{
+  display:flex;
+  gap:5px;
+  margin-top:8px;
+  flex-wrap:wrap;
+}
+
+.tag{
+  padding:5px 8px;
+  border-radius:999px;
+  background:#282828;
+  color:#ddd;
+  font-size:9px;
+  font-weight:900;
+}
+
+.counter{
+  position:absolute;
+  z-index:30;
+  top:10px;
+  right:24px;
+  padding:6px 10px;
+  border-radius:999px;
+  background:#000b;
+  color:#ddd;
+  font-size:10px;
+  font-weight:900;
+}
+
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.actions{
+  height:125px;
+  flex:0 0 125px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  padding:5px 10px;
+}
+
+.vibe-label{
+  color:#aaa;
+  font-size:9px;
+  font-weight:1000;
+  letter-spacing:2px;
+}
+
+.action-row{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  gap:7px;
+}
+
+.action{
+  height:63px;
+  border-radius:17px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:5px;
+  font-size:11px;
+  font-weight:1000;
+}
+
+.silly{
+  flex:1;
+  background:var(--yellow);
+  color:#111;
+  border:3px solid #ffe995;
+}
+
+.stinky{
+  flex:1;
+  background:#272727;
+  color:#fff;
+  border:3px solid #777;
+}
+
+.supa{
+  flex:1.18;
+  background:#351408;
+  color:#fff;
+  border:3px solid #ff9c45;
+  box-shadow:0 0 18px #ff6b1755;
+}
+
+
+/* =========================================================
+   NAV
+========================================================= */
+
+.nav{
+  height:65px;
+  flex:0 0 65px;
+  display:flex;
+  background:#0d0d0df5;
+  border-top:1px solid #ffffff10;
+  padding-bottom:env(safe-area-inset-bottom);
+}
+
+.nav button{
+  flex:1;
+  background:transparent;
+  color:#777;
+  font-size:10px;
+  font-weight:900;
+}
+
+.nav button.active{
+  color:#fff;
+}
+
+.nav-icon{
+  display:block;
+  margin-bottom:2px;
+  font-size:20px;
+}
+
+.nav-profile{
+  display:flex!important;
+  align-items:center;
+  justify-content:center;
+}
+
+.nav-profile img{
+  width:42px;
+  height:42px;
+  object-fit:cover;
+  border-radius:50%;
+  border:2px solid var(--yellow);
+}
+
+
+/* =========================================================
+   FLASHES
+========================================================= */
+
+.flash{
+  position:fixed;
+  inset:0;
+  z-index:200000;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}
+
+.flash.active{
+  animation:flashIn 1.25s ease;
+}
+
+#sillyMode{
+  background:var(--yellow);
+  color:#111;
+}
+
+#stinkyMode{
+  background:#3b3510;
+  color:#fff;
+}
+
+#supaMode{
+  background:
+    radial-gradient(circle at 50% 45%,#68420d,#1c0d06 45%,#050505 85%);
+  color:#fff;
+  overflow:hidden;
+}
+
+.flash-emoji{
+  font-size:95px;
+  animation:emojiBounce .8s ease;
+}
+
+.flash-text{
+  margin-top:12px;
+  font-size:42px;
+  font-weight:1000;
+  letter-spacing:-1px;
+}
+
+.flash-sub{
+  margin-top:7px;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:2px;
+  opacity:.8;
+}
+
 @keyframes flashIn{
-0%{opacity:0;visibility:visible;transform:scale(.7)}
-15%{opacity:1;transform:scale(1.08)}
-72%{opacity:1;transform:scale(1)}
-100%{opacity:0;visibility:hidden;transform:scale(1.12)}
+  0%{
+    opacity:0;
+    visibility:visible;
+    transform:scale(.7);
+  }
+  15%{
+    opacity:1;
+    transform:scale(1.08);
+  }
+  72%{
+    opacity:1;
+    transform:scale(1);
+  }
+  100%{
+    opacity:0;
+    visibility:hidden;
+    transform:scale(1.12);
+  }
 }
+
 @keyframes emojiBounce{
-0%{transform:scale(.2) rotate(-20deg)}
-55%{transform:scale(1.2) rotate(8deg)}
-100%{transform:scale(1)}
+  0%{
+    transform:scale(.2) rotate(-20deg);
+  }
+  55%{
+    transform:scale(1.2) rotate(8deg);
+  }
+  100%{
+    transform:scale(1);
+  }
 }
 
-/* SUPA STINKY */
-.stinky-character{position:relative;width:240px;height:300px;margin-bottom:-5px}
-.stinky-head{position:absolute;left:78px;top:28px;width:84px;height:84px;border-radius:50%;background:#c98560;border:3px solid #9a5d42;box-shadow:0 8px 20px #0008}
-.stinky-hair{position:absolute;left:79px;top:20px;width:82px;height:30px;border-radius:50% 50% 20% 20%;background:#24201e}
-.stinky-eye{position:absolute;top:58px;width:9px;height:12px;border-radius:50%;background:#111}
-.stinky-eye.one{left:99px}.stinky-eye.two{left:133px}
-.stinky-mouth{position:absolute;left:101px;top:82px;width:38px;height:17px;border-radius:50%;background:#19100d;border:2px solid #111}
-.stinky-body{position:absolute;left:62px;top:105px;width:118px;height:150px;border-radius:45px 45px 15px 15px;background:#292929}
-.stinky-arm{position:absolute;width:92px;height:22px;border-radius:20px;background:#c98560;top:119px;right:13px;transform-origin:left center;transform:rotate(-38deg);animation:dramaticWave .48s infinite alternate ease-in-out;z-index:5}
-.stinky-hand{position:absolute;right:-1px;top:83px;font-size:47px;transform:rotate(-20deg);z-index:6}
-.stinky-cloud{position:absolute;font-size:58px;opacity:.85;filter:drop-shadow(0 0 8px #b4a000);animation:stinkCloud 1.2s infinite ease-in-out alternate}
-.cloud1{left:4px;top:70px}.cloud2{right:0;top:132px;animation-delay:.3s}.cloud3{left:17px;top:184px;animation-delay:.55s}
-.smell-line{position:absolute;width:65px;height:18px;border-top:6px solid #c8b72c;border-radius:50%;opacity:.7;animation:odorWave 1s infinite ease-in-out alternate}
-.line1{left:2px;top:126px;transform:rotate(-20deg)}.line2{right:1px;top:75px;transform:rotate(20deg);animation-delay:.25s}.line3{left:15px;top:230px;transform:rotate(12deg);animation-delay:.5s}
-@keyframes dramaticWave{from{transform:rotate(-48deg)}to{transform:rotate(-12deg)}}
-@keyframes stinkCloud{from{transform:translate(0,10px) scale(.75) rotate(-8deg);opacity:.35}to{transform:translate(15px,-14px) scale(1.08) rotate(9deg);opacity:1}}
-@keyframes odorWave{from{transform:translateX(-4px) scale(.8);opacity:.25}to{transform:translateX(18px) scale(1.15);opacity:.9}}
 
-/* SHEETS */
-.sheet{position:fixed;inset:0;z-index:500;display:none;align-items:flex-end;background:#000c}
-.sheet.open{display:flex}
-.panel{width:100%;max-width:520px;max-height:94dvh;overflow:auto;margin:auto auto 0;border-radius:30px 30px 0 0;background:#111}
-.close{position:absolute;z-index:10;top:13px;right:13px;width:40px;height:40px;border-radius:50%;background:#000b;color:#fff;font-size:25px}
-.profile-photo{position:relative;height:350px}
-.profile-photo img{width:100%;height:100%;object-fit:cover}
-.profile-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 35%,#000)}
-.profile-title{position:absolute;left:20px;bottom:18px;z-index:5}
-.profile-title h1{margin:0;font-size:36px}
-.profile-title p{margin:4px 0;color:#ddd}
-.profile-content{padding:20px 20px 40px}
-.label{color:var(--yellow);font-size:11px;font-weight:1000;letter-spacing:1px}
-.bio{margin-top:10px;color:#ddd;line-height:1.6;font-size:15px}
-.profile-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}
-.profile-tag{padding:8px 11px;border-radius:999px;background:#242424;font-size:11px;font-weight:900}
-.profile-message{width:100%;height:52px;margin-top:22px;border-radius:999px;background:var(--yellow);color:#111;font-weight:1000}
+/* =========================================================
+   SUPA STINKY CHARACTER
+========================================================= */
 
-/* MATCH */
-#matchScreen{position:fixed;inset:0;z-index:100000;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;text-align:center;background:radial-gradient(circle at 50% 25%,#59430e,#171107 45%,#060606);opacity:0;visibility:hidden;pointer-events:none}
-#matchScreen.show{animation:matchIn .5s ease forwards;pointer-events:auto}
-@keyframes matchIn{from{opacity:0;transform:scale(1.08)}to{opacity:1;transform:scale(1);visibility:visible}}
-.match-small{color:var(--yellow);font-size:12px;font-weight:1000;letter-spacing:3px}
-.match-title{margin-top:8px;font-size:50px;font-weight:1000}.match-title span{color:var(--yellow)}
-.match-photos{display:flex;margin-top:28px}
-.match-photo{width:135px;height:175px;object-fit:cover;border-radius:24px;border:3px solid var(--yellow)}
-.match-photo:first-child{transform:rotate(-7deg);margin-right:-20px}.match-photo:last-child{transform:rotate(7deg);margin-left:-20px}
-.match-name{margin-top:25px;font-size:24px;font-weight:1000}
-.match-message{margin-top:7px;color:#bbb;font-size:13px}
-.match-bio-button,.match-chat,.match-close{width:100%;max-width:310px;height:52px;border-radius:999px;font-weight:1000}
-.match-bio-button{margin-top:18px;background:#242424;color:#fff}.match-chat{margin-top:8px;background:var(--yellow);color:#111}.match-close{margin-top:8px;background:#242424;color:#fff}
+.stinky-character{
+  position:relative;
+  width:240px;
+  height:300px;
+  margin-bottom:-5px;
+}
 
-/* CHAT */
-#chatScreen{position:fixed;inset:0;z-index:300000;display:flex;flex-direction:column;background:#0b0b0b}
-.chat-header{height:70px;flex:0 0 70px;display:flex;align-items:center;gap:10px;padding:8px 12px;background:#111;border-bottom:1px solid #ffffff12}
-.chat-back{width:42px;height:42px;border-radius:50%;background:#252525;color:#fff;font-size:25px}
-.chat-avatar{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--yellow)}
-.chat-person{min-width:0;flex:1}.chat-person strong{display:block;color:#fff;font-size:15px}.chat-status{margin-top:2px;color:#69d88b;font-size:10px;font-weight:800}
-.chat-more{width:40px;height:40px;border-radius:50%;background:#202020;color:#aaa;font-size:20px}
-.chat-messages{flex:1;overflow:auto;padding:18px 13px 12px}
-.chat-day{text-align:center;color:#666;font-size:9px;font-weight:900;letter-spacing:1px;margin:4px 0 20px}
-.message-row{display:flex;margin:8px 0}.message-row.mine{justify-content:flex-end}
-.message{max-width:78%;padding:11px 14px 8px;border-radius:19px;font-size:14px;line-height:1.42;word-wrap:break-word}
-.message.them{background:#252525;color:#fff;border-bottom-left-radius:5px}.message.mine{background:var(--yellow);color:#111;border-bottom-right-radius:5px}
-.message-time{display:inline-block;margin-left:7px;color:#999;font-size:8px;vertical-align:bottom}.message.mine .message-time{color:#705f1b}
-.typing-row{display:flex;margin:8px 13px;opacity:0;transition:.2s}.typing-row.show{opacity:1}
-.typing{display:flex;align-items:center;gap:4px;padding:11px 14px;border-radius:18px;border-bottom-left-radius:5px;background:#252525}
-.typing i{display:block;width:6px;height:6px;border-radius:50%;background:#aaa;animation:typingDot 1.2s infinite}
-.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
-@keyframes typingDot{0%,60%,100%{transform:translateY(0);opacity:.45}30%{transform:translateY(-4px);opacity:1}}
-.chat-suggestions{display:flex;gap:7px;padding:8px 10px;overflow-x:auto;background:#111;scrollbar-width:none}
-.chat-suggestions::-webkit-scrollbar{display:none}
-.chat-suggestion{flex:0 0 auto;padding:9px 12px;border-radius:999px;background:#242424;color:#eee;font-size:10px;font-weight:800}
-.chat-input-area{display:flex;gap:8px;padding:9px 10px;padding-bottom:calc(9px + env(safe-area-inset-bottom));background:#111}
-.chat-input{flex:1;min-width:0;height:46px;border:0;outline:0;border-radius:999px;padding:0 16px;background:#242424;color:#fff;font-size:14px}
-.chat-send{width:46px;height:46px;flex:0 0 46px;border-radius:50%;background:var(--yellow);color:#111;font-size:18px;font-weight:1000}
+.stinky-head{
+  position:absolute;
+  left:78px;
+  top:28px;
+  width:84px;
+  height:84px;
+  border-radius:50%;
+  background:#c98560;
+  border:3px solid #9a5d42;
+  box-shadow:0 8px 20px #0008;
+}
 
-/* X-RAY */
-#xrayScreen{position:fixed;inset:0;z-index:90000;background:radial-gradient(circle at 50% 35%,#202b2b,#070b0b 70%);display:none;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:15px}
-#xrayScreen.show{display:flex}
-.xray-label{color:var(--yellow);font-size:10px;font-weight:1000;letter-spacing:3px;margin-bottom:8px}
-.dental-xray{position:relative;width:min(91vw,410px);height:min(61vh,470px);border:3px solid #777;border-radius:18px;overflow:hidden;background:radial-gradient(ellipse at 50% 48%,#d8d8d8 0%,#9c9c9c 13%,#545454 34%,#202020 60%,#070707 85%);box-shadow:0 0 25px #ddd5,0 0 70px #ddd2,inset 0 0 60px #000;animation:xrayFlicker 2.4s infinite}
-@keyframes xrayFlicker{0%,100%{filter:brightness(1)}47%{filter:brightness(1.05)}49%{filter:brightness(.82)}51%{filter:brightness(1.08)}}
-.jaw-upper{position:absolute;left:7%;right:7%;top:7%;height:42%;border:12px solid #d0d0d0;border-bottom-color:#666;border-radius:48% 48% 55% 55%;opacity:.8;box-shadow:0 0 20px #fff8}
-.jaw-lower{position:absolute;left:11%;right:11%;bottom:7%;height:43%;border:12px solid #aaa;border-top-color:#555;border-radius:45% 45% 50% 50%;opacity:.72;box-shadow:0 0 18px #fff6}
-.mouth-cavity{position:absolute;left:14%;right:14%;top:18%;bottom:17%;border-radius:47%;background:#090909;box-shadow:inset 0 0 35px #000}
-.tooth{position:absolute;z-index:5;width:23px;height:39px;background:linear-gradient(90deg,#777,#eee,#777);border:2px solid #eee;border-radius:48% 48% 40% 40%;box-shadow:0 0 7px #fff9,inset 0 0 4px #555;transition:.4s}
-.tooth.lower{height:35px;border-radius:40% 40% 48% 48%;background:linear-gradient(90deg,#666,#d7d7d7,#666)}
-.tooth.checked{background:var(--yellow);border-color:#fff;box-shadow:0 0 8px #fff,0 0 24px var(--yellow);transform:scale(1.18)}
-.tooth.checked:after{content:"✓";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#111;font-size:12px;font-weight:1000}
-.scan-line{position:absolute;z-index:15;left:0;right:0;top:-12px;height:8px;background:var(--yellow);box-shadow:0 0 10px #fff,0 0 25px var(--yellow),0 0 50px var(--yellow);animation:scanMouth 3.8s linear infinite}
-.scan-glow{position:absolute;z-index:14;left:0;right:0;top:-40px;height:80px;background:linear-gradient(transparent,#f4c54225,#f4c54212,transparent);animation:scanMouth 3.8s linear infinite}
-@keyframes scanMouth{0%{top:4%}100%{top:96%}}
-.dental-mirror{position:absolute;z-index:25;left:8%;top:31%;width:54px;height:54px;border:5px solid #bbb;border-radius:50%;background:#d8d8d855;box-shadow:0 0 12px #fff,0 0 30px #fff5;animation:mirrorInspect 4.2s infinite ease-in-out}
-.dental-mirror:after{content:"";position:absolute;width:85px;height:7px;right:-74px;bottom:-42px;background:#aaa;transform:rotate(48deg);border-radius:10px}
+.stinky-hair{
+  position:absolute;
+  left:79px;
+  top:20px;
+  width:82px;
+  height:30px;
+  border-radius:50% 50% 20% 20%;
+  background:#24201e;
+}
+
+.stinky-eye{
+  position:absolute;
+  top:58px;
+  width:9px;
+  height:12px;
+  border-radius:50%;
+  background:#111;
+}
+
+.stinky-eye.one{
+  left:99px;
+}
+
+.stinky-eye.two{
+  left:133px;
+}
+
+.stinky-mouth{
+  position:absolute;
+  left:101px;
+  top:82px;
+  width:38px;
+  height:17px;
+  border-radius:50%;
+  background:#19100d;
+  border:2px solid #111;
+}
+
+.stinky-body{
+  position:absolute;
+  left:62px;
+  top:105px;
+  width:118px;
+  height:150px;
+  border-radius:45px 45px 15px 15px;
+  background:#292929;
+}
+
+.stinky-arm{
+  position:absolute;
+  width:92px;
+  height:22px;
+  border-radius:20px;
+  background:#c98560;
+  top:119px;
+  right:13px;
+  transform-origin:left center;
+  transform:rotate(-38deg);
+  animation:dramaticWave .48s infinite alternate ease-in-out;
+  z-index:5;
+}
+
+.stinky-hand{
+  position:absolute;
+  right:-1px;
+  top:83px;
+  font-size:47px;
+  transform:rotate(-20deg);
+  z-index:6;
+}
+
+.stinky-cloud{
+  position:absolute;
+  font-size:58px;
+  opacity:.85;
+  filter:drop-shadow(0 0 8px #b4a000);
+  animation:stinkCloud 1.2s infinite ease-in-out alternate;
+}
+
+.cloud1{
+  left:4px;
+  top:70px;
+}
+
+.cloud2{
+  right:0;
+  top:132px;
+  animation-delay:.3s;
+}
+
+.cloud3{
+  left:17px;
+  top:184px;
+  animation-delay:.55s;
+}
+
+.smell-line{
+  position:absolute;
+  width:65px;
+  height:18px;
+  border-top:6px solid #c8b72c;
+  border-radius:50%;
+  opacity:.7;
+  animation:odorWave 1s infinite ease-in-out alternate;
+}
+
+.line1{
+  left:2px;
+  top:126px;
+  transform:rotate(-20deg);
+}
+
+.line2{
+  right:1px;
+  top:75px;
+  transform:rotate(20deg);
+  animation-delay:.25s;
+}
+
+.line3{
+  left:15px;
+  top:230px;
+  transform:rotate(12deg);
+  animation-delay:.5s;
+}
+
+@keyframes dramaticWave{
+  from{transform:rotate(-48deg)}
+  to{transform:rotate(-12deg)}
+}
+
+@keyframes stinkCloud{
+  from{
+    transform:translate(0,10px) scale(.75) rotate(-8deg);
+    opacity:.35;
+  }
+  to{
+    transform:translate(15px,-14px) scale(1.08) rotate(9deg);
+    opacity:1;
+  }
+}
+
+@keyframes odorWave{
+  from{
+    transform:translateX(-4px) scale(.8);
+    opacity:.25;
+  }
+  to{
+    transform:translateX(18px) scale(1.15);
+    opacity:.9;
+  }
+}
+
+
+/* =========================================================
+   PROFILE SHEETS
+   IMPORTANT: HIGH Z-INDEX FIX
+========================================================= */
+
+.sheet{
+  position:fixed;
+  inset:0;
+  z-index:400000;
+  display:none;
+  align-items:flex-end;
+  background:#000c;
+}
+
+.sheet.open{
+  display:flex;
+}
+
+.panel{
+  width:100%;
+  max-width:520px;
+  max-height:94dvh;
+  overflow:auto;
+  margin:auto auto 0;
+  border-radius:30px 30px 0 0;
+  background:#111;
+}
+
+.close{
+  position:absolute;
+  z-index:10;
+  top:13px;
+  right:13px;
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  background:#000b;
+  color:#fff;
+  font-size:25px;
+}
+
+.profile-photo{
+  position:relative;
+  height:350px;
+}
+
+.profile-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.profile-photo:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(transparent 35%,#000);
+}
+
+.profile-title{
+  position:absolute;
+  left:20px;
+  bottom:18px;
+  z-index:5;
+}
+
+.profile-title h1{
+  margin:0;
+  font-size:36px;
+}
+
+.profile-title p{
+  margin:4px 0;
+  color:#ddd;
+}
+
+.profile-content{
+  padding:20px 20px 40px;
+}
+
+.label{
+  color:var(--yellow);
+  font-size:11px;
+  font-weight:1000;
+  letter-spacing:1px;
+}
+
+.bio{
+  margin-top:10px;
+  color:#ddd;
+  line-height:1.6;
+  font-size:15px;
+}
+
+.profile-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  margin-top:18px;
+}
+
+.profile-tag{
+  padding:8px 11px;
+  border-radius:999px;
+  background:#242424;
+  font-size:11px;
+  font-weight:900;
+}
+
+.profile-message{
+  width:100%;
+  height:52px;
+  margin-top:22px;
+  border-radius:999px;
+  background:var(--yellow);
+  color:#111;
+  font-weight:1000;
+}
+
+
+/* =========================================================
+   MATCH
+========================================================= */
+
+#matchScreen{
+  position:fixed;
+  inset:0;
+  z-index:100000;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+  text-align:center;
+  background:
+    radial-gradient(circle at 50% 25%,#59430e,#171107 45%,#060606);
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}
+
+#matchScreen.show{
+  animation:matchIn .5s ease forwards;
+  pointer-events:auto;
+}
+
+@keyframes matchIn{
+  from{
+    opacity:0;
+    transform:scale(1.08);
+  }
+  to{
+    opacity:1;
+    transform:scale(1);
+    visibility:visible;
+  }
+}
+
+.match-small{
+  color:var(--yellow);
+  font-size:12px;
+  font-weight:1000;
+  letter-spacing:3px;
+}
+
+.match-title{
+  margin-top:8px;
+  font-size:50px;
+  font-weight:1000;
+}
+
+.match-title span{
+  color:var(--yellow);
+}
+
+.match-photos{
+  display:flex;
+  margin-top:28px;
+}
+
+.match-photo{
+  width:135px;
+  height:175px;
+  object-fit:cover;
+  border-radius:24px;
+  border:3px solid var(--yellow);
+}
+
+.match-photo:first-child{
+  transform:rotate(-7deg);
+  margin-right:-20px;
+}
+
+.match-photo:last-child{
+  transform:rotate(7deg);
+  margin-left:-20px;
+}
+
+.match-name{
+  margin-top:25px;
+  font-size:24px;
+  font-weight:1000;
+}
+
+.match-message{
+  margin-top:7px;
+  color:#bbb;
+  font-size:13px;
+}
+
+.match-bio-button,
+.match-chat,
+.match-close{
+  width:100%;
+  max-width:310px;
+  height:52px;
+  border-radius:999px;
+  font-weight:1000;
+}
+
+.match-bio-button{
+  margin-top:18px;
+  background:#242424;
+  color:#fff;
+}
+
+.match-chat{
+  margin-top:8px;
+  background:var(--yellow);
+  color:#111;
+}
+
+.match-close{
+  margin-top:8px;
+  background:#242424;
+  color:#fff;
+}
+
+
+/* =========================================================
+   CHAT
+========================================================= */
+
+#chatScreen{
+  position:fixed;
+  inset:0;
+  z-index:500000;
+  display:flex;
+  flex-direction:column;
+  background:#0b0b0b;
+}
+
+.chat-header{
+  height:70px;
+  flex:0 0 70px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:8px 12px;
+  background:#111;
+  border-bottom:1px solid #ffffff12;
+}
+
+.chat-back{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  background:#252525;
+  color:#fff;
+  font-size:25px;
+}
+
+.chat-avatar{
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  object-fit:cover;
+  border:2px solid var(--yellow);
+}
+
+.chat-person{
+  min-width:0;
+  flex:1;
+}
+
+.chat-person strong{
+  display:block;
+  color:#fff;
+  font-size:15px;
+}
+
+.chat-status{
+  margin-top:2px;
+  color:#69d88b;
+  font-size:10px;
+  font-weight:800;
+}
+
+.chat-more{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  background:#202020;
+  color:#aaa;
+  font-size:20px;
+}
+
+.chat-messages{
+  flex:1;
+  overflow:auto;
+  padding:18px 13px 12px;
+}
+
+.chat-day{
+  text-align:center;
+  color:#666;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:1px;
+  margin:4px 0 20px;
+}
+
+.message-row{
+  display:flex;
+  margin:8px 0;
+}
+
+.message-row.mine{
+  justify-content:flex-end;
+}
+
+.message{
+  max-width:78%;
+  padding:11px 14px 8px;
+  border-radius:19px;
+  font-size:14px;
+  line-height:1.42;
+  word-wrap:break-word;
+}
+
+.message.them{
+  background:#252525;
+  color:#fff;
+  border-bottom-left-radius:5px;
+}
+
+.message.mine{
+  background:var(--yellow);
+  color:#111;
+  border-bottom-right-radius:5px;
+}
+
+.message-time{
+  display:inline-block;
+  margin-left:7px;
+  color:#999;
+  font-size:8px;
+  vertical-align:bottom;
+}
+
+.message.mine .message-time{
+  color:#705f1b;
+}
+
+.typing-row{
+  display:flex;
+  margin:8px 13px;
+  opacity:0;
+  transition:.2s;
+}
+
+.typing-row.show{
+  opacity:1;
+}
+
+.typing{
+  display:flex;
+  align-items:center;
+  gap:4px;
+  padding:11px 14px;
+  border-radius:18px;
+  border-bottom-left-radius:5px;
+  background:#252525;
+}
+
+.typing i{
+  display:block;
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:#aaa;
+  animation:typingDot 1.2s infinite;
+}
+
+.typing i:nth-child(2){
+  animation-delay:.15s;
+}
+
+.typing i:nth-child(3){
+  animation-delay:.3s;
+}
+
+@keyframes typingDot{
+  0%,60%,100%{
+    transform:translateY(0);
+    opacity:.45;
+  }
+  30%{
+    transform:translateY(-4px);
+    opacity:1;
+  }
+}
+
+.chat-suggestions{
+  display:flex;
+  gap:7px;
+  padding:8px 10px;
+  overflow-x:auto;
+  background:#111;
+  scrollbar-width:none;
+}
+
+.chat-suggestions::-webkit-scrollbar{
+  display:none;
+}
+
+.chat-suggestion{
+  flex:0 0 auto;
+  padding:9px 12px;
+  border-radius:999px;
+  background:#242424;
+  color:#eee;
+  font-size:10px;
+  font-weight:800;
+}
+
+.chat-input-area{
+  display:flex;
+  gap:8px;
+  padding:9px 10px;
+  padding-bottom:calc(9px + env(safe-area-inset-bottom));
+  background:#111;
+}
+
+.chat-input{
+  flex:1;
+  min-width:0;
+  height:46px;
+  border:0;
+  outline:0;
+  border-radius:999px;
+  padding:0 16px;
+  background:#242424;
+  color:#fff;
+  font-size:14px;
+}
+
+.chat-send{
+  width:46px;
+  height:46px;
+  flex:0 0 46px;
+  border-radius:50%;
+  background:var(--yellow);
+  color:#111;
+  font-size:18px;
+  font-weight:1000;
+}
+
+
+/* =========================================================
+   REALISTIC DENTAL X-RAY
+========================================================= */
+
+#xrayScreen{
+  position:fixed;
+  inset:0;
+  z-index:450000;
+  background:
+    radial-gradient(circle at 50% 25%,#272e2e,#090d0d 65%,#020303 100%);
+  display:none;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:15px;
+}
+
+#xrayScreen.show{
+  display:flex;
+}
+
+.xray-label{
+  color:var(--yellow);
+  font-size:10px;
+  font-weight:1000;
+  letter-spacing:3px;
+  margin-bottom:8px;
+}
+
+
+/* X-RAY FRAME */
+
+.dental-xray{
+  position:relative;
+  width:min(91vw,410px);
+  height:min(61vh,470px);
+  border:3px solid #555;
+  border-radius:22px;
+  overflow:hidden;
+
+  /*
+    Dark radiographic background
+    with a soft mouth-shaped glow.
+  */
+
+  background:
+    radial-gradient(
+      ellipse at 50% 48%,
+      rgba(255,255,255,.18) 0%,
+      rgba(230,230,230,.12) 18%,
+      rgba(90,90,90,.08) 42%,
+      rgba(0,0,0,.9) 76%
+    );
+
+  box-shadow:
+    0 0 22px rgba(255,255,255,.3),
+    0 0 70px rgba(255,255,255,.08),
+    inset 0 0 70px #000;
+
+  animation:xrayFlicker 2.4s infinite;
+}
+
+@keyframes xrayFlicker{
+
+  0%,100%{
+    filter:brightness(1);
+  }
+
+  47%{
+    filter:brightness(1.08);
+  }
+
+  49%{
+    filter:brightness(.85);
+  }
+
+  51%{
+    filter:brightness(1.12);
+  }
+
+}
+
+
+/* =========================================================
+   NORMAL MOUTH / PINK GUMS
+========================================================= */
+
+.mouth-shape{
+  position:absolute;
+  left:9%;
+  right:9%;
+  top:9%;
+  bottom:9%;
+  border-radius:48%;
+  background:
+    radial-gradient(
+      ellipse at 50% 50%,
+      #080808 0%,
+      #050505 48%,
+      #000 70%
+    );
+  box-shadow:
+    0 0 35px #000,
+    inset 0 0 35px #000;
+}
+
+
+/* UPPER GUM */
+
+.gum-upper{
+  position:absolute;
+  z-index:3;
+  left:12%;
+  right:12%;
+  top:17%;
+  height:31%;
+
+  border-radius:
+    48% 48%
+    30% 30%;
+
+  background:
+    linear-gradient(
+      180deg,
+      #ffd0d0 0%,
+      #f18e9c 28%,
+      #d75d72 63%,
+      #8f3e50 100%
+    );
+
+  box-shadow:
+    0 0 12px rgba(255,150,165,.55),
+    inset 0 -15px 20px rgba(80,0,20,.35);
+}
+
+
+/* LOWER GUM */
+
+.gum-lower{
+  position:absolute;
+  z-index:3;
+  left:13%;
+  right:13%;
+  bottom:16%;
+  height:29%;
+
+  border-radius:
+    30% 30%
+    48% 48%;
+
+  background:
+    linear-gradient(
+      180deg,
+      #8f3e50 0%,
+      #d75d72 38%,
+      #f18e9c 70%,
+      #ffd0d0 100%
+    );
+
+  box-shadow:
+    0 0 12px rgba(255,150,165,.45),
+    inset 0 15px 20px rgba(80,0,20,.3);
+}
+
+
+/* DARK MOUTH OPENING */
+
+.mouth-opening{
+  position:absolute;
+  z-index:2;
+  left:17%;
+  right:17%;
+  top:25%;
+  bottom:24%;
+  border-radius:50%;
+  background:
+    radial-gradient(
+      ellipse,
+      #050505 0%,
+      #0d0508 55%,
+      #000 100%
+    );
+
+  box-shadow:
+    inset 0 0 40px #000;
+}
+
+
+/* =========================================================
+   WHITE TEETH
+========================================================= */
+
+.tooth{
+  position:absolute;
+  z-index:7;
+
+  width:23px;
+  height:39px;
+
+  border-radius:
+    42% 42%
+    48% 48%;
+
+  background:
+    linear-gradient(
+      90deg,
+      #c9c9c9 0%,
+      #fff 25%,
+      #ffffff 55%,
+      #d9d9d9 82%,
+      #a7a7a7 100%
+    );
+
+  border:1px solid #fff;
+
+  box-shadow:
+    0 0 5px rgba(255,255,255,.8),
+    0 0 13px rgba(255,255,255,.35),
+    inset -3px 0 4px rgba(100,100,100,.35);
+
+  transition:
+    .35s
+    transform,
+    .35s
+    box-shadow,
+    .35s
+    background;
+}
+
+.tooth.lower{
+  height:35px;
+
+  border-radius:
+    48% 48%
+    42% 42%;
+
+  background:
+    linear-gradient(
+      90deg,
+      #a9a9a9 0%,
+      #dedede 24%,
+      #fff 52%,
+      #dedede 78%,
+      #a0a0a0 100%
+    );
+}
+
+
+/* LITTLE TOOTH ROOT SHADOWS */
+
+.tooth:before{
+  content:"";
+  position:absolute;
+  left:4px;
+  right:4px;
+  bottom:-8px;
+  height:10px;
+  border-radius:50%;
+  background:#111;
+  opacity:.35;
+}
+
+
+/* SCANNED TOOTH */
+
+.tooth.checked{
+  background:
+    linear-gradient(
+      90deg,
+      #f4c542,
+      #fff9a6,
+      #f4c542
+    );
+
+  border-color:#fff;
+
+  box-shadow:
+    0 0 8px #fff,
+    0 0 22px var(--yellow);
+
+  transform:scale(1.13);
+}
+
+.tooth.checked:after{
+  content:"✓";
+  position:absolute;
+  inset:0;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  color:#111;
+  font-size:11px;
+  font-weight:1000;
+}
+
+
+/* =========================================================
+   TONGUE
+========================================================= */
+
+.tongue{
+  position:absolute;
+  z-index:4;
+  left:29%;
+  right:29%;
+  bottom:19%;
+  height:20%;
+
+  border-radius:
+    50% 50%
+    48% 48%;
+
+  background:
+    radial-gradient(
+      ellipse at 50% 35%,
+      #d26b7c,
+      #813546 70%,
+      #3a101c
+    );
+
+  opacity:.8;
+
+  box-shadow:
+    inset 0 8px 15px rgba(255,180,190,.18);
+}
+
+
+/* =========================================================
+   X-RAY SCAN LINE
+========================================================= */
+
+.scan-line{
+  position:absolute;
+  z-index:30;
+
+  left:0;
+  right:0;
+
+  top:-12px;
+
+  height:7px;
+
+  background:var(--yellow);
+
+  box-shadow:
+    0 0 10px #fff,
+    0 0 25px var(--yellow),
+    0 0 50px var(--yellow);
+
+  animation:
+    scanMouth 3.8s linear infinite;
+}
+
+.scan-glow{
+  position:absolute;
+  z-index:29;
+
+  left:0;
+  right:0;
+
+  top:-40px;
+
+  height:80px;
+
+  background:
+    linear-gradient(
+      transparent,
+      #f4c54228,
+      #f4c54212,
+      transparent
+    );
+
+  animation:
+    scanMouth 3.8s linear infinite;
+}
+
+@keyframes scanMouth{
+
+  0%{
+    top:4%;
+  }
+
+  100%{
+    top:96%;
+  }
+
+}
+
+
+/* =========================================================
+   DENTAL MIRROR
+========================================================= */
+
+.dental-mirror{
+  position:absolute;
+  z-index:35;
+
+  left:8%;
+  top:31%;
+
+  width:54px;
+  height:54px;
+
+  border:5px solid #bbb;
+  border-radius:50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255,255,255,.65),
+      rgba(160,160,160,.15)
+    );
+
+  box-shadow:
+    0 0 12px #fff,
+    0 0 30px #fff5;
+
+  animation:
+    mirrorInspect 4.2s infinite ease-in-out;
+}
+
+.dental-mirror:after{
+  content:"";
+
+  position:absolute;
+
+  width:85px;
+  height:7px;
+
+  right:-74px;
+  bottom:-42px;
+
+  background:#aaa;
+
+  transform:rotate(48deg);
+
+  border-radius:10px;
+
+  box-shadow:
+    0 0 4px #fff;
+}
+
 @keyframes mirrorInspect{
-0%{transform:translate(0,0) rotate(-18deg)}
-25%{transform:translate(165px,25px) rotate(12deg)}
-50%{transform:translate(225px,115px) rotate(28deg)}
-75%{transform:translate(90px,230px) rotate(-10deg)}
-100%{transform:translate(0,0) rotate(-18deg)}
-}
-.scan-bracket{position:absolute;z-index:30;width:28px;height:28px;border:3px solid var(--yellow);opacity:.75}
-.bracket1{left:8px;top:8px;border-right:0;border-bottom:0}.bracket2{right:8px;top:8px;border-left:0;border-bottom:0}.bracket3{left:8px;bottom:8px;border-right:0;border-top:0}.bracket4{right:8px;bottom:8px;border-left:0;border-top:0}
-.xray-title{margin-top:13px;font-size:27px;font-weight:1000}.xray-status{margin-top:5px;color:#aaa;font-size:11px;font-weight:700;min-height:16px}.xray-result{margin-top:4px;color:var(--yellow);font-size:12px;font-weight:1000;min-height:18px}
-.xray-close{margin-top:13px;width:220px;height:48px;border-radius:999px;background:var(--yellow);color:#111;font-weight:1000}
 
-/* MOBILE */
+  0%{
+    transform:
+      translate(0,0)
+      rotate(-18deg);
+  }
+
+  25%{
+    transform:
+      translate(165px,25px)
+      rotate(12deg);
+  }
+
+  50%{
+    transform:
+      translate(225px,115px)
+      rotate(28deg);
+  }
+
+  75%{
+    transform:
+      translate(90px,230px)
+      rotate(-10deg);
+  }
+
+  100%{
+    transform:
+      translate(0,0)
+      rotate(-18deg);
+  }
+
+}
+
+
+/* =========================================================
+   X-RAY CORNERS
+========================================================= */
+
+.scan-bracket{
+  position:absolute;
+  z-index:40;
+
+  width:28px;
+  height:28px;
+
+  border:3px solid var(--yellow);
+
+  opacity:.75;
+}
+
+.bracket1{
+  left:8px;
+  top:8px;
+  border-right:0;
+  border-bottom:0;
+}
+
+.bracket2{
+  right:8px;
+  top:8px;
+  border-left:0;
+  border-bottom:0;
+}
+
+.bracket3{
+  left:8px;
+  bottom:8px;
+  border-right:0;
+  border-top:0;
+}
+
+.bracket4{
+  right:8px;
+  bottom:8px;
+  border-left:0;
+  border-top:0;
+}
+
+
+/* =========================================================
+   X-RAY TEXT
+========================================================= */
+
+.xray-title{
+  margin-top:13px;
+  font-size:27px;
+  font-weight:1000;
+}
+
+.xray-status{
+  margin-top:5px;
+  color:#aaa;
+  font-size:11px;
+  font-weight:700;
+  min-height:16px;
+}
+
+.xray-result{
+  margin-top:4px;
+  color:var(--yellow);
+  font-size:12px;
+  font-weight:1000;
+  min-height:18px;
+}
+
+.xray-close{
+  margin-top:13px;
+  width:220px;
+  height:48px;
+  border-radius:999px;
+  background:var(--yellow);
+  color:#111;
+  font-weight:1000;
+}
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:105px;
+  transform:translateX(-50%);
+  z-index:999999;
+  background:#242424;
+  color:#fff;
+  padding:13px 18px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:900;
+  box-shadow:0 10px 30px #000;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
 @media(max-height:700px){
-.header{height:58px;flex-basis:58px}
-.actions{height:115px;flex-basis:115px}
-.action{height:56px;font-size:10px}
-.nav{height:58px;flex-basis:58px}
-.breanna-photo{width:170px;height:215px}
-.card-photo{height:64%}
-.card-info{padding-top:9px}
-.card-bio{-webkit-line-clamp:2}
-.dental-xray{height:55vh}
+
+  .header{
+    height:58px;
+    flex-basis:58px;
+  }
+
+  .actions{
+    height:115px;
+    flex-basis:115px;
+  }
+
+  .action{
+    height:56px;
+    font-size:10px;
+  }
+
+  .nav{
+    height:58px;
+    flex-basis:58px;
+  }
+
+  .breanna-photo{
+    width:170px;
+    height:215px;
+  }
+
+  .card-photo{
+    height:64%;
+  }
+
+  .card-info{
+    padding-top:9px;
+  }
+
+  .card-bio{
+    -webkit-line-clamp:2;
+  }
+
+  .dental-xray{
+    height:55vh;
+  }
+
 }
 </style>
 </head>
 
 <body>
 
-<!-- WELCOME -->
+
+<!-- =========================================================
+     WELCOME
+========================================================= -->
+
 <div id="welcome">
-  <div class="logo-big">BREUM<span>BLE</span></div>
-  <div class="subtitle">Breanna's dental dating adventure</div>
+
+  <div class="logo-big">
+    BREUM<span>BLE</span>
+  </div>
+
+  <div class="subtitle">
+    Breanna's dental dating adventure
+  </div>
 
   <img
     class="breanna-photo"
@@ -234,43 +1828,68 @@ display:flex;flex-direction:column;transition:transform .25s ease,opacity .25s e
     alt="Breanna"
   >
 
-  <div class="breanna-name">Breanna</div>
-  <div class="breanna-job">Dental Receptionist • Appointment Enforcer</div>
+  <div class="breanna-name">
+    Breanna
+  </div>
+
+  <div class="breanna-job">
+    Dental Receptionist • Appointment Enforcer
+  </div>
 
   <button class="start" id="startButton">
     LET'S BREUMBLE 🤪
   </button>
+
 </div>
 
 
-<!-- MAIN APP -->
+<!-- =========================================================
+     MAIN APP
+========================================================= -->
+
 <div class="app">
 
   <header class="header">
 
-    <button class="header-button" id="headerProfile">👤</button>
+    <button class="header-button" id="headerProfile">
+      👤
+    </button>
 
-    <div class="logo">BREUM<span>BLE</span></div>
+    <div class="logo">
+      BREUM<span>BLE</span>
+    </div>
 
     <div class="header-profile">
+
       Breanna
+
       <img
         class="header-photo"
         src="https://raw.githubusercontent.com/crypto1292/Breumble/main/IMG_5053.jpeg"
         alt="Breanna"
       >
+
     </div>
 
   </header>
 
+
   <main class="main">
+
     <div class="deck" id="deck"></div>
-    <div class="counter" id="counter">1 / 1</div>
+
+    <div class="counter" id="counter">
+      1 / 1
+    </div>
+
   </main>
+
 
   <div class="actions">
 
-    <div class="vibe-label">WHAT'S THE VIBE?</div>
+    <div class="vibe-label">
+      WHAT'S THE VIBE?
+    </div>
 
     <div class="action-row">
 
@@ -290,23 +1909,38 @@ display:flex;flex-direction:column;transition:transform .25s ease,opacity .25s e
 
   </div>
 
+
   <nav class="nav">
 
     <button class="active" id="discoverButton">
-      <span class="nav-icon">🦷</span>
+
+      <span class="nav-icon">
+        🦷
+      </span>
+
       Discover
+
     </button>
+
 
     <button id="likesButton">
-      <span class="nav-icon">🤪</span>
+
+      <span class="nav-icon">
+        🤪
+      </span>
+
       Likes
+
     </button>
 
+
     <button id="profileButton" class="nav-profile">
+
       <img
         src="https://raw.githubusercontent.com/crypto1292/Breumble/main/IMG_5053.jpeg"
         alt="Breanna"
       >
+
     </button>
 
   </nav>
@@ -314,60 +1948,118 @@ display:flex;flex-direction:column;transition:transform .25s ease,opacity .25s e
 </div>
 
 
-<!-- SILLY FLASH -->
+<!-- =========================================================
+     SILLY
+========================================================= -->
+
 <div class="flash" id="sillyMode">
-  <div class="flash-emoji">🤪</div>
-  <div class="flash-text">SILLY MODE</div>
-  <div class="flash-sub">SMILE APPROVED</div>
+
+  <div class="flash-emoji">
+    🤪
+  </div>
+
+  <div class="flash-text">
+    SILLY MODE
+  </div>
+
+  <div class="flash-sub">
+    SMILE APPROVED
+  </div>
+
 </div>
 
 
-<!-- STINKY FLASH -->
+<!-- =========================================================
+     STINKY
+========================================================= -->
+
 <div class="flash" id="stinkyMode">
-  <div class="flash-emoji">💩</div>
-  <div class="flash-text">STINKY MODE</div>
-  <div class="flash-sub">DENTAL RECEPTION HAS BEEN NOTIFIED</div>
+
+  <div class="flash-emoji">
+    💩
+  </div>
+
+  <div class="flash-text">
+    STINKY MODE
+  </div>
+
+  <div class="flash-sub">
+    DENTAL RECEPTION HAS BEEN NOTIFIED
+  </div>
+
 </div>
 
 
-<!-- SUPA STINKY FLASH -->
+<!-- =========================================================
+     SUPA STINKY
+========================================================= -->
+
 <div class="flash" id="supaMode">
 
   <div class="stinky-character">
 
-    <div class="stinky-cloud cloud1">💨</div>
-    <div class="stinky-cloud cloud2">💨</div>
-    <div class="stinky-cloud cloud3">💨</div>
+    <div class="stinky-cloud cloud1">
+      💨
+    </div>
+
+    <div class="stinky-cloud cloud2">
+      💨
+    </div>
+
+    <div class="stinky-cloud cloud3">
+      💨
+    </div>
 
     <div class="smell-line line1"></div>
     <div class="smell-line line2"></div>
     <div class="smell-line line3"></div>
 
     <div class="stinky-head">
+
       <div class="stinky-eye one"></div>
       <div class="stinky-eye two"></div>
+
       <div class="stinky-mouth"></div>
+
     </div>
 
     <div class="stinky-hair"></div>
+
     <div class="stinky-body"></div>
+
     <div class="stinky-arm"></div>
-    <div class="stinky-hand">🖐️</div>
+
+    <div class="stinky-hand">
+      🖐️
+    </div>
 
   </div>
 
-  <div class="flash-text">SUPA STINKY</div>
-  <div class="flash-sub">🚨 ODOR LEVEL: EXTREME 🚨</div>
+
+  <div class="flash-text">
+    SUPA STINKY
+  </div>
+
+  <div class="flash-sub">
+    🚨 ODOR LEVEL: EXTREME 🚨
+  </div>
 
 </div>
 
 
-<!-- MATCH SCREEN -->
+<!-- =========================================================
+     MATCH SCREEN
+========================================================= -->
+
 <div id="matchScreen">
 
-  <div class="match-small">YOU TWO SAID SILLY</div>
+  <div class="match-small">
+    YOU TWO SAID SILLY
+  </div>
 
-  <div class="match-title">IT'S A <span>MATCH!</span></div>
+  <div class="match-title">
+    IT'S A <span>MATCH!</span>
+  </div>
 
   <div class="match-photos">
 
@@ -379,14 +2071,13 @@ display:flex;flex-direction:column;transition:transform .25s ease,opacity .25s e
 
     <img
       class="match-photo"
-      id="matchPersonPhoto"
       src="stinky-guy.JPEG"
       alt="Match"
     >
 
   </div>
 
-  <div class="match-name" id="matchPersonName">
+  <div class="match-name">
     Mr. Stinky, 32
   </div>
 
@@ -394,42 +2085,82 @@ display:flex;flex-direction:column;transition:transform .25s ease,opacity .25s e
     The smile passed inspection. 🦷
   </div>
 
-  <button class="match-bio-button" id="viewMatchBio">
+
+  <!-- FIXED CLICKABLE BUTTON -->
+
+  <button
+    type="button"
+    class="match-bio-button"
+    id="viewMatchBio"
+  >
     👀 VIEW FULL BIO
   </button>
 
-  <button class="match-chat" id="openChatButton">
+
+  <button
+    type="button"
+    class="match-chat"
+    id="openChatButton"
+  >
     💬 START CONVERSATION
   </button>
 
-  <button class="match-close" id="closeMatchButton">
+
+  <button
+    type="button"
+    class="match-close"
+    id="closeMatchButton"
+  >
     KEEP BREUMBLING
   </button>
 
 </div>
 
 
-<!-- FULL MATCH BIO -->
+<!-- =========================================================
+     FULL MATCH BIO
+========================================================= -->
+
 <div class="sheet" id="matchBioSheet">
 
   <div class="panel">
 
-    <button class="close" id="closeMatchBio">×</button>
+    <button
+      type="button"
+      class="close"
+      id="closeMatchBio"
+    >
+      ×
+    </button>
 
     <div class="profile-photo">
 
-      <img src="stinky-guy.JPEG" alt="Mr. Stinky">
+      <img
+        src="stinky-guy.JPEG"
+        alt="Mr. Stinky"
+      >
 
       <div class="profile-title">
-        <h1>Mr. Stinky, 32</h1>
-        <p>Professional Appointment Avoider</p>
+
+        <h1>
+          Mr. Stinky, 32
+        </h1>
+
+        <p>
+          Professional Appointment Avoider
+        </p>
+
       </div>
 
     </div>
 
+
     <div class="profile-content">
 
-      <div class="label">HIS FULL BIO</div>
+      <div class="label">
+        HIS FULL BIO
+      </div>
+
 
       <div class="bio">
 
@@ -488,18 +2219,41 @@ display:flex;flex-direction:column;transition:transform .25s ease,opacity .25s e
 
       </div>
 
+
       <div class="profile-tags">
 
-        <div class="profile-tag">🤪 Funny</div>
-        <div class="profile-tag">💨 Questionable Air Quality</div>
-        <div class="profile-tag">☕ Coffee</div>
-        <div class="profile-tag">🦷 Needs Cleaning</div>
-        <div class="profile-tag">❤️ Hopeless Romantic</div>
-        <div class="profile-tag">😂 Sarcasm</div>
+        <div class="profile-tag">
+          🤪 Funny
+        </div>
+
+        <div class="profile-tag">
+          💨 Questionable Air Quality
+        </div>
+
+        <div class="profile-tag">
+          ☕ Coffee
+        </div>
+
+        <div class="profile-tag">
+          🦷 Needs Cleaning
+        </div>
+
+        <div class="profile-tag">
+          ❤️ Hopeless Romantic
+        </div>
+
+        <div class="profile-tag">
+          😂 Sarcasm
+        </div>
 
       </div>
 
-      <button class="profile-message" id="bioMessageButton">
+
+      <button
+        type="button"
+        class="profile-message"
+        id="bioMessageButton"
+      >
         💬 MESSAGE HIM
       </button>
 
@@ -510,12 +2264,21 @@ display:flex;flex-direction:column;transition:transform .25s ease,opacity .25s e
 </div>
 
 
-<!-- BREANNA PROFILE -->
+<!-- =========================================================
+     BREANNA PROFILE
+========================================================= -->
+
 <div class="sheet" id="profileSheet">
 
   <div class="panel">
 
-    <button class="close" id="closeProfile">×</button>
+    <button
+      type="button"
+      class="close"
+      id="closeProfile"
+    >
+      ×
+    </button>
 
     <div class="profile-photo">
 
@@ -525,15 +2288,26 @@ display:flex;flex-direction:column;transition:transform .25s ease,opacity .25s e
       >
 
       <div class="profile-title">
-        <h1>Breanna</h1>
-        <p>Dental Receptionist 🦷</p>
+
+        <h1>
+          Breanna
+        </h1>
+
+        <p>
+          Dental Receptionist 🦷
+        </p>
+
       </div>
 
     </div>
 
+
     <div class="profile-content">
 
-      <div class="label">ABOUT BREANNA</div>
+      <div class="label">
+        ABOUT BREANNA
+      </div>
+
 
       <div class="bio">
 
@@ -565,12 +2339,29 @@ display:flex;flex-direction:column;transition:transform .25s ease,opacity .25s e
 
       </div>
 
+
       <div class="profile-tags">
-        <div class="profile-tag">🦷 Dental Hygiene</div>
-        <div class="profile-tag">😂 Sarcasm</div>
-        <div class="profile-tag">☕ Coffee</div>
-        <div class="profile-tag">❤️ Dating</div>
-        <div class="profile-tag">🤪 Silly People Welcome</div>
+
+        <div class="profile-tag">
+          🦷 Dental Hygiene
+        </div>
+
+        <div class="profile-tag">
+          😂 Sarcasm
+        </div>
+
+        <div class="profile-tag">
+          ☕ Coffee
+        </div>
+
+        <div class="profile-tag">
+          ❤️ Dating
+        </div>
+
+        <div class="profile-tag">
+          🤪 Silly People Welcome
+        </div>
+
       </div>
 
     </div>
@@ -580,44 +2371,78 @@ display:flex;flex-direction:column;transition:transform .25s ease,opacity .25s e
 </div>
 
 
-<!-- X-RAY -->
+<!-- =========================================================
+     DENTAL X-RAY
+========================================================= -->
+
 <div id="xrayScreen">
 
-  <div class="xray-label">BREUMBLE DENTAL DISCOVERY</div>
+  <div class="xray-label">
+    BREUMBLE DENTAL DISCOVERY
+  </div>
+
 
   <div class="dental-xray">
 
+    <div class="mouth-shape"></div>
+
+    <div class="mouth-opening"></div>
+
+    <div class="gum-upper"></div>
+
+    <div class="gum-lower"></div>
+
+    <div class="tongue"></div>
+
+
     <div class="scan-glow"></div>
+
     <div class="scan-line"></div>
+
 
     <div class="scan-bracket bracket1"></div>
     <div class="scan-bracket bracket2"></div>
     <div class="scan-bracket bracket3"></div>
     <div class="scan-bracket bracket4"></div>
 
-    <div class="jaw-upper"></div>
-    <div class="mouth-cavity"></div>
-    <div class="jaw-lower"></div>
 
     <div id="teeth"></div>
+
 
     <div class="dental-mirror"></div>
 
   </div>
 
-  <div class="xray-title" id="xrayTitle">
+
+  <div
+    class="xray-title"
+    id="xrayTitle"
+  >
     DENTAL MATCH SCANNER
   </div>
 
-  <div class="xray-status" id="xrayStatus">
+
+  <div
+    class="xray-status"
+    id="xrayStatus"
+  >
     Preparing X-ray...
   </div>
 
-  <div class="xray-result" id="xrayResult">
+
+  <div
+    class="xray-result"
+    id="xrayResult"
+  >
     Searching for cavities, red flags & compatible smiles ❤️
   </div>
 
-  <button class="xray-close" id="xrayClose">
+
+  <button
+    type="button"
+    class="xray-close"
+    id="xrayClose"
+  >
     BACK TO DISCOVER
   </button>
 
@@ -626,9 +2451,9 @@ display:flex;flex-direction:column;transition:transform .25s ease,opacity .25s e
 
 <script>
 
-/* =========================
+/* =========================================================
    CONFIG
-========================= */
+========================================================= */
 
 const BREANNA_IMAGE =
 "https://raw.githubusercontent.com/crypto1292/Breumble/main/IMG_5053.jpeg";
@@ -637,7 +2462,7 @@ const GUY_IMAGE =
 "stinky-guy.JPEG";
 
 
-const person = {
+const person={
   name:"Mr. Stinky",
   age:32,
   job:"Professional Appointment Avoider",
@@ -650,41 +2475,54 @@ let swipeBusy=false;
 let chatOpen=false;
 
 
-/* =========================
+/* =========================================================
    ELEMENTS
-========================= */
+========================================================= */
 
-const welcome=document.getElementById("welcome");
-const deck=document.getElementById("deck");
-const counter=document.getElementById("counter");
+const welcome=
+document.getElementById("welcome");
+
+const deck=
+document.getElementById("deck");
+
+const counter=
+document.getElementById("counter");
 
 
-/* =========================
+/* =========================================================
    START
-========================= */
+========================================================= */
 
-document.getElementById("startButton").onclick=()=>{
+document
+.getElementById("startButton")
+.addEventListener("click",()=>{
 
   welcome.classList.add("hide");
 
   setTimeout(()=>{
+
     welcome.style.display="none";
+
   },350);
 
-};
+});
 
 
-/* =========================
+/* =========================================================
    CARD
-========================= */
+========================================================= */
 
 function renderCard(){
 
   deck.innerHTML="";
 
-  const card=document.createElement("div");
+
+  const card=
+  document.createElement("div");
+
 
   card.className="card";
+
 
   card.innerHTML=`
 
@@ -696,6 +2534,7 @@ function renderCard(){
       >
 
     </div>
+
 
     <div class="card-info">
 
@@ -715,9 +2554,11 @@ function renderCard(){
 
       </div>
 
+
       <div class="card-job">
         ${person.job}
       </div>
+
 
       <div class="card-bio">
 
@@ -728,6 +2569,7 @@ function renderCard(){
         announcement. 😂🦷💨
 
       </div>
+
 
       <div class="tags">
 
@@ -746,7 +2588,9 @@ function renderCard(){
       </div>
 
     </div>
+
   `;
+
 
   enableSwipe(card);
 
@@ -757,79 +2601,107 @@ function renderCard(){
 }
 
 
-/* =========================
+/* =========================================================
    TOUCH SWIPE
-========================= */
+========================================================= */
 
 function enableSwipe(card){
 
   let startX=0;
   let deltaX=0;
 
-  card.addEventListener("touchstart",e=>{
 
-    if(swipeBusy)return;
+  card.addEventListener(
+    "touchstart",
+    e=>{
 
-    startX=e.touches[0].clientX;
+      if(swipeBusy)return;
 
-  },{passive:true});
+      startX=
+        e.touches[0].clientX;
 
-
-  card.addEventListener("touchmove",e=>{
-
-    if(swipeBusy)return;
-
-    deltaX=e.touches[0].clientX-startX;
-
-    card.style.transform=
-      `translateX(${deltaX}px) rotate(${deltaX/18}deg)`;
-
-  },{passive:true});
+    },
+    {passive:true}
+  );
 
 
-  card.addEventListener("touchend",()=>{
+  card.addEventListener(
+    "touchmove",
+    e=>{
 
-    if(swipeBusy)return;
+      if(swipeBusy)return;
 
-    if(Math.abs(deltaX)>100){
+      deltaX=
+        e.touches[0].clientX-startX;
 
-      finishSwipe(
-        deltaX>0 ? "silly":"stinky"
-      );
+      card.style.transform=
+        `translateX(${deltaX}px)
+         rotate(${deltaX/18}deg)`;
 
-    }else{
+    },
+    {passive:true}
+  );
 
-      card.style.transform="";
+
+  card.addEventListener(
+    "touchend",
+    ()=>{
+
+      if(swipeBusy)return;
+
+
+      if(Math.abs(deltaX)>100){
+
+        finishSwipe(
+          deltaX>0
+          ?"silly"
+          :"stinky"
+        );
+
+      }
+      else{
+
+        card.style.transform="";
+
+      }
+
+
+      deltaX=0;
 
     }
-
-    deltaX=0;
-
-  });
+  );
 
 }
 
 
-/* =========================
-   BUTTON SWIPES
-========================= */
+/* =========================================================
+   ACTION BUTTONS
+========================================================= */
 
-document.getElementById("sillyButton").onclick=()=>{
+document
+.getElementById("sillyButton")
+.addEventListener("click",()=>{
   finishSwipe("silly");
-};
+});
 
-document.getElementById("stinkyButton").onclick=()=>{
+
+document
+.getElementById("stinkyButton")
+.addEventListener("click",()=>{
   finishSwipe("stinky");
-};
+});
 
-document.getElementById("supaButton").onclick=()=>{
+
+document
+.getElementById("supaButton")
+.addEventListener("click",()=>{
   finishSwipe("supa");
-};
+});
 
 
-/* =========================
-   SWIPE RESULT
-========================= */
+/* =========================================================
+   SWIPE
+========================================================= */
 
 function finishSwipe(type){
 
@@ -837,7 +2709,10 @@ function finishSwipe(type){
 
   swipeBusy=true;
 
-  const card=deck.querySelector(".card");
+
+  const card=
+    deck.querySelector(".card");
+
 
   if(card){
 
@@ -846,8 +2721,8 @@ function finishSwipe(type){
 
     card.style.transform=
       type==="stinky"
-      ? "translateX(-1100px) rotate(-25deg)"
-      : "translateX(1100px) rotate(25deg)";
+      ?"translateX(-1100px) rotate(-25deg)"
+      :"translateX(1100px) rotate(25deg)";
 
     card.style.opacity="0";
 
@@ -860,10 +2735,12 @@ function finishSwipe(type){
 
     showFlash("sillyMode");
 
+
     setTimeout(()=>{
 
-      document.getElementById("matchScreen")
-        .classList.add("show");
+      document
+      .getElementById("matchScreen")
+      .classList.add("show");
 
     },850);
 
@@ -895,13 +2772,14 @@ function finishSwipe(type){
 }
 
 
-/* =========================
+/* =========================================================
    FLASH
-========================= */
+========================================================= */
 
 function showFlash(id){
 
-  const el=document.getElementById(id);
+  const el=
+    document.getElementById(id);
 
   el.classList.remove("active");
 
@@ -912,146 +2790,178 @@ function showFlash(id){
 }
 
 
-/* =========================
+/* =========================================================
    MATCH SCREEN
-========================= */
+========================================================= */
 
-document.getElementById("closeMatchButton").onclick=()=>{
+document
+.getElementById("closeMatchButton")
+.addEventListener("click",()=>{
 
-  document.getElementById("matchScreen")
-    .classList.remove("show");
+  document
+  .getElementById("matchScreen")
+  .classList.remove("show");
 
-};
-
-
-document.getElementById("openChatButton").onclick=()=>{
-
-  document.getElementById("matchScreen")
-    .classList.remove("show");
-
-  openChat();
-
-};
+});
 
 
-/* =========================
-   FULL BIO
-========================= */
+/*
+  IMPORTANT:
+  This button now has a real event listener
+  and the profile sheet is ABOVE the match screen.
+*/
 
-document.getElementById("viewMatchBio").onclick=()=>{
+document
+.getElementById("viewMatchBio")
+.addEventListener("click",e=>{
 
-  document.getElementById("matchBioSheet")
-    .classList.add("open");
-
-};
-
-
-document.getElementById("closeMatchBio").onclick=()=>{
-
-  document.getElementById("matchBioSheet")
-    .classList.remove("open");
-
-};
+  e.preventDefault();
+  e.stopPropagation();
 
 
-document.getElementById("bioMessageButton").onclick=()=>{
+  document
+  .getElementById("matchBioSheet")
+  .classList.add("open");
 
-  document.getElementById("matchBioSheet")
-    .classList.remove("open");
+});
 
-  document.getElementById("matchScreen")
-    .classList.remove("show");
+
+document
+.getElementById("openChatButton")
+.addEventListener("click",()=>{
+
+  document
+  .getElementById("matchScreen")
+  .classList.remove("show");
 
   openChat();
 
-};
+});
 
 
-/* =========================
+/* =========================================================
+   MATCH BIO
+========================================================= */
+
+document
+.getElementById("closeMatchBio")
+.addEventListener("click",()=>{
+
+  document
+  .getElementById("matchBioSheet")
+  .classList.remove("open");
+
+});
+
+
+document
+.getElementById("bioMessageButton")
+.addEventListener("click",()=>{
+
+  document
+  .getElementById("matchBioSheet")
+  .classList.remove("open");
+
+  document
+  .getElementById("matchScreen")
+  .classList.remove("show");
+
+  openChat();
+
+});
+
+
+/* =========================================================
    BREANNA PROFILE
-========================= */
+========================================================= */
 
-document.getElementById("profileButton").onclick=()=>{
+document
+.getElementById("profileButton")
+.addEventListener("click",()=>{
 
-  document.getElementById("profileSheet")
-    .classList.add("open");
+  document
+  .getElementById("profileSheet")
+  .classList.add("open");
 
-};
-
-
-document.getElementById("headerProfile").onclick=()=>{
-
-  document.getElementById("profileSheet")
-    .classList.add("open");
-
-};
+});
 
 
-document.getElementById("closeProfile").onclick=()=>{
+document
+.getElementById("headerProfile")
+.addEventListener("click",()=>{
 
-  document.getElementById("profileSheet")
-    .classList.remove("open");
+  document
+  .getElementById("profileSheet")
+  .classList.add("open");
 
-};
+});
 
 
-/* =========================
+document
+.getElementById("closeProfile")
+.addEventListener("click",()=>{
+
+  document
+  .getElementById("profileSheet")
+  .classList.remove("open");
+
+});
+
+
+/* =========================================================
    LIKES
-========================= */
+========================================================= */
 
-document.getElementById("likesButton").onclick=()=>{
+document
+.getElementById("likesButton")
+.addEventListener("click",()=>{
 
   if(currentMatch){
 
-    document.getElementById("matchScreen")
-      .classList.add("show");
+    document
+    .getElementById("matchScreen")
+    .classList.add("show");
 
-  }else{
+  }
+  else{
 
-    showToast("No SILLY matches yet 🤪");
+    showToast(
+      "No SILLY matches yet 🤪"
+    );
 
   }
 
-};
+});
 
 
-/* =========================
+/* =========================================================
    TOAST
-========================= */
+========================================================= */
 
 function showToast(message){
 
-  const toast=document.createElement("div");
+  const toast=
+    document.createElement("div");
+
+  toast.className="toast";
 
   toast.textContent=message;
 
-  toast.style.cssText=`
-    position:fixed;
-    left:50%;
-    bottom:105px;
-    transform:translateX(-50%);
-    z-index:999999;
-    background:#242424;
-    color:#fff;
-    padding:13px 18px;
-    border-radius:999px;
-    font-size:12px;
-    font-weight:900;
-    box-shadow:0 10px 30px #000;
-  `;
-
   document.body.appendChild(toast);
 
+
   setTimeout(()=>{
+
     toast.remove();
+
   },1800);
 
 }
 
 
-/* =========================
+/* =========================================================
    CHAT
-========================= */
+========================================================= */
 
 function openChat(){
 
@@ -1059,17 +2969,24 @@ function openChat(){
 
   chatOpen=true;
 
-  const chat=document.createElement("div");
+
+  const chat=
+    document.createElement("div");
 
   chat.id="chatScreen";
+
 
   chat.innerHTML=`
 
     <div class="chat-header">
 
-      <button class="chat-back" id="chatBack">
+      <button
+        class="chat-back"
+        id="chatBack"
+      >
         ‹
       </button>
+
 
       <img
         class="chat-avatar"
@@ -1077,15 +2994,22 @@ function openChat(){
         alt="${person.name}"
       >
 
+
       <div class="chat-person">
 
-        <strong>${person.name}</strong>
+        <strong>
+          ${person.name}
+        </strong>
 
-        <div class="chat-status" id="chatStatus">
+        <div
+          class="chat-status"
+          id="chatStatus"
+        >
           ● Active now
         </div>
 
       </div>
+
 
       <button class="chat-more">
         ⋯
@@ -1094,7 +3018,10 @@ function openChat(){
     </div>
 
 
-    <div class="chat-messages" id="chatMessages">
+    <div
+      class="chat-messages"
+      id="chatMessages"
+    >
 
       <div class="chat-day">
         MATCHED JUST NOW
@@ -1103,10 +3030,17 @@ function openChat(){
     </div>
 
 
-    <div class="typing-row" id="typingRow">
+    <div
+      class="typing-row"
+      id="typingRow"
+    >
 
       <div class="typing">
-        <i></i><i></i><i></i>
+
+        <i></i>
+        <i></i>
+        <i></i>
+
       </div>
 
     </div>
@@ -1142,13 +3076,18 @@ function openChat(){
         placeholder="Message ${person.name}..."
       >
 
-      <button class="chat-send" id="chatSend">
+
+      <button
+        class="chat-send"
+        id="chatSend"
+      >
         ➤
       </button>
 
     </div>
 
   `;
+
 
   document.body.appendChild(chat);
 
@@ -1168,14 +3107,16 @@ function openChat(){
 
   function addMessage(text,who){
 
-    const row=document.createElement("div");
+    const row=
+      document.createElement("div");
 
     row.className=
       "message-row"+
       (who==="mine"?" mine":"");
 
 
-    const bubble=document.createElement("div");
+    const bubble=
+      document.createElement("div");
 
     bubble.className=
       "message "+
@@ -1204,7 +3145,8 @@ function openChat(){
 
   function smartReply(text){
 
-    const t=text.toLowerCase();
+    const t=
+      text.toLowerCase();
 
 
     if(/\b(hi|hey|hello|hiya)\b/.test(t)){
@@ -1325,7 +3267,9 @@ function openChat(){
   function random(arr){
 
     return arr[
-      Math.floor(Math.random()*arr.length)
+      Math.floor(
+        Math.random()*arr.length
+      )
     ];
 
   }
@@ -1333,9 +3277,11 @@ function openChat(){
 
   function send(){
 
-    const text=input.value.trim();
+    const text=
+      input.value.trim();
 
     if(!text)return;
+
 
     addMessage(text,"mine");
 
@@ -1343,20 +3289,26 @@ function openChat(){
 
     typing.classList.add("show");
 
-    status.textContent="● Typing...";
+    status.textContent=
+      "● Typing...";
 
 
-    const delay=Math.min(
-      2800,
-      Math.max(900,650+text.length*24)
-    );
+    const delay=
+      Math.min(
+        2800,
+        Math.max(
+          900,
+          650+text.length*24
+        )
+      );
 
 
     setTimeout(()=>{
 
       typing.classList.remove("show");
 
-      status.textContent="● Active now";
+      status.textContent=
+        "● Active now";
 
       addMessage(
         smartReply(text),
@@ -1368,45 +3320,55 @@ function openChat(){
   }
 
 
-  document.getElementById("chatSend").onclick=send;
+  document
+  .getElementById("chatSend")
+  .addEventListener("click",send);
 
 
-  input.addEventListener("keydown",e=>{
+  input.addEventListener(
+    "keydown",
+    e=>{
 
-    if(e.key==="Enter"){
+      if(e.key==="Enter"){
 
-      e.preventDefault();
+        e.preventDefault();
 
-      send();
+        send();
+
+      }
 
     }
-
-  });
+  );
 
 
   document
-    .querySelectorAll(".chat-suggestion")
-    .forEach(button=>{
+  .querySelectorAll(".chat-suggestion")
+  .forEach(button=>{
 
-      button.onclick=()=>{
+    button.addEventListener(
+      "click",
+      ()=>{
 
         input.value=
           button.textContent.trim();
 
         send();
 
-      };
+      }
+    );
 
-    });
+  });
 
 
-  document.getElementById("chatBack").onclick=()=>{
+  document
+  .getElementById("chatBack")
+  .addEventListener("click",()=>{
 
     chat.remove();
 
     chatOpen=false;
 
-  };
+  });
 
 
   setTimeout(()=>{
@@ -1419,14 +3381,17 @@ function openChat(){
   },700);
 
 
-  setTimeout(()=>input.focus(),900);
+  setTimeout(
+    ()=>input.focus(),
+    900
+  );
 
 }
 
 
-/* =========================
-   X-RAY TEETH
-========================= */
+/* =========================================================
+   CREATE REALISTIC X-RAY TEETH
+========================================================= */
 
 function createTeeth(){
 
@@ -1436,45 +3401,81 @@ function createTeeth(){
   container.innerHTML="";
 
 
-  for(let row=0;row<2;row++){
+  /*
+    Upper teeth
+  */
 
-    for(let i=0;i<12;i++){
+  for(let i=0;i<12;i++){
 
-      const tooth=
-        document.createElement("div");
+    const tooth=
+      document.createElement("div");
 
-      tooth.className=
-        row===0
-        ? "tooth"
-        : "tooth lower";
-
-
-      tooth.style.left=
-        (22+(i*4.9))+"%";
+    tooth.className="tooth";
 
 
-      tooth.style.top=
-        row===0
-        ? (23+Math.abs(5.5-i)*1.2)+"%"
-        : (61+Math.abs(5.5-i)*1.2)+"%";
+    const x=
+      22+(i*4.9);
+
+    const curve=
+      Math.abs(5.5-i)*1.2;
 
 
-      container.appendChild(tooth);
+    tooth.style.left=
+      x+"%";
 
-    }
+    tooth.style.top=
+      (25+curve)+"%";
+
+
+    container.appendChild(tooth);
+
+  }
+
+
+  /*
+    Lower teeth
+  */
+
+  for(let i=0;i<12;i++){
+
+    const tooth=
+      document.createElement("div");
+
+    tooth.className=
+      "tooth lower";
+
+
+    const x=
+      22+(i*4.9);
+
+    const curve=
+      Math.abs(5.5-i)*1.2;
+
+
+    tooth.style.left=
+      x+"%";
+
+    tooth.style.top=
+      (60-curve)+"%";
+
+
+    container.appendChild(tooth);
 
   }
 
 }
 
+
 createTeeth();
 
 
-/* =========================
+/* =========================================================
    X-RAY
-========================= */
+========================================================= */
 
-document.getElementById("discoverButton").onclick=()=>{
+document
+.getElementById("discoverButton")
+.addEventListener("click",()=>{
 
   const screen=
     document.getElementById("xrayScreen");
@@ -1507,7 +3508,9 @@ document.getElementById("discoverButton").onclick=()=>{
 
 
   teeth.forEach(t=>{
+
     t.classList.remove("checked");
+
   });
 
 
@@ -1536,26 +3539,31 @@ document.getElementById("discoverButton").onclick=()=>{
   ];
 
 
-  messages.forEach((message,i)=>{
+  messages.forEach(
+    (message,i)=>{
 
-    setTimeout(()=>{
+      setTimeout(()=>{
 
-      status.textContent=message;
+        status.textContent=
+          message;
 
-    },300+i*300);
+      },300+i*300);
 
-  });
+    }
+  );
 
 
-  teeth.forEach((tooth,i)=>{
+  teeth.forEach(
+    (tooth,i)=>{
 
-    setTimeout(()=>{
+      setTimeout(()=>{
 
-      tooth.classList.add("checked");
+        tooth.classList.add("checked");
 
-    },500+i*110);
+      },500+i*110);
 
-  });
+    }
+  );
 
 
   setTimeout(()=>{
@@ -1579,24 +3587,32 @@ document.getElementById("discoverButton").onclick=()=>{
 
   },4550);
 
-};
+});
 
 
-document.getElementById("xrayClose").onclick=()=>{
+/* =========================================================
+   CLOSE X-RAY
+========================================================= */
 
-  document.getElementById("xrayScreen")
-    .classList.remove("show");
+document
+.getElementById("xrayClose")
+.addEventListener("click",()=>{
 
-};
+  document
+  .getElementById("xrayScreen")
+  .classList.remove("show");
+
+});
 
 
-/* =========================
+/* =========================================================
    ESCAPE HTML
-========================= */
+========================================================= */
 
 function escapeHTML(text){
 
-  const div=document.createElement("div");
+  const div=
+    document.createElement("div");
 
   div.textContent=text;
 
@@ -1605,29 +3621,33 @@ function escapeHTML(text){
 }
 
 
-/* =========================
-   CLOSE SHEETS WHEN TAPPING
-   OUTSIDE PANEL
-========================= */
+/* =========================================================
+   CLOSE SHEETS BY TAPPING OUTSIDE
+========================================================= */
 
-document.querySelectorAll(".sheet").forEach(sheet=>{
+document
+.querySelectorAll(".sheet")
+.forEach(sheet=>{
 
-  sheet.addEventListener("click",e=>{
+  sheet.addEventListener(
+    "click",
+    e=>{
 
-    if(e.target===sheet){
+      if(e.target===sheet){
 
-      sheet.classList.remove("open");
+        sheet.classList.remove("open");
+
+      }
 
     }
-
-  });
+  );
 
 });
 
 
-/* =========================
-   INITIAL CARD
-========================= */
+/* =========================================================
+   INITIAL PROFILE
+========================================================= */
 
 renderCard();
 
