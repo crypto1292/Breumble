@@ -705,7 +705,6 @@ button{
 
 /* =========================================================
    PROFILE SHEETS
-   IMPORTANT: HIGH Z-INDEX FIX
 ========================================================= */
 
 .sheet{
@@ -1202,9 +1201,6 @@ button{
   margin-bottom:8px;
 }
 
-
-/* X-RAY FRAME */
-
 .dental-xray{
   position:relative;
   width:min(91vw,410px);
@@ -1212,12 +1208,6 @@ button{
   border:3px solid #555;
   border-radius:22px;
   overflow:hidden;
-
-  /*
-    Dark radiographic background
-    with a soft mouth-shaped glow.
-  */
-
   background:
     radial-gradient(
       ellipse at 50% 48%,
@@ -1226,39 +1216,19 @@ button{
       rgba(90,90,90,.08) 42%,
       rgba(0,0,0,.9) 76%
     );
-
   box-shadow:
     0 0 22px rgba(255,255,255,.3),
     0 0 70px rgba(255,255,255,.08),
     inset 0 0 70px #000;
-
   animation:xrayFlicker 2.4s infinite;
 }
 
 @keyframes xrayFlicker{
-
-  0%,100%{
-    filter:brightness(1);
-  }
-
-  47%{
-    filter:brightness(1.08);
-  }
-
-  49%{
-    filter:brightness(.85);
-  }
-
-  51%{
-    filter:brightness(1.12);
-  }
-
+  0%,100%{filter:brightness(1)}
+  47%{filter:brightness(1.08)}
+  49%{filter:brightness(.85)}
+  51%{filter:brightness(1.12)}
 }
-
-
-/* =========================================================
-   NORMAL MOUTH / PINK GUMS
-========================================================= */
 
 .mouth-shape{
   position:absolute;
@@ -1279,9 +1249,6 @@ button{
     inset 0 0 35px #000;
 }
 
-
-/* UPPER GUM */
-
 .gum-upper{
   position:absolute;
   z-index:3;
@@ -1289,11 +1256,7 @@ button{
   right:12%;
   top:17%;
   height:31%;
-
-  border-radius:
-    48% 48%
-    30% 30%;
-
+  border-radius:48% 48% 30% 30%;
   background:
     linear-gradient(
       180deg,
@@ -1302,14 +1265,10 @@ button{
       #d75d72 63%,
       #8f3e50 100%
     );
-
   box-shadow:
     0 0 12px rgba(255,150,165,.55),
     inset 0 -15px 20px rgba(80,0,20,.35);
 }
-
-
-/* LOWER GUM */
 
 .gum-lower{
   position:absolute;
@@ -1318,11 +1277,7 @@ button{
   right:13%;
   bottom:16%;
   height:29%;
-
-  border-radius:
-    30% 30%
-    48% 48%;
-
+  border-radius:30% 30% 48% 48%;
   background:
     linear-gradient(
       180deg,
@@ -1331,14 +1286,10 @@ button{
       #f18e9c 70%,
       #ffd0d0 100%
     );
-
   box-shadow:
     0 0 12px rgba(255,150,165,.45),
     inset 0 15px 20px rgba(80,0,20,.3);
 }
-
-
-/* DARK MOUTH OPENING */
 
 .mouth-opening{
   position:absolute;
@@ -1355,27 +1306,15 @@ button{
       #0d0508 55%,
       #000 100%
     );
-
-  box-shadow:
-    inset 0 0 40px #000;
+  box-shadow:inset 0 0 40px #000;
 }
-
-
-/* =========================================================
-   WHITE TEETH
-========================================================= */
 
 .tooth{
   position:absolute;
   z-index:7;
-
   width:23px;
   height:39px;
-
-  border-radius:
-    42% 42%
-    48% 48%;
-
+  border-radius:42% 42% 48% 48%;
   background:
     linear-gradient(
       90deg,
@@ -1385,30 +1324,17 @@ button{
       #d9d9d9 82%,
       #a7a7a7 100%
     );
-
   border:1px solid #fff;
-
   box-shadow:
     0 0 5px rgba(255,255,255,.8),
     0 0 13px rgba(255,255,255,.35),
     inset -3px 0 4px rgba(100,100,100,.35);
-
-  transition:
-    .35s
-    transform,
-    .35s
-    box-shadow,
-    .35s
-    background;
+  transition:.35s transform,.35s box-shadow,.35s background;
 }
 
 .tooth.lower{
   height:35px;
-
-  border-radius:
-    48% 48%
-    42% 42%;
-
+  border-radius:48% 48% 42% 42%;
   background:
     linear-gradient(
       90deg,
@@ -1419,9 +1345,6 @@ button{
       #a0a0a0 100%
     );
 }
-
-
-/* LITTLE TOOTH ROOT SHADOWS */
 
 .tooth:before{
   content:"";
@@ -1435,9 +1358,6 @@ button{
   opacity:.35;
 }
 
-
-/* SCANNED TOOTH */
-
 .tooth.checked{
   background:
     linear-gradient(
@@ -1446,13 +1366,10 @@ button{
       #fff9a6,
       #f4c542
     );
-
   border-color:#fff;
-
   box-shadow:
     0 0 8px #fff,
     0 0 22px var(--yellow);
-
   transform:scale(1.13);
 }
 
@@ -1460,20 +1377,13 @@ button{
   content:"✓";
   position:absolute;
   inset:0;
-
   display:flex;
   align-items:center;
   justify-content:center;
-
   color:#111;
   font-size:11px;
   font-weight:1000;
 }
-
-
-/* =========================================================
-   TONGUE
-========================================================= */
 
 .tongue{
   position:absolute;
@@ -1482,11 +1392,7 @@ button{
   right:29%;
   bottom:19%;
   height:20%;
-
-  border-radius:
-    50% 50%
-    48% 48%;
-
+  border-radius:50% 50% 48% 48%;
   background:
     radial-gradient(
       ellipse at 50% 35%,
@@ -1494,51 +1400,32 @@ button{
       #813546 70%,
       #3a101c
     );
-
   opacity:.8;
-
-  box-shadow:
-    inset 0 8px 15px rgba(255,180,190,.18);
+  box-shadow:inset 0 8px 15px rgba(255,180,190,.18);
 }
-
-
-/* =========================================================
-   X-RAY SCAN LINE
-========================================================= */
 
 .scan-line{
   position:absolute;
   z-index:30;
-
   left:0;
   right:0;
-
   top:-12px;
-
   height:7px;
-
   background:var(--yellow);
-
   box-shadow:
     0 0 10px #fff,
     0 0 25px var(--yellow),
     0 0 50px var(--yellow);
-
-  animation:
-    scanMouth 3.8s linear infinite;
+  animation:scanMouth 3.8s linear infinite;
 }
 
 .scan-glow{
   position:absolute;
   z-index:29;
-
   left:0;
   right:0;
-
   top:-40px;
-
   height:80px;
-
   background:
     linear-gradient(
       transparent,
@@ -1546,125 +1433,72 @@ button{
       #f4c54212,
       transparent
     );
-
-  animation:
-    scanMouth 3.8s linear infinite;
+  animation:scanMouth 3.8s linear infinite;
 }
 
 @keyframes scanMouth{
-
-  0%{
-    top:4%;
-  }
-
-  100%{
-    top:96%;
-  }
-
+  0%{top:4%}
+  100%{top:96%}
 }
-
-
-/* =========================================================
-   DENTAL MIRROR
-========================================================= */
 
 .dental-mirror{
   position:absolute;
   z-index:35;
-
   left:8%;
   top:31%;
-
   width:54px;
   height:54px;
-
   border:5px solid #bbb;
   border-radius:50%;
-
   background:
     radial-gradient(
       circle,
       rgba(255,255,255,.65),
       rgba(160,160,160,.15)
     );
-
   box-shadow:
     0 0 12px #fff,
     0 0 30px #fff5;
-
-  animation:
-    mirrorInspect 4.2s infinite ease-in-out;
+  animation:mirrorInspect 4.2s infinite ease-in-out;
 }
 
 .dental-mirror:after{
   content:"";
-
   position:absolute;
-
   width:85px;
   height:7px;
-
   right:-74px;
   bottom:-42px;
-
   background:#aaa;
-
   transform:rotate(48deg);
-
   border-radius:10px;
-
-  box-shadow:
-    0 0 4px #fff;
+  box-shadow:0 0 4px #fff;
 }
 
 @keyframes mirrorInspect{
-
   0%{
-    transform:
-      translate(0,0)
-      rotate(-18deg);
+    transform:translate(0,0) rotate(-18deg);
   }
-
   25%{
-    transform:
-      translate(165px,25px)
-      rotate(12deg);
+    transform:translate(165px,25px) rotate(12deg);
   }
-
   50%{
-    transform:
-      translate(225px,115px)
-      rotate(28deg);
+    transform:translate(225px,115px) rotate(28deg);
   }
-
   75%{
-    transform:
-      translate(90px,230px)
-      rotate(-10deg);
+    transform:translate(90px,230px) rotate(-10deg);
   }
-
   100%{
-    transform:
-      translate(0,0)
-      rotate(-18deg);
+    transform:translate(0,0) rotate(-18deg);
   }
-
 }
-
-
-/* =========================================================
-   X-RAY CORNERS
-========================================================= */
 
 .scan-bracket{
   position:absolute;
   z-index:40;
-
   width:28px;
   height:28px;
-
   border:3px solid var(--yellow);
-
   opacity:.75;
 }
 
@@ -1695,11 +1529,6 @@ button{
   border-left:0;
   border-top:0;
 }
-
-
-/* =========================================================
-   X-RAY TEXT
-========================================================= */
 
 .xray-title{
   margin-top:13px;
@@ -1998,17 +1827,9 @@ button{
 
   <div class="stinky-character">
 
-    <div class="stinky-cloud cloud1">
-      💨
-    </div>
-
-    <div class="stinky-cloud cloud2">
-      💨
-    </div>
-
-    <div class="stinky-cloud cloud3">
-      💨
-    </div>
+    <div class="stinky-cloud cloud1">💨</div>
+    <div class="stinky-cloud cloud2">💨</div>
+    <div class="stinky-cloud cloud3">💨</div>
 
     <div class="smell-line line1"></div>
     <div class="smell-line line2"></div>
@@ -2085,9 +1906,6 @@ button{
     The smile passed inspection. 🦷
   </div>
 
-
-  <!-- FIXED CLICKABLE BUTTON -->
-
   <button
     type="button"
     class="match-bio-button"
@@ -2096,7 +1914,6 @@ button{
     👀 VIEW FULL BIO
   </button>
 
-
   <button
     type="button"
     class="match-chat"
@@ -2104,7 +1921,6 @@ button{
   >
     💬 START CONVERSATION
   </button>
-
 
   <button
     type="button"
@@ -2160,7 +1976,6 @@ button{
       <div class="label">
         HIS FULL BIO
       </div>
-
 
       <div class="bio">
 
@@ -2222,29 +2037,12 @@ button{
 
       <div class="profile-tags">
 
-        <div class="profile-tag">
-          🤪 Funny
-        </div>
-
-        <div class="profile-tag">
-          💨 Questionable Air Quality
-        </div>
-
-        <div class="profile-tag">
-          ☕ Coffee
-        </div>
-
-        <div class="profile-tag">
-          🦷 Needs Cleaning
-        </div>
-
-        <div class="profile-tag">
-          ❤️ Hopeless Romantic
-        </div>
-
-        <div class="profile-tag">
-          😂 Sarcasm
-        </div>
+        <div class="profile-tag">🤪 Funny</div>
+        <div class="profile-tag">💨 Questionable Air Quality</div>
+        <div class="profile-tag">☕ Coffee</div>
+        <div class="profile-tag">🦷 Needs Cleaning</div>
+        <div class="profile-tag">❤️ Hopeless Romantic</div>
+        <div class="profile-tag">😂 Sarcasm</div>
 
       </div>
 
@@ -2308,7 +2106,6 @@ button{
         ABOUT BREANNA
       </div>
 
-
       <div class="bio">
 
         Dental receptionist by day, professional
@@ -2342,25 +2139,11 @@ button{
 
       <div class="profile-tags">
 
-        <div class="profile-tag">
-          🦷 Dental Hygiene
-        </div>
-
-        <div class="profile-tag">
-          😂 Sarcasm
-        </div>
-
-        <div class="profile-tag">
-          ☕ Coffee
-        </div>
-
-        <div class="profile-tag">
-          ❤️ Dating
-        </div>
-
-        <div class="profile-tag">
-          🤪 Silly People Welcome
-        </div>
+        <div class="profile-tag">🦷 Dental Hygiene</div>
+        <div class="profile-tag">😂 Sarcasm</div>
+        <div class="profile-tag">☕ Coffee</div>
+        <div class="profile-tag">❤️ Dating</div>
+        <div class="profile-tag">🤪 Silly People Welcome</div>
 
       </div>
 
@@ -2381,62 +2164,40 @@ button{
     BREUMBLE DENTAL DISCOVERY
   </div>
 
-
   <div class="dental-xray">
 
     <div class="mouth-shape"></div>
-
     <div class="mouth-opening"></div>
-
     <div class="gum-upper"></div>
-
     <div class="gum-lower"></div>
-
     <div class="tongue"></div>
 
-
     <div class="scan-glow"></div>
-
     <div class="scan-line"></div>
-
 
     <div class="scan-bracket bracket1"></div>
     <div class="scan-bracket bracket2"></div>
     <div class="scan-bracket bracket3"></div>
     <div class="scan-bracket bracket4"></div>
 
-
     <div id="teeth"></div>
-
 
     <div class="dental-mirror"></div>
 
   </div>
 
 
-  <div
-    class="xray-title"
-    id="xrayTitle"
-  >
+  <div class="xray-title" id="xrayTitle">
     DENTAL MATCH SCANNER
   </div>
 
-
-  <div
-    class="xray-status"
-    id="xrayStatus"
-  >
+  <div class="xray-status" id="xrayStatus">
     Preparing X-ray...
   </div>
 
-
-  <div
-    class="xray-result"
-    id="xrayResult"
-  >
+  <div class="xray-result" id="xrayResult">
     Searching for cavities, red flags & compatible smiles ❤️
   </div>
-
 
   <button
     type="button"
@@ -2457,6 +2218,15 @@ button{
 
 const BREANNA_IMAGE =
 "https://raw.githubusercontent.com/crypto1292/Breumble/main/IMG_5053.jpeg";
+
+/*
+ IMPORTANT:
+ Keep this EXACTLY the same as the filename
+ in your GitHub repository.
+
+ If your file is named stinky-guy.JPEG,
+ use stinky-guy.JPEG here.
+*/
 
 const GUY_IMAGE =
 "stinky-guy.JPEG";
@@ -2602,14 +2372,21 @@ function renderCard(){
 
 
 /* =========================================================
-   TOUCH SWIPE
+   SWIPE + TAP PROFILE
 ========================================================= */
 
 function enableSwipe(card){
 
   let startX=0;
+  let startY=0;
   let deltaX=0;
+  let deltaY=0;
+  let moved=false;
 
+
+  /*
+    TOUCH START
+  */
 
   card.addEventListener(
     "touchstart",
@@ -2617,13 +2394,27 @@ function enableSwipe(card){
 
       if(swipeBusy)return;
 
+      const touch=
+        e.touches[0];
+
       startX=
-        e.touches[0].clientX;
+        touch.clientX;
+
+      startY=
+        touch.clientY;
+
+      deltaX=0;
+      deltaY=0;
+      moved=false;
 
     },
     {passive:true}
   );
 
+
+  /*
+    TOUCH MOVE
+  */
 
   card.addEventListener(
     "touchmove",
@@ -2631,17 +2422,42 @@ function enableSwipe(card){
 
       if(swipeBusy)return;
 
-      deltaX=
-        e.touches[0].clientX-startX;
+      const touch=
+        e.touches[0];
 
-      card.style.transform=
-        `translateX(${deltaX}px)
-         rotate(${deltaX/18}deg)`;
+      deltaX=
+        touch.clientX-startX;
+
+      deltaY=
+        touch.clientY-startY;
+
+
+      /*
+        Only move the card horizontally
+        when it is actually becoming a swipe.
+      */
+
+      if(
+        Math.abs(deltaX)>10 &&
+        Math.abs(deltaX)>Math.abs(deltaY)
+      ){
+
+        moved=true;
+
+        card.style.transform=
+          `translateX(${deltaX}px)
+           rotate(${deltaX/18}deg)`;
+
+      }
 
     },
     {passive:true}
   );
 
+
+  /*
+    TOUCH END
+  */
 
   card.addEventListener(
     "touchend",
@@ -2650,7 +2466,14 @@ function enableSwipe(card){
       if(swipeBusy)return;
 
 
-      if(Math.abs(deltaX)>100){
+      /*
+        REAL SWIPE
+      */
+
+      if(
+        moved &&
+        Math.abs(deltaX)>100
+      ){
 
         finishSwipe(
           deltaX>0
@@ -2659,6 +2482,29 @@ function enableSwipe(card){
         );
 
       }
+
+
+      /*
+        TAP
+        No meaningful horizontal movement.
+      */
+
+      else if(
+        !moved ||
+        Math.abs(deltaX)<25
+      ){
+
+        card.style.transform="";
+
+        openMatchProfile();
+
+      }
+
+
+      /*
+        Small drag that isn't a swipe.
+      */
+
       else{
 
         card.style.transform="";
@@ -2667,9 +2513,76 @@ function enableSwipe(card){
 
 
       deltaX=0;
+      deltaY=0;
+      moved=false;
 
     }
   );
+
+
+  /*
+    DESKTOP / MOUSE CLICK SUPPORT
+  */
+
+  card.addEventListener(
+    "click",
+    e=>{
+
+      /*
+        Prevent accidental profile opening
+        from controls if controls are added later.
+      */
+
+      if(
+        e.target.closest("button") ||
+        e.target.closest("input")
+      ){
+
+        return;
+
+      }
+
+      if(swipeBusy)return;
+
+      openMatchProfile();
+
+    }
+  );
+
+}
+
+
+/* =========================================================
+   OPEN FULL MATCH PROFILE
+========================================================= */
+
+function openMatchProfile(){
+
+  if(swipeBusy)return;
+
+
+  /*
+    Don't open the card profile over
+    the match screen.
+  */
+
+  const matchScreen=
+    document.getElementById("matchScreen");
+
+
+  if(
+    matchScreen &&
+    matchScreen.classList.contains("show")
+  ){
+
+    return;
+
+  }
+
+
+  document
+  .getElementById("matchBioSheet")
+  .classList.add("open");
 
 }
 
@@ -2719,10 +2632,12 @@ function finishSwipe(type){
     card.style.transition=
       "transform .45s ease,opacity .45s ease";
 
+
     card.style.transform=
       type==="stinky"
       ?"translateX(-1100px) rotate(-25deg)"
       :"translateX(1100px) rotate(25deg)";
+
 
     card.style.opacity="0";
 
@@ -2760,6 +2675,14 @@ function finishSwipe(type){
 
   }
 
+
+  /*
+    Put the SAME profile back after
+    the animation.
+
+    This means there is always another
+    copy of the exact same guy to swipe.
+  */
 
   setTimeout(()=>{
 
@@ -2806,9 +2729,7 @@ document
 
 
 /*
-  IMPORTANT:
-  This button now has a real event listener
-  and the profile sheet is ABOVE the match screen.
+  FULL BIO BUTTON
 */
 
 document
@@ -2816,6 +2737,7 @@ document
 .addEventListener("click",e=>{
 
   e.preventDefault();
+
   e.stopPropagation();
 
 
@@ -2825,6 +2747,10 @@ document
 
 });
 
+
+/*
+  START CONVERSATION
+*/
 
 document
 .getElementById("openChatButton")
@@ -3390,7 +3316,7 @@ function openChat(){
 
 
 /* =========================================================
-   CREATE REALISTIC X-RAY TEETH
+   CREATE X-RAY TEETH
 ========================================================= */
 
 function createTeeth(){
@@ -3400,10 +3326,6 @@ function createTeeth(){
 
   container.innerHTML="";
 
-
-  /*
-    Upper teeth
-  */
 
   for(let i=0;i<12;i++){
 
@@ -3432,17 +3354,12 @@ function createTeeth(){
   }
 
 
-  /*
-    Lower teeth
-  */
-
   for(let i=0;i<12;i++){
 
     const tooth=
       document.createElement("div");
 
-    tooth.className=
-      "tooth lower";
+    tooth.className="tooth lower";
 
 
     const x=
@@ -3508,9 +3425,7 @@ document
 
 
   teeth.forEach(t=>{
-
     t.classList.remove("checked");
-
   });
 
 
