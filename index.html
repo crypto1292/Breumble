@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#090909">
+<title>BREUMBLE</title>
+
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{
+ margin:0;background:#080808;color:white;
+ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+ height:100%;overflow:hidden
+}
+button{font:inherit;border:0}
+.app{
+ height:100dvh;max-width:520px;margin:auto;
+ display:flex;flex-direction:column;
+ background:radial-gradient(circle at 50% -10%,#382608,#090909 45%)
+}
+header{
+ height:72px;display:flex;align-items:center;
+ justify-content:space-between;padding:10px 15px
+}
+.logo{
+ font-size:29px;font-weight:1000;
+ letter-spacing:-2px
+}
+.logo b{color:#f4c542}
+.profile-mini{
+ display:flex;align-items:center;gap:8px;
+ font-size:11px;font-weight:800
+}
+.profile-mini img{
+ width:38px;height:38px;border-radius:50%;
+ object-fit:cover;border:2px solid #f4c542;
+ background:#222
+}
+.icon{
+ width:42px;height:42px;border-radius:50%;
+ background:#191919;color:white;font-size:20px
+}
+main{
+ flex:1;min-height:0;padding:5px 14px
+}
+.deck{
+ position:relative;height:100%
+}
+.card{
+ position:absolute;inset:0;
+ overflow:hidden;border-radius:28px;
+ background:#171717;
+ box-shadow:0 18px 45px #000;
+ touch-action:none;
+ user-select:none;
+ transition:transform .3s ease,opacity .3s ease
+}
+.card img{
+ width:100%;height:100%;
+ object-fit:cover
+}
+.card:after{
+ content:"";position:absolute;inset:0;
+ background:linear-gradient(
+  transparent 35%,
+  transparent 50%,
+  #000e 100%
+ )
+}
+.info{
+ position:absolute;z-index:3;
+ left:22px;right:22px;bottom:22px
+}
+.name{
+ font-size:30px;font-weight:900
+}
+.age{
+ font-size:20px;color:#ddd
+}
+.meta{
+ margin-top:7px;color:#eee;font-size:14px
+}
+.tag{
+ display:inline-block;
+ background:#ffffff22;
+ padding:6px 9px;
+ border-radius:20px;
+ margin:7px 4px 0 0;
+ font-size:11px;font-weight:800
+}
+.stamp{
+ position:absolute;z-index:5;top:35px;
+ padding:7px 13px;border:4px solid;
+ border-radius:10px;
+ font-size:27px;font-weight:1000;
+ opacity:0
+}
+.likeStamp{
+ left:20px;color:#45e58a;
+ border-color:#45e58a;
+ transform:rotate(-12deg)
+}
+.noStamp{
+ right:20px;color:#ff5263;
+ border-color:#ff5263;
+ transform:rotate(12deg)
+}
+.actions{
+ height:92px;display:flex;
+ justify-content:center;align-items:center;
+ gap:18px
+}
+.action{
+ border-radius:50%;
+ background:#191919;
+ display:grid;place-items:center;
+ box-shadow:0 8px 20px #0008
+}
+.pass{
+ width:62px;height:62px;
+ color:#ff5263;font-size:27px
+}
+.super{
+ width:52px;height:52px;
+ color:#55b9ff;font-size:23px
+}
+.like{
+ width:70px;height:70px;
+ color:#45e58a;font-size:31px
+}
+.action:active{
+ transform:scale(.88)
+}
+nav{
+ height:68px;display:flex;
+ border-top:1px solid #ffffff12;
+ background:#0c0c0cf5;
+ backdrop-filter:blur(20px)
+}
+nav button{
+ flex:1;background:none;color:#777;
+ font-size:11px;font-weight:800
+}
+nav button.active{color:white}
+nav span{
+ display:block;font-size:21px;margin-bottom:2px
+}
+.empty{
+ height:100%;display:grid;
+ place-items:center;text-align:center;
+ padding:30px
+}
+.empty h2{
+ font-size:29px;margin:8px 0
+}
+.empty p{color:#aaa}
+.reset{
+ padding:13px 20px;border-radius:99px;
+ background:#f4c542;color:#111;
+ font-weight:900
+}
+.sheet{
+ position:fixed;inset:0;
+ background:#0009;z-index:20;
+ display:none;align-items:flex-end
+}
+.sheet.open{display:flex}
+.panel{
+ width:100%;max-width:520px;margin:auto;
+ background:#151515;
+ border-radius:28px 28px 0 0;
+ padding:18px 20px 30px;
+ max-height:82dvh;overflow:auto
+}
+.panel h2{margin:4px 0 18px}
+.close{
+ float:right;width:34px;height:34px;
+ border-radius:50%;background:#292929;color:white
+}
+.profile-big{
+ display:block;width:105px;height:105px;
+ margin:4px auto 13px;
+ border-radius:50%;
+ object-fit:cover;
+ border:3px solid #f4c542;
+ background:#292929
+}
+.upload{
+ display:block;text-align:center;
+ background:#f4c542;color:#111;
+ font-weight:900;padding:14px;
+ border-radius:14px;margin-bottom:12px
+}
+input[type=file]{display:none}
+.field{
+ width:100%;padding:14px;
+ border-radius:13px;
+ border:1px solid #333;
+ background:#222;color:white;
+ font-size:16px;margin-bottom:10px
+}
+.save{
+ width:100%;padding:14px;
+ border-radius:14px;
+ background:white;color:#111;
+ font-weight:900
+}
+.list{display:grid;gap:10px}
+.liked{
+ display:flex;align-items:center;
+ gap:12px;background:#202020;
+ border-radius:15px;padding:8px
+}
+.liked img{
+ width:62px;height:72px;
+ object-fit:cover;border-radius:10px
+}
+.liked strong{font-size:17px}
+.liked small{
+ display:block;color:#999;margin-top:3px
+}
+.toast{
+ position:fixed;z-index:50;
+ left:50%;bottom:88px;
+ transform:translate(-50%,20px);
+ opacity:0;
+ background:white;color:#111;
+ padding:11px 16px;
+ border-radius:99px;
+ font-weight:900;
+ transition:.25s;
+ pointer-events:none
+}
+.toast.show{
+ opacity:1;
+ transform:translate(-50%,0)
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<header>
+
+<button class="icon" id="profileBtn">👤</button>
+
+<div class="logo">
+BREUM<b>BLE</b>
+</div>
+
+<div class="profile-mini">
+<span id="miniName">My Breumble</span>
+<img id="miniPhoto">
+</div>
+
+</header>
+
+<main>
+<div class="deck" id="deck"></div>
+</main>
+
+<div class="actions">
+
+<button class="action pass" id="passBtn">
+✕
+</button>
+
+<button class="action super" id="superBtn">
+★
+</button>
+
+<button class="action like" id="likeBtn">
+♥
+</button>
+
+</div>
+
+<nav>
+
+<button class="active" id="homeNav">
+<span>🔥</span>
+Discover
+</button>
+
+<button id="likesNav">
+<span>❤️</span>
+Breumbles
+</button>
+
+<button id="profileNav">
+<span>👤</span>
+Profile
+</button>
+
+</nav>
+
+</div>
+
+
+<!-- PROFILE -->
+
+<div class="sheet" id="profileSheet">
+
+<div class="panel">
+
+<button class="close" id="closeProfile">
+×
+</button>
+
+<h2>Your Breumble Profile</h2>
+
+<img class="profile-big" id="profileBig">
+
+<label class="upload" for="photoInput">
+📸 Upload Profile Photo
+</label>
+
+<input
+ id="photoInput"
+ type="file"
+ accept="image/*"
+>
+
+<input
+ class="field"
+ id="nameInput"
+ placeholder="Your name"
+>
+
+<button class="save" id="saveProfile">
+Save Profile
+</button>
+
+</div>
+
+</div>
+
+
+<!-- LIKES -->
+
+<div class="sheet" id="likesSheet">
+
+<div class="panel">
+
+<button class="close" id="closeLikes">
+×
+</button>
+
+<h2>❤️ My Breumbles</h2>
+
+<div class="list" id="likesList"></div>
+
+</div>
+
+</div>
+
+
+<div class="toast" id="toast"></div>
+
+
+<script>
+
+const actors=[
+
+[
+"Chris Evans",
+"43",
+"Captain America • Knives Out",
+"Chris_Evans"
+],
+
+[
+"Henry Cavill",
+"43",
+"Superman • The Witcher",
+"Henry_Cavill"
+],
+
+[
+"Michael B. Jordan",
+"39",
+"Creed • Black Panther",
+"Michael_B._Jordan"
+],
+
+[
+"Ryan Gosling",
+"45",
+"Barbie • La La Land",
+"Ryan_Gosling"
+],
+
+[
+"Chris Hemsworth",
+"42",
+"Thor • Extraction",
+"Chris_Hemsworth"
+],
+
+[
+"Pedro Pascal",
+"51",
+"The Last of Us • Gladiator II",
+"Pedro_Pascal"
+],
+
+[
+"Regé-Jean Page",
+"38",
+"Bridgerton • The Gray Man",
+"Regé-Jean_Page"
+],
+
+[
+"Dev Patel",
+"36",
+"Lion • Slumdog Millionaire",
+"Dev_Patel"
+],
+
+[
+"Jonathan Bailey",
+"38",
+"Bridgerton • Wicked",
+"Jonathan_Bailey"
+],
+
+[
+"Glen Powell",
+"37",
+"Anyone But You • Top Gun",
+"Glen_Powell"
+],
+
+[
+"Oscar Isaac",
+"47",
+"Dune • Ex Machina",
+"Oscar_Isaac"
+],
+
+[
+"Simu Liu",
+"37",
+"Shang-Chi • Barbie",
+"Simu_Liu"
+]
+
+];
+
+
+let index=
+Number(localStorage.getItem("breumbleIndex")||0);
+
+let liked=
+JSON.parse(
+localStorage.getItem("breumbleLiked")||"[]"
+);
+
+let profile=
+JSON.parse(
+localStorage.getItem("breumbleProfile")||
+'{"name":"","photo":""}'
+);
+
+
+const deck=
+document.getElementById("deck");
+
+const toast=
+document.getElementById("toast");
+
+const miniPhoto=
+document.getElementById("miniPhoto");
+
+const miniName=
+document.getElementById("miniName");
+
+const profileBig=
+document.getElementById("profileBig");
+
+const nameInput=
+document.getElementById("nameInput");
+
+
+function placeholder(name){
+
+const initials=
+name.split(" ")
+.map(x=>x[0])
+.join("");
+
+return "data:image/svg+xml;charset=UTF-8,"+
+encodeURIComponent(`
+
+<svg xmlns="http://www.w3.org/2000/svg"
+width="800" height="1100">
+
+<defs>
+
+<linearGradient id="g"
+x1="0" x2="1" y1="0" y2="1">
+
+<stop stop-color="#3a2508"/>
+
+<stop offset=".5"
+stop-color="#111"/>
+
+<stop offset="1"
+stop-color="#5b1019"/>
+
+</linearGradient>
+
+</defs>
+
+<rect width="100%" height="100%"
+fill="url(#g)"/>
+
+<text x="50%" y="48%"
+dominant-baseline="middle"
+text-anchor="middle"
+fill="#f4c542"
+font-size="150"
+font-family="Arial"
+font-weight="900">
+
+${initials}
+
+</text>
+
+<text x="50%" y="60%"
+text-anchor="middle"
+fill="white"
+font-size="34"
+font-family="Arial">
+
+${name}
+
+</text>
+
+</svg>
+
+`);
+
+}
+
+
+async function actorImage(slug){
+
+try{
+
+const response=
+await fetch(
+"https://en.wikipedia.org/api/rest_v1/page/summary/"
++
+encodeURIComponent(slug)
++
+"?redirect=true"
+);
+
+const data=
+await response.json();
+
+return data.thumbnail?.source ||
+data.originalimage?.source ||
+"";
+
+}catch(e){
+
+return "";
+
+}
+
+}
+
+
+function save(){
+
+localStorage.setItem(
+"breumbleIndex",
+index
+);
+
+localStorage.setItem(
+"breumbleLiked",
+JSON.stringify(liked)
+);
+
+}
+
+
+function toastMessage(message){
+
+toast.textContent=message;
+
+toast.classList.add("show");
+
+setTimeout(
+()=>toast.classList.remove("show"),
+1300
+);
+
+}
+
+
+function updateProfile(){
+
+const image=
+profile.photo ||
+placeholder(
+profile.name||"ME"
+);
+
+miniPhoto.src=image;
+
+profileBig.src=image;
+
+miniName.textContent=
+profile.name ||
+"My Breumble";
+
+nameInput.value=
+profile.name||"";
+
+}
+
+
+function makeCard(actor,position){
+
+const card=
+document.createElement("div");
+
+card.className="card";
+
+card.style.zIndex=
+100-position;
+
+card.innerHTML=`
+
+<img
+class="actorPhoto"
+src="${placeholder(actor[0])}"
+alt="${actor[0]}"
+>
+
+<div class="stamp likeStamp">
+LIKE
+</div>
+
+<div class="stamp noStamp">
+NOPE
+</div>
+
+<div class="info">
+
+<div>
+
+<span class="name">
+${actor[0]}
+</span>
+
+<span class="age">
+${actor[1]}
+</span>
+
+</div>
+
+<div class="meta">
+${actor[2]}
+</div>
+
+<span class="tag">
+HOLLYWOOD
+</span>
+
+<span class="tag">
+BREUMBLE
+</span>
+
+</div>
+
+`;
+
+actorImage(actor[3])
+.then(url=>{
+
+if(url)
+card.querySelector(".actorPhoto").src=url;
+
+});
+
+if(position===0)
+attachSwipe(card);
+
+return card;
+
+}
+
+
+function render(){
+
+deck.innerHTML="";
+
+if(index>=actors.length){
+
+deck.innerHTML=`
+
+<div class="empty">
+
+<div>
+
+<div style="font-size:60px">
+🎬
+</div>
+
+<h2>
+That's a wrap!
+</h2>
+
+<p>
+You've seen everyone in this Breumble lineup.
+</p>
+
+<button class="reset" id="resetBtn">
+Start Over
+</button>
+
+</div>
+
+</div>
+
+`;
+
+document.getElementById(
+"resetBtn"
+).onclick=()=>{
+
+index=0;
+
+liked=[];
+
+save();
+
+render();
+
+};
+
+return;
+
+}
+
+
+for(
+let position=2;
+position>=0;
+position--
+){
+
+const i=
+index+position;
+
+if(i<actors.length){
+
+const card=
+makeCard(
+actors[i],
+position
+);
+
+if(position>0){
+
+card.style.transform=
+`scale(${1-position*.035})
+translateY(${position*10}px)`;
+
+}
+
+deck.appendChild(card);
+
+}
+
+}
+
+}
+
+
+function attachSwipe(card){
+
+let startX=0;
+
+let startY=0;
+
+let dx=0;
+
+let dragging=false;
+
+
+function move(event){
+
+if(!dragging)return;
+
+const point=
+event.touches ?
+event.touches[0] :
+event;
+
+dx=
+point.clientX-startX;
+
+const rotation=
+dx/18;
+
+card.style.transition="none";
+
+card.style.transform=
+`translate(${dx}px,0)
+rotate(${rotation}deg)`;
+
+card.querySelector(
+".likeStamp"
+).style.opacity=
+Math.min(
+1,
+Math.max(0,dx/110)
+);
+
+card.querySelector(
+".noStamp"
+).style.opacity=
+Math.min(
+1,
+Math.max(0,-dx/110)
+);
+
+}
+
+
+function end(){
+
+if(!dragging)return;
+
+dragging=false;
+
+if(Math.abs(dx)>105){
+
+finish(
+dx>0 ?
+"like" :
+"pass"
+);
+
+}else{
+
+card.style.transform="";
+
+card.querySelector(
+".likeStamp"
+).style.opacity=0;
+
+card.querySelector(
+".noStamp"
+).style.opacity=0;
+
+}
+
+}
+
+
+card.addEventListener(
+"touchstart",
+event=>{
+
+dragging=true;
+
+startX=
+event.touches[0].clientX;
+
+startY=
+event.touches[0].clientY;
+
+},
+{passive:true}
+);
+
+
+card.addEventListener(
+"touchmove",
+move,
+{passive:true}
+);
+
+
+card.addEventListener(
+"touchend",
+end
+);
+
+
+card.addEventListener(
+"mousedown",
+event=>{
+
+dragging=true;
+
+startX=
+event.clientX;
+
+startY=
+event.clientY;
+
+}
+);
+
+window.addEventListener(
+"mousemove",
+move
+);
+
+window.addEventListener(
+"mouseup",
+end
+);
+
+}
+
+
+function finish(type){
+
+const actor=
+actors[index];
+
+const card=
+deck.querySelector(".card");
+
+if(!actor||!card)
+return;
+
+
+card.style.transition=
+"transform .35s ease,opacity .35s ease";
+
+
+card.style.transform=
+`translate(
+${type==="like"?1000:-1000}px,
+80px
+)
+rotate(
+${type==="like"?25:-25}deg
+)`;
+
+
+card.style.opacity="0";
+
+
+setTimeout(()=>{
+
+if(
+type==="like" &&
+!liked.some(
+x=>x[0]===actor[0]
+)
+){
+
+liked.push(actor);
+
+}
+
+index++;
+
+save();
+
+render();
+
+toastMessage(
+type==="like" ?
+"❤️ Added to My Breumbles" :
+"✕ Passed"
+);
+
+},220);
+
+}
+
+
+document.getElementById(
+"passBtn"
+).onclick=()=>finish("pass");
+
+
+document.getElementById(
+"likeBtn"
+).onclick=()=>finish("like");
+
+
+document.getElementById(
+"superBtn"
+).onclick=()=>finish("like");
+
+
+function openSheet(id){
+
+document.getElementById(
+id
+).classList.add("open");
+
+}
+
+
+function closeSheet(id){
+
+document.getElementById(
+id
+).classList.remove("open");
+
+}
+
+
+document.getElementById(
+"profileBtn"
+).onclick=
+()=>openSheet("profileSheet");
+
+
+document.getElementById(
+"profileNav"
+).onclick=
+()=>openSheet("profileSheet");
+
+
+document.getElementById(
+"closeProfile"
+).onclick=
+()=>closeSheet("profileSheet");
+
+
+document.getElementById(
+"likesNav"
+).onclick=()=>{
+
+renderLikes();
+
+openSheet("likesSheet");
+
+};
+
+
+document.getElementById(
+"closeLikes"
+).onclick=
+()=>closeSheet("likesSheet");
+
+
+document.getElementById(
+"homeNav"
+).onclick=()=>{
+
+closeSheet("likesSheet");
+
+closeSheet("profileSheet");
+
+};
+
+
+document.getElementById(
+"photoInput"
+).onchange=
+event=>{
+
+const file=
+event.target.files[0];
+
+if(!file)return;
+
+const reader=
+new FileReader();
+
+reader.onload=()=>{
+
+profile.photo=
+reader.result;
+
+updateProfile();
+
+};
+
+reader.readAsDataURL(file);
+
+};
+
+
+document.getElementById(
+"saveProfile"
+).onclick=()=>{
+
+profile.name=
+nameInput.value.trim();
+
+localStorage.setItem(
+"breumbleProfile",
+JSON.stringify(profile)
+);
+
+updateProfile();
+
+closeSheet("profileSheet");
+
+toastMessage(
+"Profile saved ❤️"
+);
+
+};
+
+
+function renderLikes(){
+
+const list=
+document.getElementById(
+"likesList"
+);
+
+
+if(!liked.length){
+
+list.innerHTML=`
+
+<p style="color:#999;text-align:center">
+
+No Breumbles yet.<br>
+
+Start swiping! ❤️
+
+</p>
+
+`;
+
+return;
+
+}
+
+
+list.innerHTML=
+liked.map(actor=>`
+
+<div class="liked">
+
+<img
+src="${placeholder(actor[0])}"
+data-slug="${actor[3]}"
+>
+
+<div>
+
+<strong>
+${actor[0]}
+</strong>
+
+<small>
+${actor[2]}
+</small>
+
+</div>
+
+</div>
+
+`).join("");
+
+
+[...list.querySelectorAll("img")]
+.forEach(img=>{
+
+actorImage(
+img.dataset.slug
+).then(url=>{
+
+if(url)
+img.src=url;
+
+});
+
+});
+
+}
+
+
+updateProfile();
+
+render();
+
+</script>
+
+</body>
+</html>
