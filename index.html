@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 
 <meta name="viewport"
-      content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
 
 <meta name="theme-color" content="#090909">
 
@@ -12,2392 +12,2225 @@
 
 <style>
 
-/* =========================
-   BASIC
-========================= */
-
 *{
-  box-sizing:border-box;
-  -webkit-tap-highlight-color:transparent;
+box-sizing:border-box;
+-webkit-tap-highlight-color:transparent;
 }
 
-html,
+html,body{
+margin:0;
+padding:0;
+width:100%;
+height:100%;
+overflow:hidden;
+background:#090909;
+color:#fff;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+}
+
 body{
-  margin:0;
-  padding:0;
-  width:100%;
-  height:100%;
-  overflow:hidden;
-
-  background:#090909;
-  color:white;
-
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Arial,
-    sans-serif;
+overscroll-behavior:none;
 }
 
 button{
-  font-family:inherit;
-  border:0;
-  outline:0;
-  -webkit-appearance:none;
-  appearance:none;
+font-family:inherit;
+border:0;
+outline:0;
+-webkit-appearance:none;
+appearance:none;
 }
 
 img{
-  display:block;
+display:block;
 }
-
-
-/* =========================
-   APP
-========================= */
 
 .app{
-  width:100%;
-  max-width:520px;
-  height:100dvh;
-
-  margin:auto;
-
-  display:flex;
-  flex-direction:column;
-
-  overflow:hidden;
-
-  background:
-    radial-gradient(
-      circle at 50% -20%,
-      #49340e,
-      #161106 28%,
-      #090909 65%
-    );
+width:100%;
+max-width:520px;
+height:100dvh;
+margin:auto;
+display:flex;
+flex-direction:column;
+overflow:hidden;
+background:
+radial-gradient(circle at 50% -20%,#49340e,#161106 28%,#090909 65%);
 }
 
-
 /* =========================
-   WELCOME
+WELCOME
 ========================= */
 
 #welcome{
-  position:fixed;
-  inset:0;
+position:fixed;
+inset:0;
+z-index:9999;
 
-  z-index:9999;
+width:100%;
+height:100dvh;
 
-  width:100%;
-  height:100dvh;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
 
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
+padding:
+20px
+20px
+calc(20px + env(safe-area-inset-bottom));
 
-  padding:
-    20px
-    20px
-    calc(20px + env(safe-area-inset-bottom));
+text-align:center;
 
-  text-align:center;
+background:
+radial-gradient(circle at 50% 10%,#4b360d,#181207 30%,#080808 70%);
 
-  background:
-    radial-gradient(
-      circle at 50% 10%,
-      #4b360d,
-      #181207 30%,
-      #080808 70%
-    );
-
-  transition:
-    opacity .35s ease,
-    visibility .35s ease;
+transition:
+opacity .35s ease,
+visibility .35s ease;
 }
 
 #welcome.hide{
-  opacity:0;
-  visibility:hidden;
-  pointer-events:none;
+opacity:0;
+visibility:hidden;
+pointer-events:none;
 }
 
 .welcome-logo{
-  font-size:48px;
-  line-height:1;
-
-  font-weight:1000;
-  letter-spacing:-4px;
+font-size:48px;
+line-height:1;
+font-weight:1000;
+letter-spacing:-4px;
 }
 
 .welcome-logo span{
-  color:#f4c542;
+color:#f4c542;
 }
 
 .welcome-subtitle{
-  margin-top:8px;
-
-  color:#aaa;
-
-  font-size:11px;
-  font-weight:900;
-
-  letter-spacing:2px;
-  text-transform:uppercase;
+margin-top:8px;
+color:#aaa;
+font-size:11px;
+font-weight:900;
+letter-spacing:2px;
+text-transform:uppercase;
 }
 
 .welcome-photo{
-  width:205px;
-  height:260px;
+width:205px;
+height:260px;
+margin-top:24px;
 
-  margin-top:24px;
+object-fit:cover;
 
-  object-fit:cover;
+border-radius:28px;
+border:3px solid #f4c542;
 
-  border-radius:28px;
-
-  border:3px solid #f4c542;
-
-  box-shadow:
-    0 25px 65px #000,
-    0 0 30px #f4c54222;
+box-shadow:
+0 25px 65px #000,
+0 0 30px #f4c54222;
 }
 
 .welcome-name{
-  margin-top:17px;
-
-  font-size:32px;
-  font-weight:1000;
+margin-top:17px;
+font-size:32px;
+font-weight:1000;
 }
 
 .welcome-job{
-  margin-top:4px;
-
-  color:#aaa;
-
-  font-size:13px;
-  font-weight:700;
+margin-top:4px;
+color:#aaa;
+font-size:13px;
+font-weight:700;
 }
 
-
-/* =========================
-   START BUTTON
-========================= */
-
 .start-button{
-  display:flex;
-  align-items:center;
-  justify-content:center;
+display:flex;
+align-items:center;
+justify-content:center;
 
-  width:230px;
-  height:58px;
+width:230px;
+height:58px;
 
-  margin-top:23px;
+margin-top:23px;
 
-  border-radius:999px;
+border-radius:999px;
 
-  background:#f4c542;
+background:#f4c542;
+color:#111;
 
-  color:#111;
+font-size:15px;
+font-weight:1000;
 
-  font-size:15px;
-  font-weight:1000;
+box-shadow:0 10px 30px #000;
 
-  box-shadow:
-    0 10px 30px #000;
-
-  cursor:pointer;
-
-  touch-action:manipulation;
-
-  pointer-events:auto;
+cursor:pointer;
+touch-action:manipulation;
+pointer-events:auto;
 }
 
 .start-button:active{
-  transform:scale(.94);
+transform:scale(.94);
 }
 
-
 /* =========================
-   HEADER
+HEADER
 ========================= */
 
 .header{
-  height:70px;
-  flex:0 0 70px;
+height:70px;
+flex:0 0 70px;
 
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+display:flex;
+align-items:center;
+justify-content:space-between;
 
-  padding:10px 15px;
+padding:10px 15px;
 
-  z-index:20;
+z-index:20;
 }
 
 .logo{
-  font-size:29px;
-  font-weight:1000;
-  letter-spacing:-2px;
+font-size:29px;
+font-weight:1000;
+letter-spacing:-2px;
 }
 
 .logo span{
-  color:#f4c542;
+color:#f4c542;
 }
 
 .header-profile{
-  display:flex;
-  align-items:center;
-  gap:7px;
+display:flex;
+align-items:center;
+gap:7px;
 
-  font-size:11px;
-  font-weight:900;
+font-size:11px;
+font-weight:900;
 }
 
 .header-profile img{
-  width:38px;
-  height:38px;
+width:38px;
+height:38px;
 
-  object-fit:cover;
+object-fit:cover;
 
-  border-radius:50%;
-
-  border:2px solid #f4c542;
+border-radius:50%;
+border:2px solid #f4c542;
 }
 
 .header-button{
-  width:42px;
-  height:42px;
+width:42px;
+height:42px;
 
-  border-radius:50%;
+border-radius:50%;
 
-  background:#191919;
+background:#191919;
+color:#fff;
 
-  color:white;
+font-size:19px;
 
-  font-size:19px;
-
-  cursor:pointer;
+cursor:pointer;
 }
 
-
 /* =========================
-   MAIN
+MAIN
 ========================= */
 
 .main{
-  position:relative;
-
-  flex:1;
-
-  min-height:0;
-
-  padding:4px 14px 5px;
+position:relative;
+flex:1;
+min-height:0;
+padding:4px 14px 5px;
 }
 
 .deck{
-  position:relative;
-
-  width:100%;
-  height:100%;
+position:relative;
+width:100%;
+height:100%;
 }
 
-
 /* =========================
-   CARDS
+CARDS
 ========================= */
 
 .card{
-  position:absolute;
+position:absolute;
+inset:0;
 
-  inset:0;
+overflow:hidden;
 
-  overflow:hidden;
+border-radius:28px;
 
-  border-radius:28px;
+background:#1b1b1b;
 
-  background:#1b1b1b;
+box-shadow:0 20px 55px #000;
 
-  box-shadow:
-    0 20px 55px #000;
+touch-action:none;
 
-  touch-action:none;
-
-  user-select:none;
-  -webkit-user-select:none;
+user-select:none;
+-webkit-user-select:none;
 }
 
 .card img{
-  width:100%;
-  height:100%;
+width:100%;
+height:100%;
 
-  object-fit:cover;
+object-fit:cover;
+
+object-position:center 20%;
+
+image-rendering:auto;
 }
 
 .card::after{
-  content:"";
+content:"";
 
-  position:absolute;
-  inset:0;
+position:absolute;
+inset:0;
 
-  pointer-events:none;
+pointer-events:none;
 
-  background:
-    linear-gradient(
-      to bottom,
-      transparent 30%,
-      transparent 43%,
-      rgba(0,0,0,.18) 55%,
-      rgba(0,0,0,.95) 100%
-    );
+background:
+linear-gradient(
+to bottom,
+transparent 28%,
+transparent 42%,
+rgba(0,0,0,.12) 55%,
+rgba(0,0,0,.95) 100%
+);
 }
 
-
 /* =========================
-   CARD TOP
+CARD TOP
 ========================= */
 
 .card-top{
-  position:absolute;
+position:absolute;
 
-  z-index:5;
+z-index:5;
 
-  top:15px;
-  left:15px;
-  right:15px;
+top:15px;
+left:15px;
+right:15px;
 
-  display:flex;
-  justify-content:space-between;
+display:flex;
+justify-content:space-between;
 
-  pointer-events:none;
+pointer-events:none;
 }
 
 .badge{
-  padding:7px 10px;
+padding:7px 10px;
 
-  border-radius:999px;
+border-radius:999px;
 
-  background:#000b;
+background:#000b;
 
-  backdrop-filter:blur(8px);
+backdrop-filter:blur(8px);
 
-  font-size:10px;
-  font-weight:900;
+font-size:10px;
+font-weight:900;
 }
 
 .city{
-  padding:7px 10px;
+padding:7px 10px;
 
-  border-radius:999px;
+border-radius:999px;
 
-  background:#000b;
+background:#000b;
 
-  backdrop-filter:blur(8px);
+backdrop-filter:blur(8px);
 
-  font-size:10px;
+font-size:10px;
 }
 
-
 /* =========================
-   CARD INFO
+CARD INFO
 ========================= */
 
 .card-info{
-  position:absolute;
+position:absolute;
 
-  z-index:5;
+z-index:5;
 
-  left:20px;
-  right:20px;
-  bottom:19px;
+left:20px;
+right:20px;
+bottom:19px;
 }
 
 .card-name{
-  font-size:30px;
-  font-weight:1000;
+font-size:30px;
+font-weight:1000;
 }
 
 .card-age{
-  margin-left:5px;
-
-  color:#ddd;
-
-  font-size:20px;
+margin-left:5px;
+color:#ddd;
+font-size:20px;
 }
 
 .card-job{
-  margin-top:5px;
-
-  color:#ddd;
-
-  font-size:13px;
-  font-weight:700;
+margin-top:5px;
+color:#ddd;
+font-size:13px;
+font-weight:700;
 }
 
 .card-bio{
-  margin-top:7px;
-
-  color:#eee;
-
-  font-size:13px;
-  line-height:1.35;
+margin-top:7px;
+color:#eee;
+font-size:13px;
+line-height:1.35;
 }
 
 .tags{
-  display:flex;
-  flex-wrap:wrap;
-  gap:5px;
-
-  margin-top:9px;
+display:flex;
+flex-wrap:wrap;
+gap:5px;
+margin-top:9px;
 }
 
 .tag{
-  padding:6px 9px;
+padding:6px 9px;
 
-  border-radius:999px;
+border-radius:999px;
 
-  background:#ffffff22;
+background:#ffffff22;
 
-  backdrop-filter:blur(8px);
+backdrop-filter:blur(8px);
 
-  font-size:10px;
-  font-weight:900;
+font-size:10px;
+font-weight:900;
 }
 
-
 /* =========================
-   SWIPE LABELS
+SWIPE LABELS
 ========================= */
 
 .stamp{
-  position:absolute;
+position:absolute;
 
-  z-index:10;
+z-index:10;
 
-  top:45px;
+top:45px;
 
-  padding:7px 12px;
+padding:7px 12px;
 
-  border:4px solid;
+border:4px solid;
 
-  border-radius:10px;
+border-radius:10px;
 
-  font-size:23px;
-  font-weight:1000;
+font-size:23px;
+font-weight:1000;
 
-  opacity:0;
+opacity:0;
 
-  pointer-events:none;
+pointer-events:none;
 }
 
 .silly-stamp{
-  left:18px;
-
-  color:#54ed92;
-  border-color:#54ed92;
-
-  transform:rotate(-10deg);
+left:18px;
+color:#54ed92;
+border-color:#54ed92;
+transform:rotate(-10deg);
 }
 
 .stinky-stamp{
-  right:18px;
-
-  color:#ff6875;
-  border-color:#ff6875;
-
-  transform:rotate(10deg);
+right:18px;
+color:#ff6875;
+border-color:#ff6875;
+transform:rotate(10deg);
 }
 
-
 /* =========================
-   ACTION BUTTONS
+ACTIONS
 ========================= */
 
 .actions{
-  height:94px;
-  flex:0 0 94px;
+height:94px;
+flex:0 0 94px;
 
-  display:flex;
-  align-items:center;
-  justify-content:center;
+display:flex;
+align-items:center;
+justify-content:center;
 
-  gap:16px;
+gap:16px;
 
-  padding:6px 18px;
+padding:6px 18px;
 }
 
 .action{
-  flex:1;
+flex:1;
+max-width:155px;
+height:62px;
 
-  max-width:155px;
+display:flex;
+align-items:center;
+justify-content:center;
 
-  height:62px;
+gap:8px;
 
-  display:flex;
-  align-items:center;
-  justify-content:center;
+border-radius:999px;
 
-  gap:8px;
+font-size:13px;
+font-weight:1000;
+letter-spacing:.6px;
 
-  border-radius:999px;
+cursor:pointer;
+touch-action:manipulation;
 
-  font-size:13px;
-  font-weight:1000;
-
-  letter-spacing:.6px;
-
-  cursor:pointer;
-
-  touch-action:manipulation;
-
-  transition:transform .12s ease;
+transition:transform .12s ease;
 }
 
 .action:active{
-  transform:scale(.91);
+transform:scale(.91);
 }
 
 .silly{
-  background:#f4c542;
+background:#f4c542;
+color:#111;
 
-  color:#111;
+border:2px solid #ffe58b;
 
-  border:2px solid #ffe58b;
-
-  box-shadow:
-    0 8px 22px #000;
+box-shadow:0 8px 22px #000;
 }
 
 .stinky{
-  background:#242424;
+background:#242424;
+color:#ddd;
 
-  color:#ddd;
+border:2px solid #777;
 
-  border:2px solid #777;
-
-  box-shadow:
-    0 8px 22px #000;
+box-shadow:0 8px 22px #000;
 }
 
 .action-icon{
-  font-size:23px;
+font-size:23px;
 }
 
-
 /* =========================
-   NAV
+NAV
 ========================= */
 
 .nav{
-  height:65px;
-  flex:0 0 65px;
+height:65px;
+flex:0 0 65px;
 
-  display:flex;
+display:flex;
 
-  background:#0d0d0df5;
+background:#0d0d0df5;
 
-  border-top:1px solid #ffffff10;
+border-top:1px solid #ffffff10;
 
-  backdrop-filter:blur(18px);
+backdrop-filter:blur(18px);
 
-  padding-bottom:env(safe-area-inset-bottom);
+padding-bottom:env(safe-area-inset-bottom);
 }
 
 .nav button{
-  flex:1;
+flex:1;
 
-  background:transparent;
+background:transparent;
+color:#777;
 
-  color:#777;
+font-size:10px;
+font-weight:900;
 
-  font-size:10px;
-  font-weight:900;
-
-  cursor:pointer;
+cursor:pointer;
 }
 
 .nav button.active{
-  color:white;
+color:#fff;
 }
 
 .nav-icon{
-  display:block;
-
-  margin-bottom:2px;
-
-  font-size:20px;
+display:block;
+margin-bottom:2px;
+font-size:20px;
 }
 
-
 /* =========================
-   PROFILE SHEET
+PROFILE
 ========================= */
 
 .sheet{
-  position:fixed;
-  inset:0;
+position:fixed;
+inset:0;
 
-  z-index:500;
+z-index:500;
 
-  display:none;
-  align-items:flex-end;
+display:none;
+align-items:flex-end;
 
-  background:#000c;
+background:#000c;
 }
 
 .sheet.open{
-  display:flex;
+display:flex;
 }
 
 .profile-panel{
-  width:100%;
-  max-width:520px;
+width:100%;
+max-width:520px;
 
-  max-height:94dvh;
+max-height:94dvh;
 
-  margin:auto auto 0;
+margin:auto auto 0;
 
-  overflow:auto;
+overflow:auto;
 
-  border-radius:
-    30px
-    30px
-    0
-    0;
+border-radius:30px 30px 0 0;
 
-  background:
-    linear-gradient(
-      #191919,
-      #090909
-    );
+background:
+linear-gradient(#191919,#090909);
 }
 
 .profile-photo{
-  position:relative;
-
-  height:350px;
+position:relative;
+height:350px;
 }
 
 .profile-photo img{
-  width:100%;
-  height:100%;
-
-  object-fit:cover;
+width:100%;
+height:100%;
+object-fit:cover;
 }
 
 .profile-photo::after{
-  content:"";
+content:"";
 
-  position:absolute;
-  inset:0;
+position:absolute;
+inset:0;
 
-  background:
-    linear-gradient(
-      transparent 35%,
-      #000 100%
-    );
+background:
+linear-gradient(
+transparent 35%,
+#000 100%
+);
 }
 
 .close{
-  position:absolute;
+position:absolute;
 
-  z-index:10;
+z-index:10;
 
-  top:13px;
-  right:13px;
+top:13px;
+right:13px;
 
-  width:40px;
-  height:40px;
+width:40px;
+height:40px;
 
-  border-radius:50%;
+border-radius:50%;
 
-  background:#000b;
+background:#000b;
+color:#fff;
 
-  color:white;
+font-size:24px;
 
-  font-size:24px;
-
-  cursor:pointer;
+cursor:pointer;
 }
 
 .profile-title{
-  position:absolute;
+position:absolute;
 
-  z-index:5;
+z-index:5;
 
-  left:20px;
-  right:20px;
-  bottom:18px;
+left:20px;
+right:20px;
+bottom:18px;
 }
 
 .profile-title h1{
-  margin:0;
-
-  font-size:36px;
-  font-weight:1000;
+margin:0;
+font-size:36px;
+font-weight:1000;
 }
 
 .profile-title p{
-  margin:4px 0 0;
-
-  color:#ddd;
-
-  font-size:13px;
+margin:4px 0 0;
+color:#ddd;
+font-size:13px;
 }
 
 .profile-content{
-  padding:20px 20px 40px;
+padding:20px 20px 40px;
 }
 
 .profile-label{
-  color:#f4c542;
-
-  font-size:11px;
-  font-weight:1000;
-
-  letter-spacing:1px;
-  text-transform:uppercase;
+color:#f4c542;
+font-size:11px;
+font-weight:1000;
+letter-spacing:1px;
+text-transform:uppercase;
 }
 
 .profile-bio{
-  margin-top:10px;
-
-  color:#ddd;
-
-  font-size:15px;
-  line-height:1.58;
+margin-top:10px;
+color:#ddd;
+font-size:15px;
+line-height:1.58;
 }
 
 .profile-bio strong{
-  color:white;
+color:#fff;
 }
 
 .profile-tags{
-  display:flex;
-  flex-wrap:wrap;
-  gap:7px;
-
-  margin-top:18px;
+display:flex;
+flex-wrap:wrap;
+gap:7px;
+margin-top:18px;
 }
 
 .profile-tag{
-  padding:8px 11px;
+padding:8px 11px;
 
-  border-radius:999px;
+border-radius:999px;
 
-  background:#242424;
+background:#242424;
+color:#ddd;
 
-  color:#ddd;
-
-  font-size:11px;
-  font-weight:900;
+font-size:11px;
+font-weight:900;
 }
 
 .profile-section{
-  margin-top:25px;
+margin-top:25px;
 }
 
 .profile-section h3{
-  margin:0 0 8px;
+margin:0 0 8px;
 
-  color:#f4c542;
+color:#f4c542;
 
-  font-size:11px;
+font-size:11px;
 
-  letter-spacing:1px;
-
-  text-transform:uppercase;
+letter-spacing:1px;
+text-transform:uppercase;
 }
 
 .profile-row{
-  display:flex;
-  justify-content:space-between;
+display:flex;
+justify-content:space-between;
 
-  gap:20px;
+gap:20px;
 
-  padding:12px 0;
+padding:12px 0;
 
-  border-bottom:1px solid #ffffff0d;
+border-bottom:1px solid #ffffff0d;
 
-  color:#aaa;
+color:#aaa;
 
-  font-size:13px;
+font-size:13px;
 }
 
 .profile-row strong{
-  color:white;
-
-  text-align:right;
+color:#fff;
+text-align:right;
 }
 
-
 /* =========================
-   LIKES
+LIKES
 ========================= */
 
 .likes-panel{
-  width:100%;
-  max-width:520px;
+width:100%;
+max-width:520px;
 
-  max-height:88dvh;
+max-height:88dvh;
 
-  overflow:auto;
+overflow:auto;
 
-  margin:auto auto 0;
+margin:auto auto 0;
 
-  padding:20px 20px 35px;
+padding:20px 20px 35px;
 
-  border-radius:
-    30px
-    30px
-    0
-    0;
+border-radius:30px 30px 0 0;
 
-  background:#151515;
+background:#151515;
 }
 
 .likes-panel h2{
-  margin:4px 0 18px;
-
-  font-size:23px;
+margin:4px 0 18px;
+font-size:23px;
 }
 
 .liked-list{
-  display:grid;
-  gap:10px;
+display:grid;
+gap:10px;
 }
 
 .liked{
-  display:flex;
-  align-items:center;
+display:flex;
+align-items:center;
 
-  gap:12px;
+gap:12px;
 
-  padding:8px;
+padding:8px;
 
-  border-radius:15px;
+border-radius:15px;
 
-  background:#222;
+background:#222;
 }
 
 .liked img{
-  width:65px;
-  height:78px;
+width:65px;
+height:78px;
 
-  object-fit:cover;
+object-fit:cover;
 
-  border-radius:11px;
+border-radius:11px;
 }
 
 .liked strong{
-  font-size:16px;
+font-size:16px;
 }
 
 .liked small{
-  display:block;
-
-  margin-top:4px;
-
-  color:#999;
+display:block;
+margin-top:4px;
+color:#999;
 }
 
-
 /* =========================
-   TOAST
+TOAST
 ========================= */
 
 .toast{
-  position:fixed;
+position:fixed;
 
-  z-index:1000;
+z-index:1000;
 
-  left:50%;
-  bottom:95px;
+left:50%;
+bottom:95px;
 
-  transform:
-    translate(-50%,20px);
+transform:translate(-50%,20px);
 
-  opacity:0;
+opacity:0;
 
-  pointer-events:none;
+pointer-events:none;
 
-  padding:11px 18px;
+padding:11px 18px;
 
-  border-radius:999px;
+border-radius:999px;
 
-  background:white;
+background:#fff;
+color:#111;
 
-  color:#111;
+font-size:13px;
+font-weight:1000;
 
-  font-size:13px;
-  font-weight:1000;
-
-  transition:.25s;
+transition:.25s;
 }
 
 .toast.show{
-  opacity:1;
-
-  transform:
-    translate(-50%,0);
+opacity:1;
+transform:translate(-50%,0);
 }
 
 </style>
 </head>
 
-
 <body>
 
-
-<!-- =====================================================
-     WELCOME
-===================================================== -->
+<!-- =========================
+WELCOME
+========================= -->
 
 <div id="welcome">
 
-  <div class="welcome-logo">
-    BREUM<span>BLE</span>
-  </div>
+<div class="welcome-logo">
+BREUM<span>BLE</span>
+</div>
 
-  <div class="welcome-subtitle">
-    Breanna's dating adventure
-  </div>
+<div class="welcome-subtitle">
+Breanna's dating adventure
+</div>
 
-  <img
-    class="welcome-photo"
-    src="IMG_5053.jpeg"
-    alt="Breanna"
-  >
+<img
+class="welcome-photo"
+src="IMG_5053.jpeg"
+alt="Breanna"
+>
 
-  <div class="welcome-name">
-    Breanna
-  </div>
+<div class="welcome-name">
+Breanna
+</div>
 
-  <div class="welcome-job">
-    Dental Hygienist • Smile Quality Control
-  </div>
+<div class="welcome-job">
+Dental Hygienist • Smile Quality Control
+</div>
 
-  <button
-    id="startButton"
-    class="start-button"
-    type="button"
-  >
-    LET'S BREUMBLE 🤪
-  </button>
+<button
+id="startButton"
+class="start-button"
+type="button"
+>
+LET'S BREUMBLE 🤪
+</button>
 
 </div>
 
 
-<!-- =====================================================
-     APP
-===================================================== -->
+<!-- =========================
+APP
+========================= -->
 
 <div class="app">
 
-
 <header class="header">
 
-  <button
-    id="headerProfile"
-    class="header-button"
-    type="button"
-  >
-    👤
-  </button>
+<button
+id="headerProfile"
+class="header-button"
+type="button"
+>
+👤
+</button>
 
-  <div class="logo">
-    BREUM<span>BLE</span>
-  </div>
+<div class="logo">
+BREUM<span>BLE</span>
+</div>
 
-  <div class="header-profile">
+<div class="header-profile">
 
-    <span>
-      Breanna
-    </span>
+<span>
+Breanna
+</span>
 
-    <img
-      src="IMG_5053.jpeg"
-      alt="Breanna"
-    >
+<img
+src="IMG_5053.jpeg"
+alt="Breanna"
+>
 
-  </div>
+</div>
 
 </header>
 
 
 <main class="main">
 
-  <div
-    id="deck"
-    class="deck"
-  ></div>
+<div
+id="deck"
+class="deck"
+></div>
 
 </main>
 
 
-<!-- =====================================================
-     SILLY / STINKY
-===================================================== -->
-
 <div class="actions">
 
-  <button
-    id="stinkyButton"
-    class="action stinky"
-    type="button"
-  >
+<button
+id="stinkyButton"
+class="action stinky"
+type="button"
+>
 
-    <span class="action-icon">
-      💩
-    </span>
+<span class="action-icon">
+💩
+</span>
 
-    <span>
-      STINKY
-    </span>
+<span>
+STINKY
+</span>
 
-  </button>
+</button>
 
 
-  <button
-    id="sillyButton"
-    class="action silly"
-    type="button"
-  >
+<button
+id="sillyButton"
+class="action silly"
+type="button"
+>
 
-    <span class="action-icon">
-      🤪
-    </span>
+<span class="action-icon">
+🤪
+</span>
 
-    <span>
-      SILLY
-    </span>
+<span>
+SILLY
+</span>
 
-  </button>
+</button>
 
 </div>
 
 
 <nav class="nav">
 
-  <button
-    id="discoverButton"
-    class="active"
-    type="button"
-  >
-    <span class="nav-icon">
-      🔥
-    </span>
-    Discover
-  </button>
+<button
+id="discoverButton"
+class="active"
+type="button"
+>
+
+<span class="nav-icon">
+🔥
+</span>
+
+Discover
+
+</button>
 
 
-  <button
-    id="likesButton"
-    type="button"
-  >
-    <span class="nav-icon">
-      🤪
-    </span>
-    Likes
-  </button>
+<button
+id="likesButton"
+type="button"
+>
+
+<span class="nav-icon">
+🤪
+</span>
+
+Likes
+
+</button>
 
 
-  <button
-    id="profileButton"
-    type="button"
-  >
-    <span class="nav-icon">
-      👤
-    </span>
-    Breanna
-  </button>
+<button
+id="profileButton"
+type="button"
+>
+
+<span class="nav-icon">
+👤
+</span>
+
+Breanna
+
+</button>
 
 </nav>
 
 </div>
 
 
-<!-- =====================================================
-     BREANNA PROFILE
-===================================================== -->
+<!-- =========================
+BREANNA PROFILE
+========================= -->
 
 <div
-  id="profileSheet"
-  class="sheet"
+id="profileSheet"
+class="sheet"
 >
 
-  <div class="profile-panel">
+<div class="profile-panel">
 
-    <div class="profile-photo">
+<div class="profile-photo">
 
-      <button
-        id="closeProfile"
-        class="close"
-        type="button"
-      >
-        ×
-      </button>
+<button
+id="closeProfile"
+class="close"
+type="button"
+>
+×
+</button>
 
-      <img
-        src="IMG_5053.jpeg"
-        alt="Breanna"
-      >
+<img
+src="IMG_5053.jpeg"
+alt="Breanna"
+>
 
-      <div class="profile-title">
+<div class="profile-title">
 
-        <h1>
-          Breanna
-        </h1>
+<h1>
+Breanna
+</h1>
 
-        <p>
-          Dental Hygienist • Smile Quality Control
-        </p>
+<p>
+Dental Hygienist • Smile Quality Control
+</p>
 
-      </div>
-
-    </div>
-
-
-    <div class="profile-content">
-
-      <div class="profile-label">
-        About Breanna
-      </div>
-
-
-      <div class="profile-bio">
-
-        I'm a dental hygienist, which means I spend
-        most of my professional life politely explaining
-        that yes... your gums really do need attention.
-
-        <br><br>
-
-        I know more about plaque, tartar, gingivitis,
-        periodontal pockets and proper brushing
-        technique than the average person probably
-        wants to hear about on a first date.
-
-        <br><br>
-
-        My patients come in nervous and leave with
-        cleaner smiles and, hopefully, a renewed
-        commitment to flossing.
-
-        <br><br>
-
-        So naturally, when it comes to dating,
-        I have developed a very specific appreciation
-        for a <strong>great smile.</strong>
-
-        <br><br>
-
-        I'm not saying I'm going to inspect your molars
-        before dinner...
-
-        <br><br>
-
-        But I'm also not saying I won't notice. 😏
-
-        <br><br>
-
-        I'm looking for someone funny, confident,
-        kind, affectionate and capable of carrying
-        a conversation without checking their phone
-        every twelve seconds.
-
-        <br><br>
-
-        I love coffee, movies, good food, spontaneous
-        plans, laughing until my stomach hurts and
-        people who don't take themselves too seriously.
-
-        <br><br>
-
-        My ideal date?
-
-        <strong>
-          Great food, good conversation, lots of
-          laughing and absolutely no discussion about
-          someone's dental insurance.
-        </strong>
-
-        <br><br>
-
-        Bonus points if you actually floss.
-
-        <br>
-
-        Double bonus points if I don't have to remind
-        you that flossing is not optional.
-
-      </div>
-
-
-      <div class="profile-tags">
-
-        <div class="profile-tag">
-          🦷 Dental Hygienist
-        </div>
-
-        <div class="profile-tag">
-          ☕ Coffee
-        </div>
-
-        <div class="profile-tag">
-          🎬 Movies
-        </div>
-
-        <div class="profile-tag">
-          😂 Sarcasm
-        </div>
-
-        <div class="profile-tag">
-          ❤️ Romance
-        </div>
-
-        <div class="profile-tag">
-          ✨ Great Smiles
-        </div>
-
-        <div class="profile-tag">
-          🧵 Flossing Advocate
-        </div>
-
-      </div>
-
-
-      <div class="profile-section">
-
-        <h3>
-          The Important Stuff
-        </h3>
-
-        <div class="profile-row">
-          <span>Occupation</span>
-          <strong>Dental Hygienist</strong>
-        </div>
-
-        <div class="profile-row">
-          <span>Professional Skill</span>
-          <strong>Spotting plaque from across the room</strong>
-        </div>
-
-        <div class="profile-row">
-          <span>Love Language</span>
-          <strong>Make me laugh</strong>
-        </div>
-
-        <div class="profile-row">
-          <span>Green Flag</span>
-          <strong>Kind to everyone</strong>
-        </div>
-
-        <div class="profile-row">
-          <span>Major Green Flag</span>
-          <strong>Actually flosses</strong>
-        </div>
-
-        <div class="profile-row">
-          <span>Weakness</span>
-          <strong>A ridiculously good smile</strong>
-        </div>
-
-        <div class="profile-row">
-          <span>Dealbreaker</span>
-          <strong>Bad hygiene</strong>
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
+</div>
 
 </div>
 
 
-<!-- =====================================================
-     LIKES
-===================================================== -->
+<div class="profile-content">
+
+<div class="profile-label">
+About Breanna
+</div>
+
+
+<div class="profile-bio">
+
+I'm a dental hygienist, which means I spend most
+of my professional life politely explaining that yes...
+your gums really do need attention.
+
+<br><br>
+
+I know more about plaque, tartar, gingivitis,
+periodontal pockets and proper brushing technique
+than the average person probably wants to hear
+about on a first date.
+
+<br><br>
+
+My patients come in nervous and leave with cleaner
+smiles and hopefully a renewed commitment to flossing.
+
+<br><br>
+
+So naturally, when it comes to dating, I've developed
+a very specific appreciation for a
+<strong>great smile.</strong>
+
+<br><br>
+
+I'm not saying I'm going to inspect your molars
+before dinner...
+
+<br><br>
+
+But I'm also not saying I won't notice. 😏
+
+<br><br>
+
+I'm looking for someone funny, confident, kind,
+affectionate and capable of carrying a conversation
+without checking their phone every twelve seconds.
+
+<br><br>
+
+I love coffee, movies, good food, spontaneous plans,
+laughing until my stomach hurts and people who don't
+take themselves too seriously.
+
+<br><br>
+
+My ideal date?
+
+<strong>
+Great food, good conversation, lots of laughing and
+absolutely no discussion about someone's dental
+insurance.
+</strong>
+
+<br><br>
+
+Bonus points if you actually floss.
+
+<br>
+
+Double bonus points if I don't have to remind you
+that flossing is not optional.
+
+</div>
+
+
+<div class="profile-tags">
+
+<div class="profile-tag">
+🦷 Dental Hygienist
+</div>
+
+<div class="profile-tag">
+☕ Coffee
+</div>
+
+<div class="profile-tag">
+🎬 Movies
+</div>
+
+<div class="profile-tag">
+😂 Sarcasm
+</div>
+
+<div class="profile-tag">
+❤️ Romance
+</div>
+
+<div class="profile-tag">
+✨ Great Smiles
+</div>
+
+<div class="profile-tag">
+🧵 Flossing Advocate
+</div>
+
+</div>
+
+
+<div class="profile-section">
+
+<h3>
+The Important Stuff
+</h3>
+
+<div class="profile-row">
+<span>Occupation</span>
+<strong>Dental Hygienist</strong>
+</div>
+
+<div class="profile-row">
+<span>Professional Skill</span>
+<strong>Spotting plaque from across the room</strong>
+</div>
+
+<div class="profile-row">
+<span>Love Language</span>
+<strong>Make me laugh</strong>
+</div>
+
+<div class="profile-row">
+<span>Green Flag</span>
+<strong>Kind to everyone</strong>
+</div>
+
+<div class="profile-row">
+<span>Major Green Flag</span>
+<strong>Actually flosses</strong>
+</div>
+
+<div class="profile-row">
+<span>Weakness</span>
+<strong>A ridiculously good smile</strong>
+</div>
+
+<div class="profile-row">
+<span>Dealbreaker</span>
+<strong>Bad hygiene</strong>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =========================
+LIKES
+========================= -->
 
 <div
-  id="likesSheet"
-  class="sheet"
+id="likesSheet"
+class="sheet"
 >
 
-  <div class="likes-panel">
+<div class="likes-panel">
 
-    <button
-      id="closeLikes"
-      class="close"
-      type="button"
-    >
-      ×
-    </button>
+<button
+id="closeLikes"
+class="close"
+type="button"
+>
+×
+</button>
 
-    <h2>
-      🤪 Breanna's Silly List
-    </h2>
+<h2>
+🤪 Breanna's Silly List
+</h2>
 
-    <div
-      id="likedList"
-      class="liked-list"
-    ></div>
+<div
+id="likedList"
+class="liked-list"
+></div>
 
-  </div>
+</div>
 
 </div>
 
 
 <div
-  id="toast"
-  class="toast"
+id="toast"
+class="toast"
 ></div>
 
 
 <script>
 
 /* =====================================================
-   MEN
+   PROFILE DATA
 ===================================================== */
 
 const men = [
 
-  {
-    name:"Alex",
-    age:31,
-    city:"Los Angeles",
-    job:"Creative Director",
-    bio:"Big on weekend adventures, great restaurants and making people laugh.",
-    tags:["Travel","Food","Comedy"],
-    photo:11
-  },
+{
+name:"Alex",
+age:31,
+city:"Los Angeles",
+job:"Creative Director",
+bio:"Big on weekend adventures, great restaurants and making people laugh.",
+tags:["Travel","Food","Comedy"],
+query:"handsome man dating portrait"
+},
 
-  {
-    name:"Marcus",
-    age:34,
-    city:"New York",
-    job:"Architect",
-    bio:"Coffee addict with questionable dance moves and excellent dinner recommendations.",
-    tags:["Coffee","Design","Travel"],
-    photo:12
-  },
+{
+name:"Marcus",
+age:34,
+city:"New York",
+job:"Architect",
+bio:"Coffee addict with questionable dance moves and excellent dinner recommendations.",
+tags:["Coffee","Design","Travel"],
+query:"stylish man portrait"
+},
 
-  {
-    name:"Ryan",
-    age:29,
-    city:"Chicago",
-    job:"Sports Marketing",
-    bio:"Competitive at trivia. Not competitive about where we eat.",
-    tags:["Sports","Trivia","Pizza"],
-    photo:13
-  },
+{
+name:"Ryan",
+age:29,
+city:"Chicago",
+job:"Sports Marketing",
+bio:"Competitive at trivia. Not competitive about where we eat.",
+tags:["Sports","Trivia","Pizza"],
+query:"attractive man casual portrait"
+},
 
-  {
-    name:"Daniel",
-    age:36,
-    city:"Los Angeles",
-    job:"Film Producer",
-    bio:"Movie nights, spontaneous trips and finding the best hidden restaurants.",
-    tags:["Movies","Travel","Food"],
-    photo:14
-  },
+{
+name:"Daniel",
+age:36,
+city:"Los Angeles",
+job:"Film Producer",
+bio:"Movie nights, spontaneous trips and finding the best hidden restaurants.",
+tags:["Movies","Travel","Food"],
+query:"handsome businessman portrait"
+},
 
-  {
-    name:"Ethan",
-    age:32,
-    city:"Toronto",
-    job:"Software Engineer",
-    bio:"Calm, sarcastic and convinced he makes a pretty good breakfast.",
-    tags:["Tech","Cooking","Coffee"],
-    photo:15
-  },
+{
+name:"Ethan",
+age:32,
+city:"Toronto",
+job:"Software Engineer",
+bio:"Calm, sarcastic and convinced he makes a pretty good breakfast.",
+tags:["Tech","Cooking","Coffee"],
+query:"young professional man portrait"
+},
 
-  {
-    name:"Michael",
-    age:38,
-    city:"New York",
-    job:"Entrepreneur",
-    bio:"I work hard, laugh a lot and never turn down a good dinner.",
-    tags:["Business","Food","Travel"],
-    photo:16
-  },
+{
+name:"Michael",
+age:38,
+city:"New York",
+job:"Entrepreneur",
+bio:"I work hard, laugh a lot and never turn down a good dinner.",
+tags:["Business","Food","Travel"],
+query:"handsome entrepreneur portrait"
+},
 
-  {
-    name:"Jordan",
-    age:30,
-    city:"Miami",
-    job:"Fitness Coach",
-    bio:"Sunshine, beach days and terrible dad jokes.",
-    tags:["Fitness","Beach","Humor"],
-    photo:17
-  },
+{
+name:"Jordan",
+age:30,
+city:"Miami",
+job:"Fitness Coach",
+bio:"Sunshine, beach days and terrible dad jokes.",
+tags:["Fitness","Beach","Humor"],
+query:"fit handsome man portrait"
+},
 
-  {
-    name:"Andrew",
-    age:35,
-    city:"Boston",
-    job:"Doctor",
-    bio:"Weekend explorer looking for someone who appreciates good conversation.",
-    tags:["Travel","Books","Cooking"],
-    photo:18
-  },
+{
+name:"Andrew",
+age:35,
+city:"Boston",
+job:"Doctor",
+bio:"Weekend explorer looking for someone who appreciates good conversation.",
+tags:["Travel","Books","Cooking"],
+query:"handsome doctor portrait"
+},
 
-  {
-    name:"Chris",
-    age:33,
-    city:"Los Angeles",
-    job:"Photographer",
-    bio:"Always looking for the next great view and the next great story.",
-    tags:["Photography","Travel","Music"],
-    photo:19
-  },
+{
+name:"Chris",
+age:33,
+city:"Los Angeles",
+job:"Photographer",
+bio:"Always looking for the next great view and the next great story.",
+tags:["Photography","Travel","Music"],
+query:"handsome photographer portrait"
+},
 
-  {
-    name:"Matthew",
-    age:37,
-    city:"Chicago",
-    job:"Restaurant Owner",
-    bio:"If food is involved, I'm probably already interested.",
-    tags:["Food","Travel","Comedy"],
-    photo:20
-  },
+{
+name:"Matthew",
+age:37,
+city:"Chicago",
+job:"Restaurant Owner",
+bio:"If food is involved, I'm probably already interested.",
+tags:["Food","Travel","Comedy"],
+query:"handsome restaurant owner portrait"
+},
 
-  {
-    name:"James",
-    age:34,
-    city:"New York",
-    job:"Attorney",
-    bio:"Serious about my career. Not serious about taking myself too seriously.",
-    tags:["Law","Comedy","Travel"],
-    photo:21
-  },
+{
+name:"James",
+age:34,
+city:"New York",
+job:"Attorney",
+bio:"Serious about my career. Not serious about taking myself too seriously.",
+tags:["Law","Comedy","Travel"],
+query:"handsome lawyer portrait"
+},
 
-  {
-    name:"Noah",
-    age:28,
-    city:"Austin",
-    job:"Musician",
-    bio:"Guitar, tacos and finding reasons to stay out just a little too late.",
-    tags:["Music","Tacos","Live Shows"],
-    photo:22
-  },
+{
+name:"Noah",
+age:28,
+city:"Austin",
+job:"Musician",
+bio:"Guitar, tacos and finding reasons to stay out just a little too late.",
+tags:["Music","Tacos","Live Shows"],
+query:"handsome musician portrait"
+},
 
-  {
-    name:"Brandon",
-    age:40,
-    city:"San Diego",
-    job:"Real Estate Developer",
-    bio:"Beach guy who somehow still gets excited about a really good cup of coffee.",
-    tags:["Beach","Coffee","Golf"],
-    photo:23
-  },
+{
+name:"Brandon",
+age:40,
+city:"San Diego",
+job:"Real Estate Developer",
+bio:"Beach guy who somehow still gets excited about a really good cup of coffee.",
+tags:["Beach","Coffee","Golf"],
+query:"handsome businessman portrait"
+},
 
-  {
-    name:"Tyler",
-    age:31,
-    city:"Nashville",
-    job:"Music Manager",
-    bio:"Concerts, road trips and a dangerous amount of confidence in my karaoke skills.",
-    tags:["Music","Road Trips","Karaoke"],
-    photo:24
-  },
+{
+name:"Tyler",
+age:31,
+city:"Nashville",
+job:"Music Manager",
+bio:"Concerts, road trips and a dangerous amount of confidence in my karaoke skills.",
+tags:["Music","Road Trips","Karaoke"],
+query:"handsome man concert portrait"
+},
 
-  {
-    name:"David",
-    age:39,
-    city:"Seattle",
-    job:"Business Consultant",
-    bio:"Quietly competitive, overly loyal and always planning the next trip.",
-    tags:["Travel","Business","Hiking"],
-    photo:25
-  },
+{
+name:"David",
+age:39,
+city:"Seattle",
+job:"Business Consultant",
+bio:"Quietly competitive, overly loyal and always planning the next trip.",
+tags:["Travel","Business","Hiking"],
+query:"professional handsome man portrait"
+},
 
-  {
-    name:"Liam",
-    age:30,
-    city:"Boston",
-    job:"Financial Analyst",
-    bio:"Numbers during the week. Hiking, food and bad jokes on weekends.",
-    tags:["Hiking","Food","Finance"],
-    photo:26
-  },
+{
+name:"Liam",
+age:30,
+city:"Boston",
+job:"Financial Analyst",
+bio:"Numbers during the week. Hiking, food and bad jokes on weekends.",
+tags:["Hiking","Food","Finance"],
+query:"handsome professional man portrait"
+},
 
-  {
-    name:"Kevin",
-    age:35,
-    city:"Toronto",
-    job:"Marketing Executive",
-    bio:"Friendly, ambitious and always looking for the city's best brunch.",
-    tags:["Brunch","Travel","Fitness"],
-    photo:27
-  },
+{
+name:"Kevin",
+age:35,
+city:"Toronto",
+job:"Marketing Executive",
+bio:"Friendly, ambitious and always looking for the city's best brunch.",
+tags:["Brunch","Travel","Fitness"],
+query:"handsome marketing executive portrait"
+},
 
-  {
-    name:"Jason",
-    age:42,
-    city:"Los Angeles",
-    job:"Film Executive",
-    bio:"Movie nerd, restaurant hunter and believer in old-school romance.",
-    tags:["Movies","Food","Romance"],
-    photo:28
-  },
+{
+name:"Jason",
+age:42,
+city:"Los Angeles",
+job:"Film Executive",
+bio:"Movie nerd, restaurant hunter and believer in old-school romance.",
+tags:["Movies","Food","Romance"],
+query:"handsome older man portrait"
+},
 
-  {
-    name:"Nathan",
-    age:33,
-    city:"Denver",
-    job:"Outdoor Guide",
-    bio:"If there's a mountain nearby, I'm probably trying to climb it.",
-    tags:["Hiking","Adventure","Travel"],
-    photo:29
-  },
+{
+name:"Nathan",
+age:33,
+city:"Denver",
+job:"Outdoor Guide",
+bio:"If there's a mountain nearby, I'm probably trying to climb it.",
+tags:["Hiking","Adventure","Travel"],
+query:"handsome outdoors man portrait"
+},
 
-  {
-    name:"Steven",
-    age:37,
-    city:"New York",
-    job:"Restaurant Consultant",
-    bio:"I take dinner very seriously. Everything else is negotiable.",
-    tags:["Food","Travel","Comedy"],
-    photo:30
-  },
+{
+name:"Steven",
+age:37,
+city:"New York",
+job:"Restaurant Consultant",
+bio:"I take dinner very seriously. Everything else is negotiable.",
+tags:["Food","Travel","Comedy"],
+query:"handsome stylish man portrait"
+},
 
-  {
-    name:"Adam",
-    age:32,
-    city:"Vancouver",
-    job:"Tech Founder",
-    bio:"Entrepreneur, skier and surprisingly good at making pasta.",
-    tags:["Skiing","Tech","Cooking"],
-    photo:31
-  },
+{
+name:"Adam",
+age:32,
+city:"Vancouver",
+job:"Tech Founder",
+bio:"Entrepreneur, skier and surprisingly good at making pasta.",
+tags:["Skiing","Tech","Cooking"],
+query:"handsome tech founder portrait"
+},
 
-  {
-    name:"Eric",
-    age:36,
-    city:"Miami",
-    job:"Real Estate Broker",
-    bio:"Beach weekends and dinner dates are basically my personality.",
-    tags:["Beach","Food","Fitness"],
-    photo:32
-  },
+{
+name:"Eric",
+age:36,
+city:"Miami",
+job:"Real Estate Broker",
+bio:"Beach weekends and dinner dates are basically my personality.",
+tags:["Beach","Food","Fitness"],
+query:"handsome man beach portrait"
+},
 
-  {
-    name:"Justin",
-    age:29,
-    city:"Austin",
-    job:"Graphic Designer",
-    bio:"Creative by profession, amateur chef by necessity.",
-    tags:["Design","Cooking","Music"],
-    photo:33
-  },
+{
+name:"Justin",
+age:29,
+city:"Austin",
+job:"Graphic Designer",
+bio:"Creative by profession, amateur chef by necessity.",
+tags:["Design","Cooking","Music"],
+query:"handsome creative man portrait"
+},
 
-  {
-    name:"Sean",
-    age:41,
-    city:"Chicago",
-    job:"Technology Executive",
-    bio:"Big fan of travel, live music and people who can make me laugh.",
-    tags:["Music","Travel","Comedy"],
-    photo:34
-  },
+{
+name:"Sean",
+age:41,
+city:"Chicago",
+job:"Technology Executive",
+bio:"Big fan of travel, live music and people who can make me laugh.",
+tags:["Music","Travel","Comedy"],
+query:"handsome executive portrait"
+},
 
-  {
-    name:"Anthony",
-    age:35,
-    city:"New York",
-    job:"Restaurant Owner",
-    bio:"I know where to eat. The rest we can figure out.",
-    tags:["Food","Business","Travel"],
-    photo:35
-  },
+{
+name:"Anthony",
+age:35,
+city:"New York",
+job:"Restaurant Owner",
+bio:"I know where to eat. The rest we can figure out.",
+tags:["Food","Business","Travel"],
+query:"handsome restaurant man portrait"
+},
 
-  {
-    name:"Ben",
-    age:30,
-    city:"Los Angeles",
-    job:"Actor",
-    bio:"Auditions by day, tacos by night.",
-    tags:["Movies","Fitness","Food"],
-    photo:36
-  },
+{
+name:"Ben",
+age:30,
+city:"Los Angeles",
+job:"Actor",
+bio:"Auditions by day, tacos by night.",
+tags:["Movies","Fitness","Food"],
+query:"handsome actor style portrait"
+},
 
-  {
-    name:"Jake",
-    age:34,
-    city:"San Diego",
-    job:"Sports Agent",
-    bio:"Beach, golf, great food and a little harmless competition.",
-    tags:["Golf","Beach","Sports"],
-    photo:37
-  },
+{
+name:"Jake",
+age:34,
+city:"San Diego",
+job:"Sports Agent",
+bio:"Beach, golf, great food and a little harmless competition.",
+tags:["Golf","Beach","Sports"],
+query:"handsome sports man portrait"
+},
 
-  {
-    name:"Thomas",
-    age:39,
-    city:"Toronto",
-    job:"Professor",
-    bio:"Bookish enough to have opinions about movies based on the books.",
-    tags:["Books","Movies","Coffee"],
-    photo:38
-  },
+{
+name:"Thomas",
+age:39,
+city:"Toronto",
+job:"Professor",
+bio:"Bookish enough to have opinions about movies based on the books.",
+tags:["Books","Movies","Coffee"],
+query:"handsome professor portrait"
+},
 
-  {
-    name:"William",
-    age:43,
-    city:"New York",
-    job:"Investment Manager",
-    bio:"Old-school manners with a very modern sense of humor.",
-    tags:["Travel","Dining","Golf"],
-    photo:39
-  },
+{
+name:"William",
+age:43,
+city:"New York",
+job:"Investment Manager",
+bio:"Old-school manners with a very modern sense of humor.",
+tags:["Travel","Dining","Golf"],
+query:"handsome mature man portrait"
+},
 
-  {
-    name:"Luke",
-    age:31,
-    city:"Nashville",
-    job:"Entrepreneur",
-    bio:"Good music, better food and absolutely no interest in boring dates.",
-    tags:["Music","Food","Travel"],
-    photo:40
-  },
+{
+name:"Luke",
+age:31,
+city:"Nashville",
+job:"Entrepreneur",
+bio:"Good music, better food and absolutely no interest in boring dates.",
+tags:["Music","Food","Travel"],
+query:"handsome entrepreneur portrait"
+},
 
-  {
-    name:"Cole",
-    age:28,
-    city:"Miami",
-    job:"Fitness Entrepreneur",
-    bio:"Gym, beach and finding excuses to travel.",
-    tags:["Fitness","Beach","Travel"],
-    photo:41
-  },
+{
+name:"Cole",
+age:28,
+city:"Miami",
+job:"Fitness Entrepreneur",
+bio:"Gym, beach and finding excuses to travel.",
+tags:["Fitness","Beach","Travel"],
+query:"handsome fit man portrait"
+},
 
-  {
-    name:"Patrick",
-    age:36,
-    city:"Boston",
-    job:"Sports Journalist",
-    bio:"Can talk sports for hours. Can also talk about literally anything else.",
-    tags:["Sports","Writing","Travel"],
-    photo:42
-  },
+{
+name:"Patrick",
+age:36,
+city:"Boston",
+job:"Sports Journalist",
+bio:"Can talk sports for hours. Can also talk about literally anything else.",
+tags:["Sports","Writing","Travel"],
+query:"handsome journalist portrait"
+},
 
-  {
-    name:"Nicholas",
-    age:33,
-    city:"New York",
-    job:"Photographer",
-    bio:"I notice good lighting. And apparently good smiles.",
-    tags:["Photography","Travel","Coffee"],
-    photo:43
-  },
+{
+name:"Nicholas",
+age:33,
+city:"New York",
+job:"Photographer",
+bio:"I notice good lighting. And apparently good smiles.",
+tags:["Photography","Travel","Coffee"],
+query:"handsome photographer man portrait"
+},
 
-  {
-    name:"Jonathan",
-    age:37,
-    city:"Denver",
-    job:"Architect",
-    bio:"Mountains, museums and finding the best coffee in every city.",
-    tags:["Architecture","Hiking","Coffee"],
-    photo:44
-  }
+{
+name:"Jonathan",
+age:37,
+city:"Denver",
+job:"Architect",
+bio:"Mountains, museums and finding the best coffee in every city.",
+tags:["Architecture","Hiking","Coffee"],
+query:"handsome architect portrait"
+}
 
 ];
 
 
 /* =====================================================
-   STATE
+STATE
 ===================================================== */
 
-let currentIndex = 0;
-
-let likedMen = [];
+let currentIndex=0;
+let likedMen=[];
 
 
 /* =====================================================
-   ELEMENTS
+ELEMENTS
 ===================================================== */
 
-const welcome =
-  document.getElementById("welcome");
-
-const startButton =
-  document.getElementById("startButton");
-
-const deck =
-  document.getElementById("deck");
-
-const toast =
-  document.getElementById("toast");
-
-const profileSheet =
-  document.getElementById("profileSheet");
-
-const likesSheet =
-  document.getElementById("likesSheet");
+const welcome=document.getElementById("welcome");
+const startButton=document.getElementById("startButton");
+const deck=document.getElementById("deck");
+const toast=document.getElementById("toast");
+const profileSheet=document.getElementById("profileSheet");
+const likesSheet=document.getElementById("likesSheet");
 
 
 /* =====================================================
-   TOAST
+HIGH QUALITY IMAGE
 ===================================================== */
 
-function showToast(message){
+function portrait(person,index){
 
-  toast.textContent = message;
+const seed=
+encodeURIComponent(
+person.query+
+" professional dating profile man "+
+index
+);
 
-  toast.classList.add("show");
-
-  setTimeout(function(){
-
-    toast.classList.remove("show");
-
-  },1200);
+return "https://www.sourcesplash.com/i/900x1200/random?q="
++seed
++"&v="
++index;
 
 }
 
 
 /* =====================================================
-   PORTRAIT
-===================================================== */
-
-function portrait(number){
-
-  return "https://randomuser.me/api/portraits/men/"
-       + (number % 100)
-       + ".jpg";
-
-}
-
-
-/* =====================================================
-   FALLBACK IMAGE
+FALLBACK
 ===================================================== */
 
 function fallbackImage(){
 
-  return "data:image/svg+xml;charset=UTF-8,"
-       + encodeURIComponent(`
-          <svg xmlns="http://www.w3.org/2000/svg"
-               width="600"
-               height="900">
+return "data:image/svg+xml;charset=UTF-8,"
++encodeURIComponent(`
+<svg xmlns="http://www.w3.org/2000/svg"
+width="900"
+height="1200">
 
-            <rect width="100%"
-                  height="100%"
-                  fill="#303030"/>
+<defs>
+<linearGradient
+id="g"
+x1="0"
+y1="0"
+x2="0"
+y2="1">
 
-            <circle
-              cx="300"
-              cy="300"
-              r="100"
-              fill="#777"/>
+<stop
+offset="0"
+stop-color="#555"/>
 
-            <path
-              d="M100 800
-                 C100 570 500 570 500 800
-                 L500 900
-                 L100 900Z"
-              fill="#555"/>
+<stop
+offset="1"
+stop-color="#161616"/>
 
-          </svg>
-       `);
+</linearGradient>
+</defs>
+
+<rect
+width="100%"
+height="100%"
+fill="url(#g)"/>
+
+<circle
+cx="450"
+cy="390"
+r="145"
+fill="#888"/>
+
+<path
+d="M130 1200
+C130 850 770 850 770 1200Z"
+fill="#666"/>
+
+</svg>
+`);
 
 }
 
 
 /* =====================================================
-   CREATE CARD
+TOAST
+===================================================== */
+
+function showToast(message){
+
+toast.textContent=message;
+
+toast.classList.add("show");
+
+setTimeout(function(){
+
+toast.classList.remove("show");
+
+},1200);
+
+}
+
+
+/* =====================================================
+CREATE CARD
 ===================================================== */
 
 function createCard(person,position){
 
-  const card =
-    document.createElement("div");
+const card=document.createElement("div");
 
-  card.className = "card";
+card.className="card";
 
-  card.style.zIndex =
-    100 - position;
+card.style.zIndex=100-position;
 
+card.innerHTML=`
 
-  card.innerHTML = `
+<img
+class="person-image"
+src="${portrait(person,currentIndex+position)}"
+alt="${person.name}"
+>
 
-    <img
-      class="person-image"
-      src="${portrait(person.photo)}"
-      alt="${person.name}"
-    >
+<div class="card-top">
 
+<div class="badge">
+✓ Dating profile
+</div>
 
-    <div class="card-top">
+<div class="city">
+📍 ${person.city}
+</div>
 
-      <div class="badge">
-        ✓ Dating profile
-      </div>
+</div>
 
-      <div class="city">
-        📍 ${person.city}
-      </div>
+<div class="stamp silly-stamp">
+SILLY 🤪
+</div>
 
-    </div>
+<div class="stamp stinky-stamp">
+STINKY 💩
+</div>
 
+<div class="card-info">
 
-    <div class="stamp silly-stamp">
-      SILLY 🤪
-    </div>
+<div>
 
+<span class="card-name">
+${person.name}
+</span>
 
-    <div class="stamp stinky-stamp">
-      STINKY 💩
-    </div>
+<span class="card-age">
+${person.age}
+</span>
 
+</div>
 
-    <div class="card-info">
+<div class="card-job">
+${person.job}
+</div>
 
-      <div>
+<div class="card-bio">
+${person.bio}
+</div>
 
-        <span class="card-name">
-          ${person.name}
-        </span>
+<div class="tags">
 
-        <span class="card-age">
-          ${person.age}
-        </span>
+${person.tags.map(function(tag){
 
-      </div>
+return `
+<span class="tag">
+${tag}
+</span>
+`;
 
+}).join("")}
 
-      <div class="card-job">
-        ${person.job}
-      </div>
+</div>
 
-
-      <div class="card-bio">
-        ${person.bio}
-      </div>
-
-
-      <div class="tags">
-
-        ${person.tags.map(function(tag){
-
-          return `
-            <span class="tag">
-              ${tag}
-            </span>
-          `;
-
-        }).join("")}
-
-      </div>
-
-    </div>
-
-  `;
+</div>
+`;
 
 
-  const image =
-    card.querySelector(".person-image");
+const image=
+card.querySelector(".person-image");
 
 
-  image.onerror =
-    function(){
+image.onerror=function(){
 
-      image.src =
-        fallbackImage();
+if(!image.dataset.fallback){
 
-    };
+image.dataset.fallback="1";
 
+image.src=fallbackImage();
 
-  if(position === 0){
+}
 
-    enableSwipe(card);
-
-  }
+};
 
 
-  return card;
+if(position===0){
+
+enableSwipe(card);
+
+}
+
+
+return card;
 
 }
 
 
 /* =====================================================
-   RENDER
+RENDER
 ===================================================== */
 
 function renderCards(){
 
-  deck.innerHTML = "";
+deck.innerHTML="";
 
 
-  for(
-    let position = 2;
-    position >= 0;
-    position--
-  ){
+for(
+let position=2;
+position>=0;
+position--
+){
 
-    const person =
-      men[
-        (currentIndex + position)
-        % men.length
-      ];
+const person=
+men[
+(currentIndex+position)
+%men.length
+];
 
-
-    const card =
-      createCard(
-        person,
-        position
-      );
-
-
-    if(position > 0){
-
-      card.style.transform =
-        "scale("
-        + (1 - position * .035)
-        + ") translateY("
-        + (position * 10)
-        + "px)";
-
-    }
+const card=
+createCard(
+person,
+position
+);
 
 
-    deck.appendChild(card);
+if(position>0){
 
-  }
+card.style.transform=
+"scale("
++(1-position*.035)
++") translateY("
++(position*10)
++"px)";
+
+}
+
+deck.appendChild(card);
+
+}
 
 }
 
 
 /* =====================================================
-   SWIPE
+SWIPE
 ===================================================== */
 
 function enableSwipe(card){
 
-  let startX = 0;
-
-  let deltaX = 0;
-
-  let dragging = false;
+let startX=0;
+let deltaX=0;
+let dragging=false;
 
 
-  card.addEventListener(
-    "touchstart",
-    function(event){
+card.addEventListener(
+"touchstart",
+function(event){
 
-      dragging = true;
+dragging=true;
 
-      startX =
-        event.touches[0].clientX;
+startX=
+event.touches[0].clientX;
 
-      deltaX = 0;
+deltaX=0;
 
-    },
-    {
-      passive:true
-    }
-  );
+},
+{passive:true}
+);
 
 
-  card.addEventListener(
-    "touchmove",
-    function(event){
+card.addEventListener(
+"touchmove",
+function(event){
 
-      if(!dragging){
-        return;
-      }
+if(!dragging)return;
 
+const x=
+event.touches[0].clientX;
 
-      const x =
-        event.touches[0].clientX;
+deltaX=x-startX;
 
-
-      deltaX =
-        x - startX;
-
-
-      card.style.transform =
-        "translateX("
-        + deltaX
-        + "px) rotate("
-        + (deltaX / 18)
-        + "deg)";
+card.style.transform=
+"translateX("
++deltaX
++"px) rotate("
++(deltaX/18)
++"deg)";
 
 
-      const silly =
-        card.querySelector(".silly-stamp");
+const silly=
+card.querySelector(".silly-stamp");
 
-      const stinky =
-        card.querySelector(".stinky-stamp");
-
-
-      silly.style.opacity =
-        Math.max(
-          0,
-          deltaX / 100
-        );
+const stinky=
+card.querySelector(".stinky-stamp");
 
 
-      stinky.style.opacity =
-        Math.max(
-          0,
-          -deltaX / 100
-        );
+silly.style.opacity=
+Math.max(0,deltaX/100);
 
-    },
-    {
-      passive:true
-    }
-  );
+stinky.style.opacity=
+Math.max(0,-deltaX/100);
+
+},
+{passive:true}
+);
 
 
-  card.addEventListener(
-    "touchend",
-    function(){
+card.addEventListener(
+"touchend",
+function(){
 
-      if(!dragging){
-        return;
-      }
+if(!dragging)return;
 
-
-      dragging = false;
+dragging=false;
 
 
-      if(Math.abs(deltaX) > 100){
+if(Math.abs(deltaX)>100){
 
-        finishSwipe(
-          deltaX > 0
-          ? "silly"
-          : "stinky"
-        );
+finishSwipe(
+deltaX>0
+?"silly"
+:"stinky"
+);
 
-      }else{
+}else{
 
-        card.style.transition =
-          "transform .25s ease";
+card.style.transition=
+"transform .25s ease";
 
-        card.style.transform =
-          "";
+card.style.transform="";
 
-        card.querySelector(
-          ".silly-stamp"
-        ).style.opacity = 0;
+card.querySelector(
+".silly-stamp"
+).style.opacity=0;
 
-        card.querySelector(
-          ".stinky-stamp"
-        ).style.opacity = 0;
+card.querySelector(
+".stinky-stamp"
+).style.opacity=0;
 
-      }
+}
 
-    }
-  );
+}
+);
 
 }
 
 
 /* =====================================================
-   FINISH SWIPE
+FINISH SWIPE
 ===================================================== */
 
 function finishSwipe(type){
 
-  const card =
-    deck.querySelector(".card");
+const card=
+deck.querySelector(".card");
+
+if(!card)return;
 
 
-  if(!card){
-    return;
-  }
+const person=
+men[currentIndex%men.length];
 
 
-  const person =
-    men[
-      currentIndex % men.length
-    ];
+card.style.transition=
+"transform .3s ease,opacity .3s ease";
 
 
-  card.style.transition =
-    "transform .3s ease, opacity .3s ease";
+card.style.transform=
+type==="silly"
+?
+"translateX(1100px) rotate(25deg)"
+:
+"translateX(-1100px) rotate(-25deg)";
 
 
-  card.style.transform =
-    type === "silly"
-    ?
-    "translateX(1100px) rotate(25deg)"
-    :
-    "translateX(-1100px) rotate(-25deg)";
+card.style.opacity="0";
 
 
-  card.style.opacity = "0";
+setTimeout(function(){
+
+if(type==="silly"){
+
+const exists=
+likedMen.some(function(item){
+
+return item.name===person.name
+&&item.age===person.age;
+
+});
 
 
-  setTimeout(function(){
+if(!exists){
 
-    if(type === "silly"){
+likedMen.push(person);
 
-      const exists =
-        likedMen.some(function(item){
+}
 
-          return item.name === person.name
-              && item.age === person.age;
+showToast("🤪 SILLY!");
 
-        });
+}else{
 
+showToast("💩 STINKY!");
 
-      if(!exists){
-
-        likedMen.push(person);
-
-      }
+}
 
 
-      showToast("🤪 SILLY!");
+currentIndex++;
 
-    }else{
+if(currentIndex>=men.length){
 
-      showToast("💩 STINKY!");
+currentIndex=0;
 
-    }
+}
 
+renderCards();
 
-    currentIndex++;
-
-    if(currentIndex >= men.length){
-
-      currentIndex = 0;
-
-    }
-
-
-    renderCards();
-
-  },250);
+},250);
 
 }
 
 
 /* =====================================================
-   SILLY BUTTON
+BUTTONS
 ===================================================== */
 
-document
-  .getElementById("sillyButton")
-  .onclick =
-  function(){
+document.getElementById(
+"sillyButton"
+).onclick=function(){
 
-    finishSwipe("silly");
+finishSwipe("silly");
 
-  };
+};
+
+
+document.getElementById(
+"stinkyButton"
+).onclick=function(){
+
+finishSwipe("stinky");
+
+};
 
 
 /* =====================================================
-   STINKY BUTTON
+START
 ===================================================== */
 
-document
-  .getElementById("stinkyButton")
-  .onclick =
-  function(){
+startButton.onclick=function(){
 
-    finishSwipe("stinky");
+welcome.classList.add("hide");
 
-  };
+setTimeout(function(){
+
+welcome.style.display="none";
+
+renderCards();
+
+},350);
+
+};
 
 
 /* =====================================================
-   START
-===================================================== */
-
-startButton.onclick =
-  function(){
-
-    welcome.classList.add("hide");
-
-    setTimeout(function(){
-
-      welcome.style.display =
-        "none";
-
-      renderCards();
-
-    },350);
-
-  };
-
-
-/* =====================================================
-   PROFILE
+PROFILE
 ===================================================== */
 
 function openProfile(){
 
-  profileSheet.classList.add(
-    "open"
-  );
+profileSheet.classList.add("open");
 
 }
 
 
 function closeProfile(){
 
-  profileSheet.classList.remove(
-    "open"
-  );
+profileSheet.classList.remove("open");
 
 }
 
 
-document
-  .getElementById("headerProfile")
-  .onclick =
-  openProfile;
+document.getElementById(
+"headerProfile"
+).onclick=openProfile;
 
 
-document
-  .getElementById("profileButton")
-  .onclick =
-  openProfile;
+document.getElementById(
+"profileButton"
+).onclick=openProfile;
 
 
-document
-  .getElementById("closeProfile")
-  .onclick =
-  closeProfile;
+document.getElementById(
+"closeProfile"
+).onclick=closeProfile;
 
 
 /* =====================================================
-   LIKES
+LIKES
 ===================================================== */
 
 function renderLikes(){
 
-  const list =
-    document.getElementById(
-      "likedList"
-    );
+const list=
+document.getElementById("likedList");
 
 
-  if(!likedMen.length){
+if(!likedMen.length){
 
-    list.innerHTML = `
+list.innerHTML=`
 
-      <div
-        style="
-          text-align:center;
-          color:#888;
-          padding:30px 10px;
-          line-height:1.6;
-        "
-      >
+<div
+style="
+text-align:center;
+color:#888;
+padding:30px 10px;
+line-height:1.6;
+"
+>
 
-        No SILLY picks yet. 🤪
+No SILLY picks yet. 🤪
 
-        <br><br>
+<br><br>
 
-        Start Breumbling!
+Start Breumbling!
 
-      </div>
+</div>
 
-    `;
+`;
 
-    return;
+return;
 
-  }
+}
 
 
-  list.innerHTML =
-    likedMen.map(function(person){
+list.innerHTML=
+likedMen.map(function(person,index){
 
-      return `
+return `
 
-        <div class="liked">
+<div class="liked">
 
-          <img
-            src="${portrait(person.photo)}"
-            onerror="this.src='${fallbackImage()}'"
-            alt="${person.name}"
-          >
+<img
+src="${portrait(person,index)}"
+onerror="this.src='${fallbackImage()}'"
+alt="${person.name}"
+>
 
-          <div>
+<div>
 
-            <strong>
-              ${person.name}, ${person.age}
-            </strong>
+<strong>
+${person.name}, ${person.age}
+</strong>
 
-            <small>
-              📍 ${person.city}
-            </small>
+<small>
+📍 ${person.city}
+</small>
 
-            <small>
-              ${person.job}
-            </small>
+<small>
+${person.job}
+</small>
 
-          </div>
+</div>
 
-        </div>
+</div>
 
-      `;
+`;
 
-    }).join("");
+}).join("");
 
 }
 
 
 /* =====================================================
-   LIKES OPEN
+LIKES OPEN
 ===================================================== */
 
-document
-  .getElementById("likesButton")
-  .onclick =
-  function(){
+document.getElementById(
+"likesButton"
+).onclick=function(){
 
-    renderLikes();
+renderLikes();
 
-    likesSheet.classList.add(
-      "open"
-    );
+likesSheet.classList.add("open");
 
-  };
+};
 
 
 /* =====================================================
-   LIKES CLOSE
+LIKES CLOSE
 ===================================================== */
 
-document
-  .getElementById("closeLikes")
-  .onclick =
-  function(){
+document.getElementById(
+"closeLikes"
+).onclick=function(){
 
-    likesSheet.classList.remove(
-      "open"
-    );
+likesSheet.classList.remove("open");
 
-  };
+};
 
 
 /* =====================================================
-   DISCOVER
+DISCOVER
 ===================================================== */
 
-document
-  .getElementById("discoverButton")
-  .onclick =
-  function(){
+document.getElementById(
+"discoverButton"
+).onclick=function(){
 
-    likesSheet.classList.remove(
-      "open"
-    );
+likesSheet.classList.remove("open");
 
-  };
+};
 
 
 /* =====================================================
-   INITIAL
+INITIAL
 ===================================================== */
 
 renderCards();
