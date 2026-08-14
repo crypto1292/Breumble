@@ -2,171 +2,345 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
-<meta name="theme-color" content="#080808">
+
+<meta
+  name="viewport"
+  content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no"
+>
+
+<meta name="theme-color" content="#090909">
 
 <title>BREUMBLE</title>
 
 <style>
 
-/* =====================================================
-   BASE
-===================================================== */
+/* =========================================================
+   RESET
+========================================================= */
 
 *{
   box-sizing:border-box;
   -webkit-tap-highlight-color:transparent;
 }
 
-html,body{
-  margin:0;
+html,
+body{
+  width:100%;
   height:100%;
+  margin:0;
+  padding:0;
+
   overflow:hidden;
+
   background:#080808;
   color:#fff;
+
   font-family:
     -apple-system,
     BlinkMacSystemFont,
     "Segoe UI",
+    Roboto,
+    Arial,
     sans-serif;
 }
 
-button{
-  font:inherit;
-  border:0;
-  cursor:pointer;
+body{
+  overscroll-behavior:none;
 }
 
+button{
+  font-family:inherit;
+  border:0;
+  outline:0;
+  cursor:pointer;
+  -webkit-appearance:none;
+  appearance:none;
+}
+
+img{
+  max-width:100%;
+}
+
+
+/* =========================================================
+   APP
+========================================================= */
+
 .app{
+  position:relative;
+
   width:100%;
   max-width:520px;
+
   height:100dvh;
-  margin:auto;
+
+  margin:0 auto;
 
   display:flex;
   flex-direction:column;
+
+  overflow:hidden;
 
   background:
     radial-gradient(
       circle at 50% -15%,
-      #46300b,
-      #090909 48%
+      #49340e 0%,
+      #171208 23%,
+      #090909 55%
     );
 }
 
-/* =====================================================
-   WELCOME
-===================================================== */
 
-.welcome{
+/* =========================================================
+   WELCOME SCREEN
+========================================================= */
+
+#welcome{
   position:fixed;
+
   inset:0;
-  z-index:100;
+
+  width:100%;
+  height:100dvh;
+
+  z-index:9999;
 
   display:flex;
+
   flex-direction:column;
+
   align-items:center;
+
   justify-content:center;
 
-  padding:25px;
+  padding:
+    24px
+    24px
+    calc(24px + env(safe-area-inset-bottom));
 
   text-align:center;
 
   background:
     radial-gradient(
-      circle at 50% 10%,
-      #4a330d,
-      #080808 60%
+      circle at 50% 8%,
+      #49340e,
+      #171106 28%,
+      #080808 65%
     );
 
+  opacity:1;
+
+  transform:scale(1);
+
   transition:
-    opacity .45s ease,
-    transform .45s ease;
+    opacity .35s ease,
+    transform .35s ease;
+
+  pointer-events:auto;
+
+  touch-action:manipulation;
 }
 
-.welcome.hide{
+#welcome.hide{
   opacity:0;
-  transform:scale(1.04);
+  transform:scale(1.03);
+
   pointer-events:none;
 }
 
-.logo-big{
+.welcome-logo{
   font-size:48px;
+
+  line-height:1;
+
   font-weight:1000;
+
   letter-spacing:-4px;
 }
 
-.logo-big b{
+.welcome-logo b{
   color:#f4c542;
 }
 
-.welcome-sub{
-  color:#999;
-  text-transform:uppercase;
-  letter-spacing:2px;
+.welcome-kicker{
+  margin-top:8px;
+
+  color:#aaa;
+
   font-size:11px;
-  font-weight:800;
-  margin:4px 0 22px;
+
+  font-weight:900;
+
+  letter-spacing:2px;
+
+  text-transform:uppercase;
 }
 
-.welcome-photo{
-  width:220px;
-  height:280px;
+.welcome-photo-wrap{
+  position:relative;
 
-  object-fit:cover;
+  width:205px;
+  height:260px;
+
+  margin-top:24px;
 
   border-radius:28px;
+
+  overflow:hidden;
 
   border:3px solid #f4c542;
 
   box-shadow:
-    0 20px 60px #000,
-    0 0 35px #f4c54222;
+    0 25px 65px #000,
+    0 0 35px #f4c54225;
+}
+
+.welcome-photo{
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  display:block;
+}
+
+.photo-heart{
+  position:absolute;
+
+  right:12px;
+  bottom:12px;
+
+  width:44px;
+  height:44px;
+
+  display:grid;
+  place-items:center;
+
+  border-radius:50%;
+
+  background:#f4c542;
+
+  color:#111;
+
+  font-size:21px;
+
+  border:3px solid #111;
 }
 
 .welcome-name{
-  margin-top:20px;
-  font-size:34px;
+  margin-top:18px;
+
+  font-size:33px;
+
   font-weight:1000;
 }
 
-.welcome-description{
-  color:#aaa;
-  margin:5px 0 22px;
-  font-size:14px;
+.welcome-job{
+  margin-top:4px;
+
+  color:#bbb;
+
+  font-size:13px;
+
+  font-weight:700;
 }
 
-.start{
-  padding:16px 28px;
-  border-radius:99px;
+.start-button{
+  position:relative;
 
-  background:#f4c542;
-  color:#111;
-
-  font-size:16px;
-  font-weight:1000;
-
-  box-shadow:0 10px 30px #000;
-}
-
-/* =====================================================
-   HEADER
-===================================================== */
-
-header{
-  height:70px;
-  flex-shrink:0;
+  z-index:10000;
 
   display:flex;
+
   align-items:center;
+
+  justify-content:center;
+
+  min-width:220px;
+
+  min-height:56px;
+
+  margin-top:22px;
+
+  padding:15px 25px;
+
+  border-radius:999px;
+
+  background:#f4c542;
+
+  color:#111;
+
+  font-size:15px;
+
+  font-weight:1000;
+
+  letter-spacing:.2px;
+
+  box-shadow:
+    0 10px 35px #000,
+    0 0 0 1px #ffffff22;
+
+  touch-action:manipulation;
+
+  pointer-events:auto;
+}
+
+.start-button:active{
+  transform:scale(.96);
+}
+
+.start-button span{
+  margin-left:7px;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header{
+  position:relative;
+
+  height:72px;
+
+  flex:0 0 72px;
+
+  display:flex;
+
+  align-items:center;
+
   justify-content:space-between;
 
-  padding:10px 15px;
+  padding:
+    10px
+    15px;
+
+  z-index:20;
+}
+
+.header-button{
+  width:42px;
+  height:42px;
+
+  display:grid;
+  place-items:center;
+
+  border-radius:50%;
+
+  background:#191919;
+
+  color:#fff;
+
+  font-size:19px;
 }
 
 .logo{
   font-size:29px;
+
+  line-height:1;
+
   font-weight:1000;
+
   letter-spacing:-2px;
 }
 
@@ -176,67 +350,78 @@ header{
 
 .header-profile{
   display:flex;
+
   align-items:center;
+
   gap:7px;
 
+  color:#ddd;
+
   font-size:11px;
-  font-weight:800;
+
+  font-weight:900;
 }
 
 .header-profile img{
   width:38px;
   height:38px;
 
-  object-fit:cover;
-
   border-radius:50%;
+
+  object-fit:cover;
 
   border:2px solid #f4c542;
 }
 
-.profile-button{
-  width:42px;
-  height:42px;
 
-  border-radius:50%;
+/* =========================================================
+   DISCOVER AREA
+========================================================= */
 
-  background:#1a1a1a;
-  color:#fff;
+.main{
+  position:relative;
 
-  font-size:19px;
-}
-
-/* =====================================================
-   CARD AREA
-===================================================== */
-
-main{
   flex:1;
+
   min-height:0;
 
-  padding:5px 14px;
+  padding:
+    4px
+    14px
+    6px;
 }
 
 .deck{
   position:relative;
+
+  width:100%;
   height:100%;
 }
 
+
+/* =========================================================
+   DATING CARD
+========================================================= */
+
 .card{
   position:absolute;
+
   inset:0;
 
   overflow:hidden;
 
-  background:#161616;
-
   border-radius:28px;
 
+  background:#191919;
+
   box-shadow:
-    0 20px 50px #000;
+    0 20px 55px #000;
 
   touch-action:none;
+
   user-select:none;
+
+  -webkit-user-select:none;
 
   transition:
     transform .3s ease,
@@ -247,115 +432,234 @@ main{
   width:100%;
   height:100%;
 
+  display:block;
+
   object-fit:cover;
+
+  background:#222;
 }
 
-.card:after{
+.card::after{
   content:"";
 
   position:absolute;
+
   inset:0;
+
+  pointer-events:none;
 
   background:
     linear-gradient(
-      transparent 30%,
-      transparent 47%,
-      #000e 100%
+      to bottom,
+      transparent 25%,
+      transparent 43%,
+      rgba(0,0,0,.15) 52%,
+      rgba(0,0,0,.92) 100%
     );
 }
 
+
+/* =========================================================
+   CARD TOP DETAILS
+========================================================= */
+
+.card-top{
+  position:absolute;
+
+  z-index:4;
+
+  top:16px;
+  left:16px;
+
+  right:16px;
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  pointer-events:none;
+}
+
+.verified{
+  padding:7px 10px;
+
+  border-radius:999px;
+
+  background:#000b;
+
+  backdrop-filter:blur(10px);
+
+  font-size:10px;
+
+  font-weight:900;
+
+  color:#fff;
+}
+
+.distance{
+  padding:7px 10px;
+
+  border-radius:999px;
+
+  background:#000b;
+
+  backdrop-filter:blur(10px);
+
+  font-size:10px;
+
+  font-weight:800;
+
+  color:#ddd;
+}
+
+
+/* =========================================================
+   CARD INFORMATION
+========================================================= */
+
 .card-info{
   position:absolute;
-  z-index:3;
 
-  left:22px;
-  right:22px;
-  bottom:20px;
+  z-index:5;
+
+  left:21px;
+  right:21px;
+  bottom:19px;
 }
 
 .card-name{
   font-size:30px;
+
   font-weight:1000;
+
+  letter-spacing:-.8px;
 }
 
 .card-age{
-  font-size:19px;
+  margin-left:5px;
+
   color:#ddd;
-  margin-left:4px;
+
+  font-size:20px;
 }
 
-.card-description{
-  margin-top:6px;
+.card-location{
+  margin-top:4px;
+
   color:#eee;
-  font-size:14px;
+
+  font-size:13px;
+
+  font-weight:700;
 }
 
-.badge{
-  display:inline-block;
+.card-job{
+  margin-top:5px;
+
+  color:#ddd;
+
+  font-size:13px;
+}
+
+.card-bio{
+  margin-top:7px;
+
+  color:#eee;
+
+  font-size:13px;
+
+  line-height:1.35;
+}
+
+.tags{
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:5px;
 
   margin-top:9px;
-  margin-right:4px;
+}
 
+.tag{
   padding:6px 9px;
 
-  border-radius:99px;
+  border-radius:999px;
 
   background:#ffffff20;
 
+  backdrop-filter:blur(8px);
+
+  color:#fff;
+
   font-size:10px;
+
   font-weight:900;
 }
 
-/* =====================================================
-   SWIPE LABELS
-===================================================== */
+
+/* =========================================================
+   SWIPE STAMPS
+========================================================= */
 
 .stamp{
   position:absolute;
-  z-index:6;
 
-  top:35px;
+  z-index:10;
 
-  padding:7px 13px;
+  top:40px;
+
+  padding:7px 12px;
 
   border:4px solid;
 
   border-radius:10px;
 
-  font-size:25px;
+  font-size:24px;
+
   font-weight:1000;
 
   opacity:0;
+
+  pointer-events:none;
 }
 
 .like-stamp{
-  left:20px;
+  left:18px;
 
-  color:#45e58a;
-  border-color:#45e58a;
+  color:#4bea8c;
 
-  transform:rotate(-10deg);
+  border-color:#4bea8c;
+
+  transform:rotate(-11deg);
 }
 
 .nope-stamp{
-  right:20px;
+  right:18px;
 
-  color:#ff5263;
-  border-color:#ff5263;
+  color:#ff5969;
 
-  transform:rotate(10deg);
+  border-color:#ff5969;
+
+  transform:rotate(11deg);
 }
 
-/* =====================================================
+
+/* =========================================================
    ACTIONS
-===================================================== */
+========================================================= */
 
 .actions{
-  height:92px;
-  flex-shrink:0;
+  height:88px;
+
+  flex:0 0 88px;
 
   display:flex;
+
   align-items:center;
+
   justify-content:center;
 
   gap:22px;
@@ -363,72 +667,75 @@ main{
 
 .action{
   display:grid;
+
   place-items:center;
 
   border-radius:50%;
 
-  box-shadow:
-    0 7px 20px #0009;
-
   transition:
-    transform .15s ease;
+    transform .12s ease;
 }
 
 .action:active{
-  transform:scale(.88);
+  transform:scale(.87);
 }
 
-/* Simple dislike */
+
+/* DISLIKE */
 
 .dislike{
-  width:64px;
-  height:64px;
+  width:62px;
+  height:62px;
 
   background:#181818;
 
-  border:2px solid #777;
+  border:2px solid #686868;
 
-  color:#aaa;
+  color:#bbb;
 
-  font-size:27px;
+  font-size:28px;
+
+  box-shadow:
+    0 8px 20px #000;
 }
 
-/* Simple like */
+
+/* LIKE */
 
 .like{
-  width:72px;
-  height:72px;
+  width:73px;
+  height:73px;
 
-  background:#183b28;
+  background:#173a27;
 
   border:2px solid #45e58a;
 
-  color:#fff;
-
-  font-size:30px;
+  box-shadow:
+    0 8px 24px #000;
 }
 
-/* Simple tooth */
 
-.clean-tooth{
-  width:28px;
-  height:32px;
+/* SIMPLE WHITE TOOTH */
+
+.tooth{
+  position:relative;
+
+  width:27px;
+  height:31px;
 
   background:#fff;
 
   border-radius:
-    8px
-    8px
+    9px
+    9px
     12px
     12px;
-
-  position:relative;
 
   box-shadow:
     inset 0 -3px 0 #ddd;
 }
 
-.clean-tooth:after{
+.tooth::after{
   content:"";
 
   position:absolute;
@@ -439,64 +746,75 @@ main{
 
   height:2px;
 
-  background:#eee;
-
   border-radius:50%;
+
+  background:#eee;
 }
 
-/* =====================================================
-   NAV
-===================================================== */
 
-nav{
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.nav{
   height:67px;
-  flex-shrink:0;
+
+  flex:0 0 67px;
 
   display:flex;
 
-  border-top:
-    1px solid #ffffff12;
-
   background:#0c0c0cf5;
 
-  backdrop-filter:blur(20px);
+  border-top:
+    1px solid #ffffff10;
+
+  backdrop-filter:blur(18px);
+
+  padding-bottom:
+    env(safe-area-inset-bottom);
 }
 
-nav button{
+.nav button{
   flex:1;
 
-  background:none;
+  background:transparent;
 
   color:#777;
 
   font-size:10px;
-  font-weight:800;
+
+  font-weight:900;
 }
 
-nav button.active{
+.nav button.active{
   color:#fff;
 }
 
-nav span{
+.nav-icon{
   display:block;
-  font-size:20px;
+
   margin-bottom:2px;
+
+  font-size:20px;
 }
 
-/* =====================================================
+
+/* =========================================================
    PROFILE SHEET
-===================================================== */
+========================================================= */
 
 .sheet{
   position:fixed;
+
   inset:0;
 
-  z-index:200;
+  z-index:500;
 
   display:none;
+
   align-items:flex-end;
 
-  background:#000b;
+  background:#000c;
 }
 
 .sheet.open{
@@ -505,18 +823,19 @@ nav span{
 
 .profile-panel{
   width:100%;
+
   max-width:520px;
 
-  max-height:92dvh;
+  max-height:94dvh;
+
+  margin:0 auto;
 
   overflow:auto;
 
-  margin:auto;
-
   background:
     linear-gradient(
-      #181818,
-      #0c0c0c
+      #191919,
+      #0b0b0b
     );
 
   border-radius:
@@ -524,14 +843,12 @@ nav span{
     30px
     0
     0;
-
-  padding-bottom:35px;
 }
 
 .profile-hero{
   position:relative;
 
-  height:330px;
+  height:350px;
 }
 
 .profile-hero img{
@@ -539,14 +856,13 @@ nav span{
   height:100%;
 
   object-fit:cover;
-
-  display:block;
 }
 
-.profile-hero:after{
+.profile-hero::after{
   content:"";
 
   position:absolute;
+
   inset:0;
 
   background:
@@ -559,7 +875,7 @@ nav span{
 .close{
   position:absolute;
 
-  z-index:10;
+  z-index:20;
 
   top:14px;
   right:14px;
@@ -567,47 +883,71 @@ nav span{
   width:38px;
   height:38px;
 
+  display:grid;
+  place-items:center;
+
   border-radius:50%;
 
   background:#000b;
 
   color:#fff;
 
-  font-size:23px;
+  font-size:24px;
 }
 
 .profile-title{
   position:absolute;
 
-  z-index:5;
+  z-index:10;
 
-  bottom:18px;
   left:20px;
+  right:20px;
+  bottom:18px;
 }
 
 .profile-title h1{
   margin:0;
 
-  font-size:35px;
+  font-size:36px;
+
   font-weight:1000;
 }
 
 .profile-title p{
-  margin:3px 0 0;
+  margin:4px 0 0;
 
   color:#ddd;
+
+  font-size:13px;
 }
 
 .profile-content{
-  padding:18px 20px;
+  padding:
+    18px
+    20px
+    35px;
+}
+
+.profile-heading{
+  color:#f4c542;
+
+  font-size:12px;
+
+  font-weight:1000;
+
+  letter-spacing:1px;
+
+  text-transform:uppercase;
 }
 
 .profile-bio{
-  font-size:15px;
-
-  line-height:1.55;
+  margin-top:9px;
 
   color:#ddd;
+
+  font-size:15px;
+
+  line-height:1.58;
 }
 
 .profile-bio strong{
@@ -616,35 +956,38 @@ nav span{
 
 .profile-tags{
   display:flex;
+
   flex-wrap:wrap;
+
   gap:7px;
 
-  margin:17px 0;
+  margin-top:18px;
 }
 
 .profile-tag{
   padding:8px 11px;
 
-  background:#242424;
+  border-radius:999px;
 
-  border-radius:99px;
+  background:#242424;
 
   color:#ddd;
 
   font-size:11px;
-  font-weight:800;
+
+  font-weight:900;
 }
 
 .profile-section{
-  margin-top:20px;
+  margin-top:25px;
 }
 
 .profile-section h3{
-  margin:0 0 9px;
-
-  font-size:13px;
+  margin:0 0 8px;
 
   color:#f4c542;
+
+  font-size:12px;
 
   text-transform:uppercase;
 
@@ -656,93 +999,110 @@ nav span{
 
   justify-content:space-between;
 
-  padding:11px 0;
+  gap:20px;
+
+  padding:12px 0;
 
   border-bottom:
     1px solid #ffffff0d;
 
-  color:#bbb;
+  color:#aaa;
 
-  font-size:14px;
+  font-size:13px;
 }
 
 .profile-row strong{
   color:#fff;
+
+  text-align:right;
 }
 
-/* =====================================================
-   LIKES
-===================================================== */
+
+/* =========================================================
+   LIKES SHEET
+========================================================= */
 
 .likes-panel{
   width:100%;
+
   max-width:520px;
 
-  max-height:85dvh;
+  max-height:88dvh;
 
   overflow:auto;
 
-  margin:auto;
+  margin:0 auto;
 
-  background:#151515;
+  padding:
+    20px
+    20px
+    35px;
 
   border-radius:
-    28px
-    28px
+    30px
+    30px
     0
     0;
 
-  padding:20px;
+  background:#151515;
 }
 
 .likes-panel h2{
-  margin:0 0 17px;
+  margin:3px 0 17px;
+
+  font-size:23px;
 }
 
 .liked-list{
   display:grid;
+
   gap:10px;
 }
 
-.liked-person{
+.liked{
   display:flex;
+
   align-items:center;
 
   gap:12px;
 
-  background:#222;
-
   padding:8px;
 
   border-radius:15px;
+
+  background:#222;
 }
 
-.liked-person img{
-  width:62px;
-  height:72px;
+.liked img{
+  width:65px;
+  height:78px;
 
   object-fit:cover;
 
-  border-radius:10px;
+  border-radius:11px;
 }
 
-.liked-person strong{
+.liked strong{
   font-size:16px;
 }
 
-.liked-person small{
+.liked small{
   display:block;
 
-  margin-top:3px;
+  margin-top:4px;
 
   color:#999;
+
+  line-height:1.3;
 }
 
-/* =====================================================
+
+/* =========================================================
    EMPTY
-===================================================== */
+========================================================= */
 
 .empty{
+  width:100%;
   height:100%;
 
   display:grid;
@@ -753,36 +1113,48 @@ nav span{
   padding:30px;
 }
 
+.empty-icon{
+  font-size:60px;
+}
+
 .empty h2{
+  margin:10px 0 5px;
+
   font-size:28px;
 }
 
 .empty p{
   color:#999;
+
+  line-height:1.5;
 }
 
 .reset{
+  margin-top:12px;
+
   padding:14px 22px;
 
-  border-radius:99px;
+  border-radius:999px;
 
   background:#f4c542;
 
   color:#111;
 
-  font-weight:900;
+  font-weight:1000;
 }
 
-/* =====================================================
+
+/* =========================================================
    TOAST
-===================================================== */
+========================================================= */
 
 .toast{
   position:fixed;
 
-  z-index:500;
+  z-index:900;
 
   left:50%;
+
   bottom:90px;
 
   transform:
@@ -790,21 +1162,23 @@ nav span{
 
   opacity:0;
 
+  pointer-events:none;
+
   padding:
     11px
     17px;
 
-  border-radius:99px;
+  border-radius:999px;
 
   background:#fff;
 
   color:#111;
 
-  font-weight:900;
+  font-size:13px;
+
+  font-weight:1000;
 
   transition:.25s;
-
-  pointer-events:none;
 }
 
 .toast.show{
@@ -821,1419 +1195,1737 @@ nav span{
 <body>
 
 
-<!-- =====================================================
-     BREANNA OPENING PROFILE
-===================================================== -->
+<!-- =========================================================
+     BREANNA INTRO
+========================================================= -->
 
-<div
-class="welcome"
-id="welcome">
+<div id="welcome">
 
-<div class="logo-big">
-BREUM<b>BLE</b>
+  <div class="welcome-logo">
+    BREUM<b>BLE</b>
+  </div>
+
+  <div class="welcome-kicker">
+    Breanna's Hollywood Dating Game
+  </div>
+
+  <div class="welcome-photo-wrap">
+
+    <img
+      class="welcome-photo"
+      src="IMG_5053.jpeg"
+      alt="Breanna"
+    >
+
+    <div class="photo-heart">
+      ♥
+    </div>
+
+  </div>
+
+  <div class="welcome-name">
+    Breanna
+  </div>
+
+  <div class="welcome-job">
+    Dental Hygienist • Smile Quality Control
+  </div>
+
+  <button
+    type="button"
+    class="start-button"
+    id="startButton"
+  >
+    START BREUMBLING
+    <span>♥</span>
+  </button>
+
 </div>
 
-<div class="welcome-sub">
-Hollywood Crush Edition
-</div>
-
-<img
-class="welcome-photo"
-src="IMG_5053.jpeg"
-alt="Breanna"
->
-
-<div class="welcome-name">
-Breanna
-</div>
-
-<div class="welcome-description">
-Dental hygienist • Professional smile inspector
-</div>
-
-<button
-class="start"
-id="startBtn">
-
-START BREUMBLING ❤️
-
-</button>
-
-</div>
 
 
-
-<!-- =====================================================
-     APP
-===================================================== -->
+<!-- =========================================================
+     MAIN APP
+========================================================= -->
 
 <div class="app">
 
 
-<header>
+  <!-- HEADER -->
 
-<button
-class="profile-button"
-id="profileButton">
+  <header class="header">
 
-👤
+    <button
+      type="button"
+      class="header-button"
+      id="headerProfile"
+      aria-label="Open Breanna profile"
+    >
+      👤
+    </button>
 
-</button>
+
+    <div class="logo">
+      BREUM<b>BLE</b>
+    </div>
 
 
-<div class="logo">
-BREUM<b>BLE</b>
+    <div class="header-profile">
+
+      <span>
+        Breanna
+      </span>
+
+      <img
+        src="IMG_5053.jpeg"
+        alt="Breanna"
+      >
+
+    </div>
+
+  </header>
+
+
+
+  <!-- CARDS -->
+
+  <main class="main">
+
+    <div
+      class="deck"
+      id="deck"
+    ></div>
+
+  </main>
+
+
+
+  <!-- ACTIONS -->
+
+  <div class="actions">
+
+    <button
+      type="button"
+      class="action dislike"
+      id="dislikeButton"
+      aria-label="Pass"
+    >
+      ✕
+    </button>
+
+
+    <button
+      type="button"
+      class="action like"
+      id="likeButton"
+      aria-label="Like"
+    >
+      <span class="tooth"></span>
+    </button>
+
+  </div>
+
+
+
+  <!-- NAV -->
+
+  <nav class="nav">
+
+    <button
+      type="button"
+      class="active"
+      id="discoverButton"
+    >
+      <span class="nav-icon">🔥</span>
+      Discover
+    </button>
+
+
+    <button
+      type="button"
+      id="likesButton"
+    >
+      <span class="nav-icon">♥</span>
+      Likes
+    </button>
+
+
+    <button
+      type="button"
+      id="profileButton"
+    >
+      <span class="nav-icon">👤</span>
+      Breanna
+    </button>
+
+  </nav>
+
 </div>
 
 
-<div class="header-profile">
 
-<span>
-Breanna
-</span>
+<!-- =========================================================
+     BREANNA PROFILE
+========================================================= -->
 
-<img
-src="IMG_5053.jpeg"
-alt="Breanna"
+<div
+  class="sheet"
+  id="profileSheet"
 >
 
+  <div class="profile-panel">
+
+    <div class="profile-hero">
+
+      <button
+        type="button"
+        class="close"
+        id="closeProfile"
+      >
+        ×
+      </button>
+
+      <img
+        src="IMG_5053.jpeg"
+        alt="Breanna"
+      >
+
+      <div class="profile-title">
+
+        <h1>
+          Breanna
+        </h1>
+
+        <p>
+          Dental Hygienist • Smile Quality Control
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="profile-content">
+
+
+      <div class="profile-heading">
+        About Breanna
+      </div>
+
+
+      <div class="profile-bio">
+
+        I'm a dental hygienist, which means I spend
+        most of my professional life politely telling
+        people that yes... their gums really do bleed
+        when they floss. 😂
+
+        <br><br>
+
+        I know more about plaque, tartar, gingivitis,
+        periodontal pockets and toothbrush technique
+        than anyone probably needs to know on a date.
+
+        <br><br>
+
+        My patients come in nervous and leave with
+        a cleaner smile and usually a slightly stronger
+        commitment to flossing.
+
+        <br><br>
+
+        So naturally, when it comes to dating, I have
+        developed a very specific appreciation for a
+        <strong>great smile.</strong>
+
+        <br><br>
+
+        I'm not saying I'm going to inspect your molars
+        before dinner...
+
+        <br>
+
+        But I'm also not saying I won't notice. 😏
+
+        <br><br>
+
+        Looking for someone funny, confident,
+        kind, affectionate and capable of carrying
+        a conversation without staring at their phone
+        every twelve seconds.
+
+        <br><br>
+
+        Bonus points if you actually floss.
+
+        <br>
+
+        Double bonus points if you don't need me
+        to explain why flossing isn't optional.
+
+        <br><br>
+
+        I love good conversation, spontaneous plans,
+        laughing until my stomach hurts, movies,
+        coffee, and people who don't take themselves
+        too seriously.
+
+        <br><br>
+
+        My ideal date?
+
+        <strong>
+        Somewhere with great food, good conversation,
+        zero awkward small talk and absolutely no
+        discussion about someone's dental insurance.
+        </strong>
+
+      </div>
+
+
+      <div class="profile-tags">
+
+        <div class="profile-tag">
+          🦷 Dental Hygienist
+        </div>
+
+        <div class="profile-tag">
+          ☕ Coffee
+        </div>
+
+        <div class="profile-tag">
+          🎬 Movies
+        </div>
+
+        <div class="profile-tag">
+          😂 Sarcasm
+        </div>
+
+        <div class="profile-tag">
+          ❤️ Romance
+        </div>
+
+        <div class="profile-tag">
+          ✨ Great Smiles
+        </div>
+
+        <div class="profile-tag">
+          🧵 Flossing Advocate
+        </div>
+
+      </div>
+
+
+      <div class="profile-section">
+
+        <h3>
+          The Important Stuff
+        </h3>
+
+
+        <div class="profile-row">
+          <span>Occupation</span>
+          <strong>Dental Hygienist</strong>
+        </div>
+
+
+        <div class="profile-row">
+          <span>Professional Skill</span>
+          <strong>Spotting plaque from across the room</strong>
+        </div>
+
+
+        <div class="profile-row">
+          <span>Love Language</span>
+          <strong>Make me laugh</strong>
+        </div>
+
+
+        <div class="profile-row">
+          <span>Green Flag</span>
+          <strong>Kind to everyone</strong>
+        </div>
+
+
+        <div class="profile-row">
+          <span>Major Green Flag</span>
+          <strong>Actually flosses</strong>
+        </div>
+
+
+        <div class="profile-row">
+          <span>Weakness</span>
+          <strong>A ridiculously good smile</strong>
+        </div>
+
+
+        <div class="profile-row">
+          <span>Dealbreaker</span>
+          <strong>Bad hygiene</strong>
+        </div>
+
+
+        <div class="profile-row">
+          <span>Pet Peeve</span>
+          <strong>"I only floss before the dentist"</strong>
+        </div>
+
+      </div>
+
+
+      <div class="profile-section">
+
+        <h3>
+          Looking For
+        </h3>
+
+        <div class="profile-bio">
+
+          Someone who can make me laugh,
+          communicate like an adult, be genuinely
+          kind, and isn't afraid of a little flirting.
+
+          <br><br>
+
+          Confidence is attractive.
+
+          Arrogance is not.
+
+          <br><br>
+
+          And yes...
+
+          <strong>
+          a good smile can absolutely get you
+          moved to the front of the line.
+          </strong>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
 </div>
 
-</header>
 
 
-
-<main>
+<!-- =========================================================
+     LIKES
+========================================================= -->
 
 <div
-class="deck"
-id="deck">
-</div>
-
-</main>
-
-
-
-<!-- =====================================================
-     ACTION BUTTONS
-===================================================== -->
-
-<div class="actions">
-
-
-<!-- DISLIKE -->
-
-<button
-class="action dislike"
-id="dislikeBtn"
-aria-label="Dislike">
-
-✕
-
-</button>
-
-
-<!-- LIKE -->
-
-<button
-class="action like"
-id="likeBtn"
-aria-label="Like">
-
-<span class="clean-tooth"></span>
-
-</button>
-
-
-</div>
-
-
-
-<!-- =====================================================
-     NAV
-===================================================== -->
-
-<nav>
-
-<button
-class="active"
-id="discoverNav">
-
-<span>🔥</span>
-Discover
-
-</button>
-
-
-<button
-id="likesNav">
-
-<span>❤️</span>
-Likes
-
-</button>
-
-
-<button
-id="profileNav">
-
-<span>👤</span>
-Breanna
-
-</button>
-
-</nav>
-
-</div>
-
-
-
-<!-- =====================================================
-     BREANNA FULL PROFILE
-===================================================== -->
-
-<div
-class="sheet"
-id="profileSheet">
-
-<div class="profile-panel">
-
-
-<div class="profile-hero">
-
-<button
-class="close"
-id="closeProfile">
-
-×
-</button>
-
-
-<img
-src="IMG_5053.jpeg"
-alt="Breanna"
+  class="sheet"
+  id="likesSheet"
 >
 
-
-<div class="profile-title">
-
-<h1>
-Breanna
-</h1>
-
-<p>
-Dental Hygienist • Smile Enthusiast
-</p>
-
-</div>
-
-</div>
-
-
-
-<div class="profile-content">
-
-
-<div class="profile-bio">
-
-<strong>
-About Breanna
-</strong>
-
-<br><br>
-
-Dental hygienist by day, professional handsome-man
-evaluator by night. I spend my working hours making
-people's smiles better, so naturally I've developed
-very high standards for them. 😏
-
-<br><br>
-
-Looking for someone who can make me laugh,
-keep up with my sarcasm, and preferably owns
-a toothbrush.
-
-<br><br>
-
-Bonus points for a great smile.
-
-Extra bonus points if I don't have to remind you
-to floss.
-
-<br><br>
-
-I'm here for good conversation, good chemistry,
-and seeing whether Hollywood has produced anyone
-who can actually impress me.
-
-</div>
-
-
-
-<div class="profile-tags">
-
-<div class="profile-tag">
-🦷 Dental Hygienist
-</div>
-
-<div class="profile-tag">
-😂 Sarcasm
-</div>
-
-<div class="profile-tag">
-❤️ Romance
-</div>
-
-<div class="profile-tag">
-🎬 Movies
-</div>
-
-<div class="profile-tag">
-☕ Coffee
-</div>
-
-<div class="profile-tag">
-✨ Great Smiles
-</div>
-
-</div>
-
-
-
-<div class="profile-section">
-
-<h3>
-The Important Stuff
-</h3>
-
-
-<div class="profile-row">
-<span>Occupation</span>
-<strong>Dental Hygienist</strong>
-</div>
-
-
-<div class="profile-row">
-<span>Specialty</span>
-<strong>Smile Quality Control</strong>
-</div>
-
-
-<div class="profile-row">
-<span>Dating Philosophy</span>
-<strong>Make me laugh</strong>
-</div>
-
-
-<div class="profile-row">
-<span>Dealbreaker</span>
-<strong>Bad hygiene 😬</strong>
-</div>
-
-
-<div class="profile-row">
-<span>Weakness</span>
-<strong>A great smile</strong>
-</div>
-
-
-<div class="profile-row">
-<span>Green Flag</span>
-<strong>Actually flosses</strong>
-</div>
-
-
-</div>
-
-
-
-<div class="profile-section">
-
-<h3>
-Her Type
-</h3>
-
-<div class="profile-bio">
-
-Confident but not cocky.
-Funny without trying too hard.
-Kind when nobody is watching.
-And obviously...
-
-<strong>
-a dangerously good smile.
-</strong>
-
-</div>
-
-</div>
-
-
-</div>
-
-</div>
-
-</div>
-
-
-
-<!-- =====================================================
-     LIKES SHEET
-===================================================== -->
-
-<div
-class="sheet"
-id="likesSheet">
-
-<div class="likes-panel">
-
-<button
-class="close"
-id="closeLikes">
-
-×
-
-</button>
-
-<h2>
-❤️ Breanna's Likes
-</h2>
-
-<div
-class="liked-list"
-id="likedList">
-</div>
-
-</div>
+  <div class="likes-panel">
+
+    <button
+      type="button"
+      class="close"
+      id="closeLikes"
+    >
+      ×
+    </button>
+
+    <h2>
+      ♥ Breanna's Likes
+    </h2>
+
+    <div
+      class="liked-list"
+      id="likedList"
+    ></div>
+
+  </div>
 
 </div>
 
 
 
 <div
-class="toast"
-id="toast">
-</div>
+  class="toast"
+  id="toast"
+></div>
 
 
 
 <script>
 
-/* =====================================================
-   HOLLYWOOD LINEUP
+/* =========================================================
+   DATING PROFILES
+=========================================================
 
-   Large lineup so Breanna can keep swiping.
-===================================================== */
+   These are fictional dating-app profiles.
+   The portrait service provides generic male portrait
+   photos. They are not being represented as the actual
+   celebrities named in any previous version.
+========================================================= */
 
 const men = [
 
-[
-"Chris Evans",
-"43",
-"Captain America • Knives Out",
-"Chris_Evans"
-],
+  {
+    name:"Alex",
+    age:31,
+    city:"Los Angeles",
+    job:"Creative Director",
+    bio:"Big on weekend adventures, great restaurants and making people laugh.",
+    tags:["Travel","Food","Comedy"],
+    photo:11
+  },
 
-[
-"Henry Cavill",
-"43",
-"Superman • The Witcher",
-"Henry_Cavill"
-],
+  {
+    name:"Marcus",
+    age:34,
+    city:"New York",
+    job:"Architect",
+    bio:"Coffee addict with questionable dance moves and excellent dinner recommendations.",
+    tags:["Coffee","Design","Travel"],
+    photo:12
+  },
 
-[
-"Ryan Gosling",
-"45",
-"Barbie • La La Land",
-"Ryan_Gosling"
-],
+  {
+    name:"Ryan",
+    age:29,
+    city:"Chicago",
+    job:"Sports Marketing",
+    bio:"Competitive at trivia. Not competitive about where we eat.",
+    tags:["Sports","Trivia","Pizza"],
+    photo:13
+  },
 
-[
-"Chris Hemsworth",
-"42",
-"Thor • Extraction",
-"Chris_Hemsworth"
-],
+  {
+    name:"Daniel",
+    age:36,
+    city:"Los Angeles",
+    job:"Film Producer",
+    bio:"Movie nights, spontaneous trips and finding the best hidden restaurants.",
+    tags:["Movies","Travel","Food"],
+    photo:14
+  },
 
-[
-"Michael B. Jordan",
-"39",
-"Creed • Black Panther",
-"Michael_B._Jordan"
-],
+  {
+    name:"Ethan",
+    age:32,
+    city:"Toronto",
+    job:"Software Engineer",
+    bio:"Calm, sarcastic and convinced he makes a pretty good breakfast.",
+    tags:["Tech","Cooking","Coffee"],
+    photo:15
+  },
 
-[
-"Pedro Pascal",
-"51",
-"The Last of Us • Gladiator II",
-"Pedro_Pascal"
-],
+  {
+    name:"Michael",
+    age:38,
+    city:"New York",
+    job:"Entrepreneur",
+    bio:"I work hard, laugh a lot and never turn down a good dinner.",
+    tags:["Business","Food","Travel"],
+    photo:16
+  },
 
-[
-"Dev Patel",
-"36",
-"Lion • Slumdog Millionaire",
-"Dev_Patel"
-],
+  {
+    name:"Jordan",
+    age:30,
+    city:"Miami",
+    job:"Fitness Coach",
+    bio:"Sunshine, beach days and terrible dad jokes.",
+    tags:["Fitness","Beach","Humor"],
+    photo:17
+  },
 
-[
-"Jonathan Bailey",
-"38",
-"Bridgerton • Wicked",
-"Jonathan_Bailey"
-],
+  {
+    name:"Andrew",
+    age:35,
+    city:"Boston",
+    job:"Doctor",
+    bio:"Weekend explorer looking for someone who appreciates good conversation.",
+    tags:["Travel","Books","Cooking"],
+    photo:18
+  },
 
-[
-"Glen Powell",
-"37",
-"Top Gun • Anyone But You",
-"Glen_Powell"
-],
+  {
+    name:"Chris",
+    age:33,
+    city:"Los Angeles",
+    job:"Photographer",
+    bio:"Always looking for the next great view and the next great story.",
+    tags:["Photography","Travel","Music"],
+    photo:19
+  },
 
-[
-"Simu Liu",
-"37",
-"Shang-Chi • Barbie",
-"Simu_Liu"
-],
+  {
+    name:"Matthew",
+    age:37,
+    city:"Chicago",
+    job:"Restaurant Owner",
+    bio:"If food is involved, I'm probably already interested.",
+    tags:["Food","Wine","Travel"],
+    photo:20
+  },
 
-[
-"Oscar Isaac",
-"47",
-"Dune • Ex Machina",
-"Oscar_Isaac"
-],
+  {
+    name:"James",
+    age:34,
+    city:"New York",
+    job:"Attorney",
+    bio:"Serious about my career. Not serious about taking myself too seriously.",
+    tags:["Law","Comedy","Travel"],
+    photo:21
+  },
 
-[
-"Regé-Jean Page",
-"38",
-"Bridgerton • The Gray Man",
-"Regé-Jean_Page"
-],
+  {
+    name:"Noah",
+    age:28,
+    city:"Austin",
+    job:"Musician",
+    bio:"Guitar, tacos and finding reasons to stay out just a little too late.",
+    tags:["Music","Tacos","Live Shows"],
+    photo:22
+  },
 
-[
-"John Krasinski",
-"46",
-"The Office • A Quiet Place",
-"John_Krasinski"
-],
+  {
+    name:"Brandon",
+    age:40,
+    city:"San Diego",
+    job:"Real Estate Developer",
+    bio:"Beach guy who somehow still gets excited about a really good cup of coffee.",
+    tags:["Beach","Coffee","Golf"],
+    photo:23
+  },
 
-[
-"Zac Efron",
-"38",
-"The Greatest Showman • Baywatch",
-"Zac_Efron"
-],
+  {
+    name:"Tyler",
+    age:31,
+    city:"Nashville",
+    job:"Music Manager",
+    bio:"Concerts, road trips and a dangerous amount of confidence in my karaoke skills.",
+    tags:["Music","Road Trips","Karaoke"],
+    photo:24
+  },
 
-[
-"Channing Tatum",
-"46",
-"Magic Mike • 21 Jump Street",
-"Channing_Tatum"
-],
+  {
+    name:"David",
+    age:39,
+    city:"Seattle",
+    job:"Business Consultant",
+    bio:"Quietly competitive, overly loyal and always planning the next trip.",
+    tags:["Travel","Business","Hiking"],
+    photo:25
+  },
 
-[
-"Jake Gyllenhaal",
-"45",
-"Nightcrawler • Road House",
-"Jake_Gyllenhaal"
-],
+  {
+    name:"Liam",
+    age:30,
+    city:"Boston",
+    job:"Financial Analyst",
+    bio:"Numbers during the week. Hiking, food and bad jokes on weekends.",
+    tags:["Hiking","Food","Finance"],
+    photo:26
+  },
 
-[
-"Jensen Ackles",
-"48",
-"Supernatural • The Boys",
-"Jensen_Ackles"
-],
+  {
+    name:"Kevin",
+    age:35,
+    city:"Toronto",
+    job:"Marketing Executive",
+    bio:"Friendly, ambitious and always looking for the city's best brunch.",
+    tags:["Brunch","Travel","Fitness"],
+    photo:27
+  },
 
-[
-"Matt Bomer",
-"48",
-"White Collar • Fellow Travelers",
-"Matt_Bomer"
-],
+  {
+    name:"Jason",
+    age:42,
+    city:"Los Angeles",
+    job:"Film Executive",
+    bio:"Movie nerd, restaurant hunter and believer in old-school romance.",
+    tags:["Movies","Food","Romance"],
+    photo:28
+  },
 
-[
-"Sebastian Stan",
-"44",
-"Captain America • The Apprentice",
-"Sebastian_Stan"
-],
+  {
+    name:"Nathan",
+    age:33,
+    city:"Denver",
+    job:"Outdoor Guide",
+    bio:"If there's a mountain nearby, I'm probably trying to climb it.",
+    tags:["Hiking","Adventure","Travel"],
+    photo:29
+  },
 
-[
-"Robert Pattinson",
-"40",
-"The Batman • Twilight",
-"Robert_Pattinson"
-],
+  {
+    name:"Steven",
+    age:37,
+    city:"New York",
+    job:"Restaurant Consultant",
+    bio:"I take dinner very seriously. Everything else is negotiable.",
+    tags:["Food","Travel","Comedy"],
+    photo:30
+  },
 
-[
-"Devon Sawa",
-"47",
-"Final Destination • Chucky",
-"Devon_Sawa"
-],
+  {
+    name:"Adam",
+    age:32,
+    city:"Vancouver",
+    job:"Tech Founder",
+    bio:"Entrepreneur, skier and surprisingly good at making pasta.",
+    tags:["Skiing","Tech","Cooking"],
+    photo:31
+  },
 
-[
-"Joseph Gordon-Levitt",
-"45",
-"Inception • 10 Things I Hate About You",
-"Joseph_Gordon-Levitt"
-],
+  {
+    name:"Eric",
+    age:36,
+    city:"Miami",
+    job:"Real Estate Broker",
+    bio:"Beach weekends and dinner dates are basically my personality.",
+    tags:["Beach","Food","Fitness"],
+    photo:32
+  },
 
-[
-"Andrew Garfield",
-"43",
-"The Amazing Spider-Man • Tick Tick Boom",
-"Andrew_Garfield"
-],
+  {
+    name:"Justin",
+    age:29,
+    city:"Austin",
+    job:"Graphic Designer",
+    bio:"Creative by profession, amateur chef by necessity.",
+    tags:["Design","Cooking","Music"],
+    photo:33
+  },
 
-[
-"James McAvoy",
-"47",
-"X-Men • Split",
-"James_McAvoy"
-],
+  {
+    name:"Sean",
+    age:41,
+    city:"Chicago",
+    job:"Technology Executive",
+    bio:"Big fan of travel, live music and people who can make me laugh.",
+    tags:["Music","Travel","Comedy"],
+    photo:34
+  },
 
-[
-"Henry Golding",
-"39",
-"Crazy Rich Asians • The Gentlemen",
-"Henry_Golding"
-],
+  {
+    name:"Anthony",
+    age:35,
+    city:"New York",
+    job:"Restaurant Owner",
+    bio:"I know where to eat. The rest we can figure out.",
+    tags:["Food","Business","Travel"],
+    photo:35
+  },
 
-[
-"Daniel Craig",
-"58",
-"James Bond • Knives Out",
-"Daniel_Craig"
-],
+  {
+    name:"Ben",
+    age:30,
+    city:"Los Angeles",
+    job:"Actor",
+    bio:"Auditions by day, tacos by night.",
+    tags:["Movies","Fitness","Food"],
+    photo:36
+  },
 
-[
-"Richard Madden",
-"40",
-"Bodyguard • Eternals",
-"Richard_Madden"
-],
+  {
+    name:"Jake",
+    age:34,
+    city:"San Diego",
+    job:"Sports Agent",
+    bio:"Beach, golf, great food and a little harmless competition.",
+    tags:["Golf","Beach","Sports"],
+    photo:37
+  },
 
-[
-"Tom Hiddleston",
-"45",
-"Loki • The Night Manager",
-"Tom_Hiddleston"
-],
+  {
+    name:"Thomas",
+    age:39,
+    city:"Toronto",
+    job:"Professor",
+    bio:"Bookish enough to have opinions about movies based on the books.",
+    tags:["Books","Movies","Coffee"],
+    photo:38
+  },
 
-[
-"Reginald VelJohnson",
-"73",
-"Family Matters • Die Hard",
-"Reginald_VelJohnson"
-],
+  {
+    name:"William",
+    age:43,
+    city:"New York",
+    job:"Investment Manager",
+    bio:"Old-school manners with a very modern sense of humor.",
+    tags:["Travel","Dining","Golf"],
+    photo:39
+  },
 
-[
-"Taylor Zakhar Perez",
-"34",
-"Red White & Royal Blue",
-"Taylor_Zakhar_Perez"
-],
+  {
+    name:"Luke",
+    age:31,
+    city:"Nashville",
+    job:"Entrepreneur",
+    bio:"Good music, better food and absolutely no interest in boring dates.",
+    tags:["Music","Food","Travel"],
+    photo:40
+  },
 
-[
-"Lucien Laviscount",
-"34",
-"Emily in Paris • Scream Queens",
-"Lucien_Laviscount"
-],
+  {
+    name:"Ryan",
+    age:37,
+    city:"Los Angeles",
+    job:"Television Producer",
+    bio:"I make TV during the week and search for the best restaurants on weekends.",
+    tags:["TV","Food","Travel"],
+    photo:41
+  },
 
-[
-"Bridgerton's Anthony",
-"38",
-"Period Drama • Dangerous Smile",
-"Jonathan_Bailey"
-]
+  {
+    name:"Cole",
+    age:28,
+    city:"Miami",
+    job:"Fitness Entrepreneur",
+    bio:"Gym, beach and finding excuses to travel.",
+    tags:["Fitness","Beach","Travel"],
+    photo:42
+  },
+
+  {
+    name:"Andrew",
+    age:40,
+    city:"Seattle",
+    job:"Tech Executive",
+    bio:"Hiking enthusiast with a soft spot for romantic dinners.",
+    tags:["Hiking","Tech","Romance"],
+    photo:43
+  },
+
+  {
+    name:"Patrick",
+    age:36,
+    city:"Boston",
+    job:"Sports Journalist",
+    bio:"Can talk sports for hours. Can also talk about literally anything else.",
+    tags:["Sports","Writing","Travel"],
+    photo:44
+  },
+
+  {
+    name:"Daniel",
+    age:32,
+    city:"Vancouver",
+    job:"Creative Director",
+    bio:"Good music, good people and an unhealthy appreciation for sneakers.",
+    tags:["Music","Fashion","Travel"],
+    photo:45
+  },
+
+  {
+    name:"Marcus",
+    age:38,
+    city:"Chicago",
+    job:"Chef",
+    bio:"Cooking is my love language. Dessert is non-negotiable.",
+    tags:["Cooking","Food","Travel"],
+    photo:46
+  },
+
+  {
+    name:"Alex",
+    age:35,
+    city:"Toronto",
+    job:"Entrepreneur",
+    bio:"Ambitious, affectionate and always looking for the next adventure.",
+    tags:["Business","Travel","Fitness"],
+    photo:47
+  },
+
+  {
+    name:"Nicholas",
+    age:33,
+    city:"New York",
+    job:"Photographer",
+    bio:"I notice good lighting. And apparently good smiles.",
+    tags:["Photography","Travel","Coffee"],
+    photo:48
+  },
+
+  {
+    name:"Christopher",
+    age:41,
+    city:"Los Angeles",
+    job:"Film Director",
+    bio:"Storyteller, movie lover and believer in meeting someone without an algorithm.",
+    tags:["Movies","Travel","Art"],
+    photo:49
+  },
+
+  {
+    name:"Jonathan",
+    age:37,
+    city:"Denver",
+    job:"Architect",
+    bio:"Mountains, museums and finding the best coffee in every city.",
+    tags:["Architecture","Hiking","Coffee"],
+    photo:50
+  }
 
 ];
 
 
-/* =====================================================
+/* =========================================================
    STATE
-===================================================== */
+========================================================= */
 
-let current =
-Number(
-localStorage.getItem(
-"breumbleCurrent"
-) || 0
-);
+let currentIndex =
+  Number(
+    localStorage.getItem("breumbleCurrent") || 0
+  );
 
-let likes =
-JSON.parse(
-localStorage.getItem(
-"breumbleLikes"
-) || "[]"
-);
+let likedMen =
+  JSON.parse(
+    localStorage.getItem("breumbleLikes") || "[]"
+  );
 
 
-/* =====================================================
+/* =========================================================
    ELEMENTS
-===================================================== */
+========================================================= */
+
+const welcome =
+  document.getElementById("welcome");
+
+const startButton =
+  document.getElementById("startButton");
 
 const deck =
-document.getElementById("deck");
+  document.getElementById("deck");
 
 const toast =
-document.getElementById("toast");
+  document.getElementById("toast");
+
+const profileSheet =
+  document.getElementById("profileSheet");
+
+const likesSheet =
+  document.getElementById("likesSheet");
 
 
-/* =====================================================
-   SAVE SWIPE DATA
+/* =========================================================
+   SAVE
+========================================================= */
 
-   Notice: no profile photo is stored.
-===================================================== */
+function saveState(){
 
-function save(){
+  localStorage.setItem(
+    "breumbleCurrent",
+    String(currentIndex)
+  );
 
-localStorage.setItem(
-"breumbleCurrent",
-current
-);
-
-localStorage.setItem(
-"breumbleLikes",
-JSON.stringify(likes)
-);
+  localStorage.setItem(
+    "breumbleLikes",
+    JSON.stringify(likedMen)
+  );
 
 }
 
 
-/* =====================================================
+/* =========================================================
    TOAST
-===================================================== */
+========================================================= */
 
-function message(text){
+function showToast(text){
 
-toast.textContent=text;
+  toast.textContent = text;
 
-toast.classList.add("show");
+  toast.classList.add("show");
 
-setTimeout(
-()=>{
-toast.classList.remove("show");
-},
-1200
-);
+  setTimeout(() => {
 
-}
+    toast.classList.remove("show");
 
-
-/* =====================================================
-   PLACEHOLDER
-===================================================== */
-
-function placeholder(name){
-
-const initials =
-name
-.split(" ")
-.map(x=>x[0])
-.join("");
-
-return "data:image/svg+xml;charset=UTF-8,"+
-encodeURIComponent(`
-
-<svg
-xmlns="http://www.w3.org/2000/svg"
-width="800"
-height="1100">
-
-<rect
-width="100%"
-height="100%"
-fill="#242424"
-/>
-
-<text
-x="50%"
-y="48%"
-text-anchor="middle"
-fill="#f4c542"
-font-size="140"
-font-family="Arial"
-font-weight="bold">
-
-${initials}
-
-</text>
-
-<text
-x="50%"
-y="58%"
-text-anchor="middle"
-fill="white"
-font-size="30"
-font-family="Arial">
-
-${name}
-
-</text>
-
-</svg>
-
-`);
+  },1200);
 
 }
 
 
-/* =====================================================
-   GET WIKIPEDIA PHOTO
-===================================================== */
+/* =========================================================
+   PORTRAIT URL
+=========================================================
 
-async function getPhoto(slug){
+   Uses the public Random User demo portrait set.
 
-try{
+   The number is deterministic for each profile, so the
+   same man keeps the same image.
+========================================================= */
 
-const response =
-await fetch(
-"https://en.wikipedia.org/api/rest_v1/page/summary/"
-+
-encodeURIComponent(slug)
-+
-"?redirect=true"
-);
+function portrait(number){
 
-const data =
-await response.json();
+  return:
 
-return (
-data.thumbnail?.source ||
-data.originalimage?.source ||
-""
-);
-
-}catch(e){
-
-return "";
-
-}
+  "https://randomuser.me/api/portraits/men/"
+  +
+  (number % 100)
+  +
+  ".jpg";
 
 }
 
 
-/* =====================================================
+/* =========================================================
+   FALLBACK PORTRAIT
+========================================================= */
+
+function fallbackPortrait(){
+
+  return (
+    "data:image/svg+xml;charset=UTF-8," +
+    encodeURIComponent(`
+
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="700"
+        height="1000"
+      >
+
+        <rect
+          width="100%"
+          height="100%"
+          fill="#252525"
+        />
+
+        <circle
+          cx="350"
+          cy="350"
+          r="115"
+          fill="#777"
+        />
+
+        <path
+          d="
+          M140 800
+          C150 600 550 600 560 800
+          L560 1000
+          L140 1000
+          Z"
+          fill="#555"
+        />
+
+      </svg>
+
+    `)
+  );
+
+}
+
+
+/* =========================================================
    CREATE CARD
-===================================================== */
+========================================================= */
 
-function createCard(person,position){
+function createCard(person, position){
 
-const card =
-document.createElement("div");
+  const card =
+    document.createElement("div");
 
-card.className="card";
+  card.className = "card";
 
-card.style.zIndex =
-100-position;
-
-
-card.innerHTML = `
-
-<img
-class="person-photo"
-src="${placeholder(person[0])}"
-alt="${person[0]}"
->
-
-<div class="stamp like-stamp">
-LIKE
-</div>
-
-<div class="stamp nope-stamp">
-NOPE
-</div>
-
-<div class="card-info">
-
-<div>
-
-<span class="card-name">
-${person[0]}
-</span>
-
-<span class="card-age">
-${person[1]}
-</span>
-
-</div>
-
-<div class="card-description">
-${person[2]}
-</div>
-
-<span class="badge">
-HOLLYWOOD
-</span>
-
-<span class="badge">
-SMILE CHECK
-</span>
-
-</div>
-
-`;
+  card.style.zIndex =
+    100 - position;
 
 
-/* Load real public image */
+  card.innerHTML = `
 
-getPhoto(person[3])
-.then(url=>{
-
-if(url){
-
-card.querySelector(
-".person-photo"
-).src=url;
-
-}
-
-});
+    <img
+      class="person-image"
+      src="${portrait(person.photo)}"
+      alt="${person.name}"
+    >
 
 
-if(position===0){
+    <div class="card-top">
 
-enableSwipe(card);
+      <div class="verified">
+        ✓ Dating profile
+      </div>
 
-}
+      <div class="distance">
+        ${person.city}
+      </div>
 
-
-return card;
-
-}
-
-
-/* =====================================================
-   RENDER
-===================================================== */
-
-function render(){
-
-deck.innerHTML="";
+    </div>
 
 
-/*
-   Instead of ending permanently,
-   the lineup loops forever.
-*/
-
-if(current >= men.length){
-
-current=0;
-
-save();
-
-}
+    <div class="stamp like-stamp">
+      LIKE
+    </div>
 
 
-/*
-   Put three cards on screen.
-*/
-
-for(
-let position=2;
-position>=0;
-position--
-){
-
-const person =
-men[
-(current+position)
-%
-men.length
-];
-
-const card =
-createCard(
-person,
-position
-);
+    <div class="stamp nope-stamp">
+      PASS
+    </div>
 
 
-if(position>0){
+    <div class="card-info">
 
-card.style.transform =
-`
-scale(${1-position*.035})
-translateY(${position*10}px)
-`;
+      <div>
+
+        <span class="card-name">
+          ${person.name}
+        </span>
+
+        <span class="card-age">
+          ${person.age}
+        </span>
+
+      </div>
+
+
+      <div class="card-location">
+        📍 ${person.city}
+      </div>
+
+
+      <div class="card-job">
+        ${person.job}
+      </div>
+
+
+      <div class="card-bio">
+        ${person.bio}
+      </div>
+
+
+      <div class="tags">
+
+        ${person.tags.map(tag => `
+          <span class="tag">
+            ${tag}
+          </span>
+        `).join("")}
+
+      </div>
+
+    </div>
+
+  `;
+
+
+  const image =
+    card.querySelector(".person-image");
+
+
+  image.onerror = () => {
+
+    image.src =
+      fallbackPortrait();
+
+  };
+
+
+  if(position === 0){
+
+    enableSwipe(card);
+
+  }
+
+
+  return card;
 
 }
 
 
-deck.appendChild(card);
+/* =========================================================
+   RENDER CARDS
+========================================================= */
+
+function renderCards(){
+
+  deck.innerHTML = "";
+
+
+  /*
+    The app never permanently runs out of people.
+    When the last profile is reached, it starts over.
+  */
+
+  if(currentIndex >= men.length){
+
+    currentIndex = 0;
+
+    saveState();
+
+  }
+
+
+  /*
+    Three cards are placed in the deck.
+  */
+
+  for(
+    let position = 2;
+    position >= 0;
+    position--
+  ){
+
+    const person =
+      men[
+        (currentIndex + position)
+        % men.length
+      ];
+
+
+    const card =
+      createCard(
+        person,
+        position
+      );
+
+
+    if(position > 0){
+
+      card.style.transform =
+        `
+          scale(${1 - position * .035})
+          translateY(${position * 10}px)
+        `;
+
+    }
+
+
+    deck.appendChild(card);
+
+  }
 
 }
 
-}
 
-
-/* =====================================================
-   SWIPE
-===================================================== */
+/* =========================================================
+   SWIPE ENGINE
+========================================================= */
 
 function enableSwipe(card){
 
-let startX=0;
-let deltaX=0;
-let dragging=false;
+  let startX = 0;
+
+  let deltaX = 0;
+
+  let dragging = false;
 
 
-function move(event){
+  function move(event){
 
-if(!dragging)
-return;
-
-
-const point =
-event.touches
-?
-event.touches[0]
-:
-event;
+    if(!dragging){
+      return;
+    }
 
 
-deltaX =
-point.clientX-startX;
+    const point =
+      event.touches
+      ?
+      event.touches[0]
+      :
+      event;
 
 
-card.style.transition="none";
+    deltaX =
+      point.clientX - startX;
 
 
-card.style.transform =
-`
-translateX(${deltaX}px)
-rotate(${deltaX/18}deg)
-`;
+    card.style.transition =
+      "none";
 
 
-card.querySelector(
-".like-stamp"
-).style.opacity =
-Math.min(
-1,
-Math.max(
-0,
-deltaX/100
-)
-);
+    card.style.transform =
+      `
+        translateX(${deltaX}px)
+        rotate(${deltaX / 18}deg)
+      `;
 
 
-card.querySelector(
-".nope-stamp"
-).style.opacity =
-Math.min(
-1,
-Math.max(
-0,
--deltaX/100
-)
-);
+    const likeStamp =
+      card.querySelector(".like-stamp");
+
+    const nopeStamp =
+      card.querySelector(".nope-stamp");
+
+
+    likeStamp.style.opacity =
+      Math.min(
+        1,
+        Math.max(
+          0,
+          deltaX / 100
+        )
+      );
+
+
+    nopeStamp.style.opacity =
+      Math.min(
+        1,
+        Math.max(
+          0,
+          -deltaX / 100
+        )
+      );
+
+  }
+
+
+  function end(){
+
+    if(!dragging){
+      return;
+    }
+
+
+    dragging = false;
+
+
+    if(Math.abs(deltaX) > 105){
+
+      completeSwipe(
+        deltaX > 0
+        ?
+        "like"
+        :
+        "pass"
+      );
+
+    }else{
+
+      card.style.transition =
+        "transform .25s ease";
+
+      card.style.transform =
+        "";
+
+      card.querySelector(
+        ".like-stamp"
+      ).style.opacity = 0;
+
+      card.querySelector(
+        ".nope-stamp"
+      ).style.opacity = 0;
+
+    }
+
+  }
+
+
+  card.addEventListener(
+    "touchstart",
+    event => {
+
+      dragging = true;
+
+      startX =
+        event.touches[0].clientX;
+
+      deltaX = 0;
+
+    },
+    {
+      passive:true
+    }
+  );
+
+
+  card.addEventListener(
+    "touchmove",
+    move,
+    {
+      passive:true
+    }
+  );
+
+
+  card.addEventListener(
+    "touchend",
+    end
+  );
+
+
+  card.addEventListener(
+    "mousedown",
+    event => {
+
+      dragging = true;
+
+      startX =
+        event.clientX;
+
+      deltaX = 0;
+
+    }
+  );
+
+
+  window.addEventListener(
+    "mousemove",
+    move
+  );
+
+
+  window.addEventListener(
+    "mouseup",
+    end
+  );
 
 }
 
 
-function end(){
+/* =========================================================
+   COMPLETE SWIPE
+========================================================= */
 
-if(!dragging)
-return;
+function completeSwipe(type){
 
-
-dragging=false;
-
-
-if(Math.abs(deltaX)>100){
-
-swipe(
-deltaX>0
-?
-"like"
-:
-"dislike"
-);
-
-}else{
-
-card.style.transform="";
-
-card.querySelector(
-".like-stamp"
-).style.opacity=0;
-
-card.querySelector(
-".nope-stamp"
-).style.opacity=0;
-
-}
-
-}
+  const person =
+    men[
+      currentIndex % men.length
+    ];
 
 
-card.addEventListener(
-"touchstart",
-e=>{
-
-dragging=true;
-
-startX =
-e.touches[0].clientX;
-
-deltaX=0;
-
-},
-{passive:true}
-);
+  const card =
+    deck.querySelector(".card");
 
 
-card.addEventListener(
-"touchmove",
-move,
-{passive:true}
-);
+  if(!card){
+    return;
+  }
 
 
-card.addEventListener(
-"touchend",
-end
-);
+  card.style.transition =
+    "transform .35s ease, opacity .35s ease";
 
 
-card.addEventListener(
-"mousedown",
-e=>{
-
-dragging=true;
-
-startX=e.clientX;
-
-deltaX=0;
-
-}
-);
+  card.style.transform =
+    `
+      translate(
+        ${type === "like" ? "1100px" : "-1100px"},
+        80px
+      )
+      rotate(
+        ${type === "like" ? "25deg" : "-25deg"}
+      )
+    `;
 
 
-window.addEventListener(
-"mousemove",
-move
-);
+  card.style.opacity = "0";
 
 
-window.addEventListener(
-"mouseup",
-end
-);
+  setTimeout(() => {
+
+    if(type === "like"){
+
+      const alreadyLiked =
+        likedMen.some(
+          item =>
+            item.name === person.name &&
+            item.age === person.age
+        );
+
+
+      if(!alreadyLiked){
+
+        likedMen.push(person);
+
+      }
+
+
+      showToast(
+        "♥ Breumble!"
+      );
+
+    }else{
+
+      showToast(
+        "Passed ✓"
+      );
+
+    }
+
+
+    currentIndex++;
+
+    saveState();
+
+    renderCards();
+
+  },220);
 
 }
 
 
-/* =====================================================
-   SWIPE RESULT
-===================================================== */
+/* =========================================================
+   LIKE BUTTON
+========================================================= */
 
-function swipe(type){
+document
+  .getElementById("likeButton")
+  .addEventListener(
+    "click",
+    () => {
 
-const person =
-men[
-current %
-men.length
-];
+      completeSwipe("like");
 
-const card =
-deck.querySelector(".card");
-
-
-if(!card)
-return;
+    }
+  );
 
 
-card.style.transition =
-"transform .35s ease,opacity .35s ease";
+/* =========================================================
+   DISLIKE BUTTON
+========================================================= */
+
+document
+  .getElementById("dislikeButton")
+  .addEventListener(
+    "click",
+    () => {
+
+      completeSwipe("pass");
+
+    }
+  );
 
 
-card.style.transform =
-`
-translate(
-${type==="like"
-?
-"1000px"
-:
-"-1000px"
-},
-80px
-)
-rotate(
-${type==="like"
-?
-"24deg"
-:
-"-24deg"
-)
-`;
+/* =========================================================
+   START BUTTON
+=========================================================
+
+   Uses both click and pointer protection so it behaves
+   properly on iPhone Safari/WebKit.
+========================================================= */
+
+function startBreumbling(event){
+
+  if(event){
+    event.preventDefault();
+    event.stopPropagation();
+  }
 
 
-card.style.opacity="0";
+  if(welcome.classList.contains("hide")){
+    return;
+  }
 
 
-setTimeout(
-()=>{
+  welcome.classList.add("hide");
 
-if(type==="like"){
 
-if(
-!likes.some(
-x=>x[0]===person[0]
-)
-){
+  setTimeout(() => {
 
-likes.push(person);
+    welcome.style.display =
+      "none";
 
-}
+  },360);
 
-message(
-"❤️ Breumble!"
-);
 
-}else{
-
-message(
-"✕ Passed!"
-);
+  renderCards();
 
 }
 
 
-current++;
+/*
+   Pointer event is preferred on modern iPhone.
+*/
 
-save();
-
-render();
-
-},
-220
+startButton.addEventListener(
+  "pointerup",
+  startBreumbling
 );
 
-}
 
+/*
+   Click is kept as a fallback.
+*/
 
-/* =====================================================
-   BUTTONS
-===================================================== */
-
-document.getElementById(
-"likeBtn"
-).onclick =
-()=>{
-swipe("like");
-};
-
-
-document.getElementById(
-"dislikeBtn"
-).onclick =
-()=>{
-swipe("dislike");
-};
-
-
-/* =====================================================
-   START
-===================================================== */
-
-document.getElementById(
-"startBtn"
-).onclick=()=>{
-
-const welcome =
-document.getElementById(
-"welcome"
+startButton.addEventListener(
+  "click",
+  startBreumbling
 );
 
-welcome.classList.add("hide");
 
-setTimeout(
-()=>{
-welcome.style.display="none";
-},
-500
-);
-
-render();
-
-};
-
-
-/* =====================================================
-   BREANNA FULL PROFILE
-===================================================== */
+/* =========================================================
+   PROFILE SHEET
+========================================================= */
 
 function openProfile(){
 
-document
-.getElementById("profileSheet")
-.classList.add("open");
+  profileSheet.classList.add(
+    "open"
+  );
 
 }
 
 
 function closeProfile(){
 
-document
-.getElementById("profileSheet")
-.classList.remove("open");
+  profileSheet.classList.remove(
+    "open"
+  );
 
 }
 
 
-document.getElementById(
-"profileButton"
-).onclick =
-openProfile;
+document
+  .getElementById("headerProfile")
+  .addEventListener(
+    "click",
+    openProfile
+  );
 
 
-document.getElementById(
-"profileNav"
-).onclick =
-openProfile;
+document
+  .getElementById("profileButton")
+  .addEventListener(
+    "click",
+    openProfile
+  );
 
 
-document.getElementById(
-"closeProfile"
-).onclick =
-closeProfile;
+document
+  .getElementById("closeProfile")
+  .addEventListener(
+    "click",
+    closeProfile
+  );
 
 
-/* =====================================================
+/* =========================================================
    LIKES
-===================================================== */
+========================================================= */
 
 function renderLikes(){
 
-const list =
-document.getElementById(
-"likedList"
-);
+  const list =
+    document.getElementById(
+      "likedList"
+    );
 
 
-if(!likes.length){
+  if(!likedMen.length){
 
-list.innerHTML=`
+    list.innerHTML = `
 
-<p
-style="
-text-align:center;
-color:#888;
-padding:25px 0;
-">
+      <div
+        style="
+          text-align:center;
+          color:#888;
+          padding:30px 10px;
+          line-height:1.6;
+        "
+      >
 
-No Hollywood crushes yet. 😏
+        No crushes yet.
 
-</p>
+        <br>
 
-`;
+        Start swiping. ♥
 
-return;
+      </div>
 
-}
+    `;
 
+    return;
 
-list.innerHTML =
-likes.map(
-person=>`
-
-<div class="liked-person">
-
-<img
-src="${placeholder(person[0])}"
-data-slug="${person[3]}"
-alt="${person[0]}"
->
-
-<div>
-
-<strong>
-${person[0]}
-</strong>
-
-<small>
-${person[2]}
-</small>
-
-</div>
-
-</div>
-
-`
-).join("");
+  }
 
 
-list
-.querySelectorAll("img")
-.forEach(img=>{
+  list.innerHTML =
+    likedMen.map(person => `
 
-getPhoto(
-img.dataset.slug
-)
-.then(url=>{
+      <div class="liked">
 
-if(url)
-img.src=url;
+        <img
+          src="${portrait(person.photo)}"
+          alt="${person.name}"
+          onerror="this.src='${fallbackPortrait()}'"
+        >
 
-});
+        <div>
 
-});
+          <strong>
+            ${person.name}, ${person.age}
+          </strong>
+
+          <small>
+            📍 ${person.city}
+          </small>
+
+          <small>
+            ${person.job}
+          </small>
+
+        </div>
+
+      </div>
+
+    `).join("");
 
 }
 
 
-document.getElementById(
-"likesNav"
-).onclick=()=>{
-
-renderLikes();
+/* =========================================================
+   OPEN LIKES
+========================================================= */
 
 document
-.getElementById("likesSheet")
-.classList.add("open");
+  .getElementById("likesButton")
+  .addEventListener(
+    "click",
+    () => {
 
-};
+      renderLikes();
+
+      likesSheet.classList.add(
+        "open"
+      );
+
+    }
+  );
 
 
-document.getElementById(
-"closeLikes"
-).onclick=()=>{
+/* =========================================================
+   CLOSE LIKES
+========================================================= */
 
 document
-.getElementById("likesSheet")
-.classList.remove("open");
+  .getElementById("closeLikes")
+  .addEventListener(
+    "click",
+    () => {
 
-};
+      likesSheet.classList.remove(
+        "open"
+      );
+
+    }
+  );
 
 
-/* =====================================================
+/* =========================================================
    DISCOVER
-===================================================== */
-
-document.getElementById(
-"discoverNav"
-).onclick=()=>{
+========================================================= */
 
 document
-.getElementById("likesSheet")
-.classList.remove("open");
+  .getElementById("discoverButton")
+  .addEventListener(
+    "click",
+    () => {
 
-};
+      likesSheet.classList.remove(
+        "open"
+      );
+
+    }
+  );
 
 
-/* =====================================================
-   INITIALIZE
-===================================================== */
+/* =========================================================
+   INITIAL RENDER
+========================================================= */
 
-render();
+renderCards();
 
 </script>
 
