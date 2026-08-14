@@ -2,973 +2,265 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+
+<meta name="viewport"
+content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+
 <meta name="theme-color" content="#090909">
+
 <title>BREUMBLE</title>
 
 <style>
-*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html,body{
-margin:0;padding:0;width:100%;height:100%;overflow:hidden;
-background:#090909;color:#fff;
-font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif
+
+/* ==========================================
+   GLOBAL
+========================================== */
+
+*{
+  box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent;
 }
-body{overscroll-behavior:none}
-button{font-family:inherit;border:0;outline:0}
-img{display:block}
+
+html,
+body{
+  margin:0;
+  padding:0;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  background:#080808;
+  color:#fff;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Arial,
+    sans-serif;
+}
+
+button{
+  font-family:inherit;
+  border:0;
+  outline:0;
+  cursor:pointer;
+}
+
+img{
+  display:block;
+}
+
+
+/* ==========================================
+   APP
+========================================== */
 
 .app{
-width:100%;max-width:520px;height:100dvh;margin:auto;
-display:flex;flex-direction:column;overflow:hidden;
-background:radial-gradient(circle at 50% -20%,#49340e,#161106 28%,#090909 65%)
+  width:100%;
+  max-width:520px;
+  height:100dvh;
+  margin:auto;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+
+  background:
+    radial-gradient(
+      circle at 50% -20%,
+      #4b350d,
+      #171107 30%,
+      #080808 70%
+    );
 }
 
-/* WELCOME */
+
+/* ==========================================
+   WELCOME
+========================================== */
 
 #welcome{
-position:fixed;inset:0;z-index:9999;
-display:flex;flex-direction:column;align-items:center;
-justify-content:center;text-align:center;
-padding:20px;
-background:radial-gradient(circle at 50% 10%,#4b360d,#181207 30%,#080808 70%);
-transition:.35s
+  position:fixed;
+  inset:0;
+  z-index:9999;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+
+  text-align:center;
+
+  padding:20px;
+
+  background:
+    radial-gradient(
+      circle at 50% 10%,
+      #513b10,
+      #171107 32%,
+      #070707 75%
+    );
+
+  transition:.35s ease;
 }
 
-#welcome.hide{opacity:0;visibility:hidden;pointer-events:none}
-
-.welcome-logo{
-font-size:48px;font-weight:1000;letter-spacing:-4px
-}
-.welcome-logo span{color:#f4c542}
-
-.welcome-subtitle{
-margin-top:8px;color:#aaa;font-size:11px;
-font-weight:900;letter-spacing:2px;text-transform:uppercase
+#welcome.hide{
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
 }
 
-.welcome-photo{
-width:205px;height:260px;margin-top:24px;
-object-fit:cover;border-radius:28px;
-border:3px solid #f4c542;
-box-shadow:0 25px 65px #000,0 0 30px #f4c54222
+.logo-big{
+  font-size:49px;
+  font-weight:1000;
+  letter-spacing:-4px;
 }
 
-.welcome-name{
-margin-top:17px;font-size:32px;font-weight:1000
+.logo-big span{
+  color:#f4c542;
 }
 
-.welcome-job{
-margin-top:4px;color:#aaa;font-size:13px;font-weight:700
+.subtitle{
+  margin-top:7px;
+
+  color:#aaa;
+
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:2px;
+
+  text-transform:uppercase;
 }
 
-.start-button{
-width:230px;height:58px;margin-top:23px;
-border-radius:999px;background:#f4c542;color:#111;
-font-size:15px;font-weight:1000;
-box-shadow:0 10px 30px #000;
-cursor:pointer
+.breanna-photo{
+  width:205px;
+  height:260px;
+
+  margin-top:24px;
+
+  object-fit:cover;
+
+  border-radius:28px;
+  border:3px solid #f4c542;
+
+  box-shadow:0 25px 65px #000;
 }
 
-.start-button:active{transform:scale(.94)}
+.breanna-name{
+  margin-top:16px;
 
-/* HEADER */
+  font-size:32px;
+  font-weight:1000;
+}
+
+.breanna-job{
+  margin-top:4px;
+
+  color:#aaa;
+
+  font-size:13px;
+  font-weight:700;
+}
+
+.start{
+  width:235px;
+  height:59px;
+
+  margin-top:23px;
+
+  border-radius:999px;
+
+  background:#f4c542;
+  color:#111;
+
+  font-size:15px;
+  font-weight:1000;
+
+  box-shadow:0 10px 30px #000;
+
+  transition:.12s;
+}
+
+.start:active{
+  transform:scale(.94);
+}
+
+
+/* ==========================================
+   HEADER
+========================================== */
 
 .header{
-height:70px;flex:0 0 70px;
-display:flex;align-items:center;justify-content:space-between;
-padding:10px 15px;z-index:20
+  height:68px;
+  flex:0 0 68px;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  padding:9px 14px;
 }
 
 .logo{
-font-size:29px;font-weight:1000;letter-spacing:-2px
+  font-size:28px;
+  font-weight:1000;
+  letter-spacing:-2px;
 }
-.logo span{color:#f4c542}
+
+.logo span{
+  color:#f4c542;
+}
+
+.header-photo{
+  width:38px;
+  height:38px;
+
+  border-radius:50%;
+
+  object-fit:cover;
+
+  border:2px solid #f4c542;
+}
 
 .header-profile{
-display:flex;align-items:center;gap:7px;
-font-size:11px;font-weight:900
-}
+  display:flex;
+  align-items:center;
 
-.header-profile img{
-width:38px;height:38px;object-fit:cover;
-border-radius:50%;border:2px solid #f4c542
+  gap:7px;
+
+  font-size:11px;
+  font-weight:900;
 }
 
 .header-button{
-width:42px;height:42px;border-radius:50%;
-background:#191919;color:#fff;font-size:19px;cursor:pointer
+  width:40px;
+  height:40px;
+
+  border-radius:50%;
+
+  background:#1c1c1c;
+  color:#fff;
+
+  font-size:18px;
 }
 
-/* MAIN */
+
+/* ==========================================
+   MAIN
+========================================== */
 
 .main{
-position:relative;flex:1;min-height:0;padding:4px 14px 5px
+  position:relative;
+
+  flex:1;
+  min-height:0;
+
+  padding:4px 14px 5px;
 }
 
-.deck{position:relative;width:100%;height:100%}
-
-/* CARD */
-
-.card{
-position:absolute;inset:0;overflow:hidden;
-border-radius:28px;background:#1b1b1b;
-box-shadow:0 20px 55px #000;
-touch-action:none;user-select:none
-}
-
-.card img{
-width:100%;height:100%;
-object-fit:cover;object-position:center 20%
-}
-
-.card:after{
-content:"";position:absolute;inset:0;pointer-events:none;
-background:linear-gradient(
-to bottom,
-transparent 25%,
-transparent 43%,
-rgba(0,0,0,.15) 55%,
-rgba(0,0,0,.96) 100%
-)
-}
-
-.card-top{
-position:absolute;z-index:5;top:15px;left:15px;right:15px;
-display:flex;justify-content:space-between;pointer-events:none
-}
-
-.badge,.city{
-padding:7px 10px;border-radius:999px;
-background:#000b;backdrop-filter:blur(8px);
-font-size:10px;font-weight:900
-}
-
-.card-info{
-position:absolute;z-index:5;left:20px;right:20px;bottom:19px
-}
-
-.card-name{font-size:30px;font-weight:1000}
-.card-age{margin-left:5px;color:#ddd;font-size:20px}
-
-.card-job{
-margin-top:5px;color:#ddd;font-size:13px;font-weight:700
-}
-
-.card-bio{
-margin-top:7px;color:#eee;font-size:13px;line-height:1.35
-}
-
-.tags{
-display:flex;flex-wrap:wrap;gap:5px;margin-top:9px
-}
-
-.tag{
-padding:6px 9px;border-radius:999px;
-background:#ffffff22;backdrop-filter:blur(8px);
-font-size:10px;font-weight:900
-}
-
-/* SWIPE LABELS */
-
-.stamp{
-position:absolute;z-index:10;top:45px;
-padding:7px 12px;border:4px solid;border-radius:10px;
-font-size:23px;font-weight:1000;opacity:0;pointer-events:none
-}
-
-.silly-stamp{
-left:18px;color:#54ed92;border-color:#54ed92;
-transform:rotate(-10deg)
-}
-
-.stinky-stamp{
-right:18px;color:#ff6875;border-color:#ff6875;
-transform:rotate(10deg)
-}
-
-/* ACTIONS */
-
-.actions{
-height:94px;flex:0 0 94px;
-display:flex;align-items:center;justify-content:center;
-gap:16px;padding:6px 18px
-}
-
-.action{
-flex:1;max-width:155px;height:62px;
-display:flex;align-items:center;justify-content:center;gap:8px;
-border-radius:999px;font-size:13px;font-weight:1000;
-letter-spacing:.6px;cursor:pointer;
-transition:transform .12s
-}
-
-.action:active{transform:scale(.91)}
-
-.silly{
-background:#f4c542;color:#111;
-border:2px solid #ffe58b;box-shadow:0 8px 22px #000
-}
-
-.stinky{
-background:#242424;color:#ddd;
-border:2px solid #777;box-shadow:0 8px 22px #000
-}
-
-.action-icon{font-size:23px}
-
-/* NAV */
-
-.nav{
-height:65px;flex:0 0 65px;display:flex;
-background:#0d0d0df5;border-top:1px solid #ffffff10;
-backdrop-filter:blur(18px);
-padding-bottom:env(safe-area-inset-bottom)
-}
-
-.nav button{
-flex:1;background:transparent;color:#777;
-font-size:10px;font-weight:900;cursor:pointer
-}
-
-.nav button.active{color:#fff}
-
-.nav-icon{
-display:block;margin-bottom:2px;font-size:20px
-}
-
-/* SHEETS */
-
-.sheet{
-position:fixed;inset:0;z-index:500;
-display:none;align-items:flex-end;background:#000c
-}
-
-.sheet.open{display:flex}
-
-.profile-panel,.likes-panel{
-width:100%;max-width:520px;
-max-height:94dvh;overflow:auto;
-margin:auto auto 0;border-radius:30px 30px 0 0;
-background:linear-gradient(#191919,#090909)
-}
-
-.profile-photo{
-position:relative;height:350px
-}
-
-.profile-photo img{
-width:100%;height:100%;object-fit:cover
-}
-
-.profile-photo:after{
-content:"";position:absolute;inset:0;
-background:linear-gradient(transparent 35%,#000 100%)
-}
-
-.close{
-position:absolute;z-index:10;top:13px;right:13px;
-width:40px;height:40px;border-radius:50%;
-background:#000b;color:#fff;font-size:24px;cursor:pointer
-}
-
-.profile-title{
-position:absolute;z-index:5;left:20px;right:20px;bottom:18px
-}
-
-.profile-title h1{
-margin:0;font-size:36px;font-weight:1000
-}
-
-.profile-title p{
-margin:4px 0 0;color:#ddd;font-size:13px
-}
-
-.profile-content{padding:20px 20px 40px}
-
-.profile-label{
-color:#f4c542;font-size:11px;font-weight:1000;
-letter-spacing:1px;text-transform:uppercase
-}
-
-.profile-bio{
-margin-top:10px;color:#ddd;font-size:15px;line-height:1.58
-}
-
-.profile-bio strong{color:#fff}
-
-.profile-tags{
-display:flex;flex-wrap:wrap;gap:7px;margin-top:18px
-}
-
-.profile-tag{
-padding:8px 11px;border-radius:999px;
-background:#242424;color:#ddd;
-font-size:11px;font-weight:900
-}
-
-.profile-section{margin-top:25px}
-
-.profile-section h3{
-margin:0 0 8px;color:#f4c542;font-size:11px;
-letter-spacing:1px;text-transform:uppercase
-}
-
-.profile-row{
-display:flex;justify-content:space-between;gap:20px;
-padding:12px 0;border-bottom:1px solid #ffffff0d;
-color:#aaa;font-size:13px
-}
-
-.profile-row strong{color:#fff;text-align:right}
-
-/* LIKES */
-
-.likes-panel{
-max-height:88dvh;padding:20px 20px 35px
-}
-
-.likes-panel h2{
-margin:4px 0 18px;font-size:23px
-}
-
-.liked-list{display:grid;gap:10px}
-
-.liked{
-display:flex;align-items:center;gap:12px;
-padding:8px;border-radius:15px;background:#222
-}
-
-.liked img{
-width:65px;height:78px;object-fit:cover;border-radius:11px
-}
-
-.liked strong{font-size:16px}
-
-.liked small{
-display:block;margin-top:4px;color:#999
-}
-
-/* LOADING */
-
-.loading{
-position:absolute;inset:0;z-index:30;
-display:flex;align-items:center;justify-content:center;
-background:#101010;border-radius:28px;
-font-size:14px;font-weight:900
-}
-
-.loading span{
-display:flex;flex-direction:column;align-items:center;gap:12px
-}
-
-.spinner{
-width:30px;height:30px;border:3px solid #444;
-border-top-color:#f4c542;border-radius:50%;
-animation:spin .7s linear infinite
-}
-
-@keyframes spin{
-to{transform:rotate(360deg)}
-}
-
-/* TOAST */
-
-.toast{
-position:fixed;z-index:1000;left:50%;bottom:95px;
-transform:translate(-50%,20px);opacity:0;
-pointer-events:none;padding:11px 18px;
-border-radius:999px;background:#fff;color:#111;
-font-size:13px;font-weight:1000;transition:.25s
-}
-
-.toast.show{
-opacity:1;transform:translate(-50%,0)
-}
-
-.counter{
-position:absolute;
-right:12px;
-top:76px;
-z-index:50;
-padding:6px 9px;
-border-radius:999px;
-background:#000b;
-font-size:10px;
-font-weight:900;
-color:#ddd;
-pointer-events:none
-}
-</style>
-</head>
-
-<body>
-
-<!-- WELCOME -->
-
-<div id="welcome">
-
-<div class="welcome-logo">
-BREUM<span>BLE</span>
-</div>
-
-<div class="welcome-subtitle">
-Breanna's dating adventure
-</div>
-
-<img
-class="welcome-photo"
-src="IMG_5053.jpeg"
-alt="Breanna"
->
-
-<div class="welcome-name">
-Breanna
-</div>
-
-<div class="welcome-job">
-Dental Hygienist • Smile Quality Control
-</div>
-
-<button
-id="startButton"
-class="start-button"
-type="button"
->
-LET'S BREUMBLE 🤪
-</button>
-
-</div>
-
-
-<!-- APP -->
-
-<div class="app">
-
-<header class="header">
-
-<button
-id="headerProfile"
-class="header-button"
-type="button"
->
-👤
-</button>
-
-<div class="logo">
-BREUM<span>BLE</span>
-</div>
-
-<div class="header-profile">
-
-<span>Breanna</span>
-
-<img
-src="IMG_5053.jpeg"
-alt="Breanna"
->
-
-</div>
-
-</header>
-
-
-<main class="main">
-
-<div
-id="deck"
-class="deck"
->
-
-<div class="loading" id="loading">
-
-<span>
-<div class="spinner"></div>
-Loading 500 men...
-</span>
-
-</div>
-
-</div>
-
-<div
-id="counter"
-class="counter"
->
-0 / 500
-</div>
-
-</main>
-
-
-<div class="actions">
-
-<button
-id="stinkyButton"
-class="action stinky"
-type="button"
->
-<span class="action-icon">💩</span>
-<span>STINKY</span>
-</button>
-
-<button
-id="sillyButton"
-class="action silly"
-type="button"
->
-<span class="action-icon">🤪</span>
-<span>SILLY</span>
-</button>
-
-</div>
-
-
-<nav class="nav">
-
-<button id="discoverButton" class="active" type="button">
-<span class="nav-icon">🔥</span>
-Discover
-</button>
-
-<button id="likesButton" type="button">
-<span class="nav-icon">🤪</span>
-Likes
-</button>
-
-<button id="profileButton" type="button">
-<span class="nav-icon">👤</span>
-Breanna
-</button>
-
-</nav>
-
-</div>
-
-
-<!-- BREANNA PROFILE -->
-
-<div id="profileSheet" class="sheet">
-
-<div class="profile-panel">
-
-<div class="profile-photo">
-
-<button id="closeProfile" class="close" type="button">×</button>
-
-<img
-src="IMG_5053.jpeg"
-alt="Breanna"
->
-
-<div class="profile-title">
-
-<h1>Breanna</h1>
-
-<p>
-Dental Hygienist • Smile Quality Control
-</p>
-
-</div>
-
-</div>
-
-
-<div class="profile-content">
-
-<div class="profile-label">
-About Breanna
-</div>
-
-<div class="profile-bio">
-
-I'm a dental hygienist, which means I spend most
-of my professional life politely explaining that yes...
-your gums really do need attention.
-
-<br><br>
-
-I know more about plaque, tartar, gingivitis,
-periodontal pockets and proper brushing technique
-than the average person probably wants to hear
-about on a first date.
-
-<br><br>
-
-My patients come in nervous and leave with cleaner
-smiles and hopefully a renewed commitment to flossing.
-
-<br><br>
-
-So naturally, when it comes to dating, I've developed
-a very specific appreciation for a
-<strong>great smile.</strong>
-
-<br><br>
-
-I'm not saying I'm going to inspect your molars
-before dinner...
-
-<br><br>
-
-But I'm also not saying I won't notice. 😏
-
-<br><br>
-
-I'm looking for someone funny, confident, kind,
-affectionate and capable of carrying a conversation
-without checking their phone every twelve seconds.
-
-<br><br>
-
-I love coffee, movies, good food, spontaneous plans,
-laughing until my stomach hurts and people who don't
-take themselves too seriously.
-
-<br><br>
-
-My ideal date?
-
-<strong>
-Great food, good conversation, lots of laughing and
-absolutely no discussion about someone's dental
-insurance.
-</strong>
-
-<br><br>
-
-Bonus points if you actually floss.
-
-<br>
-
-Double bonus points if I don't have to remind you
-that flossing is not optional.
-
-</div>
-
-
-<div class="profile-tags">
-
-<div class="profile-tag">🦷 Dental Hygienist</div>
-<div class="profile-tag">☕ Coffee</div>
-<div class="profile-tag">🎬 Movies</div>
-<div class="profile-tag">😂 Sarcasm</div>
-<div class="profile-tag">❤️ Romance</div>
-<div class="profile-tag">✨ Great Smiles</div>
-<div class="profile-tag">🧵 Flossing Advocate</div>
-
-</div>
-
-
-<div class="profile-section">
-
-<h3>The Important Stuff</h3>
-
-<div class="profile-row">
-<span>Occupation</span>
-<strong>Dental Hygienist</strong>
-</div>
-
-<div class="profile-row">
-<span>Professional Skill</span>
-<strong>Spotting plaque from across the room</strong>
-</div>
-
-<div class="profile-row">
-<span>Love Language</span>
-<strong>Make me laugh</strong>
-</div>
-
-<div class="profile-row">
-<span>Green Flag</span>
-<strong>Kind to everyone</strong>
-</div>
-
-<div class="profile-row">
-<span>Major Green Flag</span>
-<strong>Actually flosses</strong>
-</div>
-
-<div class="profile-row">
-<span>Weakness</span>
-<strong>A ridiculously good smile</strong>
-</div>
-
-<div class="profile-row">
-<span>Dealbreaker</span>
-<strong>Bad hygiene</strong>
-</div>
-
-</div>
-
-</div>
-</div>
-</div>
-
-
-<!-- LIKES -->
-
-<div id="likesSheet" class="sheet">
-
-<div class="likes-panel">
-
-<button id="closeLikes" class="close" type="button">×</button>
-
-<h2>🤪 Breanna's Silly List</h2>
-
-<div id="likedList" class="liked-list"></div>
-
-</div>
-
-</div>
-
-
-<div id="toast" class="toast"></div>
-
-
-<script>
-
-/* ==========================================
-   SETTINGS
-========================================== */
-
-const TOTAL_MEN = 500;
-
-
-/* ==========================================
-   STATE
-========================================== */
-
-let men = [];
-let currentIndex = 0;
-let likedMen = [];
-let loading = true;
-
-
-/* ==========================================
-   ELEMENTS
-========================================== */
-
-const welcome =
-document.getElementById("welcome");
-
-const startButton =
-document.getElementById("startButton");
-
-const deck =
-document.getElementById("deck");
-
-const loadingBox =
-document.getElementById("loading");
-
-const counter =
-document.getElementById("counter");
-
-const toast =
-document.getElementById("toast");
-
-const profileSheet =
-document.getElementById("profileSheet");
-
-const likesSheet =
-document.getElementById("likesSheet");
-
-
-/* ==========================================
-   TOAST
-========================================== */
-
-function showToast(message){
-
-toast.textContent = message;
-
-toast.classList.add("show");
-
-setTimeout(function(){
-
-toast.classList.remove("show");
-
-},1200);
-
-}
-
-
-/* ==========================================
-   LOAD 500 MEN
-========================================== */
-
-async function loadMen(){
-
-try{
-
-const response =
-await fetch(
-"https://randomuser.me/api/?results=500&gender=male&nat=us,ca,gb,au&inc=name,dob,location,picture,nat&noinfo"
-);
-
-if(!response.ok){
-
-throw new Error("API error");
-
-}
-
-const data =
-await response.json();
-
-men =
-data.results.map(function(person,index){
-
-const first =
-person.name.first;
-
-const age =
-person.dob.age;
-
-const city =
-person.location.city || "Nearby";
-
-const jobs = [
-
-"Creative Director",
-"Architect",
-"Marketing Executive",
-"Film Producer",
-"Software Engineer",
-"Entrepreneur",
-"Fitness Coach",
-"Photographer",
-"Restaurant Owner",
-"Attorney",
-"Musician",
-"Business Consultant",
-"Financial Analyst",
-"Technology Executive",
-"Sports Journalist",
-"Designer",
-"Doctor",
-"Real Estate Broker",
-"Product Manager",
-"Travel Consultant"
-
-];
-
-const bios = [
-
-"Coffee addict with questionable dance moves and excellent dinner recommendations.",
-
-"Big on weekend adventures, great restaurants and making people laugh.",
-
-"Competitive at trivia. Not competitive about where we eat.",
-
-"Movie nights, spontaneous trips and finding the best hidden restaurants.",
-
-"Calm, sarcastic and convinced I make a pretty good breakfast.",
-
-"I work hard, laugh a lot and never turn down a good dinner.",
-
-"Sunshine, beach days and terrible dad jokes.",
-
-"Weekend explorer looking for someone who appreciates good conversation.",
-
-"Always looking for the next great view and the next great story.",
-
-"If food is involved, I'm probably already interested.",
-
-"Serious about my career. Not serious about taking myself too seriously.",
-
-"Guitar, tacos and finding reasons to stay out just a little too late.",
-
-"Beach weekends and a dangerous amount of confidence in my karaoke skills.",
-
-"Quietly competitive, overly loyal and always planning the next trip.",
-
-"Good music, better food and absolutely no interest in boring dates."
-
-];
-
-const tags = [
-
-["Travel","Food","Comedy"],
-["Coffee","Design","Travel"],
-["Movies","Travel","Food"],
-["Sports","Trivia","Pizza"],
-["Cooking","Coffee","Movies"],
-["Music","Travel","Romance"],
-["Fitness","Beach","Humor"],
-["Photography","Travel","Music"],
-["Food","Business","Comedy"],
-["Books","Coffee","Movies"],
-["Hiking","Adventure","Travel"],
-["Music","Food","Travel"]
-
-];
-
-return {
-
-id:index,
-
-name:first,
-
-age:age,
-
-city:city,
-
-job:jobs[index % jobs.length],
-
-bio:bios[index % bios.length],
-
-tags:tags[index % tags.length],
-
-image:person.picture.large
-
-};
-
-});
-
-
-loading = false;
-
-loadingBox.remove();
-
-renderCards();
-
-counter.textContent =
-"1 / " + TOTAL_MEN;
-
-}catch(error){
-
-console.error(error);
-
-loadingBox.innerHTML = `
-
-<span>
-
-<div style="font-size:34px">
-😬
-</div>
-
-<div>
-Couldn't load the men.
-</div>
-
-<button
-onclick="loadMen()"
-style="
-margin-top:10px;
-padding:10px 18px;
-border-radius:999px;
-background:#f4c542;
-font-weight:900;
-"
->
-TRY AGAIN
-</button>
-
-</span>
-
-`;
-
-}
-
+.deck{
+  position:relative;
+
+  width:100%;
+  height:100%;
 }
 
 
@@ -976,106 +268,2067 @@ TRY AGAIN
    CARD
 ========================================== */
 
-function createCard(person,position){
+.card{
+  position:absolute;
+  inset:0;
 
-const card =
-document.createElement("div");
+  overflow:hidden;
 
-card.className = "card";
+  border-radius:28px;
 
-card.style.zIndex =
-100-position;
+  background:#181818;
 
-card.innerHTML = `
+  box-shadow:0 20px 55px #000;
 
-<img
-class="person-image"
-src="${person.image}"
-alt="${person.name}"
-loading="${position===0 ? "eager" : "lazy"}"
->
+  touch-action:none;
+  user-select:none;
 
-<div class="card-top">
+  transition:
+    transform .25s ease,
+    opacity .25s ease;
+}
 
-<div class="badge">
-✓ Dating profile
-</div>
+.card img{
+  width:100%;
+  height:100%;
 
-<div class="city">
-📍 ${person.city}
-</div>
+  object-fit:cover;
+  object-position:center 20%;
+}
 
-</div>
+.card:after{
+  content:"";
 
-<div class="stamp silly-stamp">
-SILLY 🤪
-</div>
+  position:absolute;
+  inset:0;
 
-<div class="stamp stinky-stamp">
-STINKY 💩
-</div>
+  pointer-events:none;
 
-<div class="card-info">
+  background:
+    linear-gradient(
+      to bottom,
+      transparent 25%,
+      transparent 42%,
+      rgba(0,0,0,.12) 55%,
+      rgba(0,0,0,.96) 100%
+    );
+}
 
-<div>
+.card-top{
+  position:absolute;
 
-<span class="card-name">
-${person.name}
-</span>
+  top:15px;
+  left:15px;
+  right:15px;
 
-<span class="card-age">
-${person.age}
-</span>
+  z-index:5;
 
-</div>
+  display:flex;
+  justify-content:space-between;
 
-<div class="card-job">
-${person.job}
-</div>
+  pointer-events:none;
+}
 
-<div class="card-bio">
-${person.bio}
-</div>
+.badge,
+.location{
+  padding:7px 10px;
 
-<div class="tags">
+  border-radius:999px;
 
-${person.tags.map(function(tag){
+  background:#000b;
 
-return `
-<span class="tag">
-${tag}
-</span>
-`;
+  backdrop-filter:blur(8px);
 
-}).join("")}
+  font-size:10px;
+  font-weight:900;
+}
 
-</div>
+.card-info{
+  position:absolute;
 
-</div>
-`;
+  left:20px;
+  right:20px;
+  bottom:19px;
+
+  z-index:5;
+}
+
+.card-name{
+  font-size:30px;
+  font-weight:1000;
+}
+
+.card-age{
+  margin-left:5px;
+
+  color:#ddd;
+
+  font-size:20px;
+}
+
+.card-job{
+  margin-top:5px;
+
+  color:#ddd;
+
+  font-size:13px;
+  font-weight:700;
+}
+
+.card-bio{
+  margin-top:7px;
+
+  color:#eee;
+
+  font-size:13px;
+  line-height:1.4;
+}
+
+.tags{
+  display:flex;
+  flex-wrap:wrap;
+
+  gap:5px;
+
+  margin-top:9px;
+}
+
+.tag{
+  padding:6px 9px;
+
+  border-radius:999px;
+
+  background:#ffffff22;
+
+  backdrop-filter:blur(8px);
+
+  font-size:10px;
+  font-weight:900;
+}
 
 
-const image =
-card.querySelector(".person-image");
+/* ==========================================
+   SWIPE STAMPS
+========================================== */
+
+.stamp{
+  position:absolute;
+
+  z-index:20;
+
+  top:45px;
+
+  padding:7px 12px;
+
+  border:4px solid;
+  border-radius:10px;
+
+  font-size:23px;
+  font-weight:1000;
+
+  opacity:0;
+
+  pointer-events:none;
+}
+
+.silly-stamp{
+  left:18px;
+
+  color:#55ee91;
+  border-color:#55ee91;
+
+  transform:rotate(-10deg);
+}
+
+.stinky-stamp{
+  right:18px;
+
+  color:#ff6975;
+  border-color:#ff6975;
+
+  transform:rotate(10deg);
+}
 
 
-image.onerror =
-function(){
+/* ==========================================
+   COUNTER
+========================================== */
 
-image.src =
-"https://i.pravatar.cc/1000?img="
-+ ((person.id % 70) + 1);
+.counter{
+  position:absolute;
 
-};
+  z-index:30;
+
+  top:10px;
+  right:24px;
+
+  padding:6px 10px;
+
+  border-radius:999px;
+
+  background:#000b;
+
+  color:#ddd;
+
+  font-size:10px;
+  font-weight:900;
+
+  pointer-events:none;
+}
 
 
-if(position===0){
+/* ==========================================
+   ACTIONS
+========================================== */
 
-enableSwipe(card);
+.actions{
+  height:91px;
+  flex:0 0 91px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  gap:15px;
+
+  padding:5px 18px;
+}
+
+.action{
+  flex:1;
+
+  max-width:155px;
+  height:60px;
+
+  border-radius:999px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  gap:8px;
+
+  font-size:13px;
+  font-weight:1000;
+
+  transition:.12s;
+}
+
+.action:active{
+  transform:scale(.91);
+}
+
+.silly{
+  background:#f4c542;
+  color:#111;
+
+  border:2px solid #ffe58b;
+
+  box-shadow:0 8px 22px #000;
+}
+
+.stinky{
+  background:#252525;
+  color:#ddd;
+
+  border:2px solid #666;
+
+  box-shadow:0 8px 22px #000;
+}
+
+.action-icon{
+  font-size:22px;
+}
+
+
+/* ==========================================
+   NAV
+========================================== */
+
+.nav{
+  height:65px;
+  flex:0 0 65px;
+
+  display:flex;
+
+  background:#0d0d0df5;
+
+  border-top:1px solid #ffffff10;
+
+  backdrop-filter:blur(18px);
+
+  padding-bottom:env(safe-area-inset-bottom);
+}
+
+.nav button{
+  flex:1;
+
+  background:transparent;
+
+  color:#777;
+
+  font-size:10px;
+  font-weight:900;
+}
+
+.nav button.active{
+  color:#fff;
+}
+
+.nav-icon{
+  display:block;
+
+  margin-bottom:2px;
+
+  font-size:20px;
+}
+
+
+/* ==========================================
+   SILLY MODE
+========================================== */
+
+#sillyMode{
+  position:fixed;
+
+  inset:0;
+
+  z-index:99999;
+
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:center;
+
+  justify-content:center;
+
+  background:
+    rgba(244,197,66,.96);
+
+  color:#111;
+
+  opacity:0;
+
+  visibility:hidden;
+
+  pointer-events:none;
+
+  transform:scale(1.15);
+}
+
+#sillyMode.active{
+  animation:
+    sillyFlash
+    .9s
+    cubic-bezier(.2,.8,.2,1);
+}
+
+.sillyBurst{
+  font-size:82px;
+
+  line-height:1;
+
+  animation:
+    sillyEmoji
+    .9s
+    cubic-bezier(.2,.8,.2,1);
+}
+
+.sillyText{
+  margin-top:12px;
+
+  font-size:42px;
+
+  font-weight:1000;
+
+  letter-spacing:-2px;
+
+  transform:rotate(-3deg);
+
+  text-shadow:
+    4px 4px 0 #fff;
+
+  animation:
+    sillyWords
+    .9s
+    cubic-bezier(.2,.8,.2,1);
+}
+
+.sillySub{
+  margin-top:8px;
+
+  font-size:11px;
+
+  font-weight:1000;
+
+  letter-spacing:1.5px;
+
+  text-transform:uppercase;
+
+  animation:
+    sillySubAnimation
+    .9s
+    ease;
+}
+
+@keyframes sillyFlash{
+
+  0%{
+    opacity:0;
+    visibility:visible;
+    transform:scale(1.3);
+  }
+
+  12%{
+    opacity:1;
+    transform:scale(1);
+  }
+
+  65%{
+    opacity:1;
+    transform:scale(1);
+  }
+
+  100%{
+    opacity:0;
+    visibility:hidden;
+    transform:scale(.96);
+  }
 
 }
 
-return card;
+@keyframes sillyEmoji{
+
+  0%{
+    transform:
+      scale(0)
+      rotate(-25deg);
+  }
+
+  35%{
+    transform:
+      scale(1.25)
+      rotate(12deg);
+  }
+
+  60%{
+    transform:
+      scale(.9)
+      rotate(-5deg);
+  }
+
+  100%{
+    transform:
+      scale(1)
+      rotate(0);
+  }
+
+}
+
+@keyframes sillyWords{
+
+  0%{
+    opacity:0;
+    transform:
+      scale(.5)
+      rotate(-12deg);
+  }
+
+  45%{
+    opacity:1;
+    transform:
+      scale(1.15)
+      rotate(3deg);
+  }
+
+  100%{
+    transform:
+      scale(1)
+      rotate(-3deg);
+  }
+
+}
+
+@keyframes sillySubAnimation{
+
+  0%{
+    opacity:0;
+    transform:translateY(15px);
+  }
+
+  55%{
+    opacity:0;
+    transform:translateY(15px);
+  }
+
+  100%{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+}
+
+
+/* ==========================================
+   SHEETS
+========================================== */
+
+.sheet{
+  position:fixed;
+
+  inset:0;
+
+  z-index:500;
+
+  display:none;
+
+  align-items:flex-end;
+
+  background:#000c;
+}
+
+.sheet.open{
+  display:flex;
+}
+
+.panel{
+  position:relative;
+
+  width:100%;
+  max-width:520px;
+
+  max-height:94dvh;
+
+  overflow:auto;
+
+  margin:auto auto 0;
+
+  border-radius:30px 30px 0 0;
+
+  background:
+    linear-gradient(
+      #191919,
+      #090909
+    );
+}
+
+.close{
+  position:absolute;
+
+  z-index:10;
+
+  top:13px;
+  right:13px;
+
+  width:40px;
+  height:40px;
+
+  border-radius:50%;
+
+  background:#000b;
+
+  color:#fff;
+
+  font-size:25px;
+}
+
+
+/* ==========================================
+   BREANNA PROFILE
+========================================== */
+
+.profile-photo{
+  position:relative;
+
+  height:350px;
+}
+
+.profile-photo img{
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+}
+
+.profile-photo:after{
+  content:"";
+
+  position:absolute;
+
+  inset:0;
+
+  background:
+    linear-gradient(
+      transparent 35%,
+      #000 100%
+    );
+}
+
+.profile-title{
+  position:absolute;
+
+  left:20px;
+  right:20px;
+  bottom:18px;
+
+  z-index:5;
+}
+
+.profile-title h1{
+  margin:0;
+
+  font-size:36px;
+  font-weight:1000;
+}
+
+.profile-title p{
+  margin:4px 0 0;
+
+  color:#ddd;
+
+  font-size:13px;
+}
+
+.profile-content{
+  padding:20px 20px 40px;
+}
+
+.label{
+  color:#f4c542;
+
+  font-size:11px;
+  font-weight:1000;
+
+  letter-spacing:1px;
+
+  text-transform:uppercase;
+}
+
+.bio{
+  margin-top:10px;
+
+  color:#ddd;
+
+  font-size:15px;
+
+  line-height:1.58;
+}
+
+.bio strong{
+  color:#fff;
+}
+
+.profile-tags{
+  display:flex;
+  flex-wrap:wrap;
+
+  gap:7px;
+
+  margin-top:18px;
+}
+
+.profile-tag{
+  padding:8px 11px;
+
+  border-radius:999px;
+
+  background:#242424;
+
+  color:#ddd;
+
+  font-size:11px;
+  font-weight:900;
+}
+
+.section{
+  margin-top:25px;
+}
+
+.section h3{
+  margin:0 0 8px;
+
+  color:#f4c542;
+
+  font-size:11px;
+
+  letter-spacing:1px;
+
+  text-transform:uppercase;
+}
+
+.row{
+  display:flex;
+
+  justify-content:space-between;
+
+  gap:20px;
+
+  padding:12px 0;
+
+  border-bottom:1px solid #ffffff0d;
+
+  color:#aaa;
+
+  font-size:13px;
+}
+
+.row strong{
+  color:#fff;
+
+  text-align:right;
+}
+
+
+/* ==========================================
+   LIKES
+========================================== */
+
+.likes-panel{
+  padding:20px 20px 35px;
+}
+
+.likes-panel h2{
+  margin:4px 0 18px;
+
+  font-size:23px;
+}
+
+.liked-list{
+  display:grid;
+
+  gap:10px;
+}
+
+.liked{
+  display:flex;
+
+  align-items:center;
+
+  gap:12px;
+
+  padding:8px;
+
+  border-radius:15px;
+
+  background:#222;
+}
+
+.liked img{
+  width:68px;
+  height:82px;
+
+  object-fit:cover;
+
+  border-radius:11px;
+}
+
+.liked strong{
+  font-size:16px;
+}
+
+.liked small{
+  display:block;
+
+  margin-top:4px;
+
+  color:#999;
+}
+
+
+/* ==========================================
+   TOAST
+========================================== */
+
+.toast{
+  position:fixed;
+
+  z-index:1000;
+
+  left:50%;
+  bottom:96px;
+
+  transform:
+    translate(-50%,20px);
+
+  opacity:0;
+
+  pointer-events:none;
+
+  padding:11px 18px;
+
+  border-radius:999px;
+
+  background:#fff;
+
+  color:#111;
+
+  font-size:13px;
+  font-weight:1000;
+
+  transition:.25s;
+}
+
+.toast.show{
+  opacity:1;
+
+  transform:
+    translate(-50%,0);
+}
+
+
+/* ==========================================
+   LOADING
+========================================== */
+
+.loading{
+  position:absolute;
+
+  inset:0;
+
+  z-index:100;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  border-radius:28px;
+
+  background:#101010;
+
+  color:#fff;
+
+  font-size:14px;
+  font-weight:900;
+
+  text-align:center;
+}
+
+.spinner{
+  width:31px;
+  height:31px;
+
+  margin:
+    auto
+    auto
+    12px;
+
+  border:3px solid #444;
+
+  border-top-color:#f4c542;
+
+  border-radius:50%;
+
+  animation:
+    spin
+    .7s
+    linear
+    infinite;
+}
+
+@keyframes spin{
+
+  to{
+    transform:rotate(360deg);
+  }
+
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media(max-height:700px){
+
+  .header{
+    height:58px;
+    flex-basis:58px;
+  }
+
+  .actions{
+    height:75px;
+    flex-basis:75px;
+  }
+
+  .action{
+    height:52px;
+  }
+
+  .nav{
+    height:58px;
+    flex-basis:58px;
+  }
+
+  .breanna-photo{
+    width:170px;
+    height:215px;
+  }
+
+  .profile-photo{
+    height:300px;
+  }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ==========================================
+   WELCOME SCREEN
+========================================== -->
+
+<div id="welcome">
+
+  <div class="logo-big">
+    BREUM<span>BLE</span>
+  </div>
+
+  <div class="subtitle">
+    Breanna's dating adventure
+  </div>
+
+  <img
+    class="breanna-photo"
+    src="IMG_5053.jpeg"
+    alt="Breanna"
+  >
+
+  <div class="breanna-name">
+    Breanna
+  </div>
+
+  <div class="breanna-job">
+    Dental Hygienist • Smile Quality Control
+  </div>
+
+  <button
+    class="start"
+    id="startButton"
+    type="button"
+  >
+    LET'S BREUMBLE 🤪
+  </button>
+
+</div>
+
+
+<!-- ==========================================
+   APP
+========================================== -->
+
+<div class="app">
+
+
+  <!-- HEADER -->
+
+  <header class="header">
+
+    <button
+      class="header-button"
+      id="headerProfile"
+      type="button"
+    >
+      👤
+    </button>
+
+    <div class="logo">
+      BREUM<span>BLE</span>
+    </div>
+
+    <div class="header-profile">
+
+      Breanna
+
+      <img
+        class="header-photo"
+        src="IMG_5053.jpeg"
+        alt="Breanna"
+      >
+
+    </div>
+
+  </header>
+
+
+  <!-- MAIN -->
+
+  <main class="main">
+
+    <div
+      class="deck"
+      id="deck"
+    >
+
+      <div
+        class="loading"
+        id="loading"
+      >
+
+        <div>
+
+          <div class="spinner"></div>
+
+          Creating the Hollywood
+          dating pool...
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div
+      class="counter"
+      id="counter"
+    >
+      0 / 500
+    </div>
+
+  </main>
+
+
+  <!-- ACTION BUTTONS -->
+
+  <div class="actions">
+
+    <button
+      class="action stinky"
+      id="stinkyButton"
+      type="button"
+    >
+
+      <span class="action-icon">
+        💩
+      </span>
+
+      STINKY
+
+    </button>
+
+
+    <button
+      class="action silly"
+      id="sillyButton"
+      type="button"
+    >
+
+      <span class="action-icon">
+        🤪
+      </span>
+
+      SILLY
+
+    </button>
+
+  </div>
+
+
+  <!-- NAV -->
+
+  <nav class="nav">
+
+    <button
+      class="active"
+      id="discoverButton"
+      type="button"
+    >
+
+      <span class="nav-icon">
+        🔥
+      </span>
+
+      Discover
+
+    </button>
+
+
+    <button
+      id="likesButton"
+      type="button"
+    >
+
+      <span class="nav-icon">
+        🤪
+      </span>
+
+      Likes
+
+    </button>
+
+
+    <button
+      id="profileButton"
+      type="button"
+    >
+
+      <span class="nav-icon">
+        👤
+      </span>
+
+      Breanna
+
+    </button>
+
+  </nav>
+
+</div>
+
+
+<!-- ==========================================
+   SILLY MODE OVERLAY
+========================================== -->
+
+<div id="sillyMode">
+
+  <div class="sillyBurst">
+    🤪
+  </div>
+
+  <div class="sillyText">
+    SILLY MODE
+  </div>
+
+  <div class="sillySub">
+    HE PASSED THE VIBE CHECK ✨
+  </div>
+
+</div>
+
+
+<!-- ==========================================
+   BREANNA PROFILE SHEET
+========================================== -->
+
+<div
+  class="sheet"
+  id="profileSheet"
+>
+
+  <div class="panel">
+
+
+    <div class="profile-photo">
+
+      <button
+        class="close"
+        id="closeProfile"
+        type="button"
+      >
+        ×
+      </button>
+
+      <img
+        src="IMG_5053.jpeg"
+        alt="Breanna"
+      >
+
+      <div class="profile-title">
+
+        <h1>
+          Breanna
+        </h1>
+
+        <p>
+          Dental Hygienist • Smile Quality Control
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="profile-content">
+
+      <div class="label">
+        About Breanna
+      </div>
+
+
+      <div class="bio">
+
+        I'm a dental hygienist, which means I spend
+        most of my professional life politely explaining
+        that yes... your gums really do need attention.
+
+        <br><br>
+
+        I know more about plaque, tartar, gingivitis,
+        periodontal pockets and proper brushing technique
+        than the average person probably wants to hear
+        about on a first date.
+
+        <br><br>
+
+        My patients come in nervous and leave with
+        cleaner smiles and hopefully a renewed commitment
+        to flossing.
+
+        <br><br>
+
+        So naturally I've developed a very specific
+        appreciation for a
+        <strong>
+          great smile.
+        </strong>
+
+        <br><br>
+
+        I'm not saying I'm going to inspect your molars
+        before dinner...
+
+        <br><br>
+
+        But I'm also not saying I won't notice. 😏
+
+        <br><br>
+
+        I'm looking for someone funny, confident,
+        kind, affectionate and capable of carrying
+        a conversation without checking their phone
+        every twelve seconds.
+
+        <br><br>
+
+        I love coffee, movies, good food, spontaneous
+        plans, laughing until my stomach hurts and
+        people who don't take themselves too seriously.
+
+        <br><br>
+
+        My ideal date?
+
+        <strong>
+          Great food, good conversation, lots of
+          laughing and absolutely no discussion about
+          someone's dental insurance.
+        </strong>
+
+        <br><br>
+
+        Bonus points if you actually floss.
+
+        <br>
+
+        Double bonus points if I don't have to remind
+        you that flossing is not optional.
+
+      </div>
+
+
+      <div class="profile-tags">
+
+        <div class="profile-tag">
+          🦷 Dental Hygienist
+        </div>
+
+        <div class="profile-tag">
+          ☕ Coffee
+        </div>
+
+        <div class="profile-tag">
+          🎬 Movies
+        </div>
+
+        <div class="profile-tag">
+          😂 Sarcasm
+        </div>
+
+        <div class="profile-tag">
+          ❤️ Romance
+        </div>
+
+        <div class="profile-tag">
+          ✨ Great Smiles
+        </div>
+
+        <div class="profile-tag">
+          🧵 Flossing Advocate
+        </div>
+
+      </div>
+
+
+      <div class="section">
+
+        <h3>
+          The Important Stuff
+        </h3>
+
+
+        <div class="row">
+          <span>
+            Occupation
+          </span>
+
+          <strong>
+            Dental Hygienist
+          </strong>
+        </div>
+
+
+        <div class="row">
+          <span>
+            Professional Skill
+          </span>
+
+          <strong>
+            Spotting plaque from across the room
+          </strong>
+        </div>
+
+
+        <div class="row">
+          <span>
+            Love Language
+          </span>
+
+          <strong>
+            Make me laugh
+          </strong>
+        </div>
+
+
+        <div class="row">
+          <span>
+            Green Flag
+          </span>
+
+          <strong>
+            Kind to everyone
+          </strong>
+        </div>
+
+
+        <div class="row">
+          <span>
+            Major Green Flag
+          </span>
+
+          <strong>
+            Actually flosses
+          </strong>
+        </div>
+
+
+        <div class="row">
+          <span>
+            Weakness
+          </span>
+
+          <strong>
+            A ridiculously good smile
+          </strong>
+        </div>
+
+
+        <div class="row">
+          <span>
+            Dealbreaker
+          </span>
+
+          <strong>
+            Bad hygiene
+          </strong>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- ==========================================
+   LIKES SHEET
+========================================== -->
+
+<div
+  class="sheet"
+  id="likesSheet"
+>
+
+  <div class="panel likes-panel">
+
+    <button
+      class="close"
+      id="closeLikes"
+      type="button"
+    >
+      ×
+    </button>
+
+
+    <h2>
+      🤪 Breanna's SILLY List
+    </h2>
+
+
+    <div
+      class="liked-list"
+      id="likedList"
+    ></div>
+
+  </div>
+
+</div>
+
+
+<!-- TOAST -->
+
+<div
+  class="toast"
+  id="toast"
+></div>
+
+
+<script>
+
+/* ==========================================
+   BREUMBLE DATA
+========================================== */
+
+const TOTAL = 500;
+
+
+/*
+  Fixed public portrait pool.
+
+  These are fictional dating profiles.
+  They are not intended to represent
+  real celebrities.
+*/
+
+const PHOTO_POOL = [];
+
+for(let i=1;i<=99;i++){
+
+  PHOTO_POOL.push(
+    "https://randomuser.me/api/portraits/men/"
+    + i +
+    ".jpg"
+  );
+
+}
+
+
+/* ==========================================
+   PROFILE DATA
+========================================== */
+
+const firstNames = [
+
+  "Alex",
+  "Marcus",
+  "Ryan",
+  "Daniel",
+  "Ethan",
+  "Michael",
+  "Jordan",
+  "Andrew",
+  "Chris",
+  "Matthew",
+  "James",
+  "Noah",
+  "Brandon",
+  "Tyler",
+  "David",
+  "Liam",
+  "Kevin",
+  "Jason",
+  "Nathan",
+  "Steven",
+  "Adam",
+  "Eric",
+  "Justin",
+  "Sean",
+  "Anthony",
+  "Ben",
+  "Jake",
+  "Thomas",
+  "William",
+  "Luke",
+  "Cole",
+  "Patrick",
+  "Nicholas",
+  "Jonathan",
+  "Dylan",
+  "Cameron",
+  "Logan",
+  "Mason",
+  "Owen",
+  "Caleb",
+  "Adrian",
+  "Julian",
+  "Leo",
+  "Max",
+  "Elliot",
+  "Theo",
+  "Jack",
+  "Miles",
+  "Nolan",
+  "Zachary"
+
+];
+
+
+const lastNames = [
+
+  "Hayes",
+  "Carter",
+  "Brooks",
+  "Reed",
+  "Parker",
+  "Grant",
+  "Morgan",
+  "Bennett",
+  "Coleman",
+  "Warren",
+  "Foster",
+  "Hunter",
+  "Mason",
+  "King",
+  "Turner",
+  "Cooper",
+  "West",
+  "Knight",
+  "Stone",
+  "Bishop"
+
+];
+
+
+const cities = [
+
+  "Los Angeles",
+  "New York",
+  "Miami",
+  "Chicago",
+  "Toronto",
+  "Vancouver",
+  "San Diego",
+  "Boston",
+  "Austin",
+  "Nashville",
+  "Denver",
+  "Seattle",
+  "Las Vegas",
+  "Atlanta",
+  "San Francisco",
+  "Montreal",
+  "Dallas",
+  "Phoenix",
+  "Orlando",
+  "London"
+
+];
+
+
+const jobs = [
+
+  "Actor",
+  "Film Producer",
+  "Creative Director",
+  "Architect",
+  "Tech Founder",
+  "Entrepreneur",
+  "Music Producer",
+  "Photographer",
+  "Restaurant Owner",
+  "Attorney",
+  "Sports Agent",
+  "Fashion Executive",
+  "Investment Manager",
+  "TV Producer",
+  "Director",
+  "Fitness Coach",
+  "Software Engineer",
+  "Travel Entrepreneur",
+  "Real Estate Developer",
+  "Record Executive",
+  "Luxury Brand Consultant",
+  "Professional Athlete",
+  "Chef",
+  "Pilot",
+  "Doctor",
+  "Designer",
+  "Journalist",
+  "Event Producer"
+
+];
+
+
+const archetypes = [
+
+  "Action Hero",
+  "Romantic Lead",
+  "British Heartthrob",
+  "Funny Guy",
+  "Bad Boy",
+  "Golden Retriever",
+  "Brooding Artist",
+  "Tech Billionaire",
+  "Fitness Guy",
+  "Movie Nerd",
+  "Adventure Guy",
+  "Old-School Gentleman",
+  "Musician",
+  "Foodie",
+  "Silver Fox",
+  "Beach Guy",
+  "Travel Guy",
+  "Creative Guy",
+  "Quietly Confident",
+  "Professional Charmer"
+
+];
+
+
+const bios = [
+
+  "Big on great restaurants, spontaneous trips and making people laugh.",
+
+  "Coffee addict with excellent dinner recommendations and questionable dance moves.",
+
+  "Weekend adventures, good movies and absolutely no interest in boring dates.",
+
+  "Confident enough to dress up for dinner and relaxed enough to order dessert.",
+
+  "Looking for someone who can laugh at themselves and doesn't take dating too seriously.",
+
+  "Professional by day, terrible karaoke singer by night.",
+
+  "Always planning the next trip and occasionally pretending I know where I'm going.",
+
+  "Big fan of old-school romance, handwritten notes and very good food.",
+
+  "I make a surprisingly good breakfast and an even better reservation.",
+
+  "Movie nerd looking for someone who won't judge the amount of popcorn I order.",
+
+  "Gym, coffee, travel and trying to convince myself I enjoy running.",
+
+  "Quietly competitive. Especially at trivia.",
+
+  "Life is better with good food, good music and someone fun beside you.",
+
+  "Looking for chemistry, conversation and someone who laughs at terrible jokes.",
+
+  "Ambitious, affectionate and always up for a last-minute adventure."
+
+];
+
+
+const tagSets = [
+
+  ["Travel","Food","Comedy"],
+  ["Coffee","Movies","Romance"],
+  ["Fitness","Beach","Travel"],
+  ["Music","Concerts","Nightlife"],
+  ["Food","Cooking","Wine"],
+  ["Movies","Popcorn","Travel"],
+  ["Hiking","Adventure","Nature"],
+  ["Fashion","Design","Art"],
+  ["Sports","Fitness","Travel"],
+  ["Books","Coffee","Culture"],
+  ["Business","Travel","Food"],
+  ["Photography","Music","Travel"]
+
+];
+
+
+/* ==========================================
+   STATE
+========================================== */
+
+let men = [];
+
+let currentIndex = 0;
+
+let likedMen = [];
+
+
+/* ==========================================
+   ELEMENTS
+========================================== */
+
+const welcome =
+  document.getElementById("welcome");
+
+const deck =
+  document.getElementById("deck");
+
+const loading =
+  document.getElementById("loading");
+
+const counter =
+  document.getElementById("counter");
+
+const toast =
+  document.getElementById("toast");
+
+const sillyMode =
+  document.getElementById("sillyMode");
+
+
+/* ==========================================
+   DETERMINISTIC RANDOM
+========================================== */
+
+function seededNumber(n){
+
+  const x =
+    Math.sin(n * 12.9898) *
+    43758.5453;
+
+  return x -
+    Math.floor(x);
+
+}
+
+
+/* ==========================================
+   CREATE 500 PROFILES
+========================================== */
+
+function createMen(){
+
+  men = [];
+
+  for(let i=0;i<TOTAL;i++){
+
+    const seed =
+      i + 17;
+
+
+    const first =
+      firstNames[
+        i % firstNames.length
+      ];
+
+
+    const last =
+      lastNames[
+        Math.floor(
+          seededNumber(seed) *
+          lastNames.length
+        )
+      ];
+
+
+    const age =
+      27 +
+      Math.floor(
+        seededNumber(seed + 1) *
+        22
+      );
+
+
+    const city =
+      cities[
+        Math.floor(
+          seededNumber(seed + 2) *
+          cities.length
+        )
+      ];
+
+
+    const job =
+      jobs[
+        Math.floor(
+          seededNumber(seed + 3) *
+          jobs.length
+        )
+      ];
+
+
+    const archetype =
+      archetypes[
+        Math.floor(
+          seededNumber(seed + 4) *
+          archetypes.length
+        )
+      ];
+
+
+    const bio =
+      bios[
+        Math.floor(
+          seededNumber(seed + 5) *
+          bios.length
+        )
+      ];
+
+
+    const tags =
+      tagSets[
+        Math.floor(
+          seededNumber(seed + 6) *
+          tagSets.length
+        )
+      ];
+
+
+    /*
+      Fixed image assignment.
+    */
+
+    const photo =
+      PHOTO_POOL[
+        i %
+        PHOTO_POOL.length
+      ];
+
+
+    men.push({
+
+      id:i,
+
+      name:
+        first +
+        " " +
+        last,
+
+      age:age,
+
+      city:city,
+
+      job:job,
+
+      archetype:archetype,
+
+      bio:bio,
+
+      tags:tags,
+
+      image:photo
+
+    });
+
+  }
+
+}
+
+
+/* ==========================================
+   TOAST
+========================================== */
+
+function showToast(text){
+
+  toast.textContent =
+    text;
+
+  toast.classList.add(
+    "show"
+  );
+
+
+  setTimeout(
+    ()=>{
+
+      toast.classList.remove(
+        "show"
+      );
+
+    },
+    1100
+  );
+
+}
+
+
+/* ==========================================
+   SILLY MODE
+========================================== */
+
+function showSillyMode(){
+
+  /*
+    Remove the animation class first
+    so it can restart every single time.
+  */
+
+  sillyMode.classList.remove(
+    "active"
+  );
+
+
+  /*
+    Force browser to restart animation.
+  */
+
+  void sillyMode.offsetWidth;
+
+
+  /*
+    Launch SILLY MODE.
+  */
+
+  sillyMode.classList.add(
+    "active"
+  );
+
+
+  /*
+    Remove after animation.
+  */
+
+  setTimeout(
+    ()=>{
+
+      sillyMode.classList.remove(
+        "active"
+      );
+
+    },
+    900
+  );
+
+}
+
+
+/* ==========================================
+   CREATE CARD
+========================================== */
+
+function createCard(
+  person,
+  position
+){
+
+  const card =
+    document.createElement(
+      "div"
+    );
+
+
+  card.className =
+    "card";
+
+
+  card.style.zIndex =
+    100 -
+    position;
+
+
+  card.innerHTML = `
+
+    <img
+      class="person-image"
+      src="${person.image}"
+      alt="${person.name}"
+    >
+
+
+    <div class="card-top">
+
+      <div class="badge">
+        ✓ Hollywood-style profile
+      </div>
+
+      <div class="location">
+        📍 ${person.city}
+      </div>
+
+    </div>
+
+
+    <div
+      class="stamp silly-stamp"
+    >
+      SILLY 🤪
+    </div>
+
+
+    <div
+      class="stamp stinky-stamp"
+    >
+      STINKY 💩
+    </div>
+
+
+    <div class="card-info">
+
+      <div>
+
+        <span class="card-name">
+          ${person.name}
+        </span>
+
+        <span class="card-age">
+          ${person.age}
+        </span>
+
+      </div>
+
+
+      <div class="card-job">
+        ${person.job}
+      </div>
+
+
+      <div class="card-bio">
+        ${person.bio}
+      </div>
+
+
+      <div class="tags">
+
+        ${person.tags.map(
+          tag=>`
+
+            <span class="tag">
+              ${tag}
+            </span>
+
+          `
+        ).join("")}
+
+      </div>
+
+    </div>
+
+  `;
+
+
+  const image =
+    card.querySelector(
+      ".person-image"
+    );
+
+
+  image.onerror =
+    function(){
+
+      image.onerror =
+        null;
+
+      image.src =
+        PHOTO_POOL[
+          (person.id + 37) %
+          PHOTO_POOL.length
+        ];
+
+    };
+
+
+  if(position === 0){
+
+    enableSwipe(card);
+
+  }
+
+
+  return card;
 
 }
 
@@ -1086,402 +2339,542 @@ return card;
 
 function renderCards(){
 
-if(!men.length)return;
-
-deck.innerHTML = "";
-
-for(
-let position=2;
-position>=0;
-position--
-){
-
-const index =
-(currentIndex+position)
-%men.length;
-
-const person =
-men[index];
-
-const card =
-createCard(person,position);
+  deck.innerHTML = "";
 
 
-if(position>0){
+  for(
+    let position=2;
+    position>=0;
+    position--
+  ){
 
-card.style.transform =
-"scale("
-+(1-position*.035)
-+") translateY("
-+(position*10)
-+"px)";
+    const index =
+      currentIndex +
+      position;
 
-}
 
-deck.appendChild(card);
+    if(
+      index >=
+      men.length
+    ){
 
-}
+      continue;
 
-counter.textContent =
-(currentIndex+1)
-+" / "
-+TOTAL_MEN;
+    }
+
+
+    const person =
+      men[index];
+
+
+    const card =
+      createCard(
+        person,
+        position
+      );
+
+
+    if(position > 0){
+
+      card.style.transform =
+        "scale(" +
+        (
+          1 -
+          position * .035
+        ) +
+        ") translateY(" +
+        (
+          position * 10
+        ) +
+        "px)";
+
+    }
+
+
+    deck.appendChild(card);
+
+  }
+
+
+  counter.textContent =
+    (currentIndex + 1) +
+    " / " +
+    TOTAL;
 
 }
 
 
 /* ==========================================
-   SWIPE
+   TOUCH SWIPE
 ========================================== */
 
 function enableSwipe(card){
 
-let startX = 0;
-let deltaX = 0;
-let dragging = false;
+  let startX = 0;
+
+  let deltaX = 0;
+
+  let dragging = false;
 
 
-card.addEventListener(
-"touchstart",
-function(event){
+  card.addEventListener(
+    "touchstart",
+    e=>{
 
-dragging = true;
+      dragging = true;
 
-startX =
-event.touches[0].clientX;
+      startX =
+        e.touches[0].clientX;
 
-deltaX = 0;
+      deltaX = 0;
 
-},
-{passive:true}
-);
-
-
-card.addEventListener(
-"touchmove",
-function(event){
-
-if(!dragging)return;
-
-deltaX =
-event.touches[0].clientX-startX;
-
-card.style.transform =
-"translateX("
-+deltaX
-+"px) rotate("
-+(deltaX/18)
-+"deg)";
+    },
+    {passive:true}
+  );
 
 
-card.querySelector(
-".silly-stamp"
-).style.opacity =
-Math.max(0,deltaX/100);
+  card.addEventListener(
+    "touchmove",
+    e=>{
+
+      if(!dragging){
+        return;
+      }
 
 
-card.querySelector(
-".stinky-stamp"
-).style.opacity =
-Math.max(0,-deltaX/100);
-
-},
-{passive:true}
-);
+      deltaX =
+        e.touches[0].clientX -
+        startX;
 
 
-card.addEventListener(
-"touchend",
-function(){
+      card.style.transform =
+        "translateX(" +
+        deltaX +
+        "px) rotate(" +
+        (
+          deltaX / 18
+        ) +
+        "deg)";
 
-if(!dragging)return;
 
-dragging=false;
+      card.querySelector(
+        ".silly-stamp"
+      ).style.opacity =
+        Math.max(
+          0,
+          deltaX / 100
+        );
 
 
-if(Math.abs(deltaX)>100){
+      card.querySelector(
+        ".stinky-stamp"
+      ).style.opacity =
+        Math.max(
+          0,
+          -deltaX / 100
+        );
 
-finishSwipe(
-deltaX>0
-?"silly"
-:"stinky"
-);
+    },
+    {passive:true}
+  );
 
-}else{
 
-card.style.transition =
-"transform .25s ease";
+  card.addEventListener(
+    "touchend",
+    ()=>{
 
-card.style.transform = "";
+      if(!dragging){
+        return;
+      }
 
-card.querySelector(
-".silly-stamp"
-).style.opacity = 0;
 
-card.querySelector(
-".stinky-stamp"
-).style.opacity = 0;
+      dragging = false;
 
-}
 
-}
-);
+      if(
+        Math.abs(deltaX) >
+        100
+      ){
+
+        finishSwipe(
+          deltaX > 0
+          ? "silly"
+          : "stinky"
+        );
+
+      }else{
+
+        card.style.transform =
+          "";
+
+        card.querySelector(
+          ".silly-stamp"
+        ).style.opacity =
+          0;
+
+        card.querySelector(
+          ".stinky-stamp"
+        ).style.opacity =
+          0;
+
+      }
+
+    }
+  );
 
 }
 
 
 /* ==========================================
-   FINISH SWIPE
+   SWIPE RESULT
 ========================================== */
 
 function finishSwipe(type){
 
-if(!men.length)return;
-
-const card =
-deck.querySelector(".card");
-
-if(!card)return;
-
-const person =
-men[currentIndex];
+  if(!men.length){
+    return;
+  }
 
 
-card.style.transition =
-"transform .3s ease,opacity .3s ease";
-
-card.style.transform =
-type==="silly"
-?
-"translateX(1100px) rotate(25deg)"
-:
-"translateX(-1100px) rotate(-25deg)";
-
-card.style.opacity = "0";
+  const card =
+    deck.querySelector(
+      ".card"
+    );
 
 
-if(type==="silly"){
-
-const exists =
-likedMen.some(function(item){
-
-return item.id === person.id;
-
-});
+  if(!card){
+    return;
+  }
 
 
-if(!exists){
-
-likedMen.push(person);
-
-}
-
-showToast("🤪 SILLY!");
-
-}else{
-
-showToast("💩 STINKY!");
-
-}
+  const person =
+    men[currentIndex];
 
 
-setTimeout(function(){
+  card.style.transition =
+    "transform .3s ease,opacity .3s ease";
 
-currentIndex++;
 
-if(currentIndex>=men.length){
+  card.style.transform =
+    type === "silly"
+    ?
+    "translateX(1100px) rotate(25deg)"
+    :
+    "translateX(-1100px) rotate(-25deg)";
 
-currentIndex=0;
 
-showToast("You've seen all 500! 🔄");
+  card.style.opacity =
+    "0";
 
-}
 
-renderCards();
+  if(type === "silly"){
 
-},260);
+    if(
+      !likedMen.some(
+        p =>
+          p.id ===
+          person.id
+      )
+    ){
+
+      likedMen.push(
+        person
+      );
+
+    }
+
+
+    /*
+      🎉 LAUNCH SILLY MODE
+    */
+
+    showSillyMode();
+
+  }else{
+
+    showToast(
+      "💩 STINKY!"
+    );
+
+  }
+
+
+  setTimeout(
+    ()=>{
+
+      currentIndex++;
+
+
+      if(
+        currentIndex >=
+        TOTAL
+      ){
+
+        currentIndex = 0;
+
+        showToast(
+          "500 complete! 🔄"
+        );
+
+      }
+
+
+      renderCards();
+
+    },
+    300
+  );
 
 }
 
 
 /* ==========================================
-   BUTTONS
+   SILLY BUTTON
 ========================================== */
 
 document.getElementById(
-"sillyButton"
-).onclick=function(){
+  "sillyButton"
+).onclick =
+  ()=>{
 
-finishSwipe("silly");
+    finishSwipe(
+      "silly"
+    );
 
-};
+  };
 
+
+/* ==========================================
+   STINKY BUTTON
+========================================== */
 
 document.getElementById(
-"stinkyButton"
-).onclick=function(){
+  "stinkyButton"
+).onclick =
+  ()=>{
 
-finishSwipe("stinky");
+    finishSwipe(
+      "stinky"
+    );
 
-};
-
-
-/* ==========================================
-   START
-========================================== */
-
-startButton.onclick=function(){
-
-welcome.classList.add("hide");
-
-setTimeout(function(){
-
-welcome.style.display="none";
-
-},350);
-
-};
+  };
 
 
 /* ==========================================
-   PROFILE
+   START BUTTON
 ========================================== */
+
+document.getElementById(
+  "startButton"
+).onclick =
+  ()=>{
+
+    welcome.classList.add(
+      "hide"
+    );
+
+
+    setTimeout(
+      ()=>{
+
+        welcome.style.display =
+          "none";
+
+      },
+      350
+    );
+
+  };
+
+
+/* ==========================================
+   PROFILE SHEET
+========================================== */
+
+const profileSheet =
+  document.getElementById(
+    "profileSheet"
+  );
+
 
 function openProfile(){
 
-profileSheet.classList.add("open");
+  profileSheet.classList.add(
+    "open"
+  );
 
 }
+
 
 function closeProfile(){
 
-profileSheet.classList.remove("open");
+  profileSheet.classList.remove(
+    "open"
+  );
 
 }
 
-document.getElementById(
-"headerProfile"
-).onclick=openProfile;
 
 document.getElementById(
-"profileButton"
-).onclick=openProfile;
+  "headerProfile"
+).onclick =
+  openProfile;
+
 
 document.getElementById(
-"closeProfile"
-).onclick=closeProfile;
+  "profileButton"
+).onclick =
+  openProfile;
+
+
+document.getElementById(
+  "closeProfile"
+).onclick =
+  closeProfile;
 
 
 /* ==========================================
    LIKES
 ========================================== */
 
+const likesSheet =
+  document.getElementById(
+    "likesSheet"
+  );
+
+
+const likedList =
+  document.getElementById(
+    "likedList"
+  );
+
+
 function renderLikes(){
 
-const list =
-document.getElementById("likedList");
+  if(!likedMen.length){
+
+    likedList.innerHTML = `
+
+      <div style="
+        text-align:center;
+        color:#888;
+        padding:35px 10px;
+        line-height:1.6;
+      ">
+
+        No SILLY picks yet. 🤪
+
+        <br><br>
+
+        Start Breumbling!
+
+      </div>
+
+    `;
+
+    return;
+
+  }
 
 
-if(!likedMen.length){
+  likedList.innerHTML =
+    likedMen.map(
+      person => `
 
-list.innerHTML = `
+        <div class="liked">
 
-<div style="
-text-align:center;
-color:#888;
-padding:30px 10px;
-line-height:1.6
-">
-
-No SILLY picks yet. 🤪
-
-<br><br>
-
-Start Breumbling!
-
-</div>
-
-`;
-
-return;
-
-}
+          <img
+            src="${person.image}"
+            alt="${person.name}"
+          >
 
 
-list.innerHTML =
-likedMen.map(function(person){
+          <div>
 
-return `
+            <strong>
+              ${person.name},
+              ${person.age}
+            </strong>
 
-<div class="liked">
 
-<img
-src="${person.image}"
-onerror="
-this.src='https://i.pravatar.cc/300?img=${(person.id%70)+1}'
-"
-alt="${person.name}"
->
+            <small>
+              📍 ${person.city}
+            </small>
 
-<div>
 
-<strong>
-${person.name}, ${person.age}
-</strong>
+            <small>
+              ${person.job}
+            </small>
 
-<small>
-📍 ${person.city}
-</small>
+          </div>
 
-<small>
-${person.job}
-</small>
+        </div>
 
-</div>
-
-</div>
-
-`;
-
-}).join("");
+      `
+    ).join("");
 
 }
 
 
 document.getElementById(
-"likesButton"
-).onclick=function(){
+  "likesButton"
+).onclick =
+  ()=>{
 
-renderLikes();
+    renderLikes();
 
-likesSheet.classList.add("open");
+    likesSheet.classList.add(
+      "open"
+    );
 
-};
-
-
-document.getElementById(
-"closeLikes"
-).onclick=function(){
-
-likesSheet.classList.remove("open");
-
-};
+  };
 
 
 document.getElementById(
-"discoverButton"
-).onclick=function(){
+  "closeLikes"
+).onclick =
+  ()=>{
 
-likesSheet.classList.remove("open");
+    likesSheet.classList.remove(
+      "open"
+    );
 
-};
+  };
+
+
+document.getElementById(
+  "discoverButton"
+).onclick =
+  ()=>{
+
+    likesSheet.classList.remove(
+      "open"
+    );
+
+  };
 
 
 /* ==========================================
-   LOAD
+   INITIALIZE
 ========================================== */
 
-loadMen();
+createMen();
+
+
+setTimeout(
+  ()=>{
+
+    if(loading){
+
+      loading.remove();
+
+    }
+
+    renderCards();
+
+  },
+  450
+);
 
 </script>
 
