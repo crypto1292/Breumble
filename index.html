@@ -45,7 +45,9 @@ button{
     radial-gradient(circle at 50% -20%,#4b350d,#171107 30%,#080808 70%);
 }
 
-/* WELCOME */
+/* =========================
+   WELCOME
+========================= */
 
 #welcome{
   position:fixed;
@@ -127,7 +129,9 @@ button{
   transform:scale(.94);
 }
 
-/* HEADER */
+/* =========================
+   HEADER
+========================= */
 
 .header{
   height:68px;
@@ -169,7 +173,9 @@ button{
   font-size:18px;
 }
 
-/* MAIN */
+/* =========================
+   MAIN
+========================= */
 
 .main{
   position:relative;
@@ -329,7 +335,9 @@ button{
   pointer-events:none;
 }
 
-/* ACTIONS */
+/* =========================
+   ACTIONS
+========================= */
 
 .actions{
   position:relative;
@@ -396,7 +404,9 @@ button{
   box-shadow:0 6px 0 #111,0 10px 28px #000;
 }
 
-/* NAV */
+/* =========================
+   BOTTOM NAV
+========================= */
 
 .nav{
   height:65px;
@@ -426,7 +436,31 @@ button{
   font-size:20px;
 }
 
-/* SILLY MODE */
+/* PROFILE PHOTO ONLY */
+
+.nav-profile{
+  display:flex !important;
+  align-items:center;
+  justify-content:center;
+  padding:0;
+}
+
+.nav-profile img{
+  width:42px;
+  height:42px;
+  object-fit:cover;
+  border-radius:50%;
+  border:2px solid #f4c542;
+  box-shadow:0 3px 12px #000;
+}
+
+.nav-profile:active img{
+  transform:scale(.9);
+}
+
+/* =========================
+   SILLY MODE
+========================= */
 
 #sillyMode{
   position:fixed;
@@ -470,13 +504,29 @@ button{
 }
 
 @keyframes sillyFlash{
-  0%{opacity:0;visibility:visible;transform:scale(1.3)}
-  12%{opacity:1;transform:scale(1)}
-  65%{opacity:1;transform:scale(1)}
-  100%{opacity:0;visibility:hidden;transform:scale(.96)}
+  0%{
+    opacity:0;
+    visibility:visible;
+    transform:scale(1.3)
+  }
+  12%{
+    opacity:1;
+    transform:scale(1)
+  }
+  65%{
+    opacity:1;
+    transform:scale(1)
+  }
+  100%{
+    opacity:0;
+    visibility:hidden;
+    transform:scale(.96)
+  }
 }
 
-/* MATCH */
+/* =========================
+   MATCH
+========================= */
 
 #matchScreen{
   position:fixed;
@@ -488,7 +538,8 @@ button{
   justify-content:center;
   padding:24px;
   text-align:center;
-  background:radial-gradient(circle at 50% 25%,#59430e,#171107 45%,#060606);
+  background:
+    radial-gradient(circle at 50% 25%,#59430e,#171107 45%,#060606);
   opacity:0;
   visibility:hidden;
   pointer-events:none;
@@ -579,11 +630,21 @@ button{
 }
 
 @keyframes matchIn{
-  0%{opacity:0;visibility:visible;transform:scale(1.1)}
-  100%{opacity:1;visibility:visible;transform:scale(1)}
+  0%{
+    opacity:0;
+    visibility:visible;
+    transform:scale(1.1)
+  }
+  100%{
+    opacity:1;
+    visibility:visible;
+    transform:scale(1)
+  }
 }
 
-/* SHEETS */
+/* =========================
+   SHEETS
+========================= */
 
 .sheet{
   position:fixed;
@@ -622,7 +683,9 @@ button{
   font-size:25px;
 }
 
-/* PROFILE */
+/* =========================
+   PROFILE
+========================= */
 
 .profile-photo{
   position:relative;
@@ -724,7 +787,9 @@ button{
   text-align:right;
 }
 
-/* LIKES */
+/* =========================
+   LIKES
+========================= */
 
 .likes-panel{
   padding:20px 20px 35px;
@@ -766,7 +831,9 @@ button{
   color:#999;
 }
 
-/* CHAT */
+/* =========================
+   CHAT
+========================= */
 
 #chatScreen{
   position:fixed;
@@ -967,7 +1034,9 @@ button{
   font-size:18px;
 }
 
-/* TOAST */
+/* =========================
+   TOAST / LOADING
+========================= */
 
 .toast{
   position:fixed;
@@ -1017,7 +1086,9 @@ button{
 }
 
 @keyframes spin{
-  to{transform:rotate(360deg)}
+  to{
+    transform:rotate(360deg)
+  }
 }
 
 @media(max-height:700px){
@@ -1056,6 +1127,10 @@ button{
 
 <body>
 
+<!-- =========================
+     WELCOME
+========================= -->
+
 <div id="welcome">
 
   <div class="logo-big">
@@ -1087,6 +1162,10 @@ button{
 </div>
 
 
+<!-- =========================
+     APP
+========================= -->
+
 <div class="app">
 
   <header class="header">
@@ -1103,12 +1182,15 @@ button{
     </div>
 
     <div class="header-profile">
+
       Breanna
+
       <img
         class="header-photo"
         src="IMG_5053.jpeg"
         alt="Breanna"
       >
+
     </div>
 
   </header>
@@ -1140,6 +1222,8 @@ button{
   </main>
 
 
+  <!-- ACTIONS -->
+
   <div class="actions">
 
     <div class="vibe-label">
@@ -1169,21 +1253,41 @@ button{
   </div>
 
 
+  <!-- BOTTOM NAV -->
+
   <nav class="nav">
 
-    <button class="active" id="discoverButton">
+    <button
+      class="active"
+      id="discoverButton"
+    >
       <span class="nav-icon">🔥</span>
       Discover
     </button>
 
     <button id="likesButton">
-      <span class="nav-icon">🤪</span>
+
+      <span class="nav-icon">
+        🤪
+      </span>
+
       Likes
+
     </button>
 
-    <button id="profileButton">
-      <span class="nav-icon">👤</span>
-      Breanna
+    <!-- PHOTO ONLY -->
+
+    <button
+      id="profileButton"
+      class="nav-profile"
+      aria-label="Breanna profile"
+    >
+
+      <img
+        src="IMG_5053.jpeg"
+        alt="Breanna"
+      >
+
     </button>
 
   </nav>
@@ -1191,7 +1295,9 @@ button{
 </div>
 
 
-<!-- SILLY MODE -->
+<!-- =========================
+     SILLY MODE
+========================= -->
 
 <div id="sillyMode">
 
@@ -1210,7 +1316,9 @@ button{
 </div>
 
 
-<!-- MATCH -->
+<!-- =========================
+     MATCH SCREEN
+========================= -->
 
 <div id="matchScreen">
 
@@ -1264,13 +1372,18 @@ button{
 </div>
 
 
-<!-- PROFILE -->
+<!-- =========================
+     BREANNA PROFILE
+========================= -->
 
 <div class="sheet" id="profileSheet">
 
   <div class="panel">
 
-    <button class="close" id="closeProfile">
+    <button
+      class="close"
+      id="closeProfile"
+    >
       ×
     </button>
 
@@ -1283,7 +1396,9 @@ button{
 
       <div class="profile-title">
 
-        <h1>Breanna</h1>
+        <h1>
+          Breanna
+        </h1>
 
         <p>
           Dental Hygienist • Smile Quality Control
@@ -1352,13 +1467,33 @@ button{
 
       <div class="profile-tags">
 
-        <div class="profile-tag">🦷 Dental Hygienist</div>
-        <div class="profile-tag">☕ Coffee</div>
-        <div class="profile-tag">🎬 Movies</div>
-        <div class="profile-tag">😂 Sarcasm</div>
-        <div class="profile-tag">❤️ Romance</div>
-        <div class="profile-tag">✨ Great Smiles</div>
-        <div class="profile-tag">🧵 Flossing Advocate</div>
+        <div class="profile-tag">
+          🦷 Dental Hygienist
+        </div>
+
+        <div class="profile-tag">
+          ☕ Coffee
+        </div>
+
+        <div class="profile-tag">
+          🎬 Movies
+        </div>
+
+        <div class="profile-tag">
+          😂 Sarcasm
+        </div>
+
+        <div class="profile-tag">
+          ❤️ Romance
+        </div>
+
+        <div class="profile-tag">
+          ✨ Great Smiles
+        </div>
+
+        <div class="profile-tag">
+          🧵 Flossing Advocate
+        </div>
 
       </div>
 
@@ -1375,32 +1510,44 @@ button{
 
         <div class="row">
           <span>Professional Skill</span>
-          <strong>Spotting plaque from across the room</strong>
+          <strong>
+            Spotting plaque from across the room
+          </strong>
         </div>
 
         <div class="row">
           <span>Love Language</span>
-          <strong>Make me laugh</strong>
+          <strong>
+            Make me laugh
+          </strong>
         </div>
 
         <div class="row">
           <span>Green Flag</span>
-          <strong>Kind to everyone</strong>
+          <strong>
+            Kind to everyone
+          </strong>
         </div>
 
         <div class="row">
           <span>Major Green Flag</span>
-          <strong>Actually flosses</strong>
+          <strong>
+            Actually flosses
+          </strong>
         </div>
 
         <div class="row">
           <span>Weakness</span>
-          <strong>A ridiculously good smile</strong>
+          <strong>
+            A ridiculously good smile
+          </strong>
         </div>
 
         <div class="row">
           <span>Dealbreaker</span>
-          <strong>Bad hygiene</strong>
+          <strong>
+            Bad hygiene
+          </strong>
         </div>
 
       </div>
@@ -1412,13 +1559,18 @@ button{
 </div>
 
 
-<!-- LIKES -->
+<!-- =========================
+     LIKES
+========================= -->
 
 <div class="sheet" id="likesSheet">
 
   <div class="panel likes-panel">
 
-    <button class="close" id="closeLikes">
+    <button
+      class="close"
+      id="closeLikes"
+    >
       ×
     </button>
 
@@ -1436,13 +1588,18 @@ button{
 </div>
 
 
-<!-- CHAT -->
+<!-- =========================
+     CHAT
+========================= -->
 
 <div id="chatScreen">
 
   <header class="chat-header">
 
-    <button class="chat-back" id="chatBack">
+    <button
+      class="chat-back"
+      id="chatBack"
+    >
       ‹
     </button>
 
@@ -1519,7 +1676,10 @@ button{
 </div>
 
 
-<div class="toast" id="toast"></div>
+<div
+  class="toast"
+  id="toast"
+></div>
 
 
 <script>
@@ -1533,156 +1693,158 @@ const TOTAL=500;
 const PHOTO_POOL=[];
 
 for(let i=0;i<100;i++){
+
   PHOTO_POOL.push(
     "https://randomuser.me/api/portraits/men/"+i+".jpg"
   );
+
 }
 
 const firstNames=[
-"Alex","Marcus","Ryan","Daniel","Ethan",
-"Michael","Jordan","Andrew","Chris","Matthew",
-"James","Noah","Brandon","Tyler","David",
-"Liam","Kevin","Jason","Nathan","Steven",
-"Adam","Eric","Justin","Sean","Anthony",
-"Ben","Jake","Thomas","William","Luke",
-"Cole","Patrick","Nicholas","Jonathan","Dylan",
-"Cameron","Logan","Mason","Owen","Caleb",
-"Adrian","Julian","Leo","Max","Elliot",
-"Theo","Jack","Miles","Nolan","Zachary"
+  "Alex","Marcus","Ryan","Daniel","Ethan",
+  "Michael","Jordan","Andrew","Chris","Matthew",
+  "James","Noah","Brandon","Tyler","David",
+  "Liam","Kevin","Jason","Nathan","Steven",
+  "Adam","Eric","Justin","Sean","Anthony",
+  "Ben","Jake","Thomas","William","Luke",
+  "Cole","Patrick","Nicholas","Jonathan","Dylan",
+  "Cameron","Logan","Mason","Owen","Caleb",
+  "Adrian","Julian","Leo","Max","Elliot",
+  "Theo","Jack","Miles","Nolan","Zachary"
 ];
 
 const lastNames=[
-"Hayes","Carter","Brooks","Reed","Parker",
-"Grant","Morgan","Bennett","Coleman","Warren",
-"Foster","Hunter","Mason","King","Turner",
-"Cooper","West","Knight","Stone","Bishop"
+  "Hayes","Carter","Brooks","Reed","Parker",
+  "Grant","Morgan","Bennett","Coleman","Warren",
+  "Foster","Hunter","Mason","King","Turner",
+  "Cooper","West","Knight","Stone","Bishop"
 ];
 
 const cities=[
-"Los Angeles","New York","Miami","Chicago",
-"Toronto","Vancouver","San Diego","Boston",
-"Austin","Nashville","Denver","Seattle",
-"Las Vegas","Atlanta","San Francisco",
-"Montreal","Dallas","Phoenix","Orlando","London"
+  "Los Angeles","New York","Miami","Chicago",
+  "Toronto","Vancouver","San Diego","Boston",
+  "Austin","Nashville","Denver","Seattle",
+  "Las Vegas","Atlanta","San Francisco",
+  "Montreal","Dallas","Phoenix","Orlando","London"
 ];
 
 const jobs=[
-"Actor","Film Producer","Creative Director",
-"Architect","Tech Founder","Entrepreneur",
-"Music Producer","Photographer","Restaurant Owner",
-"Attorney","Sports Agent","Fashion Executive",
-"Investment Manager","TV Producer","Director",
-"Fitness Coach","Software Engineer",
-"Travel Entrepreneur","Real Estate Developer",
-"Music Executive","Luxury Brand Consultant",
-"Professional Athlete","Chef","Pilot","Doctor",
-"Designer","Journalist","Event Producer"
+  "Actor","Film Producer","Creative Director",
+  "Architect","Tech Founder","Entrepreneur",
+  "Music Producer","Photographer","Restaurant Owner",
+  "Attorney","Sports Agent","Fashion Executive",
+  "Investment Manager","TV Producer","Director",
+  "Fitness Coach","Software Engineer",
+  "Travel Entrepreneur","Real Estate Developer",
+  "Music Executive","Luxury Brand Consultant",
+  "Professional Athlete","Chef","Pilot","Doctor",
+  "Designer","Journalist","Event Producer"
 ];
 
 const personalities=[
-{
- type:"playful",
- intro:[
-  "Okay, I have to ask... what exactly qualified me for SILLY? 😂",
-  "Well, apparently I passed the silly test. I'm taking that as a compliment.",
-  "I saw SILLY and thought, yep, that's probably my category. 😂"
- ],
- replies:[
-  "Okay, I like your sense of humor already.",
-  "That actually made me laugh.",
-  "You're trouble, aren't you? 😂",
-  "I have a feeling we'd have way too much fun together."
- ]
-},
-{
- type:"confident",
- intro:[
-  "I'll admit it — I was hoping you'd pick SILLY.",
-  "Good choice. I was wondering whether you'd swipe SILLY.",
-  "I'm going to assume SILLY means I caught your attention."
- ],
- replies:[
-  "I like someone who knows what she wants.",
-  "That's a pretty good answer.",
-  "You might actually be my kind of person.",
-  "Okay, now I'm curious about you."
- ]
-},
-{
- type:"romantic",
- intro:[
-  "So we matched. I think that's a pretty good start.",
-  "I'm glad you picked SILLY. You have a very interesting profile.",
-  "Okay, now I'm curious. What made you smile about my profile?"
- ],
- replies:[
-  "That's actually really sweet.",
-  "I like getting to know someone slowly.",
-  "Good conversation is underrated.",
-  "You seem easy to talk to."
- ]
-},
-{
- type:"sarcastic",
- intro:[
-  "Well this is awkward. We matched and now I have to be interesting.",
-  "Excellent. I survived the mysterious SILLY test.",
-  "So apparently my face has been approved by dental hygiene authorities. 😂"
- ],
- replies:[
-  "Okay, that was actually funny.",
-  "I'm going to pretend that was smooth.",
-  "You might have just earned another point.",
-  "I appreciate the honesty. 😂"
- ]
-},
-{
- type:"adventurous",
- intro:[
-  "SILLY match! Quick question: spontaneous road trip or fancy dinner?",
-  "I feel like we skipped the small talk and went straight to the interesting part.",
-  "Okay, important question — what's the most spontaneous thing you've done lately?"
- ],
- replies:[
-  "That sounds like my kind of weekend.",
-  "We might have to put that on the list.",
-  "Okay, now I definitely want to hear more.",
-  "I like someone who's up for an adventure."
- ]
-}
+  {
+    type:"playful",
+    intro:[
+      "Okay, I have to ask... what exactly qualified me for SILLY? 😂",
+      "Well, apparently I passed the silly test. I'm taking that as a compliment.",
+      "I saw SILLY and thought, yep, that's probably my category. 😂"
+    ],
+    replies:[
+      "Okay, I like your sense of humor already.",
+      "That actually made me laugh.",
+      "You're trouble, aren't you? 😂",
+      "I have a feeling we'd have way too much fun together."
+    ]
+  },
+  {
+    type:"confident",
+    intro:[
+      "I'll admit it — I was hoping you'd pick SILLY.",
+      "Good choice. I was wondering whether you'd swipe SILLY.",
+      "I'm going to assume SILLY means I caught your attention."
+    ],
+    replies:[
+      "I like someone who knows what she wants.",
+      "That's a pretty good answer.",
+      "You might actually be my kind of person.",
+      "Okay, now I'm curious about you."
+    ]
+  },
+  {
+    type:"romantic",
+    intro:[
+      "So we matched. I think that's a pretty good start.",
+      "I'm glad you picked SILLY. You have a very interesting profile.",
+      "Okay, now I'm curious. What made you smile about my profile?"
+    ],
+    replies:[
+      "That's actually really sweet.",
+      "I like getting to know someone slowly.",
+      "Good conversation is underrated.",
+      "You seem easy to talk to."
+    ]
+  },
+  {
+    type:"sarcastic",
+    intro:[
+      "Well this is awkward. We matched and now I have to be interesting.",
+      "Excellent. I survived the mysterious SILLY test.",
+      "So apparently my face has been approved by dental hygiene authorities. 😂"
+    ],
+    replies:[
+      "Okay, that was actually funny.",
+      "I'm going to pretend that was smooth.",
+      "You might have just earned another point.",
+      "I appreciate the honesty. 😂"
+    ]
+  },
+  {
+    type:"adventurous",
+    intro:[
+      "SILLY match! Quick question: spontaneous road trip or fancy dinner?",
+      "I feel like we skipped the small talk and went straight to the interesting part.",
+      "Okay, important question — what's the most spontaneous thing you've done lately?"
+    ],
+    replies:[
+      "That sounds like my kind of weekend.",
+      "We might have to put that on the list.",
+      "Okay, now I definitely want to hear more.",
+      "I like someone who's up for an adventure."
+    ]
+  }
 ];
 
 const bios=[
-"Big on great restaurants, spontaneous trips and making people laugh.",
-"Coffee addict with excellent dinner recommendations and questionable dance moves.",
-"Weekend adventures, good movies and absolutely no interest in boring dates.",
-"Confident enough to dress up for dinner and relaxed enough to order dessert.",
-"Looking for someone who can laugh at themselves and doesn't take dating too seriously.",
-"Professional by day, terrible karaoke singer by night.",
-"Always planning the next trip and occasionally pretending I know where I'm going.",
-"Big fan of old-school romance, handwritten notes and very good food.",
-"I make a surprisingly good breakfast and an even better reservation.",
-"Movie nerd looking for someone who won't judge the amount of popcorn I order.",
-"Gym, coffee, travel and trying to convince myself I enjoy running.",
-"Quietly competitive. Especially at trivia.",
-"Life is better with good food, good music and someone fun beside you.",
-"Looking for chemistry, conversation and someone who laughs at terrible jokes.",
-"Ambitious, affectionate and always up for a last-minute adventure."
+  "Big on great restaurants, spontaneous trips and making people laugh.",
+  "Coffee addict with excellent dinner recommendations and questionable dance moves.",
+  "Weekend adventures, good movies and absolutely no interest in boring dates.",
+  "Confident enough to dress up for dinner and relaxed enough to order dessert.",
+  "Looking for someone who can laugh at themselves and doesn't take dating too seriously.",
+  "Professional by day, terrible karaoke singer by night.",
+  "Always planning the next trip and occasionally pretending I know where I'm going.",
+  "Big fan of old-school romance, handwritten notes and very good food.",
+  "I make a surprisingly good breakfast and an even better reservation.",
+  "Movie nerd looking for someone who won't judge the amount of popcorn I order.",
+  "Gym, coffee, travel and trying to convince myself I enjoy running.",
+  "Quietly competitive. Especially at trivia.",
+  "Life is better with good food, good music and someone fun beside you.",
+  "Looking for chemistry, conversation and someone who laughs at terrible jokes.",
+  "Ambitious, affectionate and always up for a last-minute adventure."
 ];
 
 const tagSets=[
-["Travel","Food","Comedy"],
-["Coffee","Movies","Romance"],
-["Fitness","Beach","Travel"],
-["Music","Concerts","Nightlife"],
-["Food","Cooking","Wine"],
-["Movies","Popcorn","Travel"],
-["Hiking","Adventure","Nature"],
-["Fashion","Design","Art"],
-["Sports","Fitness","Travel"],
-["Books","Coffee","Culture"],
-["Business","Travel","Food"],
-["Photography","Music","Travel"]
+  ["Travel","Food","Comedy"],
+  ["Coffee","Movies","Romance"],
+  ["Fitness","Beach","Travel"],
+  ["Music","Concerts","Nightlife"],
+  ["Food","Cooking","Wine"],
+  ["Movies","Popcorn","Travel"],
+  ["Hiking","Adventure","Nature"],
+  ["Fashion","Design","Art"],
+  ["Sports","Fitness","Travel"],
+  ["Books","Coffee","Culture"],
+  ["Business","Travel","Food"],
+  ["Photography","Music","Travel"]
 ];
 
 let men=[];
@@ -1697,16 +1859,35 @@ let typingTimer=null;
    ELEMENTS
 ========================= */
 
-const welcome=document.getElementById("welcome");
-const deck=document.getElementById("deck");
-const loading=document.getElementById("loading");
-const counter=document.getElementById("counter");
-const toast=document.getElementById("toast");
-const sillyMode=document.getElementById("sillyMode");
-const matchScreen=document.getElementById("matchScreen");
-const chatScreen=document.getElementById("chatScreen");
-const chatMessages=document.getElementById("chatMessages");
-const chatInput=document.getElementById("chatInput");
+const welcome=
+  document.getElementById("welcome");
+
+const deck=
+  document.getElementById("deck");
+
+const loading=
+  document.getElementById("loading");
+
+const counter=
+  document.getElementById("counter");
+
+const toast=
+  document.getElementById("toast");
+
+const sillyMode=
+  document.getElementById("sillyMode");
+
+const matchScreen=
+  document.getElementById("matchScreen");
+
+const chatScreen=
+  document.getElementById("chatScreen");
+
+const chatMessages=
+  document.getElementById("chatMessages");
+
+const chatInput=
+  document.getElementById("chatInput");
 
 
 /* =========================
@@ -1714,23 +1895,29 @@ const chatInput=document.getElementById("chatInput");
 ========================= */
 
 function seededNumber(n){
-  const x=Math.sin(n*12.9898)*43758.5453;
+
+  const x=
+    Math.sin(n*12.9898)*43758.5453;
+
   return x-Math.floor(x);
+
 }
 
 function showToast(text){
 
   toast.textContent=text;
+
   toast.classList.add("show");
 
   setTimeout(()=>{
     toast.classList.remove("show");
   },1200);
+
 }
 
 
 /* =========================
-   CREATE PROFILES
+   CREATE 500 PROFILES
 ========================= */
 
 function createMen(){
@@ -1741,44 +1928,54 @@ function createMen(){
 
     const seed=i+17;
 
-    const first=firstNames[i%firstNames.length];
+    const first=
+      firstNames[
+        i%firstNames.length
+      ];
 
     const last=
       lastNames[
         Math.floor(
-          seededNumber(seed)*lastNames.length
+          seededNumber(seed)*
+          lastNames.length
         )
       ];
 
     const age=
       27+
-      Math.floor(seededNumber(seed+1)*22);
+      Math.floor(
+        seededNumber(seed+1)*22
+      );
 
     const city=
       cities[
         Math.floor(
-          seededNumber(seed+2)*cities.length
+          seededNumber(seed+2)*
+          cities.length
         )
       ];
 
     const job=
       jobs[
         Math.floor(
-          seededNumber(seed+3)*jobs.length
+          seededNumber(seed+3)*
+          jobs.length
         )
       ];
 
     const bio=
       bios[
         Math.floor(
-          seededNumber(seed+5)*bios.length
+          seededNumber(seed+5)*
+          bios.length
         )
       ];
 
     const tags=
       tagSets[
         Math.floor(
-          seededNumber(seed+6)*tagSets.length
+          seededNumber(seed+6)*
+          tagSets.length
         )
       ];
 
@@ -1788,17 +1985,32 @@ function createMen(){
       ];
 
     men.push({
+
       id:i,
+
       name:first+" "+last,
+
       age,
+
       city,
+
       job,
+
       bio,
+
       tags,
+
       personality,
-      image:PHOTO_POOL[i%PHOTO_POOL.length]
+
+      image:
+        PHOTO_POOL[
+          i%PHOTO_POOL.length
+        ]
+
     });
+
   }
+
 }
 
 
@@ -1812,16 +2024,21 @@ function renderCards(){
 
   for(let position=2;position>=0;position--){
 
-    const index=currentIndex+position;
+    const index=
+      currentIndex+position;
 
     if(index>=men.length)continue;
 
-    const person=men[index];
+    const person=
+      men[index];
 
-    const card=document.createElement("div");
+    const card=
+      document.createElement("div");
 
     card.className="card";
-    card.style.zIndex=100-position;
+
+    card.style.zIndex=
+      100-position;
 
     card.innerHTML=`
 
@@ -1876,15 +2093,19 @@ function renderCards(){
         <div class="tags">
 
           ${person.tags.map(tag=>`
-            <span class="tag">${tag}</span>
+            <span class="tag">
+              ${tag}
+            </span>
           `).join("")}
 
         </div>
 
       </div>
+
     `;
 
-    const image=card.querySelector(".person-image");
+    const image=
+      card.querySelector(".person-image");
 
     image.onerror=function(){
 
@@ -1892,20 +2113,25 @@ function renderCards(){
 
       image.src=
         PHOTO_POOL[
-          (person.id+37)%PHOTO_POOL.length
+          (person.id+37)%
+          PHOTO_POOL.length
         ];
 
     };
 
     if(position===0){
+
       enableSwipe(card);
+
     }
 
     deck.appendChild(card);
+
   }
 
   counter.textContent=
     (currentIndex+1)+" / "+TOTAL;
+
 }
 
 
@@ -1919,60 +2145,90 @@ function enableSwipe(card){
   let deltaX=0;
   let dragging=false;
 
-  card.addEventListener("touchstart",e=>{
+  card.addEventListener(
+    "touchstart",
+    e=>{
 
-    dragging=true;
-    startX=e.touches[0].clientX;
-    deltaX=0;
+      dragging=true;
 
-  },{passive:true});
+      startX=
+        e.touches[0].clientX;
 
+      deltaX=0;
 
-  card.addEventListener("touchmove",e=>{
-
-    if(!dragging)return;
-
-    deltaX=e.touches[0].clientX-startX;
-
-    card.style.transform=
-      "translateX("+deltaX+"px) rotate("+deltaX/18+"deg)";
-
-    card.querySelector(".silly-stamp").style.opacity=
-      Math.max(0,deltaX/100);
-
-    card.querySelector(".stinky-stamp").style.opacity=
-      Math.max(0,-deltaX/100);
-
-  },{passive:true});
+    },
+    {passive:true}
+  );
 
 
-  card.addEventListener("touchend",()=>{
+  card.addEventListener(
+    "touchmove",
+    e=>{
 
-    if(!dragging)return;
+      if(!dragging)return;
 
-    dragging=false;
+      deltaX=
+        e.touches[0].clientX-
+        startX;
 
-    if(Math.abs(deltaX)>100){
+      card.style.transform=
+        "translateX("+deltaX+
+        "px) rotate("+deltaX/18+
+        "deg)";
 
-      finishSwipe(
-        deltaX>0 ? "silly" : "stinky"
-      );
+      card.querySelector(
+        ".silly-stamp"
+      ).style.opacity=
+        Math.max(0,deltaX/100);
 
-    }else{
+      card.querySelector(
+        ".stinky-stamp"
+      ).style.opacity=
+        Math.max(0,-deltaX/100);
 
-      card.style.transform="";
+    },
+    {passive:true}
+  );
 
-      card.querySelector(".silly-stamp").style.opacity=0;
-      card.querySelector(".stinky-stamp").style.opacity=0;
+
+  card.addEventListener(
+    "touchend",
+    ()=>{
+
+      if(!dragging)return;
+
+      dragging=false;
+
+      if(Math.abs(deltaX)>100){
+
+        finishSwipe(
+          deltaX>0
+          ?"silly"
+          :"stinky"
+        );
+
+      }else{
+
+        card.style.transform="";
+
+        card.querySelector(
+          ".silly-stamp"
+        ).style.opacity=0;
+
+        card.querySelector(
+          ".stinky-stamp"
+        ).style.opacity=0;
+
+      }
 
     }
+  );
 
-  });
 }
 
 
 /* =========================
-   SILLY ANIMATION
+   SILLY MODE
 ========================= */
 
 function showSillyMode(){
@@ -1984,8 +2240,11 @@ function showSillyMode(){
   sillyMode.classList.add("active");
 
   setTimeout(()=>{
+
     sillyMode.classList.remove("active");
+
   },900);
+
 }
 
 
@@ -1997,15 +2256,21 @@ function showMatch(person){
 
   currentMatch=person;
 
-  document.getElementById("matchPersonPhoto").src=
-    person.image;
+  document.getElementById(
+    "matchPersonPhoto"
+  ).src=person.image;
 
-  document.getElementById("matchPersonName").textContent=
+  document.getElementById(
+    "matchPersonName"
+  ).textContent=
     person.name+", "+person.age;
 
   setTimeout(()=>{
+
     matchScreen.classList.add("show");
+
   },850);
+
 }
 
 
@@ -2015,11 +2280,13 @@ function showMatch(person){
 
 function finishSwipe(type){
 
-  const card=deck.querySelector(".card");
+  const card=
+    deck.querySelector(".card");
 
   if(!card)return;
 
-  const person=men[currentIndex];
+  const person=
+    men[currentIndex];
 
   card.style.transition=
     "transform .3s ease,opacity .3s ease";
@@ -2034,14 +2301,22 @@ function finishSwipe(type){
 
   if(type==="silly"){
 
-    if(!likedMen.some(p=>p.id===person.id)){
+    if(
+      !likedMen.some(
+        p=>p.id===person.id
+      )
+    ){
+
       likedMen.push(person);
+
     }
 
     showSillyMode();
 
     setTimeout(()=>{
+
       showMatch(person);
+
     },300);
 
   }else{
@@ -2056,13 +2331,19 @@ function finishSwipe(type){
     currentIndex++;
 
     if(currentIndex>=TOTAL){
+
       currentIndex=0;
-      showToast("500 complete! 🔄");
+
+      showToast(
+        "500 complete! 🔄"
+      );
+
     }
 
     renderCards();
 
   },350);
+
 }
 
 
@@ -2070,21 +2351,34 @@ function finishSwipe(type){
    BUTTONS
 ========================= */
 
-document.getElementById("sillyButton").onclick=()=>{
+document.getElementById(
+  "sillyButton"
+).onclick=()=>{
+
   finishSwipe("silly");
+
 };
 
-document.getElementById("stinkyButton").onclick=()=>{
+document.getElementById(
+  "stinkyButton"
+).onclick=()=>{
+
   finishSwipe("stinky");
+
 };
 
-document.getElementById("startButton").onclick=()=>{
+document.getElementById(
+  "startButton"
+).onclick=()=>{
 
   welcome.classList.add("hide");
 
   setTimeout(()=>{
+
     welcome.style.display="none";
+
   },350);
+
 };
 
 
@@ -2092,8 +2386,14 @@ document.getElementById("startButton").onclick=()=>{
    MATCH CLOSE
 ========================= */
 
-document.getElementById("closeMatchButton").onclick=()=>{
-  matchScreen.classList.remove("show");
+document.getElementById(
+  "closeMatchButton"
+).onclick=()=>{
+
+  matchScreen.classList.remove(
+    "show"
+  );
+
 };
 
 
@@ -2102,18 +2402,38 @@ document.getElementById("closeMatchButton").onclick=()=>{
 ========================= */
 
 const profileSheet=
-  document.getElementById("profileSheet");
+  document.getElementById(
+    "profileSheet"
+  );
 
-document.getElementById("headerProfile").onclick=()=>{
-  profileSheet.classList.add("open");
+document.getElementById(
+  "headerProfile"
+).onclick=()=>{
+
+  profileSheet.classList.add(
+    "open"
+  );
+
 };
 
-document.getElementById("profileButton").onclick=()=>{
-  profileSheet.classList.add("open");
+document.getElementById(
+  "profileButton"
+).onclick=()=>{
+
+  profileSheet.classList.add(
+    "open"
+  );
+
 };
 
-document.getElementById("closeProfile").onclick=()=>{
-  profileSheet.classList.remove("open");
+document.getElementById(
+  "closeProfile"
+).onclick=()=>{
+
+  profileSheet.classList.remove(
+    "open"
+  );
+
 };
 
 
@@ -2122,35 +2442,49 @@ document.getElementById("closeProfile").onclick=()=>{
 ========================= */
 
 const likesSheet=
-  document.getElementById("likesSheet");
+  document.getElementById(
+    "likesSheet"
+  );
 
 const likedList=
-  document.getElementById("likedList");
+  document.getElementById(
+    "likedList"
+  );
 
 function renderLikes(){
 
   if(!likedMen.length){
 
     likedList.innerHTML=`
+
       <div style="
         text-align:center;
         color:#888;
         padding:35px 10px;
         line-height:1.6;
       ">
+
         No SILLY picks yet. 🤪
+
         <br><br>
+
         Start Breumbling!
+
       </div>
+
     `;
 
     return;
+
   }
 
   likedList.innerHTML=
     likedMen.map(person=>`
 
-      <div class="liked" data-id="${person.id}">
+      <div
+        class="liked"
+        data-id="${person.id}"
+      >
 
         <img
           src="${person.image}"
@@ -2174,34 +2508,55 @@ function renderLikes(){
         </div>
 
       </div>
+
     `).join("");
 
 
-  likedList.querySelectorAll(".liked").forEach(item=>{
+  likedList
+    .querySelectorAll(".liked")
+    .forEach(item=>{
 
-    item.onclick=()=>{
+      item.onclick=()=>{
 
-      const person=
-        likedMen.find(
-          p=>p.id===Number(item.dataset.id)
-        );
+        const person=
+          likedMen.find(
+            p=>
+              p.id===
+              Number(item.dataset.id)
+          );
 
-      if(person){
-        openChat(person);
-      }
-    };
-  });
+        if(person){
+
+          openChat(person);
+
+        }
+
+      };
+
+    });
+
 }
 
-document.getElementById("likesButton").onclick=()=>{
+document.getElementById(
+  "likesButton"
+).onclick=()=>{
 
   renderLikes();
-  likesSheet.classList.add("open");
+
+  likesSheet.classList.add(
+    "open"
+  );
 
 };
 
-document.getElementById("closeLikes").onclick=()=>{
-  likesSheet.classList.remove("open");
+document.getElementById(
+  "closeLikes"
+).onclick=()=>{
+
+  likesSheet.classList.remove(
+    "open"
+  );
+
 };
 
 
@@ -2216,15 +2571,19 @@ function getOpening(person){
 
   return choices[
     Math.floor(
-      Math.random()*choices.length
+      Math.random()*
+      choices.length
     )
   ];
+
 }
 
 
 function getContextReply(person,text){
 
-  const lower=text.toLowerCase();
+  const lower=
+    text.toLowerCase();
+
 
   if(
     lower.includes("floss")||
@@ -2233,11 +2592,20 @@ function getContextReply(person,text){
   ){
 
     return [
+
       "Okay, I knew the dental hygienist question was coming eventually. 😂",
+
       "For the record, I floss. I'm not risking the dental-hygienist review.",
+
       "I feel like my oral hygiene is suddenly being judged very seriously.",
+
       "Honestly, I was hoping you'd ask. My dental hygiene record is clean. 😏"
-    ][Math.floor(Math.random()*4)];
+
+    ][
+      Math.floor(
+        Math.random()*4
+      )
+    ];
 
   }
 
@@ -2249,11 +2617,20 @@ function getContextReply(person,text){
   ){
 
     return [
+
       "Okay, movie taste is important. What would you pick for a first movie night?",
+
       "Now we're getting into dangerous territory because I have strong movie opinions.",
+
       "I'm always down for a good movie. What's one you could watch a hundred times?",
+
       "That's a very important question. What's your comfort movie?"
-    ][Math.floor(Math.random()*4)];
+
+    ][
+      Math.floor(
+        Math.random()*4
+      )
+    ];
 
   }
 
@@ -2265,11 +2642,20 @@ function getContextReply(person,text){
   ){
 
     return [
+
       "I'm always thinking about the next trip. Where would you go tomorrow if you could?",
+
       "That sounds like my kind of trip. Are you more beach or city?",
+
       "Okay, now you're making me want to book a flight.",
+
       "I could talk about travel for hours. What's at the top of your list?"
-    ][Math.floor(Math.random()*4)];
+
+    ][
+      Math.floor(
+        Math.random()*4
+      )
+    ];
 
   }
 
@@ -2283,11 +2669,20 @@ function getContextReply(person,text){
   ){
 
     return [
+
       "Okay, now we're talking. I take restaurant recommendations very seriously.",
+
       "I'm definitely judging your food choices now. 😂 What's your favorite spot?",
+
       "A good dinner is basically half the dating experience.",
+
       "You had me at food. What would you order?"
-    ][Math.floor(Math.random()*4)];
+
+    ][
+      Math.floor(
+        Math.random()*4
+      )
+    ];
 
   }
 
@@ -2298,11 +2693,20 @@ function getContextReply(person,text){
   ){
 
     return [
+
       "Honestly? Somewhere we can actually talk and laugh.",
+
       "I'd pick drinks or dinner somewhere relaxed, then see where the night goes.",
+
       "Something simple. Good food, good conversation, no pressure.",
+
       "I'm more into chemistry than an elaborate plan."
-    ][Math.floor(Math.random()*4)];
+
+    ][
+      Math.floor(
+        Math.random()*4
+      )
+    ];
 
   }
 
@@ -2315,11 +2719,20 @@ function getContextReply(person,text){
   ){
 
     return [
+
       "Okay, making you laugh is officially becoming my goal.",
+
       "I'll take that as a very good sign. 😂",
+
       "See? We're already getting along.",
+
       "Careful. Encouraging my sense of humor could be dangerous."
-    ][Math.floor(Math.random()*4)];
+
+    ][
+      Math.floor(
+        Math.random()*4
+      )
+    ];
 
   }
 
@@ -2330,6 +2743,7 @@ function getContextReply(person,text){
       person.personality.replies.length
     )
   ];
+
 }
 
 
@@ -2337,24 +2751,34 @@ function getContextReply(person,text){
    CHAT UI
 ========================= */
 
-function addMessage(text,me=false){
+function addMessage(
+  text,
+  me=false
+){
 
   const message=
     document.createElement("div");
 
   message.className=
-    me ? "message me" : "message";
+    me
+      ?"message me"
+      :"message";
 
   message.innerHTML=`
+
     <div class="bubble">
       ${escapeHtml(text)}
     </div>
+
   `;
 
-  chatMessages.appendChild(message);
+  chatMessages.appendChild(
+    message
+  );
 
   chatMessages.scrollTop=
     chatMessages.scrollHeight;
+
 }
 
 
@@ -2365,20 +2789,27 @@ function showTyping(){
   const typing=
     document.createElement("div");
 
-  typing.id="typingIndicator";
+  typing.id=
+    "typingIndicator";
 
-  typing.className="typing";
+  typing.className=
+    "typing";
 
   typing.innerHTML=`
+
     <span></span>
     <span></span>
     <span></span>
+
   `;
 
-  chatMessages.appendChild(typing);
+  chatMessages.appendChild(
+    typing
+  );
 
   chatMessages.scrollTop=
     chatMessages.scrollHeight;
+
 }
 
 
@@ -2389,7 +2820,12 @@ function removeTyping(){
       "typingIndicator"
     );
 
-  if(old)old.remove();
+  if(old){
+
+    old.remove();
+
+  }
+
 }
 
 
@@ -2401,32 +2837,48 @@ function openChat(person){
 
   currentMatch=person;
 
-  matchScreen.classList.remove("show");
-  likesSheet.classList.remove("open");
+  matchScreen.classList.remove(
+    "show"
+  );
 
-  document.getElementById("chatPersonName").textContent=
+  likesSheet.classList.remove(
+    "open"
+  );
+
+  document.getElementById(
+    "chatPersonName"
+  ).textContent=
     person.name+", "+person.age;
 
-  document.getElementById("chatPersonPhoto").src=
+  document.getElementById(
+    "chatPersonPhoto"
+  ).src=
     person.image;
-
 
   conversation=[];
 
   chatMessages.innerHTML=`
+
     <div class="chat-date">
       TODAY
     </div>
+
   `;
 
-  chatScreen.classList.add("open");
+  chatScreen.classList.add(
+    "open"
+  );
 
 
   setTimeout(()=>{
 
-    const opening=getOpening(person);
+    const opening=
+      getOpening(person);
 
-    addMessage(opening,false);
+    addMessage(
+      opening,
+      false
+    );
 
     conversation.push({
       from:"match",
@@ -2434,6 +2886,7 @@ function openChat(person){
     });
 
   },650);
+
 }
 
 
@@ -2443,11 +2896,13 @@ function openChat(person){
 
 function escapeHtml(text){
 
-  const div=document.createElement("div");
+  const div=
+    document.createElement("div");
 
   div.textContent=text;
 
   return div.innerHTML;
+
 }
 
 
@@ -2458,7 +2913,10 @@ function sendMessage(){
 
   if(!text)return;
 
-  addMessage(text,true);
+  addMessage(
+    text,
+    true
+  );
 
   conversation.push({
     from:"breanna",
@@ -2475,130 +2933,159 @@ function sendMessage(){
     Math.random()*1300;
 
 
-  typingTimer=setTimeout(()=>{
-
-    removeTyping();
-
-    if(!currentMatch)return;
-
-    const reply=
-      getContextReply(
-        currentMatch,
-        text
-      );
-
-    addMessage(reply,false);
-
-    conversation.push({
-      from:"match",
-      text:reply
-    });
-
-
+  typingTimer=
     setTimeout(()=>{
+
+      removeTyping();
 
       if(!currentMatch)return;
 
-      const followUps=[
-
-        "What about you?",
-
-        "So what are you usually like on a first date?",
-
-        "Okay, now I want to know more about you.",
-
-        "What's something I wouldn't guess from your profile?",
-
-        "I feel like there's a story there. 😂",
-
-        "What are you doing this weekend?"
-
-      ];
-
-
-      if(
-        conversation.length>=4 &&
-        Math.random()>.35
-      ){
-
-        addMessage(
-          followUps[
-            Math.floor(
-              Math.random()*
-              followUps.length
-            )
-          ],
-          false
+      const reply=
+        getContextReply(
+          currentMatch,
+          text
         );
 
-      }
+      addMessage(
+        reply,
+        false
+      );
 
-    },500);
+      conversation.push({
+        from:"match",
+        text:reply
+      });
 
-  },delay);
+
+      setTimeout(()=>{
+
+        if(!currentMatch)return;
+
+        const followUps=[
+
+          "What about you?",
+
+          "So what are you usually like on a first date?",
+
+          "Okay, now I want to know more about you.",
+
+          "What's something I wouldn't guess from your profile?",
+
+          "I feel like there's a story there. 😂",
+
+          "What are you doing this weekend?"
+
+        ];
+
+
+        if(
+          conversation.length>=4 &&
+          Math.random()>.35
+        ){
+
+          addMessage(
+
+            followUps[
+              Math.floor(
+                Math.random()*
+                followUps.length
+              )
+            ],
+
+            false
+
+          );
+
+        }
+
+      },500);
+
+    },delay);
+
 }
 
 
-document.getElementById("sendButton").onclick=
+document.getElementById(
+  "sendButton"
+).onclick=
   sendMessage;
 
 
-chatInput.addEventListener("keydown",e=>{
+chatInput.addEventListener(
+  "keydown",
+  e=>{
 
-  if(e.key==="Enter"){
+    if(e.key==="Enter"){
 
-    e.preventDefault();
+      e.preventDefault();
 
-    sendMessage();
+      sendMessage();
+
+    }
 
   }
-
-});
+);
 
 
 /* =========================
    SUGGESTIONS
 ========================= */
 
-document.querySelectorAll(".suggestion").forEach(button=>{
+document
+  .querySelectorAll(".suggestion")
+  .forEach(button=>{
 
-  button.onclick=()=>{
+    button.onclick=()=>{
 
-    chatInput.value=
-      button.textContent;
+      chatInput.value=
+        button.textContent;
 
-    chatInput.focus();
+      chatInput.focus();
 
-  };
+    };
 
-});
+  });
 
 
 /* =========================
    CHAT BACK
 ========================= */
 
-document.getElementById("chatBack").onclick=()=>{
+document.getElementById(
+  "chatBack"
+).onclick=()=>{
 
   if(typingTimer){
-    clearTimeout(typingTimer);
+
+    clearTimeout(
+      typingTimer
+    );
+
   }
 
   removeTyping();
 
-  chatScreen.classList.remove("open");
+  chatScreen.classList.remove(
+    "open"
+  );
 
 };
 
 
 /* =========================
-   MATCH CHAT BUTTON
+   MATCH CHAT
 ========================= */
 
-document.getElementById("openChatButton").onclick=()=>{
+document.getElementById(
+  "openChatButton"
+).onclick=()=>{
 
   if(currentMatch){
-    openChat(currentMatch);
+
+    openChat(
+      currentMatch
+    );
+
   }
 
 };
@@ -2608,10 +3095,17 @@ document.getElementById("openChatButton").onclick=()=>{
    DISCOVER
 ========================= */
 
-document.getElementById("discoverButton").onclick=()=>{
+document.getElementById(
+  "discoverButton"
+).onclick=()=>{
 
-  likesSheet.classList.remove("open");
-  profileSheet.classList.remove("open");
+  likesSheet.classList.remove(
+    "open"
+  );
+
+  profileSheet.classList.remove(
+    "open"
+  );
 
 };
 
@@ -2625,7 +3119,9 @@ createMen();
 setTimeout(()=>{
 
   if(loading){
+
     loading.remove();
+
   }
 
   renderCards();
